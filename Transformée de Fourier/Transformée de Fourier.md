@@ -1,7 +1,6 @@
-# Transformée de Fourier
+﻿# Transformée de Fourier
 
-> La transformée de Fourier est une opération qui transforme une fonction intégrable sur $ \mathbb{R} $ en une autre fonction.
-
+> La transformée de Fourier est une opération qui transforme une fonction intégrable sur $\mathbb{R}$ en une autre fonction.
 
 ## Sommaire
 
@@ -9,46 +8,50 @@
 
 [**Propriétés de la TF**](#Propriétés-de-la-TF)
 
+[**Convolution**](#Convolution)
+
+[**Inverse de la TF**](#Inverse-de-la-TF)
+
 ## Signaux continus en 1D
 
 Deux espaces :  
-* $ L^1(\mathbb{R}) = \left\{  f: \mathbb{R} -> \mathbb{R}; \ \int_{\mathbb{R}}^{} | f(x) | \ dx < + \infty \right\} $
-* $ L^2(\mathbb{R}, \mathbb{C}) = \left\{  f: \mathbb{R} -> \mathbb{C}; \ \int_{\mathbb{R}}^{} | f(x) |^2 \ dx < + \infty \right\} $
+* $L^1(\mathbb{R}) = \left\{  f: \mathbb{R} -> \mathbb{R}; \ \int_{\mathbb{R}}^{} | f(x) | \ dx < + \infty \right\}$
+* $L^2(\mathbb{R}, \mathbb{C}) = \left\{  f: \mathbb{R} -> \mathbb{C}; \ \int_{\mathbb{R}}^{} | f(x) |^2 \ dx < + \infty \right\}$
 
-$ L^2 $ correspond à **l'énergie finie**
+$L^2$ correspond à **l'énergie finie**
 
-On défini sur l'espace des signaux d'énergie finie $L^2$ le **<font color=red>Produit scalaire hermitien </font>** suivant : 
+On défini sur l'espace des signaux d'énergie finie $L^2$ le **<font color=red>produit scalaire hermitien </font>** suivant : 
 $$
 <f,g> = \int_{\mathbb{R}} f(x)\overline{g(x)} dx
 $$
 Où $\overline{a}$ le complexe conjugué de a $\in \mathbb{C}$.
 
-$ \left\{  \begin{array}{ll} a = a_{1} + ia_{2} \\ 
-\overline{a} = a_1 - ia_2 \end{array} \right. $
+$\left\{  \begin{array}{ll} a = a_{1} + ia_{2} \\ 
+\overline{a} = a_1 - ia_2 \end{array} \right.$
 
-**<font color=red>Attention</font>** : On a bien $ \int_{\mathbb{R}} f(x)\overline{f}(x)dx = \int_{\mathbb{R}} f(x)|^2dx \leq 0 $ et nul ssi $f = 0$
+**<font color=red>Attention</font>** : On a bien $\int_{\mathbb{R}} f(x)\overline{f}(x)dx = \int_{\mathbb{R}} f(x)|^2dx \leq 0$ et nul ssi $f = 0$
 
 Quelques propriétés sur ce produit scalaire : 
-* symétrie hermitienne: $ <f,g> = \overline{<g,f>} $
+* **Symétrie hermitienne** : $<f,g> = \overline{<g,f>}$
 
-* linéarité à gauche: $ <f+ \lambda h, g> \ = \ <f,g> + \lambda <h,g> $
+* **Linéarité à gauche** : $<f+ \lambda h, g> \ = \ <f,g> + \lambda <h,g>$
 
-* semi-linéarité à droite: $ <f,g + \lambda h> \ = \ <f,g> + \overline{\lambda} <f,h> $
+* **Semi-linéarité à droite** : $<f,g + \lambda h> \ = \ <f,g> + \overline{\lambda} <f,h>$
 
-  > remarque : on appelle une telle application une forme **sesquilinéaire hermitienne** (à droite)
+  >Remarque : on appelle une telle application une forme **sesquilinéaire hermitienne** (à droite)
 
 $$ \\ $$
 
 **<font color=red>Définition</font>** : 
 
-Soit $ f \in L^1(\mathbb{R}) $. et $\omega \in \mathbb{R}$
+Soit $f \in L^1(\mathbb{R})$. et $\omega \in \mathbb{R}$
 La transformée de Fourier de $f$ est définie par :
 $$
 TF(f)(\omega) = \hat{f}(\omega) = \int_{\mathbb{R}} f(t) e^{-2i\pi\omega t}dt
 $$
 Ici, on passe du domaine **temporel** au domaine **fréquentiel**.
 
-En posant  la notation $e_\omega = e^{2i\pi\omega t}$, On retrouve alors la forme suivant exprimée avec le produit scalaire précédemment défini:
+En posant  la notation $e_\omega = e^{2i\pi\omega t}$, on retrouve alors la forme suivante exprimée avec le produit scalaire précédemment défini :
 $$
 \begin{align}
 \hat{f}(\omega) =& <f, e_\omega> \\
@@ -57,25 +60,25 @@ $$
 \end{align}
 $$
 
-> *Pourquoi retrouve-t-on le signe $ - $ devant $ 2i\pi \omega t$ ?* 
-> La transformée de Fourier utilise le produit scalaire $ <f,e_\omega> $, dans lequel on utilise le **conjugué**.
+> *Pourquoi retrouve-t-on le signe $-$ devant $2i\pi \omega t$ ?* 
+> La transformée de Fourier utilise le produit scalaire $<f,e_\omega>$, dans lequel on utilise le **conjugué**.
 
-**<font color=red>Remarque</font>** : $ L^1(\mathbb{R}) $ contient des fonctions discontinues mais on a une condition d'intégrabilité.
+**<font color=red>Remarque</font>** : $L^1(\mathbb{R})$ contient des fonctions discontinues mais on a une condition d'intégrabilité.
 
-$ TF(f)(\omega) $ est bien définie car $$ | < f,e_{\omega} > | \leq \int_{\mathbb{R}}^{} | f(x) e^{-2i\pi \omega x} | \ dx =  \int_{\mathbb{R}}^{}  | f(x) | \ dx \le + \infty $$
+$TF(f)(\omega)$ est bien définie car $$| < f,e_{\omega} > | \leq \int_{\mathbb{R}}^{} | f(x) e^{-2i\pi \omega x} | \ dx =  \int_{\mathbb{R}}^{}  | f(x) | \ dx \le + \infty$$
 
-donc $ \forall \omega \ | \hat{f}(\omega) | \leq \int_{\mathbb{R}}^{} | f(x) | \ dx $ avec $\omega$ la fréquence en $Hz$
+donc $\forall \omega \ | \hat{f}(\omega) | \leq \int_{\mathbb{R}}^{} | f(x) | \ dx$ avec $\omega$ la fréquence en $Hz$
 
 ## Propriétés de la TF
 
 * **<font color=red>Linéarité </font>**
 
-  Soit $a,b \in \mathbb{R}$  et  $f,g \in L^1(\mathbb{R}) $
+  Soit $a,b \in \mathbb{R}$  et  $f,g \in L^1(\mathbb{R})$
   $$
   TF(af+bg) = \widehat{af+bg} = a\hat{f}+b\hat{g}
   $$
 
-* **démonstration** :
+* **Démonstration** :
   $$
   \begin{align}
   TF(af+bg) =& <af+bg, e_\omega> \\
@@ -85,11 +88,9 @@ donc $ \forall \omega \ | \hat{f}(\omega) | \leq \int_{\mathbb{R}}^{} | f(x) | \
   \end{align}
   $$
 
-  
+* **<font color=red>Théorème du retard (translation temporelle) </font>** 
 
-* **<font color=red>Théorème du retard (Translation temporelle) </font>** 
-
-  Soit $ t_0 \in \mathbb{R} $ et $ f : \mathbb{R} \to \mathbb{C} $. On définit la translation de $f$ par $t_0$ :  $ \tau_a(f)(t) \mapsto f(t-t_0) $
+  Soit $t_0 \in \mathbb{R}$ et $f : \mathbb{R} \to \mathbb{C}$. On définit la translation de $f$ par $t_0$ :  $\tau_a(f)(t) \mapsto f(t-t_0)$
   $$
   \widehat{\tau_a(f)}(\omega) = e^{-2i\pi \omega t_0} \hat{f}(\omega)
   $$
@@ -107,7 +108,7 @@ $$
 
 - **<font color=red>Modulation ou Translation fréquencielle </font>**
 
-  Soit $\omega_0 \in \mathbb{R} $ et $f:\mathbb{R} \to \mathbb{C}$ On pose la notation suivante : $ f_{w_0}(t) \mapsto e^{2i \pi \omega_0 t}f(t)$ 
+  Soit $\omega_0 \in \mathbb{R}$ et $f:\mathbb{R} \to \mathbb{C}$ On pose la notation suivante : $f_{w_0}(t) \mapsto e^{2i \pi \omega_0 t}f(t)$ 
 
 $$
 \widehat{f_{\omega_0}}(\omega) = \tau_{\omega_0}(\hat{f})(\omega) = \hat{f}(\omega-\omega_0)
@@ -122,11 +123,9 @@ $$
 \end{align}
 $$
 
+* **<font color=red>Dilatation du temps (changement d'échelle)</font>** 
 
-
-* **<font color=red>Dilatation du temps (changement d'echelle)</font>** 
-
-  Soit $ a \in \mathbb{R} $ et $ f : \mathbb{R} \to \mathbb{C} $. On définit la dilatation de $f$ par $a$ :  $ D_a(f)(t) \mapsto f(at) $
+  Soit $a \in \mathbb{R}$ et $f : \mathbb{R} \to \mathbb{C}$. On définit la dilatation de $f$ par $a$ :  $D_a(f)(t) \mapsto f(at)$
   $$
   \widehat{D_a(f)} = \frac{1}{|a|} \hat{f}(\frac{\omega}{a})
   $$
@@ -158,9 +157,8 @@ $$
 $$
 
 
-- **<font color=red> Passage au conjugué</font>** 
-
-Soit $ f : \mathbb{R} \to \mathbb{C} $
+- **<font color=red> Passage au conjugué</font>** 
+Soit $f : \mathbb{R} \to \mathbb{C}$
 $$
 \widehat{\overline{f}(\omega)} = \overline{\hat{f}(-\omega)}
 $$
@@ -175,3 +173,36 @@ $$
 =& \overline{\hat{f}(-\omega)}
 \end{align}
 $$
+
+Si on se donne $\widehat{{f}(\omega)}$ pour $\omega \geq 0$, alors on connaît partout $\widehat{{f}(\omega)}$. La moitié de l'information suffit.
+
+- **<font color=red>La gaussienne (issue de la loi normale)</font>** 
+$$g_{\sigma} = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{x^2}{2\sigma^2}}$$
+
+**Calcul de la TF**
+- **<font color=red>Rappel intégration par partie</font>** 
+$$\int_{a}^{b} F'G \ dt =  \int_{a}^{b}  FG' \ dt = F(b)G(b) - F(a)G(a)$$
+
+## Convolution
+
+On définit la **convolution h*g** tel que :
+
+$$ (h*g)(t) = \int_{\mathbb{R}}^{} h(t-u)g(u) du $$
+
+**Exemple : signal porte**
+
+![signal porte](https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Rectangular_function.svg/1200px-Rectangular_function.svg.png)
+
+Dans le cas du signal porte, $\int_{}^{}h \ du = 1$
+$$(h*g)(t) = \int_{\mathbb{R}}^{}h(u-t)g(u) \ du$$
+Remarque : h(u) est paire, i.e $h(u) = h(-u)$
+
+**<font color=red>Propriétés de la convolution</font> :** 
+- Symétrie : $h*s = s*h$
+- $\int_{\mathbb{R}}^{}| f*g(t)| \ dt \leq \int_{\mathbb{R}}^{}| f| \ dt \ \int_{\mathbb{R}}^{}|g| \ dt$
+- Soit $f,g \in L^2(\mathbb{R})$, on a :
+$$\widehat{f*g}(\omega) = \hat{f}(\omega)\hat{g}(\omega)$$
+
+## Inverse de la TF
+
+On peut inverser la TF. 
