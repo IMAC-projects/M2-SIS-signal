@@ -12,6 +12,12 @@
 
 [**Inverse de la TF**](#Inverse-de-la-TF)
 
+[**TF et dérivation**](#TF-et-dérivation)
+
+[**Égalité de Parseval**](#Égalité-de-Parseval)
+
+
+
 ## Signaux continus en 1D
 
 Deux espaces :  
@@ -205,4 +211,43 @@ $$\widehat{f*g}(\omega) = \hat{f}(\omega)\hat{g}(\omega)$$
 
 ## Inverse de la TF
 
-On peut inverser la TF. 
+On peut inverser la TF.  
+$$(TF)^{-1}(\hat{f})(t) = \int_{\mathbb{R}}^{} \hat{f}(t)e^{2i\pi \omega t}\ dt$$
+
+**<font color=red>Propriété</font> :** 
+$$\widehat{fg} = \hat{f} * \hat{g}$$ car  :
+
+- $TF^{-1} TF(fg) = fg$
+- $TF^{-1}(f)(\omega) = TF(f)(-\omega)$
+
+## TF et dérivation
+
+Soit $f: \mathbb{R} \to \mathbb{R}$ signal différenciable p fois tq $\forall i f^{(i)} \in L^1(\mathbb{R})$
+
+$$\widehat{f^{(p)}}(\omega) = (2i\pi \omega)^p\hat{f}(\omega)$$
+
+**Démo :**
+Pour p = 1 :
+
+$TF(f') = \int_{\mathbb{R}}^{}e^{-2i \pi \omega t} f'(t) \ dt$
+
+IPP : 
+$\begin{align}
+-\int_{\mathbb{R}}^{}(e^{-2i \pi \omega t)'}f(t) \ dt
+\\ &= (2i \pi \mega)\int_{\mathbb{R}}^{} e^{-2i \pi \omega t} f(t) \ dt
+\end{align}$
+
+Si le signal est p fois différenciable, $$\widehat{f^{(p)}}(\omega) = (2i \pi \omega)^p \hat{f}(\omega)$$
+
+Si  $\widehat{f^{(p)}}(\omega)$ est d'énergie finie, $L^2(\mathbb{R})$ :
+ $$\widehat{f^{(p)}}(\omega) \in L^2 => (2i \pi \omega)^p \hat{f}(\omega) \in L^2 $$
+
+## Égalité de Parseval
+
+La TF préserve l'énergie des signaux. Isométrie de $L^2(\mathbb{R})$
+
+Cela signifie, pour $f : \mathbb{R} \to \mathbb{R}$
+
+$$\int_{\mathbb{R}}^{}|f(t)|^2  \ dt = \int_{\mathbb{R}}^{} | \hat{f}(\omega)|^2  \ d\omega$$
+
+> L'énergie  totale s'obtient en sommant les contributions des différents harmoniques
