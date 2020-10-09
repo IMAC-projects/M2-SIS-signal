@@ -1,8 +1,8 @@
 - file: README
-- file: Introduction/Introduction
 
 - part: Fourier
   chapters:
+  - file: Introduction/Introduction
   - file: Transformée de Fourier/Transformée de Fourier
 
 - part: TD
