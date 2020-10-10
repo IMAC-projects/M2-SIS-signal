@@ -239,42 +239,42 @@
 <p>Décomposition en signaux élémentaire :</p>
 <ul class="simple">
 <li><p>dans un espace Euclidien (<span class="math notranslate nohighlight">\(\mathbb{R}\)</span>)</p></li>
-<li><p><span class="math notranslate nohighlight">\(\forall \)</span> vecteur <span class="math notranslate nohighlight">\(f\)</span>. <span class="math notranslate nohighlight">\( f = (f_1, ..., f_n) = \sum_{i=1}^{n} (f_{i}+e_{i})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\forall\)</span> vecteur <span class="math notranslate nohighlight">\(f\)</span>. <span class="math notranslate nohighlight">\(f = (f_1, ..., f_n) = \sum_{i=1}^{n} (f_{i}+e_{i})\)</span></p></li>
 <li><p>une image peut donc s’écrire : $<span class="math notranslate nohighlight">\( I = \sum_{i,j}^{} I(i,j)e_{ij}
 \\ avec \ e_{i,j}(k,l) = 1 \ \text{si} \ k = i \ et \ l = j
 \\ 0 \ sinon \)</span>$</p></li>
 </ul>
-<p><strong><font color=red>Approximation linéaire </font></strong> :
+<p><strong><font color=red>Approximation linéaire </font></strong> : </br>
 Chercher des coefficients <span class="math notranslate nohighlight">\(\lambda_i\)</span> tq $<span class="math notranslate nohighlight">\( f \approx \sum_{i=1}^{p} \lambda_i \nu_i 
 \\ avec \ (\nu_1, ..., \nu_p) \ des \ vecteurs \ d'intérêt \)</span>$</p>
 <p>On considère un cas particulier : la famille <span class="math notranslate nohighlight">\((\nu_1, ..., \nu_p)\)</span> est <strong>orthonormée</strong>.</p>
-<p>Rappel :</p>
+<p><strong>Rappel</strong> :</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\( \lVert \nu_{i} \rVert = 1 \to \)</span> normée</p></li>
-<li><p><span class="math notranslate nohighlight">\( &lt;v_i, v_j&gt; = 0 \ si \ i \neq j \to \)</span> orthogonalité</p></li>
-<li><p><span class="math notranslate nohighlight">\( \lVert f \rVert = \sqrt{&lt;f,f&gt;} \)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\( \lVert f + g \rVert \leq  \lVert f \rVert +  \lVert g \rVert\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\lVert \nu_{i} \rVert = 1 \to\)</span> normée</p></li>
+<li><p><span class="math notranslate nohighlight">\(&lt;v_i, v_j&gt; = 0 \ si \ i \neq j \to\)</span> orthogonalité</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lVert f \rVert = \sqrt{&lt;f,f&gt;}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\lVert f + g \rVert \leq  \lVert f \rVert +  \lVert g \rVert\)</span></p></li>
 </ul>
-<p>Remarque :</p>
-<p>Sur <span class="math notranslate nohighlight">\(\mathbb{R}^n \)</span>, le produit scalaire (canonique) : $<span class="math notranslate nohighlight">\( &lt;x,y&gt; = \sum_{i=1}^{n} x_i y_i \)</span><span class="math notranslate nohighlight">\(
+<p><strong>Remarque</strong> :</p>
+<p>Sur <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, le produit scalaire (canonique) : $<span class="math notranslate nohighlight">\( &lt;x,y&gt; = \sum_{i=1}^{n} x_i y_i \)</span><span class="math notranslate nohighlight">\(
 \)</span><span class="math notranslate nohighlight">\( f = \sum_{i=1}^{p} &lt;f, \nu_i&gt; \nu_i + \ reste \)</span>$</p>
 </div>
 <div class="section" id="projection-orthogonale">
 <h2>Projection orthogonale<a class="headerlink" href="#projection-orthogonale" title="Permalink to this headline">¶</a></h2>
-<p>On considère <span class="math notranslate nohighlight">\(&lt;f,g&gt; = \sum_{i=1}^{n} f_i g_i \)</span>, produit scalaire sur <span class="math notranslate nohighlight">\(\mathbb{R}^n \)</span></p>
+<p>On considère <span class="math notranslate nohighlight">\(&lt;f,g&gt; = \sum_{i=1}^{n}f_i g_i\)</span>, produit scalaire sur <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span></p>
 <p><strong><font color=red>Propriétés </font></strong> :</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\( &lt;f + \lambda g, h&gt; = &lt;f,h&gt; + \lambda &lt;g,h&gt;, \lambda in \mathbb{R} \)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\( &lt;f,f&gt; \geq 0 \)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\( &lt;f,f&gt; = 0 \Leftrightarrow f = 0 \)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\( &lt;f,g&gt; = &lt;g,f&gt; \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(&lt;f + \lambda g, h&gt; = &lt;f,h&gt; + \lambda &lt;g,h&gt;, \lambda \in \mathbb{R}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(&lt;f,f&gt; \geq 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(&lt;f,f&gt; = 0 \Leftrightarrow f = 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(&lt;f,g&gt; = &lt;g,f&gt;\)</span></p></li>
 </ul>
-<p>Sur les signaux continu :
+<p>Sur les signaux continus :
 $<span class="math notranslate nohighlight">\( f,g : [0,1]^2 \to \mathbb{R} 
 \\ &lt;f,g&gt; = \int_{\mathbb{}}^{}\int_{\mathbb{[0,1]^2}}^{} f(x) g(x) \ dx \)</span>$</p>
-<p>Sur les signaux discret :
+<p>Sur les signaux discrets :
 $<span class="math notranslate nohighlight">\( f,g \in \mathbb{R}^n
-\\ &lt;f,g&gt; = \frac{1}{N} \sum_{i=1}^{N}f_i g_i\)</span>$</p>
+\\ &lt;f,g&gt; = \frac{1}{N} \sum_{i=1}^{N}f_i g_i \)</span>$</p>
 <p>On peut résumer un signal en coefficients associé à une fonction d’évaluation. On utilise pour cela la décomposition de Fourier et on garde les coefficients significatifs. Pour un signal discontinu, on aura besoin de plus de coefficients.</p>
 <p>L’effet de bord est appelé <strong>phénomène de Gibbs</strong>.</p>
 </div>
