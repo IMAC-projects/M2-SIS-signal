@@ -180,13 +180,11 @@ Remarque : h(u) est paire, i.e $h(u) = h(-u)$
 **<font color=red>Propriétés de la convolution</font> :** 
 - Symétrie : $h*s = s*h$
 - $\int_{\mathbb{R}}^{}| f*g(t)| \ dt \leq \int_{\mathbb{R}}^{}| f| \ dt \ \int_{\mathbb{R}}^{}|g| \ dt$
-- Soit $f,g \in L^2(\mathbb{R})$, on a :
-$$ \widehat{f*g}(\omega) = \hat{f}(\omega)\hat{g}(\omega) $$
+- Soit $f,g \in L^2(\mathbb{R})$, on a : $$ \widehat{f*g}(\omega) = \hat{f}(\omega)\hat{g}(\omega) $$
 
 ## Inverse de la TF
 
-On peut inverser la TF.  
-$$ (TF)^{-1}(\hat{f})(t) = \int_{\mathbb{R}}^{} \hat{f}(t)e^{2i\pi \omega t}\ dt $$
+On peut inverser la TF.  $$ (TF)^{-1}(\hat{f})(t) = \int_{\mathbb{R}}^{} \hat{f}(t)e^{2i\pi \omega t}\ dt $$
 
 **<font color=red>Propriété</font> :** 
 $$ \widehat{fg} = \hat{f} * \hat{g} $$ car  :
@@ -206,15 +204,16 @@ Pour p = 1 :
 $TF(f') = \int_{\mathbb{R}}^{}e^{-2i \pi \omega t} f'(t) \ dt$
 
 IPP : 
-$$ \begin{align}
+$$ 
+\begin{align}
 -\int_{\mathbb{R}}^{}(e^{-2i \pi \omega t)'}f(t) \ dt
-\\ &= (2i \pi \mega)\int_{\mathbb{R}}^{} e^{-2i \pi \omega t} f(t) \ dt
-\end{align} $$
+\\ &= (2i \pi \omega)\int_{\mathbb{R}}^{} e^{-2i \pi \omega t} f(t) \ dt
+\end{align} 
+$$
 
 Si le signal est p fois différenciable, $$ \widehat{f^{(p)}}(\omega) = (2i \pi \omega)^p \hat{f}(\omega) $$
 
-Si  $\widehat{f^{(p)}}(\omega)$ est d'énergie finie, $L^2(\mathbb{R})$ :
- $$ \widehat{f^{(p)}}(\omega) \in L^2 => (2i \pi \omega)^p \hat{f}(\omega) \in L^2 $$
+Si  $\widehat{f^{(p)}}(\omega)$ est d'énergie finie, $L^2(\mathbb{R})$ : $$ \widehat{f^{(p)}}(\omega) \in L^2 => (2i \pi \omega)^p \hat{f}(\omega) \in L^2 $$
 
 ## Égalité de Parseval
 
