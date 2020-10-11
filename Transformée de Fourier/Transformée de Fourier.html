@@ -264,9 +264,10 @@
 <li><p><span class="math notranslate nohighlight">\(L^2(\mathbb{R}, \mathbb{C}) = \left\{  f: \mathbb{R} -&gt; \mathbb{C}; \ \int_{\mathbb{R}}^{} | f(x) |^2 \ dx &lt; + \infty \right\}\)</span></p></li>
 </ul>
 <p><span class="math notranslate nohighlight">\(L^2\)</span> correspond à <strong>l’énergie finie</strong></p>
-<p>On défini sur l’espace des signaux d’énergie finie <span class="math notranslate nohighlight">\(L^2\)</span> le <strong><font color=red>produit scalaire hermitien </font></strong> suivant :
-$<span class="math notranslate nohighlight">\( &lt;f,g&gt; = \int_{\mathbb{R}} f(x)\overline{g(x)} dx \)</span><span class="math notranslate nohighlight">\(
-Où \)</span>\overline{a}<span class="math notranslate nohighlight">\( le complexe conjugué de a \)</span>\in \mathbb{C}$.</p>
+<p>On défini sur l’espace des signaux d’énergie finie <span class="math notranslate nohighlight">\(L^2\)</span> le <strong><font color=red>produit scalaire hermitien </font></strong> suivant :</p>
+<div class="math notranslate nohighlight">
+\[ &lt;f,g&gt; = \int_{\mathbb{R}} f(x)\overline{g(x)} dx \]</div>
+<p>Où <span class="math notranslate nohighlight">\(\overline{a}\)</span> le complexe conjugué de a <span class="math notranslate nohighlight">\(\in \mathbb{C}\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(\left\{  \begin{array}{ll} a = a_{1} + ia_{2} \\ 
 \overline{a} = a_1 - ia_2 \end{array} \right.\)</span></p>
 <p><strong><font color=red>Attention</font></strong> : On a bien <span class="math notranslate nohighlight">\(\int_{\mathbb{R}} f(x)\overline{f}(x)dx = \int_{\mathbb{R}} f(x)|^2dx \leq 0\)</span> et nul ssi <span class="math notranslate nohighlight">\(f = 0\)</span></p>
@@ -284,50 +285,65 @@ Où \)</span>\overline{a}<span class="math notranslate nohighlight">\( le comple
 \[\begin{split} \\ \end{split}\]</div>
 <p><strong><font color=red>Définition</font></strong> :</p>
 <p>Soit <span class="math notranslate nohighlight">\(f \in L^1(\mathbb{R})\)</span>. et <span class="math notranslate nohighlight">\(\omega \in \mathbb{R}\)</span>
-La transformée de Fourier de <span class="math notranslate nohighlight">\(f\)</span> est définie par :
-$<span class="math notranslate nohighlight">\( TF(f)(\omega) = \hat{f}(\omega) = \int_{\mathbb{R}} f(t) e^{-2i\pi\omega t}dt \)</span>$
-Ici, on passe du domaine <strong>temporel</strong> au domaine <strong>fréquentiel</strong>.</p>
-<p>En posant  la notation <span class="math notranslate nohighlight">\(e_\omega = e^{2i\pi\omega t}\)</span>, on retrouve alors la forme suivante exprimée avec le produit scalaire précédemment défini :
-$<span class="math notranslate nohighlight">\( \begin{align}
+La transformée de Fourier de <span class="math notranslate nohighlight">\(f\)</span> est définie par :</p>
+<div class="math notranslate nohighlight">
+\[ TF(f)(\omega) = \hat{f}(\omega) = \int_{\mathbb{R}} f(t) e^{-2i\pi\omega t}dt \]</div>
+<p>Ici, on passe du domaine <strong>temporel</strong> au domaine <strong>fréquentiel</strong>.</p>
+<p>En posant  la notation <span class="math notranslate nohighlight">\(e_\omega = e^{2i\pi\omega t}\)</span>, on retrouve alors la forme suivante exprimée avec le produit scalaire précédemment défini :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{align}
 \hat{f}(\omega) =&amp; &lt;f, e_\omega&gt; \\
 =&amp; \int_{\mathbb{R}} f(t) \overline{e^{2i\pi\omega t}}dt \\
 =&amp; \int_{\mathbb{R}} f(t) e^{-2i\pi\omega t}dt
-\end{align} \)</span>$</p>
+\end{align} 
+\end{split}\]</div>
 <blockquote>
 <div><p><em>Pourquoi retrouve-t-on le signe <span class="math notranslate nohighlight">\(-\)</span> devant <span class="math notranslate nohighlight">\(2i\pi \omega t\)</span> ?</em>
 La transformée de Fourier utilise le produit scalaire <span class="math notranslate nohighlight">\(&lt;f,e_\omega&gt;\)</span>, dans lequel on utilise le <strong>conjugué</strong>.</p>
 </div></blockquote>
 <p><strong><font color=red>Remarque</font></strong> : <span class="math notranslate nohighlight">\(L^1(\mathbb{R})\)</span> contient des fonctions discontinues mais on a une condition d’intégrabilité.</p>
-<p><span class="math notranslate nohighlight">\(TF(f)(\omega)\)</span> est bien définie car $<span class="math notranslate nohighlight">\( | &lt; f,e_{\omega} &gt; | \leq \int_{\mathbb{R}}^{} | f(x) e^{-2i\pi \omega x} | \ dx =  \int_{\mathbb{R}}^{}  | f(x) | \ dx \le + \infty \)</span>$</p>
+<p><span class="math notranslate nohighlight">\(TF(f)(\omega)\)</span> est bien définie car</p>
+<div class="math notranslate nohighlight">
+\[ | &lt; f,e_{\omega} &gt; | \leq \int_{\mathbb{R}}^{} | f(x) e^{-2i\pi \omega x} | \ dx =  \int_{\mathbb{R}}^{}  | f(x) | \ dx \le + \infty \]</div>
 <p>donc <span class="math notranslate nohighlight">\(\forall \omega \ | \hat{f}(\omega) | \leq \int_{\mathbb{R}}^{} | f(x) | \ dx\)</span> avec <span class="math notranslate nohighlight">\(\omega\)</span> la fréquence en <span class="math notranslate nohighlight">\(Hz\)</span></p>
 </div>
 <div class="section" id="proprietes-de-la-tf">
 <h2>Propriétés de la TF<a class="headerlink" href="#proprietes-de-la-tf" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p><strong><font color=red>Linéarité </font></strong></p>
-<p>Soit <span class="math notranslate nohighlight">\(a,b \in \mathbb{R}\)</span>  et  <span class="math notranslate nohighlight">\(f,g \in L^1(\mathbb{R})\)</span>
-$<span class="math notranslate nohighlight">\( TF(af+bg) = \widehat{af+bg} = a\hat{f}+b\hat{g} \)</span>$</p>
+<p>Soit <span class="math notranslate nohighlight">\(a,b \in \mathbb{R}\)</span>  et  <span class="math notranslate nohighlight">\(f,g \in L^1(\mathbb{R})\)</span></p>
+<div class="math notranslate nohighlight">
+\[ TF(af+bg) = \widehat{af+bg} = a\hat{f}+b\hat{g} \]</div>
 </li>
-<li><p><strong>Démonstration</strong> :
-$<span class="math notranslate nohighlight">\( \begin{align}
-TF(af+bg) =&amp; &lt;af+bg, e_\omega&gt; \\
-&amp; {\small\text{(par linéarité du produit scalaire hermitien)}} \\
-=&amp; a&lt;f, e_\omega&gt; + b&lt;g, e_\omega&gt; \\
-=&amp; a\hat{f}+b\hat{g} \quad \\
-\end{align} \)</span>$</p></li>
+<li><p><strong>Démonstration</strong> :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+  \begin{align}
+  TF(af+bg) =&amp; &lt;af+bg, e_\omega&gt; \\
+  &amp; {\small\text{(par linéarité du produit scalaire hermitien)}} \\
+  =&amp; a&lt;f, e_\omega&gt; + b&lt;g, e_\omega&gt; \\
+  =&amp; a\hat{f}+b\hat{g} \quad \\
+  \end{align} 
+  \end{split}\]</div>
+</li>
 <li><p><strong><font color=red>Théorème du retard (translation temporelle) </font></strong></p>
-<p>Soit <span class="math notranslate nohighlight">\(t_0 \in \mathbb{R}\)</span> et <span class="math notranslate nohighlight">\(f : \mathbb{R} \to \mathbb{C}\)</span>. On définit la translation de <span class="math notranslate nohighlight">\(f\)</span> par <span class="math notranslate nohighlight">\(t_0\)</span> :  <span class="math notranslate nohighlight">\(\tau_a(f)(t) \mapsto f(t-t_0)\)</span>
-$<span class="math notranslate nohighlight">\( \widehat{\tau_a(f)}(\omega) = e^{-2i\pi \omega t_0} \hat{f}(\omega) \)</span>$</p>
+<p>Soit <span class="math notranslate nohighlight">\(t_0 \in \mathbb{R}\)</span> et <span class="math notranslate nohighlight">\(f : \mathbb{R} \to \mathbb{C}\)</span>. On définit la translation de <span class="math notranslate nohighlight">\(f\)</span> par <span class="math notranslate nohighlight">\(t_0\)</span> :  <span class="math notranslate nohighlight">\(\tau_a(f)(t) \mapsto f(t-t_0)\)</span></p>
+<div class="math notranslate nohighlight">
+\[ \widehat{\tau_a(f)}(\omega) = e^{-2i\pi \omega t_0} \hat{f}(\omega) \]</div>
 </li>
 </ul>
-<p><strong>Démonstration</strong> :
-$<span class="math notranslate nohighlight">\( \begin{align}
+<p><strong>Démonstration</strong> :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{align}
 \widehat{\tau_a(f)}(\omega) =&amp; \int_{\mathbb{R}} \tau_a(f)e^{-2i\pi\omega t}dt \\
 &amp;{\small \text{On pose} \ t' = t-t_0 \ \text{(changement de variable)}} \\
 =&amp; \int_{\mathbb{R}} f(t')e^{-2i\pi\omega (t'+a)} \ dt' \\
 =&amp; e^{-2i\pi\omega t_0} \int_{\mathbb{R}} f(t')e^{-2i\pi\omega t'} dt' \\
 =&amp; e^{-2i\pi\omega t_0} \hat{f}(\omega)
-\end{align} \)</span>$</p>
+\end{align} 
+\end{split}\]</div>
 <ul>
 <li><p><strong><font color=red>Modulation ou Translation fréquencielle </font></strong></p>
 <p>Soit <span class="math notranslate nohighlight">\(\omega_0 \in \mathbb{R}\)</span> et <span class="math notranslate nohighlight">\(f:\mathbb{R} \to \mathbb{C}\)</span> On pose la notation suivante : <span class="math notranslate nohighlight">\(f_{w_0}(t) \mapsto e^{2i \pi \omega_0 t}f(t)\)</span></p>
@@ -335,29 +351,38 @@ $<span class="math notranslate nohighlight">\( \begin{align}
 </ul>
 <div class="math notranslate nohighlight">
 \[ \widehat{f_{\omega_0}}(\omega) = \tau_{\omega_0}(\hat{f})(\omega) = \hat{f}(\omega-\omega_0) \]</div>
-<p><strong>Démonstration</strong> :
-$<span class="math notranslate nohighlight">\( \begin{align}
+<p><strong>Démonstration</strong> :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{align}
 \widehat{f_{\omega_0}} =&amp; \int_{\mathbb{R}} f(t) e^{2i\pi\omega_0 t} e^{-2i\pi \omega t}dt \\
 =&amp; \int_{\mathbb{R}} f(t) e^{2i\pi (\omega-\omega_0) t} dt \\
 =&amp; \hat{f}(\omega-\omega_0)
-\end{align} \)</span>$</p>
+\end{align} 
+\end{split}\]</div>
 <ul>
 <li><p><strong><font color=red>Dilatation du temps (changement d’échelle)</font></strong></p>
-<p>Soit <span class="math notranslate nohighlight">\(a \in \mathbb{R}\)</span> et <span class="math notranslate nohighlight">\(f : \mathbb{R} \to \mathbb{C}\)</span>. On définit la dilatation de <span class="math notranslate nohighlight">\(f\)</span> par <span class="math notranslate nohighlight">\(a\)</span> :  <span class="math notranslate nohighlight">\(D_a(f)(t) \mapsto f(at)\)</span>
-$<span class="math notranslate nohighlight">\( \widehat{D_a(f)} = \frac{1}{|a|} \hat{f}(\frac{\omega}{a}) \)</span>$</p>
+<p>Soit <span class="math notranslate nohighlight">\(a \in \mathbb{R}\)</span> et <span class="math notranslate nohighlight">\(f : \mathbb{R} \to \mathbb{C}\)</span>. On définit la dilatation de <span class="math notranslate nohighlight">\(f\)</span> par <span class="math notranslate nohighlight">\(a\)</span> :  <span class="math notranslate nohighlight">\(D_a(f)(t) \mapsto f(at)\)</span></p>
+<div class="math notranslate nohighlight">
+\[ \widehat{D_a(f)} = \frac{1}{|a|} \hat{f}(\frac{\omega}{a}) \]</div>
 </li>
 </ul>
 <p><strong>Démonstration</strong> :</p>
-<p>Pour <span class="math notranslate nohighlight">\(a \geq 0\)</span> :
-$<span class="math notranslate nohighlight">\( \begin{align}
+<p>Pour <span class="math notranslate nohighlight">\(a \geq 0\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{align}
 \widehat{D_a(f)} =&amp; \int_{\mathbb{R}} f(at) e^{-2i\pi \omega t}dt \\
 &amp;{\small \text{On pose} \ t' = at \ \text{(changement de variable)}} \\
 =&amp; \int_{\mathbb{R}} f(t') e^{-2i\pi \omega \frac{t'}{a}} \frac{dt'}{a} \\
 =&amp; \frac{1}{a} \int_{\mathbb{R}} f(t') e^{-2i\pi \frac{\omega}{a}t'} dt' \\
 =&amp; \frac{1}{a} \hat{f}(\frac{\omega}{a})
-\end{align} \)</span>$</p>
-<p>Pour <span class="math notranslate nohighlight">\(a&lt;0\)</span> :
-$<span class="math notranslate nohighlight">\( \begin{align}
+\end{align}
+\end{split}\]</div>
+<p>Pour <span class="math notranslate nohighlight">\(a&lt;0\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{align}
 \widehat{D_a(f)} =&amp; \int_{\mathbb{R}} f(at) e^{-2i\pi \omega t}dt \\
 &amp;{\small \text{On pose} \ t' = at \ \text{(changement de variable)}} \\
 &amp; ⚠{\small \text{: ici le changement de variable inverse les bornes }} \\
@@ -366,26 +391,32 @@ $<span class="math notranslate nohighlight">\( \begin{align}
 &amp; {\small \text{par inversion des bornes }} \\
 =&amp; -\frac{1}{a} \int_{\mathbb{R}} f(t') e^{-2i\pi \frac{\omega}{a}t'} dt' \\
 =&amp; -\frac{1}{a} \hat{f}(\frac{\omega}{a})
-\end{align} \)</span>$</p>
+\end{align}
+\end{split}\]</div>
 <ul class="simple">
-<li><p><strong><font color=red> Passage au conjugué</font></strong>
-Soit <span class="math notranslate nohighlight">\(f : \mathbb{R} \to \mathbb{C}\)</span>
-$<span class="math notranslate nohighlight">\( \widehat{\overline{f}(\omega)} = \overline{\hat{f}(-\omega)} \)</span><span class="math notranslate nohighlight">\(
-**Démonstration** : 
-\)</span><span class="math notranslate nohighlight">\( \begin{align}
+<li><p><strong><font color=red> Passage au conjugué</font></strong></p></li>
+</ul>
+<p>Soit <span class="math notranslate nohighlight">\(f : \mathbb{R} \to \mathbb{C}\)</span></p>
+<div class="math notranslate nohighlight">
+\[ \widehat{\overline{f}(\omega)} = \overline{\hat{f}(-\omega)} \]</div>
+<p><strong>Démonstration</strong> :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{align}
 \widehat{\overline{f}(\omega)} =&amp; \int_{\mathbb{R}} \overline{f(t)} e^{-2i\pi \omega t}dt \\
 =&amp; \int_{\mathbb{R}} \overline{f(t)} \overline{e^{2i\pi \omega t}}dt \\
 &amp; {\small \text{par la propriété du conjugué : } \overline{z_1}.\overline{z_2} =  \overline{z_1.z_2}} \\
 =&amp; \overline{\int_{\mathbb{R}} f(t) e^{2i\pi \omega t}dt} \\
 =&amp; \overline{\int_{\mathbb{R}} f(t) e^{-2i\pi (-\omega) t}dt} \\
 =&amp; \overline{\hat{f}(-\omega)}
-\end{align} \)</span>$</p></li>
-</ul>
+\end{align}
+\end{split}\]</div>
 <p>Si on se donne <span class="math notranslate nohighlight">\(\widehat{{f}(\omega)}\)</span> pour <span class="math notranslate nohighlight">\(\omega \geq 0\)</span>, alors on connaît partout <span class="math notranslate nohighlight">\(\widehat{{f}(\omega)}\)</span>. La moitié de l’information suffit.</p>
 <ul class="simple">
-<li><p><strong><font color=red>La gaussienne (issue de la loi normale)</font></strong>
-$<span class="math notranslate nohighlight">\( g_{\sigma} = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{x^2}{2\sigma^2}} \)</span>$</p></li>
+<li><p><strong><font color=red>La gaussienne (issue de la loi normale)</font></strong></p></li>
 </ul>
+<div class="math notranslate nohighlight">
+\[ g_{\sigma} = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{x^2}{2\sigma^2}} \]</div>
 <p><strong>Calcul de la TF</strong></p>
 <ul class="simple">
 <li><p><strong><font color=red>Rappel intégration par partie</font></strong></p></li>
@@ -399,21 +430,26 @@ $<span class="math notranslate nohighlight">\( g_{\sigma} = \frac{1}{\sigma \sqr
 \[ (h*g)(t) = \int_{\mathbb{R}}^{} h(t-u)g(u) du \]</div>
 <p><strong>Exemple : signal porte</strong></p>
 <p><img alt="signal porte" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Rectangular_function.svg/1200px-Rectangular_function.svg.png" /></p>
-<p>Dans le cas du signal porte, <span class="math notranslate nohighlight">\(\int_{}^{}h \ du = 1\)</span>
-$<span class="math notranslate nohighlight">\( (h*g)(t) = \int_{\mathbb{R}}^{}h(u-t)g(u) \ du \)</span><span class="math notranslate nohighlight">\(
-Remarque : h(u) est paire, i.e \)</span>h(u) = h(-u)$</p>
+<p>Dans le cas du signal porte, <span class="math notranslate nohighlight">\(\int_{}^{}h \ du = 1\)</span></p>
+<div class="math notranslate nohighlight">
+\[ (h*g)(t) = \int_{\mathbb{R}}^{}h(u-t)g(u) \ du \]</div>
+<p>Remarque : h(u) est paire, i.e <span class="math notranslate nohighlight">\(h(u) = h(-u)\)</span></p>
 <p><strong><font color=red>Propriétés de la convolution</font> :</strong></p>
 <ul class="simple">
 <li><p>Symétrie : <span class="math notranslate nohighlight">\(h*s = s*h\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\int_{\mathbb{R}}^{}| f*g(t)| \ dt \leq \int_{\mathbb{R}}^{}| f| \ dt \ \int_{\mathbb{R}}^{}|g| \ dt\)</span></p></li>
-<li><p>Soit <span class="math notranslate nohighlight">\(f,g \in L^2(\mathbb{R})\)</span>, on a : $<span class="math notranslate nohighlight">\( \widehat{f*g}(\omega) = \hat{f}(\omega)\hat{g}(\omega) \)</span>$</p></li>
+<li><p>Soit <span class="math notranslate nohighlight">\(f,g \in L^2(\mathbb{R})\)</span>, on a :</p></li>
 </ul>
+<div class="math notranslate nohighlight">
+\[ \widehat{f*g}(\omega) = \hat{f}(\omega)\hat{g}(\omega) \]</div>
 </div>
 <div class="section" id="inverse-de-la-tf">
 <h2>Inverse de la TF<a class="headerlink" href="#inverse-de-la-tf" title="Permalink to this headline">¶</a></h2>
-<p>On peut inverser la TF.  $<span class="math notranslate nohighlight">\( (TF)^{-1}(\hat{f})(t) = \int_{\mathbb{R}}^{} \hat{f}(t)e^{2i\pi \omega t}\ dt \)</span>$</p>
-<p><strong><font color=red>Propriété</font> :</strong>
-$<span class="math notranslate nohighlight">\( \widehat{fg} = \hat{f} * \hat{g} \)</span>$ car  :</p>
+<p>On peut inverser la TF.</p>
+<div class="math notranslate nohighlight">
+\[ (TF)^{-1}(\hat{f})(t) = \int_{\mathbb{R}}^{} \hat{f}(t)e^{2i\pi \omega t}\ dt \]</div>
+<p><strong><font color=red>Propriété</font> :</strong></p>
+<p><span class="math notranslate nohighlight">\( \widehat{fg} = \hat{f} * \hat{g} \)</span> car :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(TF^{-1} TF(fg) = fg\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(TF^{-1}(f)(\omega) = TF(f)(-\omega)\)</span></p></li>
@@ -424,18 +460,21 @@ $<span class="math notranslate nohighlight">\( \widehat{fg} = \hat{f} * \hat{g} 
 <p>Soit <span class="math notranslate nohighlight">\(f: \mathbb{R} \to \mathbb{R}\)</span> signal différenciable p fois tq <span class="math notranslate nohighlight">\(\forall i f^{(i)} \in L^1(\mathbb{R})\)</span></p>
 <div class="math notranslate nohighlight">
 \[ \widehat{f^{(p)}}(\omega) = (2i\pi \omega)^p\hat{f}(\omega) \]</div>
-<p><strong>Démo :</strong>
-Pour p = 1 :</p>
+<p><strong>Démo :</strong></p>
+<p>Pour p = 1 :</p>
 <p><span class="math notranslate nohighlight">\(TF(f') = \int_{\mathbb{R}}^{}e^{-2i \pi \omega t} f'(t) \ dt\)</span></p>
-<p>IPP :
-$<span class="math notranslate nohighlight">\( 
+<p>IPP :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
 \begin{align}
 -\int_{\mathbb{R}}^{}(e^{-2i \pi \omega t)'}f(t) \ dt
 \\ &amp;= (2i \pi \omega)\int_{\mathbb{R}}^{} e^{-2i \pi \omega t} f(t) \ dt
 \end{align} 
-\)</span>$</p>
-<p>Si le signal est p fois différenciable, $<span class="math notranslate nohighlight">\( \widehat{f^{(p)}}(\omega) = (2i \pi \omega)^p \hat{f}(\omega) \)</span>$</p>
-<p>Si  <span class="math notranslate nohighlight">\(\widehat{f^{(p)}}(\omega)\)</span> est d’énergie finie, <span class="math notranslate nohighlight">\(L^2(\mathbb{R})\)</span> : $<span class="math notranslate nohighlight">\( \widehat{f^{(p)}}(\omega) \in L^2 =&gt; (2i \pi \omega)^p \hat{f}(\omega) \in L^2 \)</span>$</p>
+\end{split}\]</div>
+<p>Si le signal est p fois différenciable, <span class="math notranslate nohighlight">\( \widehat{f^{(p)}}(\omega) = (2i \pi \omega)^p \hat{f}(\omega) \)</span></p>
+<p>Si  <span class="math notranslate nohighlight">\(\widehat{f^{(p)}}(\omega)\)</span> est d’énergie finie, <span class="math notranslate nohighlight">\(L^2(\mathbb{R})\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[ \widehat{f^{(p)}}(\omega) \in L^2 =&gt; (2i \pi \omega)^p \hat{f}(\omega) \in L^2 \]</div>
 </div>
 <div class="section" id="egalite-de-parseval">
 <h2>Égalité de Parseval<a class="headerlink" href="#egalite-de-parseval" title="Permalink to this headline">¶</a></h2>

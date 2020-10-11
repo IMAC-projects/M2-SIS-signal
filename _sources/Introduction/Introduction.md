@@ -18,7 +18,8 @@
 Décomposition en signaux élémentaire : 
 * dans un espace Euclidien ($\mathbb{R}$)
 * $\forall$ vecteur $f$. $f = (f_1, ..., f_n) = \sum_{i=1}^{n} (f_{i}+e_{i})$
-* une image peut donc s'écrire : 
+* une image peut donc s'écrire :
+
 $$ 
 I = \sum_{i,j}^{} I(i,j)e_{ij}
 \\ avec \ e_{i,j}(k,l) = 1 \ \text{si} \ k = i \ et \ l = j
@@ -27,6 +28,7 @@ $$
 
 **<font color=red>Approximation linéaire </font>** : </br> 
 Chercher des coefficients $\lambda_i$ tq 
+
 $$ 
 f \approx \sum_{i=1}^{p} \lambda_i \nu_i 
 \\ avec \ (\nu_1, ..., \nu_p) \ des \ vecteurs \ d'intérêt 
@@ -34,7 +36,8 @@ $$
 
 On considère un cas particulier : la famille $(\nu_1, ..., \nu_p)$ est **orthonormée**.
 
-**Rappel** : 
+**Rappel** :
+
 * $\lVert \nu_{i} \rVert = 1 \to$ normée
 * $<v_i, v_j> = 0 \ si \ i \neq j \to$ orthogonalité
 * $\lVert f \rVert = \sqrt{<f,f>}$
@@ -42,7 +45,8 @@ On considère un cas particulier : la famille $(\nu_1, ..., \nu_p)$ est **orthon
 
 **Remarque** :
 
-Sur $\mathbb{R}^n$, le produit scalaire (canonique) : $$ <x,y> = \sum_{i=1}^{n} x_i y_i $$
+Sur $\mathbb{R}^n$, le produit scalaire (canonique) : $ <x,y> = \sum_{i=1}^{n} x_i y_i $
+
 $$ 
 f = \sum_{i=1}^{p} <f, \nu_i> \nu_i + \ reste 
 $$
@@ -57,13 +61,15 @@ On considère $<f,g> = \sum_{i=1}^{n}f_i g_i$, produit scalaire sur $\mathbb{R}^
 * $<f,f> = 0 \Leftrightarrow f = 0$
 * $<f,g> = <g,f>$
 
-Sur les signaux continus : 
+Sur les signaux continus :
+
 $$ 
 f,g : [0,1]^2 \to \mathbb{R} 
 \\ <f,g> = \int_{\mathbb{}}^{}\int_{\mathbb{[0,1]^2}}^{} f(x) g(x) \ dx 
 $$
 
 Sur les signaux discrets :
+
 $$ 
 f,g \in \mathbb{R}^n
 \\ <f,g> = \frac{1}{N} \sum_{i=1}^{N}f_i g_i 
