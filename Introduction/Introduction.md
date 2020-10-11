@@ -18,13 +18,19 @@
 Décomposition en signaux élémentaire : 
 * dans un espace Euclidien ($\mathbb{R}$)
 * $\forall$ vecteur $f$. $f = (f_1, ..., f_n) = \sum_{i=1}^{n} (f_{i}+e_{i})$
-* une image peut donc s'écrire : $$ I = \sum_{i,j}^{} I(i,j)e_{ij}
+* une image peut donc s'écrire : 
+$$ 
+I = \sum_{i,j}^{} I(i,j)e_{ij}
 \\ avec \ e_{i,j}(k,l) = 1 \ \text{si} \ k = i \ et \ l = j
-\\ 0 \ sinon $$
+\\ 0 \ sinon 
+$$
 
 **<font color=red>Approximation linéaire </font>** : </br> 
-Chercher des coefficients $\lambda_i$ tq $$ f \approx \sum_{i=1}^{p} \lambda_i \nu_i 
-\\ avec \ (\nu_1, ..., \nu_p) \ des \ vecteurs \ d'intérêt $$
+Chercher des coefficients $\lambda_i$ tq 
+$$ 
+f \approx \sum_{i=1}^{p} \lambda_i \nu_i 
+\\ avec \ (\nu_1, ..., \nu_p) \ des \ vecteurs \ d'intérêt 
+$$
 
 On considère un cas particulier : la famille $(\nu_1, ..., \nu_p)$ est **orthonormée**.
 
@@ -37,7 +43,9 @@ On considère un cas particulier : la famille $(\nu_1, ..., \nu_p)$ est **orthon
 **Remarque** :
 
 Sur $\mathbb{R}^n$, le produit scalaire (canonique) : $$ <x,y> = \sum_{i=1}^{n} x_i y_i $$
-$$ f = \sum_{i=1}^{p} <f, \nu_i> \nu_i + \ reste $$
+$$ 
+f = \sum_{i=1}^{p} <f, \nu_i> \nu_i + \ reste 
+$$
 
 ## Projection orthogonale
 
@@ -50,12 +58,16 @@ On considère $<f,g> = \sum_{i=1}^{n}f_i g_i$, produit scalaire sur $\mathbb{R}^
 * $<f,g> = <g,f>$
 
 Sur les signaux continus : 
-$$ f,g : [0,1]^2 \to \mathbb{R} 
-\\ <f,g> = \int_{\mathbb{}}^{}\int_{\mathbb{[0,1]^2}}^{} f(x) g(x) \ dx $$
+$$ 
+f,g : [0,1]^2 \to \mathbb{R} 
+\\ <f,g> = \int_{\mathbb{}}^{}\int_{\mathbb{[0,1]^2}}^{} f(x) g(x) \ dx 
+$$
 
 Sur les signaux discrets :
-$$ f,g \in \mathbb{R}^n
-\\ <f,g> = \frac{1}{N} \sum_{i=1}^{N}f_i g_i $$
+$$ 
+f,g \in \mathbb{R}^n
+\\ <f,g> = \frac{1}{N} \sum_{i=1}^{N}f_i g_i 
+$$
 
 On peut résumer un signal en coefficients associé à une fonction d'évaluation. On utilise pour cela la décomposition de Fourier et on garde les coefficients significatifs. Pour un signal discontinu, on aura besoin de plus de coefficients.
 
