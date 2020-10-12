@@ -475,7 +475,7 @@ La transformée de Fourier utilise le produit scalaire <span class="math notrans
 <p>Dans le cas du signal porte, <span class="math notranslate nohighlight">\(\int_{}^{}h \ du = 1\)</span></p>
 <div class="math notranslate nohighlight">
 \[ (h \ast g)(t) = \int_{\mathbb{R}}^{}h(u-t)g(u) \ du \]</div>
-<p>Remarque : h(u) est paire, i.e <span class="math notranslate nohighlight">\(h(u) = h(-u)\)</span></p>
+<p>Remarque : <span class="math notranslate nohighlight">\(h(u)\)</span> est paire, i.e <span class="math notranslate nohighlight">\(h(u) = h(-u)\)</span></p>
 <p><strong><font color=red>Propriétés de la convolution</font> :</strong></p>
 <ul class="simple">
 <li><p>Symétrie : <span class="math notranslate nohighlight">\(h \ast s = s \ast h\)</span></p></li>
@@ -558,11 +558,11 @@ La transformée de Fourier utilise le produit scalaire <span class="math notrans
 <div class="math notranslate nohighlight">
 \[ 
 \begin{align}
-&amp;= TF(s) =\int_{\mathbb{R}}^{}s(t)e^{-2 i \pi \omega t} dt
-&amp;= TF(s) = \int_{-\frac{T}{2}^{\frac{T}{2}}e^{-2 i \pi \omega t} dt
-&amp;= TF(s) = [\frac{e^{-2 i \pi \omega t}}{-2i \pi \omega}]^{\frac{T}{2}}_{-\frac{T}{2}}]
-&amp;= \frac{e^{i \pi \omega T }- e^{-i \pi \omega T}}{2i \pi \omega}
-&amp;= \frac{sin(\pi \omega T)}{\pi \omega}
+TF(s) =\int_{\mathbb{R}}^{}s(t)e^{-2 i \pi \omega t} dt
+=&amp; TF(s) = \int_{-\frac{T}{2}^{\frac{T}{2}}e^{-2 i \pi \omega t} dt
+=&amp; TF(s) = [\frac{e^{-2 i \pi \omega t}}{-2i \pi \omega}]^{\frac{T}{2}}_{-\frac{T}{2}}]
+=&amp; \frac{e^{i \pi \omega T }- e^{-i \pi \omega T}}{2i \pi \omega}
+=&amp; \frac{sin(\pi \omega T)}{\pi \omega}
 \end{align}
 \]</div>
 <p>On obtient alors le <strong>sinus cardinal</strong></p>
@@ -572,9 +572,16 @@ La transformée de Fourier utilise le produit scalaire <span class="math notrans
 <p><strong>Rappels sur Dirac :</strong></p>
 <p>Soient un espace mesurable <span class="math notranslate nohighlight">\((X,{\mathcal {A}}\)</span> et <span class="math notranslate nohighlight">\(a\in X)\)</span>. On appelle <strong>mesure de Dirac</strong> au point  <span class="math notranslate nohighlight">\(a\)</span>, et l’on note  <span class="math notranslate nohighlight">\(\delta _{a}\)</span>, la mesure sur  <span class="math notranslate nohighlight">\((X,{\mathcal {A}})\)</span>  définie par :</p>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}\begin{split}\forall A\in {\mathcal {A}},\ \delta _{a}(A)=1_{A}(a) = \left\{  \begin{array}{ll} 1 \ si \ a \in A \\ 
-0 \ si \ a \notin A \end{array} \right.$\end{split}\\où $1_{A}$ désigne la fonction indicatrice de  $A$\\$\delta _{a}(X)=1$ donc cette mesure est une probabilité sur $(X,{\mathcal {A}})$\\
-Par abus de langage, on dit que la « fonction » δ de Dirac est nulle partout sauf en 0, où sa valeur infinie correspond à une « masse » de 1.\\**&lt;font color=red&gt;Masse de Dirac&lt;/font&gt; :** notation mathématique, définition de fonctions généralisées.\\$f \to f(x)$ évaluation en x, linéaire.\\Si $f$ est continue, alors :\\$$f(x) = \lim_{n\to\infty} \int_{-\frac{1}{2n}}^{\frac{1}{2n}}f(y)dy\end{aligned}\end{align} \]</div>
+\[\begin{split}\forall A\in {\mathcal {A}},\ \delta _{a}(A)=1_{A}(a) = \left\{  \begin{array}{ll} 1 \ si \ a \in A \\ 
+0 \ si \ a \notin A \end{array} \right.\end{split}\]</div>
+<p>où <span class="math notranslate nohighlight">\(1_{A}\)</span> désigne la fonction indicatrice de  <span class="math notranslate nohighlight">\(A\)</span></p>
+<p><span class="math notranslate nohighlight">\(\delta _{a}(X)=1\)</span> donc cette mesure est une probabilité sur <span class="math notranslate nohighlight">\((X,{\mathcal {A}})\)</span></p>
+<p>Par abus de langage, on dit que la « fonction » δ de Dirac est nulle partout sauf en 0, où sa valeur infinie correspond à une « masse » de 1.</p>
+<p><strong><font color=red>Masse de Dirac</font> :</strong> notation mathématique, définition de fonctions généralisées.</p>
+<p><span class="math notranslate nohighlight">\(f \to f(x)\)</span> évaluation en x, linéaire.</p>
+<p>Si <span class="math notranslate nohighlight">\(f\)</span> est continue, alors :</p>
+<div class="math notranslate nohighlight">
+\[f(x) = \lim_{n\to\infty} \int_{-\frac{1}{2n}}^{\frac{1}{2n}}f(y)dy\]</div>
 <div class="math notranslate nohighlight">
 \[f(x) = \lim_{\delta\to0} (g_\delta \ast f)(x)\]</div>
 <p>On appelle <strong>Dirac en x</strong>, la fonction généralisée <span class="math notranslate nohighlight">\(\delta_x\)</span> et vérifie :</p>
@@ -586,18 +593,20 @@ Par abus de langage, on dit que la « fonction » δ de Dirac est nulle partout 
 <p>On dit qu’un signal correspondant à une distribution de Dirac a un spectre blanc. C’est-à-dire que chaque fréquence est présente avec une intensité identique. Cette propriété permet d’analyser la réponse fréquentielle d’un système sans avoir à balayer toutes les fréquences.</p>
 <p><strong><font color=red>Propriétés</font> :</strong></p>
 <ul class="simple">
-<li><p>IPP : soit <span class="math notranslate nohighlight">\(f \ \mathbb{C}^\infty, f = 0 \ quand \ |x|&gt;&gt;1\)</span>
-$<span class="math notranslate nohighlight">\(
+<li><p>IPP : soit <span class="math notranslate nohighlight">\(f \ \mathbb{C}^\infty, f = 0 \ quand \ |x|&gt;&gt;1\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
 \begin{align}
 \int_{\mathbb{R}}^{}f(t)(1_{[0,+\infty[}(t))dt = \int_{\mathbb{R}}^{}f'(t)(1(t))dt 
-&amp;= -\int_{\mathbb{R}}^{}f(t)dt 
-&amp;= (f(+\infty) - f(0))
-&amp;= f(0)
+=&amp; -\int_{\mathbb{R}}^{}f(t)dt 
+=&amp; (f(+\infty) - f(0))
+=&amp; f(0)
 \end{align}
-\)</span>$</p></li>
-</ul>
-<p>Une autre façon de définir la masse de Dirac, c’est de dire :
-$<span class="math notranslate nohighlight">\(\delta_0 = (1_{[0, +\infty[})\)</span>$</p>
+\]</div>
+<p>Une autre façon de définir la masse de Dirac, c’est de dire :</p>
+<div class="math notranslate nohighlight">
+\[\delta_0 = (1_{[0, +\infty[})\]</div>
 <p>qui est une <strong>limite de fonction</strong></p>
 <ul class="simple">
 <li><p>Pour <span class="math notranslate nohighlight">\(f\)</span> continue, <span class="math notranslate nohighlight">\(f(t) \delta_0(t) = f(0) \delta_0(t)\)</span>

@@ -224,7 +224,7 @@ Dans le cas du signal porte, $\int_{}^{}h \ du = 1$
 
 $$ (h \ast g)(t) = \int_{\mathbb{R}}^{}h(u-t)g(u) \ du $$
 
-Remarque : h(u) est paire, i.e $h(u) = h(-u)$
+Remarque : $h(u)$ est paire, i.e $h(u) = h(-u)$
 
 **<font color=red>Propriétés de la convolution</font> :** 
 
@@ -319,14 +319,13 @@ En général, le signal n'est pas séparable.
 Soit $s(t)$, le signal porte suivant : $s(t) = [-\frac{T}{2},\frac{T}{2}]$ en 1D.
 ![signal porte](https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Rectangular_function.svg/1200px-Rectangular_function.svg.png)
 
-
 $$ 
 \begin{align}
-&= TF(s) =\int_{\mathbb{R}}^{}s(t)e^{-2 i \pi \omega t} dt
-&= TF(s) = \int_{-\frac{T}{2}^{\frac{T}{2}}e^{-2 i \pi \omega t} dt
-&= TF(s) = [\frac{e^{-2 i \pi \omega t}}{-2i \pi \omega}]^{\frac{T}{2}}_{-\frac{T}{2}}]
-&= \frac{e^{i \pi \omega T }- e^{-i \pi \omega T}}{2i \pi \omega}
-&= \frac{sin(\pi \omega T)}{\pi \omega}
+TF(s) =\int_{\mathbb{R}}^{}s(t)e^{-2 i \pi \omega t} dt
+=& TF(s) = \int_{-\frac{T}{2}^{\frac{T}{2}}e^{-2 i \pi \omega t} dt
+=& TF(s) = [\frac{e^{-2 i \pi \omega t}}{-2i \pi \omega}]^{\frac{T}{2}}_{-\frac{T}{2}}]
+=& \frac{e^{i \pi \omega T }- e^{-i \pi \omega T}}{2i \pi \omega}
+=& \frac{sin(\pi \omega T)}{\pi \omega}
 \end{align}
 $$
 
@@ -339,7 +338,7 @@ On obtient alors le **sinus cardinal**
 Soient un espace mesurable $(X,{\mathcal {A}}$ et $a\in X)$. On appelle **mesure de Dirac** au point  $a$, et l'on note  $\delta _{a}$, la mesure sur  $(X,{\mathcal {A}})$  définie par :
 
 $$\forall A\in {\mathcal {A}},\ \delta _{a}(A)=1_{A}(a) = \left\{  \begin{array}{ll} 1 \ si \ a \in A \\ 
-0 \ si \ a \notin A \end{array} \right.$
+0 \ si \ a \notin A \end{array} \right.$$
 
 où $1_{A}$ désigne la fonction indicatrice de  $A$
 
@@ -370,16 +369,18 @@ On dit qu'un signal correspondant à une distribution de Dirac a un spectre blan
 **<font color=red>Propriétés</font> :**
 
 - IPP : soit $f \ \mathbb{C}^\infty, f = 0 \ quand \ |x|>>1$
+
 $$
 \begin{align}
 \int_{\mathbb{R}}^{}f(t)(1_{[0,+\infty[}(t))dt = \int_{\mathbb{R}}^{}f'(t)(1(t))dt 
-&= -\int_{\mathbb{R}}^{}f(t)dt 
-&= (f(+\infty) - f(0))
-&= f(0)
+=& -\int_{\mathbb{R}}^{}f(t)dt 
+=& (f(+\infty) - f(0))
+=& f(0)
 \end{align}
 $$
 
 Une autre façon de définir la masse de Dirac, c'est de dire : 
+
 $$\delta_0 = (1_{[0, +\infty[})$$
 
 qui est une **limite de fonction**
