@@ -231,6 +231,41 @@
    Égalité de Parseval
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transformation-de-fourier-en-2d">
+   Transformation de Fourier en 2D
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calcul-de-la-tf-du-signal-porte">
+   Calcul de la TF du signal porte
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-aux-distributions-masse-de-dirac">
+   Introduction aux distributions : masse de Dirac
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dirac-et-convolution">
+   Dirac et convolution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#echantillonnage-et-theoreme-de-shannon">
+   Échantillonnage et théorème de Shannon
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#formule-sommatoire-de-poisson">
+   Formule sommatoire de Poisson
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#peigne-de-dirac">
+   Peigne de Dirac
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -255,6 +290,13 @@
 <p><a class="reference external" href="#Inverse-de-la-TF"><strong>Inverse de la TF</strong></a></p>
 <p><a class="reference external" href="#TF-et-d%C3%A9rivation"><strong>TF et dérivation</strong></a></p>
 <p><a class="reference external" href="#%C3%89galit%C3%A9-de-Parseval"><strong>Égalité de Parseval</strong></a></p>
+<p><a class="reference external" href="#Transformation-de-Fourier-en-2D"><strong>Transformation de Fourier en 2D</strong></a></p>
+<p><a class="reference external" href="#Calcul-de-la-TF-du-signal-porte"><strong>Calcul de la TF du signal porte</strong></a></p>
+<p><a class="reference external" href="#Introduction-aux-distributions-:-masse-de-Dirac"><strong>Introduction aux distributions : masse de Dirac</strong></a></p>
+<p><a class="reference external" href="#Dirac-et-convolution"><strong>Dirac et convolution</strong></a></p>
+<p><a class="reference external" href="#%C3%89chantillonnage-et-th%C3%A9or%C3%A8me-de-Shannon"><strong>Échantillonnage et théorème de Shannon</strong></a></p>
+<p><a class="reference external" href="#Formule-sommatoire-de-Poisson"><strong>Formule sommatoire de Poisson</strong></a></p>
+<p><a class="reference external" href="#Peigne-de-Dirac"><strong>Peigne de Dirac</strong></a></p>
 </div>
 <div class="section" id="signaux-continus-en-1d">
 <h2>Signaux continus en 1D<a class="headerlink" href="#signaux-continus-en-1d" title="Permalink to this headline">¶</a></h2>
@@ -425,23 +467,23 @@ La transformée de Fourier utilise le produit scalaire <span class="math notrans
 </div>
 <div class="section" id="convolution">
 <h2>Convolution<a class="headerlink" href="#convolution" title="Permalink to this headline">¶</a></h2>
-<p>On définit la <strong>convolution h*g</strong> tel que :</p>
+<p>On définit la <strong>convolution h <span class="math notranslate nohighlight">\(\ast\)</span> g</strong> tel que :</p>
 <div class="math notranslate nohighlight">
-\[ (h*g)(t) = \int_{\mathbb{R}}^{} h(t-u)g(u) du \]</div>
+\[ (h \ast g)(t) = \int_{\mathbb{R}}^{} h(t-u)g(u) du \]</div>
 <p><strong>Exemple : signal porte</strong></p>
 <p><img alt="signal porte" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Rectangular_function.svg/1200px-Rectangular_function.svg.png" /></p>
 <p>Dans le cas du signal porte, <span class="math notranslate nohighlight">\(\int_{}^{}h \ du = 1\)</span></p>
 <div class="math notranslate nohighlight">
-\[ (h*g)(t) = \int_{\mathbb{R}}^{}h(u-t)g(u) \ du \]</div>
+\[ (h \ast g)(t) = \int_{\mathbb{R}}^{}h(u-t)g(u) \ du \]</div>
 <p>Remarque : h(u) est paire, i.e <span class="math notranslate nohighlight">\(h(u) = h(-u)\)</span></p>
 <p><strong><font color=red>Propriétés de la convolution</font> :</strong></p>
 <ul class="simple">
-<li><p>Symétrie : <span class="math notranslate nohighlight">\(h*s = s*h\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\int_{\mathbb{R}}^{}| f*g(t)| \ dt \leq \int_{\mathbb{R}}^{}| f| \ dt \ \int_{\mathbb{R}}^{}|g| \ dt\)</span></p></li>
+<li><p>Symétrie : <span class="math notranslate nohighlight">\(h \ast s = s \ast h\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\int_{\mathbb{R}}^{}| f \ast g(t)| \ dt \leq \int_{\mathbb{R}}^{}| f| \ dt \ \int_{\mathbb{R}}^{}|g| \ dt\)</span></p></li>
 <li><p>Soit <span class="math notranslate nohighlight">\(f,g \in L^2(\mathbb{R})\)</span>, on a :</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[ \widehat{f*g}(\omega) = \hat{f}(\omega)\hat{g}(\omega) \]</div>
+\[ \widehat{f \ast g}(\omega) = \hat{f}(\omega)\hat{g}(\omega) \]</div>
 </div>
 <div class="section" id="inverse-de-la-tf">
 <h2>Inverse de la TF<a class="headerlink" href="#inverse-de-la-tf" title="Permalink to this headline">¶</a></h2>
@@ -449,7 +491,7 @@ La transformée de Fourier utilise le produit scalaire <span class="math notrans
 <div class="math notranslate nohighlight">
 \[ (TF)^{-1}(\hat{f})(t) = \int_{\mathbb{R}}^{} \hat{f}(t)e^{2i\pi \omega t}\ dt \]</div>
 <p><strong><font color=red>Propriété</font> :</strong></p>
-<p><span class="math notranslate nohighlight">\( \widehat{fg} = \hat{f} * \hat{g} \)</span> car :</p>
+<p><span class="math notranslate nohighlight">\(\widehat{fg} = \hat{f} * \hat{g}\)</span> car :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(TF^{-1} TF(fg) = fg\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(TF^{-1}(f)(\omega) = TF(f)(-\omega)\)</span></p></li>
@@ -465,12 +507,12 @@ La transformée de Fourier utilise le produit scalaire <span class="math notrans
 <p><span class="math notranslate nohighlight">\(TF(f') = \int_{\mathbb{R}}^{}e^{-2i \pi \omega t} f'(t) \ dt\)</span></p>
 <p>IPP :</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} 
+\[ 
 \begin{align}
--\int_{\mathbb{R}}^{}(e^{-2i \pi \omega t)'}f(t) \ dt
-\\ &amp;= (2i \pi \omega)\int_{\mathbb{R}}^{} e^{-2i \pi \omega t} f(t) \ dt
+=&amp; -\int_{\mathbb{R}}^{}(e^{-2i \pi \omega t)'}f(t) \ dt
+=&amp; (2i \pi \omega)\int_{\mathbb{R}}^{} e^{-2i \pi \omega t} f(t) \ dt
 \end{align} 
-\end{split}\]</div>
+\]</div>
 <p>Si le signal est p fois différenciable, <span class="math notranslate nohighlight">\( \widehat{f^{(p)}}(\omega) = (2i \pi \omega)^p \hat{f}(\omega) \)</span></p>
 <p>Si  <span class="math notranslate nohighlight">\(\widehat{f^{(p)}}(\omega)\)</span> est d’énergie finie, <span class="math notranslate nohighlight">\(L^2(\mathbb{R})\)</span> :</p>
 <div class="math notranslate nohighlight">
@@ -485,6 +527,148 @@ La transformée de Fourier utilise le produit scalaire <span class="math notrans
 <blockquote>
 <div><p>L’énergie  totale s’obtient en sommant les contributions des différents harmoniques</p>
 </div></blockquote>
+</div>
+<div class="section" id="transformation-de-fourier-en-2d">
+<h2>Transformation de Fourier en 2D<a class="headerlink" href="#transformation-de-fourier-en-2d" title="Permalink to this headline">¶</a></h2>
+<p>On considère <span class="math notranslate nohighlight">\(\{f : \mathbb{R}^2 \to \mathbb{C};  \int_{\mathbb{R}^2}^{}|f(x,y)|^2 dxdy &lt; +\infty \}\)</span></p>
+<p>On définit la TF :</p>
+<div class="math notranslate nohighlight">
+\[TF(f)(\omega_1 \omega_2) = \int_{\mathbb{R}^2}^{}f(x_1,x_2) e^{-2i \pi(\omega_1 x_1 + \omega_2 x_2)}dx_1 dx_2\]</div>
+<p>En dimension n :</p>
+<div class="math notranslate nohighlight">
+\[TF(f)(\omega_1...\omega_n) = \int_{\mathbb{R}^n}^{}f(x_1,...,x_n) e^{-2i \pi(\omega_1 x_1 + ... + \omega_n x_n)}dx_1...dx_n\]</div>
+<p>La plupart des propriétés déjà vues en 1D restent vraies en nD.</p>
+<div class="math notranslate nohighlight">
+\[TF(f(ax_1,ax_2)) = \frac{1}{|a|^2}\hat{f}(\frac{w_1}{a},\frac{w_2}{a})\]</div>
+<div class="math notranslate nohighlight">
+\[TF(\delta x_1 f) = (2i\pi \omega_1)TF(f)\]</div>
+<p><span class="math notranslate nohighlight">\(\delta x_1\)</span> signifie que l’on dérive par rapport à la <span class="math notranslate nohighlight">\(1^{ère}\)</span> variable. On peut aussi l’écrire <span class="math notranslate nohighlight">\(\frac{\delta}{\delta x_1}f\)</span></p>
+<p><strong><font color=red>Remarque</font> :</strong></p>
+<p>Considérons le signal <span class="math notranslate nohighlight">\(f(x_1,x_2) = h(x_1)g(x_2)\)</span></p>
+<div class="math notranslate nohighlight">
+\[TF(f) = \int_{\mathbb{R}^2}^{}e^{-2i \pi \omega_1 x_1}h(x_1)e^{-2 i \pi \omega_2 x_2}g(x_2)dx_1 dx_2\]</div>
+<div class="math notranslate nohighlight">
+\[TF(f)(\omega_1 \omega_2) = TF(h)(\omega_1)TF(g)(\omega_2)\]</div>
+<p>En général, le signal n’est pas séparable.</p>
+</div>
+<div class="section" id="calcul-de-la-tf-du-signal-porte">
+<h2>Calcul de la TF du signal porte<a class="headerlink" href="#calcul-de-la-tf-du-signal-porte" title="Permalink to this headline">¶</a></h2>
+<p>Soit <span class="math notranslate nohighlight">\(s(t)\)</span>, le signal porte suivant : <span class="math notranslate nohighlight">\(s(t) = [-\frac{T}{2},\frac{T}{2}]\)</span> en 1D.
+<img alt="signal porte" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Rectangular_function.svg/1200px-Rectangular_function.svg.png" /></p>
+<div class="math notranslate nohighlight">
+\[ 
+\begin{align}
+&amp;= TF(s) =\int_{\mathbb{R}}^{}s(t)e^{-2 i \pi \omega t} dt
+&amp;= TF(s) = \int_{-\frac{T}{2}^{\frac{T}{2}}e^{-2 i \pi \omega t} dt
+&amp;= TF(s) = [\frac{e^{-2 i \pi \omega t}}{-2i \pi \omega}]^{\frac{T}{2}}_{-\frac{T}{2}}]
+&amp;= \frac{e^{i \pi \omega T }- e^{-i \pi \omega T}}{2i \pi \omega}
+&amp;= \frac{sin(\pi \omega T)}{\pi \omega}
+\end{align}
+\]</div>
+<p>On obtient alors le <strong>sinus cardinal</strong></p>
+</div>
+<div class="section" id="introduction-aux-distributions-masse-de-dirac">
+<h2>Introduction aux distributions : masse de Dirac<a class="headerlink" href="#introduction-aux-distributions-masse-de-dirac" title="Permalink to this headline">¶</a></h2>
+<p><strong>Rappels sur Dirac :</strong></p>
+<p>Soient un espace mesurable <span class="math notranslate nohighlight">\((X,{\mathcal {A}}\)</span> et <span class="math notranslate nohighlight">\(a\in X)\)</span>. On appelle <strong>mesure de Dirac</strong> au point  <span class="math notranslate nohighlight">\(a\)</span>, et l’on note  <span class="math notranslate nohighlight">\(\delta _{a}\)</span>, la mesure sur  <span class="math notranslate nohighlight">\((X,{\mathcal {A}})\)</span>  définie par :</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{split}\forall A\in {\mathcal {A}},\ \delta _{a}(A)=1_{A}(a) = \left\{  \begin{array}{ll} 1 \ si \ a \in A \\ 
+0 \ si \ a \notin A \end{array} \right.$\end{split}\\où $1_{A}$ désigne la fonction indicatrice de  $A$\\$\delta _{a}(X)=1$ donc cette mesure est une probabilité sur $(X,{\mathcal {A}})$\\
+Par abus de langage, on dit que la « fonction » δ de Dirac est nulle partout sauf en 0, où sa valeur infinie correspond à une « masse » de 1.\\**&lt;font color=red&gt;Masse de Dirac&lt;/font&gt; :** notation mathématique, définition de fonctions généralisées.\\$f \to f(x)$ évaluation en x, linéaire.\\Si $f$ est continue, alors :\\$$f(x) = \lim_{n\to\infty} \int_{-\frac{1}{2n}}^{\frac{1}{2n}}f(y)dy\end{aligned}\end{align} \]</div>
+<div class="math notranslate nohighlight">
+\[f(x) = \lim_{\delta\to0} (g_\delta \ast f)(x)\]</div>
+<p>On appelle <strong>Dirac en x</strong>, la fonction généralisée <span class="math notranslate nohighlight">\(\delta_x\)</span> et vérifie :</p>
+<div class="math notranslate nohighlight">
+\[&lt;\delta_x, f&gt;_{L^2} = f(x) \ \ \forall f \text{est une fonction continue}\]</div>
+<div class="math notranslate nohighlight">
+\[\int_{\mathbb{R}}^{}f(u)\delta_x(u)du = f(x)\]</div>
+<p>La <strong>distribution de Dirac</strong>, aussi appelée par abus de langage <strong>fonction  δ  de Dirac</strong>, peut être informellement considérée comme une fonction qui prend une « valeur » infinie en 0, et la valeur zéro partout ailleurs, et dont l’intégrale sur <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> est égale à 1.</p>
+<p>On dit qu’un signal correspondant à une distribution de Dirac a un spectre blanc. C’est-à-dire que chaque fréquence est présente avec une intensité identique. Cette propriété permet d’analyser la réponse fréquentielle d’un système sans avoir à balayer toutes les fréquences.</p>
+<p><strong><font color=red>Propriétés</font> :</strong></p>
+<ul class="simple">
+<li><p>IPP : soit <span class="math notranslate nohighlight">\(f \ \mathbb{C}^\infty, f = 0 \ quand \ |x|&gt;&gt;1\)</span>
+$<span class="math notranslate nohighlight">\(
+\begin{align}
+\int_{\mathbb{R}}^{}f(t)(1_{[0,+\infty[}(t))dt = \int_{\mathbb{R}}^{}f'(t)(1(t))dt 
+&amp;= -\int_{\mathbb{R}}^{}f(t)dt 
+&amp;= (f(+\infty) - f(0))
+&amp;= f(0)
+\end{align}
+\)</span>$</p></li>
+</ul>
+<p>Une autre façon de définir la masse de Dirac, c’est de dire :
+$<span class="math notranslate nohighlight">\(\delta_0 = (1_{[0, +\infty[})\)</span>$</p>
+<p>qui est une <strong>limite de fonction</strong></p>
+<ul class="simple">
+<li><p>Pour <span class="math notranslate nohighlight">\(f\)</span> continue, <span class="math notranslate nohighlight">\(f(t) \delta_0(t) = f(0) \delta_0(t)\)</span>
+Avec <span class="math notranslate nohighlight">\(g\)</span> continue</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ 
+\begin{align}
+&lt;f(t) \delta_0(t), g(t)&gt;_{L^2} = &lt;\delta_0(t), f(t)g(t)&gt;
+&amp;= f(0)g(0)
+&amp;= &lt;f(0)\delta_0,g&gt;
+\end{align}
+\]</div>
+<p><strong>Calcul de la TF de <span class="math notranslate nohighlight">\(\delta_0\)</span></strong></p>
+<div class="math notranslate nohighlight">
+\[TF(\delta_0) = \int_{\mathbb{R}}^{} \delta_0(t)e^{-2i \pi \omega t} dt\]</div>
+<div class="math notranslate nohighlight">
+\[TF(\delta_0) = 1\]</div>
+<div class="math notranslate nohighlight">
+\[TF(\delta_\tau) = e^{-2i\pi\omega\tau}\]</div>
+</div>
+<div class="section" id="dirac-et-convolution">
+<h2>Dirac et convolution<a class="headerlink" href="#dirac-et-convolution" title="Permalink to this headline">¶</a></h2>
+<p>L’« <strong>impulsion de Dirac</strong> »  δ  est l’élément neutre de la convolution</p>
+<div class="math notranslate nohighlight">
+\[(\delta \ast f)(x)\!:=\delta \left(f(x-\cdot )\right)=f(x-0)\quad (x\in \mathbb {R} ^{n})\]</div>
+<p>d’où :  <span class="math notranslate nohighlight">\(\delta \ast f=f\)</span></p>
+<div class="math notranslate nohighlight">
+\[TF(\delta_0 \ast f) = TF(\delta_0)TF(f) = 1TF(f)\]</div>
+<p>Dirac d’ordre supérieur : <span class="math notranslate nohighlight">\(&lt;\delta_0^{(1)},f&gt; = f'(0)\)</span></p>
+<p><strong><font color=red>Égalité entre deux distributions</font> :</strong></p>
+<p>Soient <span class="math notranslate nohighlight">\(\eta_1, \eta_2\)</span>, deux fonctions généralisées.</p>
+<p><span class="math notranslate nohighlight">\(\eta_1 = \eta_2 = &lt;h_1,f&gt; = &lt;h_2,f&gt;\)</span>
+<span class="math notranslate nohighlight">\(\forall f \in \mathbb{C}^\infty(\mathbb{R}, \mathbb{C}) \ tq \ f(x) = 0 \ si \ |x| &gt;&gt; 1\)</span></p>
+</div>
+<div class="section" id="echantillonnage-et-theoreme-de-shannon">
+<h2>Échantillonnage et théorème de Shannon<a class="headerlink" href="#echantillonnage-et-theoreme-de-shannon" title="Permalink to this headline">¶</a></h2>
+<p><strong><font color=red>Motivation</font> :</strong> étant donné un signal analogique <span class="math notranslate nohighlight">\(s: \mathbb{R} \to \mathbb{R}\)</span>. On échantillonne le signal en <strong><span class="math notranslate nohighlight">\((nTe)_{n\in\mathbb{Z}}\)</span></strong></p>
+<p><span class="math notranslate nohighlight">\(Te\)</span>: temps d’échantillonnage</p>
+<p>Étant donné <span class="math notranslate nohighlight">\((s(nTe))_{n\in\mathbb{Z}}\)</span>, peut-on avoir accès à <span class="math notranslate nohighlight">\(s(t)\)</span> ? <span class="math notranslate nohighlight">\(\to\)</span> non en toute généralité. Si <span class="math notranslate nohighlight">\(Te &lt;&lt; 1\)</span>, on aura une bonne approximation. Que se passe-t-il quand <span class="math notranslate nohighlight">\(Te\)</span> augmente ?</p>
+<p><strong><font color=red>Théorème de Shannon</font> :</strong></p>
+<p>Soit <span class="math notranslate nohighlight">\(s:\mathbb{R} \to \mathbb{C}\)</span> à bande passante <span class="math notranslate nohighlight">\(\hat{s}(\omega) = 0\)</span> si <span class="math notranslate nohighlight">\(\omega \notin [-\omega_c,\omega_c]\)</span> alors si <span class="math notranslate nohighlight">\(Te &lt; \frac{1}{2\omega_c}\)</span>, on peut reconstruire <span class="math notranslate nohighlight">\(s\)</span> par la formule d’interpolation.</p>
+<div class="math notranslate nohighlight">
+\[ s(t) = \sum_{n\in\mathbb{Z}}^{}s(nTe)\frac{sin(\frac{\pi(t-nTe)}{Te})}{\pi(\frac{t-nTe}{Te})}\]</div>
+<p>On retient donc que sous des hypothèses de bande passante, on peut reconstruire exactement le signal échantillonné suffisamment rapidement. Ce théorème établit les conditions qui permettent l’échantillonnage d’un signal de largeur spectrale et d’amplitude limitées.</p>
+<p>La fréquence d’échantillonnage <span class="math notranslate nohighlight">\(Fe\)</span> doit respecter la règle suivante : <span class="math notranslate nohighlight">\(Fe &gt; 2f_0\)</span> sachant que <span class="math notranslate nohighlight">\(f_0=\nu_0 Fe\)</span></p>
+<p>{<span class="math notranslate nohighlight">\(f\)</span> à bande passante} <span class="math notranslate nohighlight">\(\subset\)</span> signaux très régulier</p>
+<div class="math notranslate nohighlight">
+\[TF(s^{(n)}) = (2i\pi\omega)^nTF(s)\]</div>
+<p><span class="math notranslate nohighlight">\(TF(s)\)</span> est le support dans <span class="math notranslate nohighlight">\([-\omega_c,\omega_c]\)</span></p>
+</div>
+<div class="section" id="formule-sommatoire-de-poisson">
+<h2>Formule sommatoire de Poisson<a class="headerlink" href="#formule-sommatoire-de-poisson" title="Permalink to this headline">¶</a></h2>
+<p>La <strong>formule sommatoire de Poisson</strong> (parfois appelée <strong>resommation de Poisson</strong>) est une identité entre deux sommes infinie : sa première construite avec une fonction <span class="math notranslate nohighlight">\(f\)</span>, la seconde avec sa transformée de Fourier  <span class="math notranslate nohighlight">\(\hat{f}\)</span></p>
+<p>Soient  <span class="math notranslate nohighlight">\(a\)</span> un réel strictement positif et  <span class="math notranslate nohighlight">\(\omega_0  = \frac{2\pi}{a}\)</span>.</p>
+<p>Si  <span class="math notranslate nohighlight">\(f\)</span> est une fonction continue de <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> dans <span class="math notranslate nohighlight">\(\mathbb{C}\)</span> et intégrable telle que</p>
+<div class="math notranslate nohighlight">
+\[\exists C&gt;0\quad \exists \alpha &gt;1\quad \forall x\in \mathbb {R} \quad |f(x)|\leq {\frac {C}{\left(1+|x|\right)^{\alpha }}}\]</div>
+<p>et
+$<span class="math notranslate nohighlight">\(\sum _{m=-\infty }^{\infty }|{\hat {f}}(m\omega _{0})|&lt;\infty\)</span>$</p>
+<p>alors</p>
+<div class="math notranslate nohighlight">
+\[\sum _{n=-\infty }^{\infty }f(t+na)={\frac {1}{a}}\sum _{m=-\infty }^{\infty }{\hat {f}}(m\omega _{0}){\rm {e}}^{{\rm {i}}m\omega _{0}t}.\]</div>
+</div>
+<div class="section" id="peigne-de-dirac">
+<h2>Peigne de Dirac<a class="headerlink" href="#peigne-de-dirac" title="Permalink to this headline">¶</a></h2>
+<p>La distribution du peigne de Dirac est une somme de distributions espacées de</p>
+<div class="math notranslate nohighlight">
+\[\sum_{k=-\infty}^{\infty}\delta_{k T}(t) = \sum_{k=-\infty}^{\infty}\delta(t-kT)\]</div>
+<p>Cette distribution périodique est particulièrement utile dans les problèmes d’échantillonnage, remplacement d’une fonction continue par une suite de valeurs de la fonction séparées par un pas de temps <span class="math notranslate nohighlight">\(T\)</span>. Elle est <span class="math notranslate nohighlight">\(T\)</span>-périodique et tempérée, comme dérivée d’une fonction constante par morceaux ; on peut donc la développer en série de Fourier.</p>
+<p><img alt="Peigne de Dirac" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/DiracComb.png/1200px-DiracComb.png" /></p>
 </div>
 </div>
 
