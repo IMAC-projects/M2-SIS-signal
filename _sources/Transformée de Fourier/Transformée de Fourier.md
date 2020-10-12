@@ -319,15 +319,17 @@ En général, le signal n'est pas séparable.
 Soit $s(t)$, le signal porte suivant : $s(t) = [-\frac{T}{2},\frac{T}{2}]$ en 1D.
 ![signal porte](https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Rectangular_function.svg/1200px-Rectangular_function.svg.png)
 
+
 $$ 
 \begin{align}
-TF(s) =\int_{\mathbb{R}}^{}s(t)e^{-2 i \pi \omega t} dt
+\int_{\mathbb{R}}^{}s(t)e^{-2 i \pi \omega t} dt
 =& TF(s) = \int_{-\frac{T}{2}^{\frac{T}{2}}e^{-2 i \pi \omega t} dt
 =& TF(s) = [\frac{e^{-2 i \pi \omega t}}{-2i \pi \omega}]^{\frac{T}{2}}_{-\frac{T}{2}}]
 =& \frac{e^{i \pi \omega T }- e^{-i \pi \omega T}}{2i \pi \omega}
 =& \frac{sin(\pi \omega T)}{\pi \omega}
 \end{align}
 $$
+
 
 On obtient alors le **sinus cardinal**
 
