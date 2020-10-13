@@ -344,8 +344,7 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Une fonction créneau&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/TP1 - EEA - Exercices_3_2.png" src="../../_images/TP1 - EEA - Exercices_3_2.png" />
-</div>
+<img alt="../../_images/TP1 - EEA - Exercices_3_2.svg" src="../../_images/TP1 - EEA - Exercices_3_2.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -366,45 +365,44 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># illustration.</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectre</span><span class="p">))</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot; Le spectre du signal &quot;</span><span class="p">)</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">sf</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">spectre</span><span class="p">)))</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;La fréquence nulle est au milieu.&quot;</span><span class="p">)</span>
-
-
-<span class="c1">#Normalisation du signal (que l&#39;on utilise pas pendant le calcul de norme)</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">y</span><span class="o">/</span><span class="n">n</span>
-
-<span class="c1"># normes l²</span>
-<span class="k">def</span> <span class="nf">norm</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">))))</span><span class="o">/</span><span class="n">n</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Norme du signal : &quot;</span><span class="p">,</span> <span class="n">norm</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Norme de sa TF : &quot;</span><span class="p">,</span> <span class="n">norm</span><span class="p">(</span><span class="n">spectre</span><span class="p">))</span>
-
-<span class="c1"># verifier que la fft et l&#39;inverse de la fft sont bien inverse numérique</span>
-
-<span class="k">def</span> <span class="nf">is_numerical_inv</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">1e-20</span>
-    <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">epsilon</span>
-
-<span class="n">inv_sum</span> <span class="o">=</span> <span class="n">norm</span><span class="p">((</span><span class="n">inverse_du_spectre</span> <span class="o">-</span> <span class="n">y</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">inv_sum</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">is_numerical_inv</span><span class="p">(</span><span class="n">inv_sum</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Norme du signal :  0.03162277660168379
-Norme de sa TF :  1.0000000000000002
-1.0254966362228638e-17
-False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;La fréquence nulle est au milieu.&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/TP1 - EEA - Exercices_6_1.png" src="../../_images/TP1 - EEA - Exercices_6_1.png" />
+<img alt="../../_images/TP1 - EEA - Exercices_6_1.svg" src="../../_images/TP1 - EEA - Exercices_6_1.svg" /></div>
+</div>
+<p>normL2 = <span class="math notranslate nohighlight">\( \sqrt{\sum_i{|y_i^2|}}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">normL2</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="n">yn</span> <span class="o">=</span> <span class="n">y</span><span class="o">/</span><span class="n">y</span><span class="o">.</span><span class="n">size</span> <span class="c1"># normalisation</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">yn</span><span class="o">*</span><span class="n">yn</span><span class="p">)))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Norme du signal : &#39;</span><span class="p">,</span> <span class="n">normL2</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Norme du spectre : &#39;</span><span class="p">,</span> <span class="n">normL2</span><span class="p">(</span><span class="n">spectre</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Norme de (inverse_du_spectre-y) : &#39;</span><span class="p">,</span> <span class="n">normL2</span><span class="p">(</span><span class="n">inverse_du_spectre</span> <span class="o">-</span> <span class="n">y</span><span class="p">),</span> <span class="s1">&#39;&lt;&lt; 1&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;fft et l&#39;inverse de la ftt sont bien inverses numériques&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Norme du signal :  0.0316227766016838
+Norme du spectre :  1.0000000000000002
+Norme de (inverse_du_spectre-y) :  9.928002024824657e-18 &lt;&lt; 1
+fft et l&#39;inverse de la ftt sont bien inverses numériques
+</pre></div>
+</div>
 </div>
 </div>
 <p>### Exercice 2:</p>
@@ -425,7 +423,7 @@ False
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1d883b85d88&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/TP1 - EEA - Exercices_8_1.png" src="../../_images/TP1 - EEA - Exercices_8_1.png" />
+<img alt="../../_images/TP1 - EEA - Exercices_10_1.png" src="../../_images/TP1 - EEA - Exercices_10_1.png" />
 </div>
 </div>
 <p>On obtient une réprensentation du signal filtré à l’aide d’un filtre passe-bas. On observe le phénomène de Gibbs.</p>
@@ -438,34 +436,27 @@ False
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gaussienne</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">sigma</span><span class="o">*</span><span class="n">sigma</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="c1"># print(gaussienne(0.05))</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
-<span class="n">signal</span> <span class="o">=</span> <span class="n">gaussienne</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">signal</span> <span class="o">=</span> <span class="n">gaussienne</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
 <span class="n">tf_gaussienne</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">tf_gaussienne</span><span class="p">))</span>
 
-
-<span class="n">pl</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">signal</span><span class="p">))</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;La gaussienne&quot;</span><span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Signal de la gaussienne&quot;</span><span class="p">)</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">sf</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">tf_gaussienne</span><span class="p">)))</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;La TF de la gaussienne&quot;</span><span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Spectre de la gaussienne&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1769223574889692
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Spectre de la gaussienne&#39;)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;La TF de la gaussienne&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/TP1 - EEA - Exercices_11_2.png" src="../../_images/TP1 - EEA - Exercices_11_2.png" />
-</div>
+<img alt="../../_images/TP1 - EEA - Exercices_13_1.svg" src="../../_images/TP1 - EEA - Exercices_13_1.svg" /></div>
 </div>
 </div>
 <div class="section" id="on-va-creer-un-signal-de-type-sinusoidal-numerique-qu-on-va-ensuite-ecouter">
@@ -475,11 +466,26 @@ False
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fs</span> <span class="o">=</span> <span class="mi">44100</span> <span class="c1"># fq d&#39;échantillonage</span>
 <span class="n">T</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># duree du signal en secondes</span>
 <span class="n">fq</span> <span class="o">=</span> <span class="mi">440</span>
-<span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">T</span> <span class="o">*</span> <span class="n">fs</span><span class="p">)</span><span class="o">/</span><span class="n">fs</span>
-<span class="n">y</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">fq</span> <span class="o">*</span> <span class="n">points</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">generateT</span><span class="p">(</span><span class="n">fs</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span> <span class="o">*</span> <span class="n">fs</span><span class="p">)</span><span class="o">/</span><span class="n">fs</span>
+
+<span class="k">def</span> <span class="nf">sinus</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">amp</span><span class="p">,</span> <span class="n">fq</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">amp</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">fq</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">generateT</span><span class="p">(</span><span class="n">fs</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+<span class="n">signal</span> <span class="o">=</span> <span class="n">sinus</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">fq</span><span class="p">)</span>
+<span class="n">tf_signal</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
+
+<span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">signal</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1d4245f48e0&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/TP1 - EEA - Exercices_15_1.svg" src="../../_images/TP1 - EEA - Exercices_15_1.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -503,34 +509,47 @@ False
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimation_fq</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">signal</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:</span><span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="o">/</span><span class="mi">20</span><span class="p">))]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">signal_2ds</span> <span class="o">=</span> <span class="n">signal</span><span class="p">[:</span><span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">size</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="mi">10</span><span class="p">))]</span> <span class="c1"># signal sur 2 dixiemes de seconde</span>
 
-<span class="n">pl</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">signal</span><span class="p">))</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Signal sur 2 dixièmes de seconde&quot;</span><span class="p">)</span>
-<span class="n">tf_signal</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">sf</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">tf_signal</span><span class="p">)))</span>
+<span class="n">tf_signal_2ds</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">signal_2ds</span><span class="p">)</span>
+
+<span class="n">pl</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Signal&quot;</span><span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">signal_2ds</span><span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Zoom&quot;</span><span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">sf</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">tf_signal_2ds</span><span class="p">)))</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;La TF du signal&quot;</span><span class="p">)</span>
-
-<span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">def get_number_spikes(signal):</span>
-<span class="sd">    return np.unravel_index(np.argmax(signal, axis=None), signal.shape)</span>
-
-<span class="sd">print(get_number_spikes(signal))&#39;&#39;&#39;</span>
-
-<span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;La fréquence pour laquelle la transformée de Fourier est maximale est </span><span class="si">{}</span><span class="s2"> Hz&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">estimation_fq</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>La fréquence pour laquelle la transformée de Fourier est maximale est 0 Hz
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;La TF du signal&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/TP1 - EEA - Exercices_16_1.png" src="../../_images/TP1 - EEA - Exercices_16_1.png" />
+<img alt="../../_images/TP1 - EEA - Exercices_18_1.svg" src="../../_images/TP1 - EEA - Exercices_18_1.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">countSpike</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">):</span>
+    <span class="nb">max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">x</span><span class="o">&gt;</span> <span class="nb">max</span> <span class="o">-</span> <span class="n">epsilon</span><span class="p">)</span><span class="o">.</span><span class="n">size</span>
+    
+<span class="n">e</span><span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">estimation_fq</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">10</span> <span class="o">/</span> <span class="n">countSpike</span><span class="p">(</span><span class="n">signal_2ds</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La fréquence pour laquelle la transformée de Fourier est maximale est </span><span class="si">{}</span><span class="s2"> Hz&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">estimation_fq</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C&#39;est une bonne approximation de la fréquence réel égale à 440 Hz&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>La fréquence pour laquelle la transformée de Fourier est maximale est 439.99999999999994 Hz
+C&#39;est une bonne approximation de la fréquence réel égale à 440 Hz
+</pre></div>
+</div>
 </div>
 </div>
 <p>### Exercice 5:</p>
@@ -540,14 +559,13 @@ False
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">position</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">tf_signal</span><span class="p">))</span>
-<span class="n">fq</span> <span class="o">=</span> <span class="p">(</span><span class="n">position</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">tf_signal</span><span class="p">))</span> <span class="o">*</span> <span class="n">fs</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">tf_signal</span><span class="p">)</span><span class="o">/</span><span class="n">tf_signal</span><span class="o">.</span><span class="n">size</span> <span class="o">*</span> <span class="n">fs</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La fréquence du maximum de la fft du signal est </span><span class="si">{}</span><span class="s2"> Hz&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">fq</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>La fréquence du maximum de la fft du signal est 440 Hz
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>La fréquence du maximum de la fft du signal est 39251 Hz
 </pre></div>
 </div>
 </div>
@@ -607,7 +625,7 @@ la longueur du signal mono en secondes est  20
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1d883ece088&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/TP1 - EEA - Exercices_22_2.png" src="../../_images/TP1 - EEA - Exercices_22_2.png" />
+<img alt="../../_images/TP1 - EEA - Exercices_25_2.png" src="../../_images/TP1 - EEA - Exercices_25_2.png" />
 </div>
 </div>
 <p>Le signal est composé de plusieurs fréquences : la fréquence fondamentale et les harmoniques.</p>
@@ -649,7 +667,7 @@ la longueur du signal mono en secondes est  20
 22050
 </pre></div>
 </div>
-<img alt="../../_images/TP1 - EEA - Exercices_27_1.png" src="../../_images/TP1 - EEA - Exercices_27_1.png" />
+<img alt="../../_images/TP1 - EEA - Exercices_30_1.png" src="../../_images/TP1 - EEA - Exercices_30_1.png" />
 </div>
 </div>
 </div>
@@ -718,7 +736,7 @@ la longueur du signal mono en secondes est  1
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1d8857d2888&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/TP1 - EEA - Exercices_32_2.png" src="../../_images/TP1 - EEA - Exercices_32_2.png" />
+<img alt="../../_images/TP1 - EEA - Exercices_35_2.png" src="../../_images/TP1 - EEA - Exercices_35_2.png" />
 </div>
 </div>
 </div>
@@ -739,7 +757,7 @@ la longueur du signal mono en secondes est  1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/TP1 - EEA - Exercices_34_0.png" src="../../_images/TP1 - EEA - Exercices_34_0.png" />
+<img alt="../../_images/TP1 - EEA - Exercices_37_0.png" src="../../_images/TP1 - EEA - Exercices_37_0.png" />
 </div>
 </div>
 <div class="section" id="exercice-10">
@@ -767,7 +785,7 @@ la longueur du signal mono en secondes est  1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/TP1 - EEA - Exercices_36_0.png" src="../../_images/TP1 - EEA - Exercices_36_0.png" />
+<img alt="../../_images/TP1 - EEA - Exercices_39_0.png" src="../../_images/TP1 - EEA - Exercices_39_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -797,8 +815,8 @@ la longueur du signal mono en secondes est  1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/TP1 - EEA - Exercices_37_0.png" src="../../_images/TP1 - EEA - Exercices_37_0.png" />
-<img alt="../../_images/TP1 - EEA - Exercices_37_1.png" src="../../_images/TP1 - EEA - Exercices_37_1.png" />
+<img alt="../../_images/TP1 - EEA - Exercices_40_0.png" src="../../_images/TP1 - EEA - Exercices_40_0.png" />
+<img alt="../../_images/TP1 - EEA - Exercices_40_1.png" src="../../_images/TP1 - EEA - Exercices_40_1.png" />
 </div>
 </div>
 </div>
