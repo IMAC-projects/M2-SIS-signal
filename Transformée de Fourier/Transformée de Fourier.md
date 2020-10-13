@@ -1,4 +1,4 @@
-﻿# Transformée de Fourier
+# Transformée de Fourier
 
 > La transformée de Fourier est une opération qui transforme une fonction intégrable sur $\mathbb{R}$ en une autre fonction.
 
@@ -48,7 +48,7 @@ Où $\overline{a}$ le complexe conjugué de a $\in \mathbb{C}$.
 $\left\{  \begin{array}{ll} a = a_{1} + ia_{2} \\ 
 \overline{a} = a_1 - ia_2 \end{array} \right.$
 
-**<font color=red>Attention</font>** : On a bien $\int_{\mathbb{R}} f(x)\overline{f}(x)dx = \int_{\mathbb{R}} f(x)|^2dx \leq 0$ et nul ssi $f = 0$
+**<font color=red>Attention</font>** : On a bien $\int_{\mathbb{R}} f(x)\overline{f}(x)dx = \int_{\mathbb{R}} |f(x)|^2dx \leq 0$ et nul ssi $f = 0$
 
 Quelques propriétés sur ce produit scalaire : 
 * **Symétrie hermitienne** : $<f,g> = \overline{<g,f>}$
@@ -72,12 +72,12 @@ Ici, on passe du domaine **temporel** au domaine **fréquentiel**.
 
 En posant  la notation $e_\omega = e^{2i\pi\omega t}$, on retrouve alors la forme suivante exprimée avec le produit scalaire précédemment défini :
 
-$$ 
+$$
 \begin{align}
 \hat{f}(\omega) =& <f, e_\omega> \\
 =& \int_{\mathbb{R}} f(t) \overline{e^{2i\pi\omega t}}dt \\
 =& \int_{\mathbb{R}} f(t) e^{-2i\pi\omega t}dt
-\end{align} 
+\end{align}
 $$
 
 > *Pourquoi retrouve-t-on le signe $-$ devant $2i\pi \omega t$ ?* 
@@ -87,9 +87,10 @@ $$
 
 $TF(f)(\omega)$ est bien définie car 
 
-$$ | < f,e_{\omega} > | \leq \int_{\mathbb{R}}^{} | f(x) e^{-2i\pi \omega x} | \ dx =  \int_{\mathbb{R}}^{}  | f(x) | \ dx \le + \infty $$
-
-donc $\forall \omega \ | \hat{f}(\omega) | \leq \int_{\mathbb{R}}^{} | f(x) | \ dx$ avec $\omega$ la fréquence en $Hz$
+$$
+|< f,e_{\omega}>| \leq \int_{\mathbb{R}}^{} | f(t) e^{-2i\pi \omega t} | \ dx =  \int_{\mathbb{R}}^{}  | f(t) | \ dt \le + \infty
+$$
+donc $\forall \omega \ | \hat{f}(\omega) | \leq \int_{\mathbb{R}}^{} | f(t) | \ dt$ avec $\omega$ la fréquence en $Hz$
 
 ## Propriétés de la TF
 
@@ -97,19 +98,21 @@ donc $\forall \omega \ | \hat{f}(\omega) | \leq \int_{\mathbb{R}}^{} | f(x) | \ 
 
   Soit $a,b \in \mathbb{R}$  et  $f,g \in L^1(\mathbb{R})$
 
-  $$ TF(af+bg) = \widehat{af+bg} = a\hat{f}+b\hat{g} $$
+  $$
+  TF(af+bg) = \widehat{af+bg} = a\hat{f}+b\hat{g} 
+  $$
+  
 
 * **Démonstration** :
-
-  $$ 
+$$
   \begin{align}
   TF(af+bg) =& <af+bg, e_\omega> \\
   & {\small\text{(par linéarité du produit scalaire hermitien)}} \\
   =& a<f, e_\omega> + b<g, e_\omega> \\
   =& a\hat{f}+b\hat{g} \quad \\
-  \end{align} 
+  \end{align}
   $$
-
+  
 * **<font color=red>Théorème du retard (translation temporelle) </font>** 
 
   Soit $t_0 \in \mathbb{R}$ et $f : \mathbb{R} \to \mathbb{C}$. On définit la translation de $f$ par $t_0$ :  $\tau_a(f)(t) \mapsto f(t-t_0)$
@@ -118,14 +121,14 @@ donc $\forall \omega \ | \hat{f}(\omega) | \leq \int_{\mathbb{R}}^{} | f(x) | \ 
 
 **Démonstration** : 
 
-$$ 
+$$
 \begin{align}
 \widehat{\tau_a(f)}(\omega) =& \int_{\mathbb{R}} \tau_a(f)e^{-2i\pi\omega t}dt \\
 &{\small \text{On pose} \ t' = t-t_0 \ \text{(changement de variable)}} \\
 =& \int_{\mathbb{R}} f(t')e^{-2i\pi\omega (t'+a)} \ dt' \\
 =& e^{-2i\pi\omega t_0} \int_{\mathbb{R}} f(t')e^{-2i\pi\omega t'} dt' \\
 =& e^{-2i\pi\omega t_0} \hat{f}(\omega)
-\end{align} 
+\end{align}
 $$
 
 - **<font color=red>Modulation ou Translation fréquencielle </font>**
@@ -136,7 +139,7 @@ $$ \widehat{f_{\omega_0}}(\omega) = \tau_{\omega_0}(\hat{f})(\omega) = \hat{f}(\
 
 **Démonstration** :
 
-$$ 
+$$
 \begin{align}
 \widehat{f_{\omega_0}} =& \int_{\mathbb{R}} f(t) e^{2i\pi\omega_0 t} e^{-2i\pi \omega t}dt \\
 =& \int_{\mathbb{R}} f(t) e^{2i\pi (\omega-\omega_0) t} dt \\
@@ -148,13 +151,16 @@ $$
 
   Soit $a \in \mathbb{R}$ et $f : \mathbb{R} \to \mathbb{C}$. On définit la dilatation de $f$ par $a$ :  $D_a(f)(t) \mapsto f(at)$
 
-  $$ \widehat{D_a(f)} = \frac{1}{|a|} \hat{f}(\frac{\omega}{a}) $$
+  $$
+  \widehat{D_a(f)} = \frac{1}{|a|} \hat{f}(\frac{\omega}{a})
+  $$
+  
+  
+  **Démonstration** : 
+  
+  ​	Pour $a \geq 0$ :
 
-**Démonstration** : 
-
-Pour $a \geq 0$ :
-
-$$ 
+$$
 \begin{align}
 \widehat{D_a(f)} =& \int_{\mathbb{R}} f(at) e^{-2i\pi \omega t}dt \\
 &{\small \text{On pose} \ t' = at \ \text{(changement de variable)}} \\
@@ -164,9 +170,9 @@ $$
 \end{align}
 $$
 
-Pour $a<0$ :
+​		Pour $a<0$ :
 
-$$ 
+$$
 \begin{align}
 \widehat{D_a(f)} =& \int_{\mathbb{R}} f(at) e^{-2i\pi \omega t}dt \\
 &{\small \text{On pose} \ t' = at \ \text{(changement de variable)}} \\
@@ -182,97 +188,179 @@ $$
 
 - **<font color=red> Passage au conjugué</font>** 
 
-Soit $f : \mathbb{R} \to \mathbb{C}$
+  Soit $f : \mathbb{R} \to \mathbb{C}$
 
-$$ \widehat{\overline{f}(\omega)} = \overline{\hat{f}(-\omega)} $$
+$$
+\widehat{\overline{f}}(\omega) = \overline{\hat{f}(-\omega)}
+$$
 
-**Démonstration** : 
-
-$$ 
+​	**Démonstration** : 
+$$
 \begin{align}
-\widehat{\overline{f}(\omega)} =& \int_{\mathbb{R}} \overline{f(t)} e^{-2i\pi \omega t}dt \\
+\widehat{\overline{f}}(\omega) =& \int_{\mathbb{R}} \overline{f(t)} e^{-2i\pi \omega t}dt \\
 =& \int_{\mathbb{R}} \overline{f(t)} \overline{e^{2i\pi \omega t}}dt \\
 & {\small \text{par la propriété du conjugué : } \overline{z_1}.\overline{z_2} =  \overline{z_1.z_2}} \\
+=& \int_{\mathbb{R}} \overline{f(t) e^{2i\pi \omega t}dt} \\
+& {\small \text{par la propriété du conjugué : } \overline{z_1}+\overline{z_2} =  \overline{z_1+z_2}} \\
 =& \overline{\int_{\mathbb{R}} f(t) e^{2i\pi \omega t}dt} \\
 =& \overline{\int_{\mathbb{R}} f(t) e^{-2i\pi (-\omega) t}dt} \\
 =& \overline{\hat{f}(-\omega)}
 \end{align}
 $$
 
-Si on se donne $\widehat{{f}(\omega)}$ pour $\omega \geq 0$, alors on connaît partout $\widehat{{f}(\omega)}$. La moitié de l'information suffit.
+​	Si on se donne $\widehat{{f}(\omega)}$ pour $\omega \geq 0$, alors on connaît partout $\widehat{{f}(\omega)}$. La moitié de l'information suffit.
+
+- **<font color=red> Dérivation temporelle</font>** 
+
+  Soit $f : \mathbb{R} \to \mathbb{R}$​ différentiable
+
+$$
+\widehat{f'}(\omega) = 2i\pi\omega .\widehat{f}(\omega)
+$$
+
+​	**Démonstration** : 
+
+
+
+> **<font color=red>Rappel intégration par partie</font>** 
+>
+> $\int_{a}^{b} F'.G\ dt = [F.G]_{a}^{b} - \int_{a}^{b} F.G'\ dt $
+
+ Fixons $M_1$ et $M_2$ deux réels positifs.
+$$
+\begin{align}
+\widehat{f'}(\omega) = \lim\limits_{M_1 \to -\infty \\ M_2 \to +\infty} & \int_{M_1}^{M_2} f'(t) e^{-2i\pi \omega t}dt \\
+& {\small \text{par intégration par parties }}\\
+=& \lim\limits_{M_1 \to -\infty \\ M_2 \to +\infty} \quad [f.e^{-2i\pi \omega t}]_{M_1}^{M_2} - \int_{M_1}^{M_2} f(t) (-2i\pi \omega).e^{-2i\pi \omega t}dt \\
+=& \lim\limits_{M_1 \to -\infty \\ M_2 \to +\infty} \quad f(M_2).e^{-2i\pi\omega M_2} - f(M_1).e^{-2i\pi \omega M_1} + 2i\pi \omega\int_{M_1}^{M_2} f(t).e^{-2i\pi \omega t}dt \\
+& {\small \text{comme f est supposée integrable, }} \\
+& {\small \text{les deux premiers termes tendent vers 0 quand } M_1 \text{ et } M_2 \text{ tendent respectivement vers
+} -\infty \text{ et } +\infty}\\
+=& \lim\limits_{M_1 \to -\infty \\ M_2 \to +\infty} \quad 2i\pi\omega \int_{M_1}^{M_2} f(t).e^{-2i\pi \omega t}dt \\
+=& 2i\pi\omega \int_\mathbb{R} f(t).e^{-2i\pi \omega t}dt \\
+=& 2i\pi\omega .\widehat{f}(\omega) \\
+\end{align}
+$$
+​	par <font color=red>généralisation</font> si $f$ est différentiable $p$ fois tq $\forall i \in \mathbb{Z} : f^{(i)} \in L^2$ alors :
+$$
+\widehat{f^{(p)}}(\omega) = (2i\pi\omega)^p .\widehat{f}(\omega)
+$$
+​	De plus, si  $\widehat{f^{(p)}}(\omega)$ est d'énergie finie, $L^2(\mathbb{R})$ alors :  $ \widehat{f^{(p)}}(\omega) \in L^2(\mathbb{R}) => (2i \pi \omega)^p \hat{f}(\omega) \in L^2(\mathbb{R}) $
+
+- **<font color=red>Dérivation fréquentielle</font>** 
+
+  Soit $f : \mathbb{R} \to \mathbb{R}$ , si $f$ et $tf$ sont intégrables  dans $\mathbb{R}$  c.a.d: $f,\;t \to tf(t) \in L^1(\mathbb{R})$
+
+  Alors la transformée de Fourier $\widehat{f}$ est dérivable (c’est à dire $\widehat{f} \in C^1$) et on a :
+
+$$
+\frac{d}{d\omega}\widehat{f}(\omega) = -2i\pi.\widehat{tf(t)}(\omega)
+$$
+
+​	**Démonstration** : 
+
+​	Posons $g(t, \omega) = e^{−2i\pi\omega t}f(t)$, et calculons : $\frac{d}{d\omega} g(t, ω) = -2i\pi t.e^{−2i\pi\omega t}f(t)$
+
+​	Cette dérivée est continue $\forall t $ et de plus  $\frac{dg}{d\omega}$   est une fonction intégrable (car $tf(t) ∈ L^1(\mathbb{R})$). 
+
+ 	Les hypothèses du théorème de la dérivation sous le signe de l’intégrale sont donc vérifiées, et nous avons :
+$$
+\begin{align}
+\frac{d}{d\omega}\widehat{f}(\omega) =& \frac{d}{d\omega} \int_\mathbb{R} f(t)e^{-2i\pi \omega t}\ dt \\
+&= \small {\text{dérivation sous le signe intégrale}} \\
+=& \int_\mathbb{R} \frac{d}{d\omega}(f(t)e^{-2i\pi \omega t})dt \\
+=& -2i\pi \int_\mathbb{R} t.e^{−2i\pi\omega t}f(t)dt \\
+=& -2i\pi.\widehat{tf(t)}(\omega)
+\end{align}
+$$
+
 
 - **<font color=red>La gaussienne (issue de la loi normale)</font>** 
 
-$$ g_{\sigma} = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{x^2}{2\sigma^2}} $$
+Soit $g_\sigma$ la gaussienne d'écart type $\sigma \in  \mathbb{R}^+$ 
+$$
+g_{\sigma}(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{x^2}{2\sigma^2}}
+$$
 
-**Calcul de la TF**
-- **<font color=red>Rappel intégration par partie</font>** 
-
-$\int_{a}^{b} F'G \ dt =  \int_{a}^{b}  FG' \ dt = F(b)G(b) - F(a)G(a)$
+> TODO : calcul de $ \widehat{g_{\sigma}}$
 
 ## Convolution
 
+Soit $h,g \in L^2(\mathbb{R})$
+
 On définit la **convolution h $\ast$ g** tel que :
+$$
+(h \ast g)(t) = \int_\mathbb{R} h(t-u)g(u) du
+$$
+**Signal porte**
 
-$$ (h \ast g)(t) = \int_{\mathbb{R}}^{} h(t-u)g(u) du $$
+On défini le signal porte $\Pi_{[a,b]}$ part la formule suivante :
+$$
+\Pi_{[a,b]}(t) = \left\{
+\begin{array}{ll}
+1 & \text{si } t \in [a, b] \\ 
+0 & \text{sinon}
+\end{array}
+\right.
+$$
 
-**Exemple : signal porte**
+> Par convention si a et b ne sont pas précisés alors  $\Pi(x) = \Pi_{[-\frac{1}{2}, \frac{1}{2}]}(x)$
 
 ![signal porte](https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Rectangular_function.svg/1200px-Rectangular_function.svg.png)
 
-Dans le cas du signal porte, $\int_{}^{}h \ du = 1$
+On a les propriétés suivantes : 
 
-$$ (h \ast g)(t) = \int_{\mathbb{R}}^{}h(u-t)g(u) \ du $$
+- $\int_\mathbb{R} \Pi(t)dt = 1$
+- Parité : $\Pi(t) = \Pi(-t)$
 
-Remarque : $h(u)$ est paire, i.e $h(u) = h(-u)$
+### Propriétés  
 
-**<font color=red>Propriétés de la convolution</font> :** 
-
-- Symétrie : $h \ast s = s \ast h$
+- Commutativité : $h \ast s = s \ast h$
+- Bilinéarité :  $(af+bg)*h = a.f*h+ b.g*h$
+- Impulsion unitaire comme élément neutre :  $\mathbb{1}(t) = \left\{
+  \begin{array}{ll}
+  1 & \text{si } t = 0 \\ 
+  0 & \text{sinon}
+  \end{array}
+  \right.$
 - $\int_{\mathbb{R}}^{}| f \ast g(t)| \ dt \leq \int_{\mathbb{R}}^{}| f| \ dt \ \int_{\mathbb{R}}^{}|g| \ dt$
-- Soit $f,g \in L^2(\mathbb{R})$, on a : 
 
-$$ \widehat{f \ast g}(\omega) = \hat{f}(\omega)\hat{g}(\omega) $$
+- **<font color=red>Transformée de Fourier d’un produit de convolution</font>**:
+
+  Soit $f,g \in L^2(\mathbb{R})$, on a :
+
+$$
+\widehat{f \ast g}(\omega) = \hat{f}(\omega)\hat{g}(\omega)
+$$
+
+​	**Démonstration** : 
+$$
+\begin{align}
+\widehat{f \ast g}(\omega) =& \int_{\mathbb{R}\times\mathbb{R}} f(u)g(t-u)du\;e^{-2i\pi \omega t}dt \\
+=& \int_{\mathbb{R}}\int_{\mathbb{R}} f(u)g(t-u) e^{-2i\pi\omega t}du\;dt \\
+&{\small \text{On pose} \ t' = t-u \ \text{(changement de variable)}} \\
+=& \int_{\mathbb{R}}\int_{\mathbb{R}} f(u)g(t') e^{-2i\pi\omega (t'+u)}du\;dt' \\
+&{\small \text{par le théorème de Fubini on obtient :}} \\
+=& \int_{\mathbb{R}}f(u) e^{-2i\pi\omega u}du\;\int_{\mathbb{R}} g(t') e^{-2i\pi\omega t'}dt' \\
+=& \hat{f}(\omega)\hat{g}(\omega)
+\end{align}
+$$
+
 
 ## Inverse de la TF
 
-On peut inverser la TF.  
+Soit $f \in L^1(\mathbb{R})$, On définit la transformation de Fourier inverse $TF^{-1}$ par la relation :
 
-$$ (TF)^{-1}(\hat{f})(t) = \int_{\mathbb{R}}^{} \hat{f}(t)e^{2i\pi \omega t}\ dt $$
+$$
+(TF)^{-1}(f)(t) = \int_\mathbb{R} f(\omega)e^{2i\pi \omega t}\ d\omega
+$$
+**<font color=red>Propriétés</font> :** 
 
-**<font color=red>Propriété</font> :** 
+- Symétrie : $TF^{-1}(f)(t) = TF(f)(-t)$
 
-$\widehat{fg} = \hat{f} * \hat{g}$ car :
+- $\widehat{fg} = \hat{f} * \hat{g}$
 
 - $TF^{-1} TF(fg) = fg$
-- $TF^{-1}(f)(\omega) = TF(f)(-\omega)$
-
-## TF et dérivation
-
-Soit $f: \mathbb{R} \to \mathbb{R}$ signal différenciable p fois tq $\forall i f^{(i)} \in L^1(\mathbb{R})$
-
-$$ \widehat{f^{(p)}}(\omega) = (2i\pi \omega)^p\hat{f}(\omega) $$
-
-**Démo :**
-
-Pour p = 1 :
-
-$TF(f') = \int_{\mathbb{R}}^{}e^{-2i \pi \omega t} f'(t) \ dt$
-
-IPP :
-
-$$ 
-\begin{align}
-=& -\int_{\mathbb{R}}^{}(e^{-2i \pi \omega t)'}f(t) \ dt
-=& (2i \pi \omega)\int_{\mathbb{R}}^{} e^{-2i \pi \omega t} f(t) \ dt
-\end{align} 
-$$
-
-Si le signal est p fois différenciable, $ \widehat{f^{(p)}}(\omega) = (2i \pi \omega)^p \hat{f}(\omega) $
-
-Si  $\widehat{f^{(p)}}(\omega)$ est d'énergie finie, $L^2(\mathbb{R})$ : 
-
-$$ \widehat{f^{(p)}}(\omega) \in L^2 => (2i \pi \omega)^p \hat{f}(\omega) \in L^2 $$
 
 ## Égalité de Parseval
 
@@ -280,58 +368,73 @@ La TF préserve l'énergie des signaux. Isométrie de $L^2(\mathbb{R})$
 
 Cela signifie, pour $f : \mathbb{R} \to \mathbb{R}$
 
-$$ \int_{\mathbb{R}}^{}|f(t)|^2  \ dt = \int_{\mathbb{R}}^{} | \hat{f}(\omega)|^2  \ d\omega $$
+$$
+\int_{\mathbb{R}}^{}|f(t)|^2  \ dt = \int_{\mathbb{R}}^{} | \hat{f}(\omega)|^2  \ d\omega 
+$$
+
 
 > L'énergie  totale s'obtient en sommant les contributions des différents harmoniques
 
 ## Transformation de Fourier en 2D
 
-On considère $\{f : \mathbb{R}^2 \to \mathbb{C};  \int_{\mathbb{R}^2}^{}|f(x,y)|^2 dxdy < +\infty \}$
+On considère $L^2(\mathbb{R}^2,\mathbb{C}) = \{f : \mathbb{R}^2 \to \mathbb{C};  \int_{\mathbb{R}\times\mathbb{R}}|f(x,y)|^2 dxdy < +\infty \}$
 
 On définit la TF :
 
-$$TF(f)(\omega_1 \omega_2) = \int_{\mathbb{R}^2}^{}f(x_1,x_2) e^{-2i \pi(\omega_1 x_1 + \omega_2 x_2)}dx_1 dx_2$$
+$$
+\widehat{f}(\omega_1, \omega_2) = \int_{\mathbb{R}\times\mathbb{R}} f(x_1,x_2) e^{-2i \pi(\omega_1 x_1 + \omega_2 x_2)}dx_1 dx_2
+$$
+généralisation en dimension n :
 
-En dimension n :
+Soit $x = (x_1, \dots, x_n)$et $ \omega = (\omega_1, \dots, \omega_n)$
+$$
+\widehat{f}(\omega_1,\dots,\omega_n) = \int_{\mathbb{R}^n}f(x_1,\dots,x_n) e^{-2i\pi<\omega, x>}dx_1\dots dx_n
+$$
+La plupart des propriétés déjà vues en $1D$ restent vraies en $nD$ cependant il y a quelques exceptions: 
 
-$$TF(f)(\omega_1...\omega_n) = \int_{\mathbb{R}^n}^{}f(x_1,...,x_n) e^{-2i \pi(\omega_1 x_1 + ... + \omega_n x_n)}dx_1...dx_n$$
+- $$TF(f(ax_1,ax_2)) = \frac{1}{|a|^2}\hat{f}(\frac{w_1}{a},\frac{w_2}{a})$$
 
-La plupart des propriétés déjà vues en 1D restent vraies en nD.
+- $TF( \frac{\delta f}{\delta_{x_1}}) = (2i\pi\omega_1)\widehat{f}(\omega_1,\omega_2)$
 
-$$TF(f(ax_1,ax_2)) = \frac{1}{|a|^2}\hat{f}(\frac{w_1}{a},\frac{w_2}{a})$$
-
-$$TF(\delta x_1 f) = (2i\pi \omega_1)TF(f)$$
-
-$\delta x_1$ signifie que l'on dérive par rapport à la $1^{ère}$ variable. On peut aussi l'écrire $\frac{\delta}{\delta x_1}f$
+> $\frac{\delta}{\delta x_1}f$ indique une dérivée partielle.  Cela signifie que l'on dérive la fonction par rapport à la $1^{ère}$ variable uniquement en considèrent la seconde (ici $x_2$) comme constante.
 
 **<font color=red>Remarque</font> :** 
 
-Considérons le signal $f(x_1,x_2) = h(x_1)g(x_2)$
+Considérons le signal séparable suivant $f(x_1,x_2) = h(x_1)g(x_2)$
 
-$$TF(f) = \int_{\mathbb{R}^2}^{}e^{-2i \pi \omega_1 x_1}h(x_1)e^{-2 i \pi \omega_2 x_2}g(x_2)dx_1 dx_2$$
-
-$$TF(f)(\omega_1 \omega_2) = TF(h)(\omega_1)TF(g)(\omega_2)$$
-
-En général, le signal n'est pas séparable.
+$$
+\begin{align}
+\widehat{f}(\omega_1,\omega_2) =& \int_{\mathbb{R}\times\mathbb{R}}e^{-2i\pi\omega_1 x_1}h(x_1)\;e^{-2i\pi\omega_2 x_2}g(x_2)dx_1 dx_2 \\
+&{\small \text{par le théorème de Fubini}} \\
+=& \int_\mathbb{R}e^{-2i\pi\omega_1 x_1}h(x_1)dx_1\;\int_\mathbb{R}e^{-2i\pi\omega_2 x_2}g(x_2)dx_2 \\
+=& \widehat{h}(\omega_1).\widehat{g}(\omega_2)
+\end{align}
+$$
+<font color=red>⚠ </font>: En général, le signal n'est pas séparable.
 
 ## Calcul de la TF du signal porte
 
-Soit $s(t)$, le signal porte suivant : $s(t) = [-\frac{T}{2},\frac{T}{2}]$ en 1D.
-![signal porte](https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Rectangular_function.svg/1200px-Rectangular_function.svg.png)
+Soit $s(t) = \Pi_{[-\frac{T}{2}, \frac{T}{2}]}(t)$ avec $T \in \mathbb{R}^+$
 
-
-$$ 
+$$
 \begin{align}
-\int_{\mathbb{R}}^{}s(t)e^{-2 i \pi \omega t} dt
-=& TF(s) = \int_{-\frac{T}{2}^{\frac{T}{2}}e^{-2 i \pi \omega t} dt
-=& TF(s) = [\frac{e^{-2 i \pi \omega t}}{-2i \pi \omega}]^{\frac{T}{2}}_{-\frac{T}{2}}]
-=& \frac{e^{i \pi \omega T }- e^{-i \pi \omega T}}{2i \pi \omega}
-=& \frac{sin(\pi \omega T)}{\pi \omega}
+\widehat{s}(\omega) =& \int_\mathbb{R}s(t)e^{-2i\pi\omega t}dt  \\
+=& \int_{-\frac{T}{2}}^{\frac{T}{2}}e^{-2i\pi\omega t} dt \\
+=& \frac{1}{-2i\pi\omega}[e^{-2i\pi\omega t}]^{\frac{T}{2}}_{\frac{-T}{2}} \\
+=&\frac{1}{-2i\pi\omega}(e^{-i\pi\omega T} - e^{+i\pi\omega T}) \\
+=& \frac{1}{-2i\pi\omega}( -2i.sin(\pi\omega T)) \\
+=& \frac{sin(\pi \omega T)}{\pi\omega} = T.sinc(\pi\omega T)
 \end{align}
 $$
 
+On obtient alors un **sinus cardinal**.
 
-On obtient alors le **sinus cardinal**
+> On peut également s'apercevoir que $s(t) = \Pi_{[-\frac{T}{2}, \frac{T}{2}]}(t) = \Pi_{[-\frac{1}{2}, \frac{1}{2}]}(T.t) = D_{1/T}(\Pi)$
+> Alors d'après la formule $\widehat{D_a(f)} = \frac{1}{|a|} \hat{f}(\frac{\omega}{a})$ 
+>
+> et sachant que  $\widehat{\Pi}(\omega)=  sinc(\pi\omega)$
+>
+> On obtient facilement : $\widehat{s}(\omega) = T.sinc(\pi\omega T) = \frac{sin(\pi \omega T)}{\pi\omega}$
 
 ## Introduction aux distributions : masse de Dirac
 
@@ -390,7 +493,7 @@ qui est une **limite de fonction**
 - Pour $f$ continue, $f(t) \delta_0(t) = f(0) \delta_0(t)$
 Avec $g$ continue
 
-$$ 
+$$
 \begin{align}
 <f(t) \delta_0(t), g(t)>_{L^2} = <\delta_0(t), f(t)g(t)>
 &= f(0)g(0)
