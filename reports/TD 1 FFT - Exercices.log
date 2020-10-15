@@ -18,17 +18,14 @@ Traceback (most recent call last):
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
 import numpy as np
-import scipy as sp
+import scipy.fftpack as sf
+import matplotlib.pyplot as plt
 import pylab as pl
+from __future__ import division
 ------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m<ipython-input-1-e76de9e8d6d9>[0m in [0;36m<module>[0;34m[0m
-[1;32m      1[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 2[0;31m [0;32mimport[0m [0mscipy[0m [0;32mas[0m [0msp[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      3[0m [0;32mimport[0m [0mpylab[0m [0;32mas[0m [0mpl[0m[0;34m[0m[0;34m[0m[0m
+[0;36m  File [0;32m"<ipython-input-1-1b020ff7ead4>"[0;36m, line [0;32m8[0m
+[0;31mSyntaxError[0m[0;31m:[0m from __future__ imports must occur at the beginning of the file
 
-[0;31mModuleNotFoundError[0m: No module named 'scipy'
-ModuleNotFoundError: No module named 'scipy'
+SyntaxError: from __future__ imports must occur at the beginning of the file (<ipython-input-1-1b020ff7ead4>, line 8)
 

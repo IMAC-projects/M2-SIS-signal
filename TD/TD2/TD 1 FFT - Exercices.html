@@ -1,0 +1,1400 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. Shannon’s theorem in use. &#8212; M2 Signal classes</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">M2 Signal classes</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../README.html">
+   Master 2 Image science - Signal processing classes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Fourier
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduction/Introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Transform%C3%A9e%20de%20Fourier/Transform%C3%A9e%20de%20Fourier.html">
+   Transformée de Fourier
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  TD
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD1/TP1%20-%20EEA%20-%20Exercices.html">
+   TP 1: Analyse en fréquence de signaux sonores.
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/TD/TD2/TD 1 FFT - Exercices.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/TD/TD2/TD 1 FFT - Exercices.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   1. Shannon’s theorem in use.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ex-choose-a-sampling-time-t-e-sample-this-signal-and-then-show-the-reconstruction-using-linear-interpolation">
+     Ex. Choose a sampling time
+     <span class="math notranslate nohighlight">
+      \(T_e\)
+     </span>
+     , sample this signal and then show the reconstruction using linear interpolation.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ex-implement-shannon-s-reconstruction-function-and-implement-the-associated-reconstruction-formula-change-the-input-signal-and-compare-with-linear-interpolation-what-do-you-observe">
+     Ex. Implement Shannon’s reconstruction function and implement the associated reconstruction formula. Change the input signal and compare with linear interpolation. What do you observe?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-us-now-observe-the-aliasing-phenomenon-by-subsampling-an-image-which-presents-high-frequency-information">
+     Let us now observe the aliasing phenomenon by subsampling an image which presents high-frequency information.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simple-exercice-with-the-spectrum-of-a-signal">
+   2. Simple exercice with the spectrum of a signal.
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-on-a-1d-signal">
+   A. On a 1D signal.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ex-compute-the-l-2-of-respectively-the-signal-and-its-spectrum">
+     Ex: Compute the
+     <span class="math notranslate nohighlight">
+      \(L^2\)
+     </span>
+     of respectively the signal and its spectrum.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ex-check-numerically-that-the-fft-and-ifft-are-numerical-inverse-of-each-others">
+     Ex: Check numerically that the FFT and IFFT are numerical inverse of each others.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#important-remark">
+   Important remark:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ex-read-the-script-above-and-explain-what-it-does-the-illustrated-phenomenon-is-called-the-gibbs-phenomenon-and-is-due-to-the-slow-convergence-of-the-fourier-serie-at-the-discontinuites-of-the-signal">
+     Ex: Read the script above and explain what it does. The illustrated phenomenon is called the Gibbs phenomenon and is due to the slow convergence of the Fourier serie at the discontinuites of the signal.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ex-what-can-be-observed-on-the-shape-of-the-spectrum">
+     Ex: What can be observed on the shape of the spectrum ?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-odd-and-even-coefficients-can-you-explain-why">
+     Plot odd and even coefficients. Can you explain why?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-did-we-consider-half-of-the-signal">
+     Why did we consider half of the signal?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#b-on-an-image">
+   B. On an image.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hereafter-we-represent-the-logarithm-of-the-module-of-the-image-spectrum">
+     Hereafter, we represent the logarithm of the module of the image spectrum.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ex-explain-what-is-the-reason-of-appearance-of-the-white-lines-in-the-frequency-representation-of-the-image-propose-and-implement-a-solution-to-get-rid-of-this-artifact-we-advise-to-use-a-mask-on-the-intial-image-defined-using-sin-or-cos-and-then-to-compute-the-fft">
+     Ex: Explain what is the reason of appearance of the white lines in the frequency representation of the image. Propose and implement a solution to get rid of this artifact. We advise to use a mask on the intial image defined using
+     <span class="math notranslate nohighlight">
+      \(\sin\)
+     </span>
+     or
+     <span class="math notranslate nohighlight">
+      \(\cos\)
+     </span>
+     and then to compute the FFT.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hereafter-we-construct-an-image-from-a-random-modification-of-the-phase-of-the-fft-of-an-image-which-contains-what-is-called-texture-information-that-is-repetitive-patterns">
+   Hereafter, we construct an image from a random modification of the phase of the FFT of an image, which contains what is called texture information, that is repetitive patterns.
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ex-redo-the-experiment-with-the-animal-image-what-do-you-observe">
+   Ex: Redo the experiment with the animal image. What do you observe?
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#answer">
+   Answer:
+   <span class="math notranslate nohighlight">
+    \(##################\)
+   </span>
+   .
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convolution">
+   3. Convolution.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ex-construct-a-gaussian-filter-of-size-256-256-and-make-a-convolution-of-the-animal-image-with-this-filter-then-show-the-image-and-zoom-in-a-particular-region-to-better-see-the-effect-of-the-convolution-when-the-filter-has-a-small-standard-deviation">
+     Ex: Construct a gaussian filter of size
+     <span class="math notranslate nohighlight">
+      \((256,256)\)
+     </span>
+     and make a convolution of the animal image with this filter. Then, show the image and zoom in a particular region to better see the effect of the convolution when the filter has a small standard deviation.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ex-suppressing-the-aliasing-effect">
+   Ex: Suppressing the aliasing effect.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#start-with-the-arch-image-at-full-resolution-convolve-it-with-a-gaussian-filter-and-subsample-it-as-done-in-the-aliasing-experiment-vary-the-constant-of-the-gaussian-filter-and-try-to-suppress-the-aliasing">
+     Start with the arch image at full resolution, convolve it with a gaussian filter and subsample it as done in the aliasing experiment. Vary the constant of the gaussian filter and try to suppress the aliasing.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Answer:
+     <span class="math notranslate nohighlight">
+      \(#############\)
+     </span>
+     .
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-and-non-linear-approximation">
+   3. Linear and non-linear approximation.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ex-explain-what-is-done-in-the-previous-cell">
+     Ex. Explain what is done in the previous cell.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Answer:
+     <span class="math notranslate nohighlight">
+      \(#############\)
+     </span>
+     .
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ex-redo-the-experiment-but-in-considering-the-non-linear-approximation-of-the-image-by-taking-the-first-m-larger-coefficients-in-the-spectrum">
+     Ex: Redo the experiment but in considering the non-linear approximation of the image by taking the first
+     <span class="math notranslate nohighlight">
+      \(M\)
+     </span>
+     larger coefficients in the spectrum.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compare-the-linear-and-the-non-linear-approximation">
+     Compare the linear and the non-linear approximation.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#your-answer-here">
+     Your answer here.
+     <span class="math notranslate nohighlight">
+      \(#############\)
+     </span>
+     .
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stft-short-time-fourier-transform-and-source-separation">
+   4. STFT  (Short Time Fourier Transform) and source separation.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-simulate-two-micros-which-are-implemented-by-linear-combinations-of-the-signals">
+     We simulate two micros which are implemented by linear combinations of the signals.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q-do-the-same-with-the-stft-signals-what-do-you-observe">
+     Q: Do the same with the STFT signals, what do you observe ?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q-comment-the-code-below-after-running-it">
+     Q. Comment the code below after running it.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Q. Comment the code below after running it ?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="shannon-s-theorem-in-use">
+<h1>1. Shannon’s theorem in use.<a class="headerlink" href="#shannon-s-theorem-in-use" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.fftpack</span> <span class="k">as</span> <span class="nn">sf</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pylab</span> <span class="k">as</span> <span class="nn">pl</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-1-1b020ff7ead4&gt;&quot;</span><span class="gt">, line </span><span class="mi">8</span>
+<span class="ne">SyntaxError</span>: from __future__ imports must occur at the beginning of the file
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hereafter, we define a continuous signal that we sample and then we use Shannon’s interpolation formula.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mySignal</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">fq</span> <span class="o">=</span> <span class="mf">0.9</span>
+    <span class="n">fq2</span> <span class="o">=</span> <span class="mf">0.3</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">fq</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">fq2</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">mySignal</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/TD 1 FFT - Exercices_3_0.png" src="../../_images/TD 1 FFT - Exercices_3_0.png" />
+</div>
+</div>
+<div class="section" id="ex-choose-a-sampling-time-t-e-sample-this-signal-and-then-show-the-reconstruction-using-linear-interpolation">
+<h2>Ex. Choose a sampling time <span class="math notranslate nohighlight">\(T_e\)</span>, sample this signal and then show the reconstruction using linear interpolation.<a class="headerlink" href="#ex-choose-a-sampling-time-t-e-sample-this-signal-and-then-show-the-reconstruction-using-linear-interpolation" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fq</span> <span class="o">=</span> <span class="mf">0.9</span>
+<span class="n">fq2</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">Te</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">fq</span><span class="p">,</span><span class="n">fq2</span><span class="p">))</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">/</span><span class="n">Te</span><span class="p">)</span>
+<span class="n">sampled_signal</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">Te</span>
+    <span class="n">sampled_signal</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mySignal</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="n">x0</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">sampled_signal</span><span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/TD 1 FFT - Exercices_5_0.png" src="../../_images/TD 1 FFT - Exercices_5_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="ex-implement-shannon-s-reconstruction-function-and-implement-the-associated-reconstruction-formula-change-the-input-signal-and-compare-with-linear-interpolation-what-do-you-observe">
+<h2>Ex. Implement Shannon’s reconstruction function and implement the associated reconstruction formula. Change the input signal and compare with linear interpolation. What do you observe?<a class="headerlink" href="#ex-implement-shannon-s-reconstruction-function-and-implement-the-associated-reconstruction-formula-change-the-input-signal-and-compare-with-linear-interpolation-what-do-you-observe" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sinc</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sinc</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">shannon_reconstruct</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">signal_sum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">nTe</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">Te</span>
+        <span class="n">signal_sum</span> <span class="o">+=</span> <span class="n">sampled_signal</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">sinc</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">nTe</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">signal_sum</span>
+
+<span class="n">shannon</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">shannon_reconstruct</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x_analog</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">sampled_signal</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_analog</span><span class="p">,</span> <span class="n">shannon</span><span class="p">(</span><span class="n">x_analog</span><span class="p">),</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_analog</span><span class="p">,</span> <span class="n">mySignal</span><span class="p">(</span><span class="n">x_analog</span><span class="p">)</span> <span class="o">-</span> <span class="n">shannon</span><span class="p">(</span><span class="n">x_analog</span><span class="p">))</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/TD 1 FFT - Exercices_7_0.png" src="../../_images/TD 1 FFT - Exercices_7_0.png" />
+<img alt="../../_images/TD 1 FFT - Exercices_7_1.png" src="../../_images/TD 1 FFT - Exercices_7_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="let-us-now-observe-the-aliasing-phenomenon-by-subsampling-an-image-which-presents-high-frequency-information">
+<h2>Let us now observe the aliasing phenomenon by subsampling an image which presents high-frequency information.<a class="headerlink" href="#let-us-now-observe-the-aliasing-phenomenon-by-subsampling-an-image-which-presents-high-frequency-information" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">imageio</span> <span class="k">as</span> <span class="nn">imio</span>
+<span class="n">colored_image</span> <span class="o">=</span> <span class="n">imio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;Moire.jpg&#39;</span><span class="p">)</span>
+<span class="n">sub_defense</span> <span class="o">=</span> <span class="n">colored_image</span><span class="p">[::</span><span class="mi">5</span><span class="p">,::</span><span class="mi">5</span><span class="p">,:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">colored_image</span><span class="p">))</span>
+<span class="c1">#plt.gray()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;initial image&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">colored_image</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;sub-sampled image&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">sub_defense</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(599, 493, 3)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1b5db05a370&gt;
+</pre></div>
+</div>
+<img alt="../../_images/TD 1 FFT - Exercices_9_2.png" src="../../_images/TD 1 FFT - Exercices_9_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">imageio</span> <span class="k">as</span> <span class="nn">imio</span>
+<span class="n">colored_image</span> <span class="o">=</span> <span class="n">imio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;services_0.jpg&#39;</span><span class="p">)</span>
+<span class="n">defense</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">colored_image</span><span class="o">*</span><span class="p">[</span> <span class="mf">0.21</span><span class="p">,</span> <span class="mf">0.72</span> <span class="p">,</span><span class="mf">0.07</span><span class="p">],</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sub_defense</span> <span class="o">=</span> <span class="n">defense</span><span class="p">[::</span><span class="mi">2</span><span class="p">,::</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">defense</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gray</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;arche&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">defense</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;arche sub-sampled&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">sub_defense</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(240, 365)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1b5d88add90&gt;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../../_images/TD 1 FFT - Exercices_10_3.png" src="../../_images/TD 1 FFT - Exercices_10_3.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="simple-exercice-with-the-spectrum-of-a-signal">
+<h1>2. Simple exercice with the spectrum of a signal.<a class="headerlink" href="#simple-exercice-with-the-spectrum-of-a-signal" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="a-on-a-1d-signal">
+<h1>A. On a 1D signal.<a class="headerlink" href="#a-on-a-1d-signal" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Choose a grid x and a signal y</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">m</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y</span><span class="p">[</span><span class="n">m</span><span class="p">:]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot; A step function &quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>500
+</pre></div>
+</div>
+<img alt="../../_images/TD 1 FFT - Exercices_13_1.png" src="../../_images/TD 1 FFT - Exercices_13_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use of FFT to compute the discrete Fourier transform</span>
+<span class="kn">import</span> <span class="nn">scipy.fftpack</span> <span class="k">as</span> <span class="nn">sf</span>
+<span class="n">spectre</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">inverse_du_spectre</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">ifft</span><span class="p">(</span><span class="n">spectre</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ex-compute-the-l-2-of-respectively-the-signal-and-its-spectrum">
+<h2>Ex: Compute the <span class="math notranslate nohighlight">\(L^2\)</span> of respectively the signal and its spectrum.<a class="headerlink" href="#ex-compute-the-l-2-of-respectively-the-signal-and-its-spectrum" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="ex-check-numerically-that-the-fft-and-ifft-are-numerical-inverse-of-each-others">
+<h2>Ex: Check numerically that the FFT and IFFT are numerical inverse of each others.<a class="headerlink" href="#ex-check-numerically-that-the-fft-and-ifft-are-numerical-inverse-of-each-others" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">normL2</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="n">yn</span> <span class="o">=</span> <span class="n">y</span><span class="o">/</span><span class="n">y</span><span class="o">.</span><span class="n">size</span> <span class="c1"># normalisation</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">yn</span><span class="o">*</span><span class="n">yn</span><span class="p">)))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Norme L^2 du signal : &#39;</span><span class="p">,</span> <span class="n">normL2</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Norme L^2 du spectre :&#39;</span><span class="p">,</span> <span class="n">normL2</span><span class="p">(</span><span class="n">spectre</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Norme de (inverse_du_spectre-spectre)&#39;</span><span class="p">,</span> <span class="n">normL2</span><span class="p">(</span><span class="n">spectre</span><span class="o">-</span><span class="n">y</span><span class="p">),</span> <span class="s1">&#39;&lt;&lt; 1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Norme L^2 du signal :  0.0316227766016838
+Norme L^2 du spectre : 1.0000000000000002
+Norme de (inverse_du_spectre-spectre) 1.0004998750624612 &lt;&lt; 1
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="important-remark">
+<h1>Important remark:<a class="headerlink" href="#important-remark" title="Permalink to this headline">¶</a></h1>
+<p>The FFT output gives the DFT of the input for positive frequencies starting from <span class="math notranslate nohighlight">\(0\)</span> on the first half of the vector and the negative frequencies on the second half starting always in increasing order. More precisely, we have that, if <span class="math notranslate nohighlight">\(y\)</span> is the output,
+<span class="math notranslate nohighlight">\([y(0),y(1),..,y(n/2),y(1-n/2),...,y(-1)] \)</span>       if <span class="math notranslate nohighlight">\(n\)</span> is even, <span class="math notranslate nohighlight">\([y(0),y(1),..,y((n-1)/2),y(-(n-1)/2),...,y(-1)]\)</span> otherwise.
+In general, always use <span class="math notranslate nohighlight">\(fftshift\)</span> to put low frequencies in the middle, which is the customary representation of the FFT.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># illustration.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectre</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot; The spectrum &quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">sf</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">spectre</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot; The 0 frequency is in the middle. &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39; The 0 frequency is in the middle. &#39;)
+</pre></div>
+</div>
+<img alt="../../_images/TD 1 FFT - Exercices_18_1.png" src="../../_images/TD 1 FFT - Exercices_18_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reduced</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">spectre</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">reduced</span><span class="p">[</span><span class="n">h</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">reconstruct</span><span class="o">=</span><span class="n">sf</span><span class="o">.</span><span class="n">ifft</span><span class="p">(</span><span class="n">reduced</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">reconstruct</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1b5d87c4460&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/TD 1 FFT - Exercices_19_1.png" src="../../_images/TD 1 FFT - Exercices_19_1.png" />
+</div>
+</div>
+<div class="section" id="ex-read-the-script-above-and-explain-what-it-does-the-illustrated-phenomenon-is-called-the-gibbs-phenomenon-and-is-due-to-the-slow-convergence-of-the-fourier-serie-at-the-discontinuites-of-the-signal">
+<h2>Ex: Read the script above and explain what it does. The illustrated phenomenon is called the Gibbs phenomenon and is due to the slow convergence of the Fourier serie at the discontinuites of the signal.<a class="headerlink" href="#ex-read-the-script-above-and-explain-what-it-does-the-illustrated-phenomenon-is-called-the-gibbs-phenomenon-and-is-due-to-the-slow-convergence-of-the-fourier-serie-at-the-discontinuites-of-the-signal" title="Permalink to this headline">¶</a></h2>
+<p>On obtient un signal filtré à l’aide d’un passe-bas (les hautes fréquences sont coupées).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Decreasing of the spectrum log-modules&quot;</span><span class="p">)</span>
+<span class="n">fq</span> <span class="o">=</span> <span class="n">spectre</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">m</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fq</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-71-654fc8155234&gt;:3: RuntimeWarning: divide by zero encountered in log
+  plt.plot(np.log(np.abs(fq)))
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1b5daf25670&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/TD 1 FFT - Exercices_22_2.png" src="../../_images/TD 1 FFT - Exercices_22_2.png" />
+</div>
+</div>
+</div>
+<div class="section" id="ex-what-can-be-observed-on-the-shape-of-the-spectrum">
+<h2>Ex: What can be observed on the shape of the spectrum ?<a class="headerlink" href="#ex-what-can-be-observed-on-the-shape-of-the-spectrum" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="plot-odd-and-even-coefficients-can-you-explain-why">
+<h2>Plot odd and even coefficients. Can you explain why?<a class="headerlink" href="#plot-odd-and-even-coefficients-can-you-explain-why" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="why-did-we-consider-half-of-the-signal">
+<h2>Why did we consider half of the signal?<a class="headerlink" href="#why-did-we-consider-half-of-the-signal" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">odd</span> <span class="o">=</span> <span class="n">fq</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">even</span> <span class="o">=</span> <span class="n">fq</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">odd</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot; Odd coeff &quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">even</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Even coeff&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Even coeff&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/TD 1 FFT - Exercices_25_1.png" src="../../_images/TD 1 FFT - Exercices_25_1.png" />
+</div>
+</div>
+<p>1 valeur sur 2 est nulle : c’est pour cela que l’on considère uniquement la moitié du signal</p>
+</div>
+</div>
+<div class="section" id="b-on-an-image">
+<h1>B. On an image.<a class="headerlink" href="#b-on-an-image" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.signal</span> <span class="k">as</span> <span class="nn">sig</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">misc</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load an image</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">face</span><span class="p">(</span><span class="n">gray</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gray</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot; Grey Level Image &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">image</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span class="c1"># sub-sample a matrix</span>
+<span class="n">image_sub</span> <span class="o">=</span> <span class="n">image</span><span class="p">[::</span><span class="mi">3</span><span class="p">,::</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gray</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot; Sub-sampled Image &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">image_sub</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_sub</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1b5dcd92cd0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/TD 1 FFT - Exercices_29_1.png" src="../../_images/TD 1 FFT - Exercices_29_1.png" />
+</div>
+</div>
+<div class="section" id="hereafter-we-represent-the-logarithm-of-the-module-of-the-image-spectrum">
+<h2>Hereafter, we represent the logarithm of the module of the image spectrum.<a class="headerlink" href="#hereafter-we-represent-the-logarithm-of-the-module-of-the-image-spectrum" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spectre_im</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">fft2</span><span class="p">(</span><span class="n">image_sub</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gray</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot; Use of $fftshift$ in 2D &quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">sf</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">image_sub</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gray</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot; Image spectrum &quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">sf</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectre_im</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1b5dce297c0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/TD 1 FFT - Exercices_31_1.png" src="../../_images/TD 1 FFT - Exercices_31_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="ex-explain-what-is-the-reason-of-appearance-of-the-white-lines-in-the-frequency-representation-of-the-image-propose-and-implement-a-solution-to-get-rid-of-this-artifact-we-advise-to-use-a-mask-on-the-intial-image-defined-using-sin-or-cos-and-then-to-compute-the-fft">
+<h2>Ex: Explain what is the reason of appearance of the white lines in the frequency representation of the image. Propose and implement a solution to get rid of this artifact. We advise to use a mask on the intial image defined using <span class="math notranslate nohighlight">\(\sin\)</span> or <span class="math notranslate nohighlight">\(\cos\)</span> and then to compute the FFT.<a class="headerlink" href="#ex-explain-what-is-the-reason-of-appearance-of-the-white-lines-in-the-frequency-representation-of-the-image-propose-and-implement-a-solution-to-get-rid-of-this-artifact-we-advise-to-use-a-mask-on-the-intial-image-defined-using-sin-or-cos-and-then-to-compute-the-fft" title="Permalink to this headline">¶</a></h2>
+<p>Les artefacts proviennent de la discontinuité lors du recollement de l’image (elle est sous échantillonnée).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">signal_porte</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">((</span><span class="n">t</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">t</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">gaussienne</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">signal_gauss</span> <span class="o">=</span> <span class="p">(</span><span class="n">gaussienne</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="n">signal_gauss</span> <span class="o">=</span> <span class="n">signal_gauss</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">signal_gauss</span><span class="p">)</span>
+<span class="n">porte</span> <span class="o">=</span> <span class="n">signal_porte</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1000</span><span class="p">))</span>
+<span class="n">porte</span> <span class="o">=</span> <span class="n">porte</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">porte</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">gaussianKernel</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">):</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Y</span><span class="p">):</span>
+            <span class="n">x_</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="p">(</span><span class="n">X</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span>
+            <span class="n">y_</span> <span class="o">=</span> <span class="n">y</span> <span class="o">/</span> <span class="p">(</span><span class="n">Y</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span>
+            <span class="n">K</span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">gaussienne</span><span class="p">(</span><span class="n">x_</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span> <span class="o">*</span> <span class="n">gaussienne</span><span class="p">(</span><span class="n">y_</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">K</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
+
+<span class="n">kernel</span> <span class="o">=</span> <span class="n">gaussianKernel</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">sig</span><span class="o">.</span><span class="n">convolve2d</span><span class="p">(</span><span class="n">image_sub</span><span class="p">,</span><span class="n">kernel</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1b5de459190&gt;
+</pre></div>
+</div>
+<img alt="../../_images/TD 1 FFT - Exercices_33_1.png" src="../../_images/TD 1 FFT - Exercices_33_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># VERSION 2</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">signal_gauss</span><span class="p">,</span><span class="n">porte</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1b5de499d00&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/TD 1 FFT - Exercices_34_1.png" src="../../_images/TD 1 FFT - Exercices_34_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="hereafter-we-construct-an-image-from-a-random-modification-of-the-phase-of-the-fft-of-an-image-which-contains-what-is-called-texture-information-that-is-repetitive-patterns">
+<h1>Hereafter, we construct an image from a random modification of the phase of the FFT of an image, which contains what is called texture information, that is repetitive patterns.<a class="headerlink" href="#hereafter-we-construct-an-image-from-a-random-modification-of-the-phase-of-the-fft-of-an-image-which-contains-what-is-called-texture-information-that-is-repetitive-patterns" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">imageio</span> <span class="k">as</span> <span class="nn">imio</span>
+<span class="n">bois</span> <span class="o">=</span> <span class="n">imio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;Moire.jpg&#39;</span><span class="p">)</span>
+<span class="n">texture_im</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">bois</span><span class="o">*</span><span class="p">[</span> <span class="mf">0.21</span><span class="p">,</span> <span class="mf">0.72</span> <span class="p">,</span><span class="mf">0.07</span><span class="p">],</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">spectre_im</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">fft2</span><span class="p">(</span><span class="n">texture_im</span><span class="p">)</span>
+<span class="c1"># construct the random phase. </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">spectre_im</span><span class="p">))</span>
+<span class="n">random_phase</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">temp</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">temp</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span>
+<span class="n">new_spectrum</span> <span class="o">=</span> <span class="n">spectre_im</span><span class="o">*</span><span class="n">random_phase</span>
+<span class="n">temp_2</span> <span class="o">=</span> <span class="mi">30</span> <span class="o">*</span> <span class="n">temp</span>
+<span class="n">random_phase_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">temp_2</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">temp_2</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span>
+<span class="n">new_spectrum_2</span> <span class="o">=</span> <span class="n">spectre_im</span><span class="o">*</span><span class="n">random_phase_2</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot; Initial image &quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">texture_im</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot; with a random phase &quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">ifft2</span><span class="p">(</span><span class="n">new_spectrum</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot; Larger random phase &quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">ifft2</span><span class="p">(</span><span class="n">new_spectrum_2</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">78</span><span class="o">-</span><span class="mi">8</span><span class="n">cadc0073f2f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot; with a random phase &quot;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">18</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">ifft2</span><span class="p">(</span><span class="n">new_spectrum</span><span class="p">)))</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot; Larger random phase &quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;ifft2&#39; is not defined
+</pre></div>
+</div>
+<img alt="../../_images/TD 1 FFT - Exercices_36_1.png" src="../../_images/TD 1 FFT - Exercices_36_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="ex-redo-the-experiment-with-the-animal-image-what-do-you-observe">
+<h1>Ex: Redo the experiment with the animal image. What do you observe?<a class="headerlink" href="#ex-redo-the-experiment-with-the-animal-image-what-do-you-observe" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="answer">
+<h1>Answer: <span class="math notranslate nohighlight">\(##################\)</span>.<a class="headerlink" href="#answer" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="convolution">
+<h1>3. Convolution.<a class="headerlink" href="#convolution" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Construct a gaussian filter.</span>
+
+<span class="k">def</span> <span class="nf">gaussienne</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">signal_gauss</span> <span class="o">=</span> <span class="p">(</span><span class="n">gaussienne</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="n">signal_gauss</span> <span class="o">=</span> <span class="n">signal_gauss</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">signal_gauss</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">gaussianKernel</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">):</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Y</span><span class="p">):</span>
+            <span class="n">x_</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="p">(</span><span class="n">X</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span>
+            <span class="n">y_</span> <span class="o">=</span> <span class="n">y</span> <span class="o">/</span> <span class="p">(</span><span class="n">Y</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span>
+            <span class="n">K</span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">gaussienne</span><span class="p">(</span><span class="n">x_</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span> <span class="o">*</span> <span class="n">gaussienne</span><span class="p">(</span><span class="n">y_</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">K</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
+
+<span class="n">kernel</span> <span class="o">=</span> <span class="n">gaussianKernel</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span><span class="mi">256</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">kernel</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">sig</span><span class="o">.</span><span class="n">convolve2d</span><span class="p">(</span><span class="n">image_sub</span><span class="p">,</span><span class="n">kernel</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ex-construct-a-gaussian-filter-of-size-256-256-and-make-a-convolution-of-the-animal-image-with-this-filter-then-show-the-image-and-zoom-in-a-particular-region-to-better-see-the-effect-of-the-convolution-when-the-filter-has-a-small-standard-deviation">
+<h2>Ex: Construct a gaussian filter of size <span class="math notranslate nohighlight">\((256,256)\)</span> and make a convolution of the animal image with this filter. Then, show the image and zoom in a particular region to better see the effect of the convolution when the filter has a small standard deviation.<a class="headerlink" href="#ex-construct-a-gaussian-filter-of-size-256-256-and-make-a-convolution-of-the-animal-image-with-this-filter-then-show-the-image-and-zoom-in-a-particular-region-to-better-see-the-effect-of-the-convolution-when-the-filter-has-a-small-standard-deviation" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="ex-suppressing-the-aliasing-effect">
+<h1>Ex: Suppressing the aliasing effect.<a class="headerlink" href="#ex-suppressing-the-aliasing-effect" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="start-with-the-arch-image-at-full-resolution-convolve-it-with-a-gaussian-filter-and-subsample-it-as-done-in-the-aliasing-experiment-vary-the-constant-of-the-gaussian-filter-and-try-to-suppress-the-aliasing">
+<h2>Start with the arch image at full resolution, convolve it with a gaussian filter and subsample it as done in the aliasing experiment. Vary the constant of the gaussian filter and try to suppress the aliasing.<a class="headerlink" href="#start-with-the-arch-image-at-full-resolution-convolve-it-with-a-gaussian-filter-and-subsample-it-as-done-in-the-aliasing-experiment-vary-the-constant-of-the-gaussian-filter-and-try-to-suppress-the-aliasing" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here.</span>
+<span class="kn">from</span> <span class="nn">scipy.ndimage</span> <span class="kn">import</span> <span class="n">gaussian_filter</span>
+
+<span class="n">sigma</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">arch</span> <span class="o">=</span> <span class="n">imio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;services_0.jpg&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Original image&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">arch</span><span class="p">)</span>
+
+<span class="n">convoluted</span> <span class="o">=</span> <span class="n">gaussian_filter</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span>
+<span class="n">sub_sampled</span> <span class="o">=</span> <span class="n">convoluted</span><span class="p">[::</span><span class="mi">2</span><span class="p">,::</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Sub sampled image&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">sub_sampled</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Answer: <span class="math notranslate nohighlight">\(#############\)</span>.<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="linear-and-non-linear-approximation">
+<h1>3. Linear and non-linear approximation.<a class="headerlink" href="#linear-and-non-linear-approximation" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### We define two measures to quantify the quality of the signal with respect to the ground truth.</span>
+<span class="c1">### It is a quantity that is computed between x,y two images. They are called peaked signal to noise ratio,</span>
+<span class="c1">### and signal to noise ration (psnr and snr).</span>
+<span class="k">def</span> <span class="nf">psnr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">d</span> <span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Equal inputs&quot;</span>
+    <span class="k">if</span> <span class="n">vmax</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">m1</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+        <span class="n">m2</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+        <span class="n">vmax</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">m2</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">vmax</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">d</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">snr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Equal inputs&quot;</span>
+    <span class="k">return</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">LinearApproximation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">&gt;=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;n out of bounds&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
+    <span class="n">spectre</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">sf</span><span class="o">.</span><span class="n">fft2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">filtre</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">filtre</span><span class="p">[</span><span class="n">n</span><span class="p">:</span><span class="o">-</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">:</span><span class="o">-</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">sf</span><span class="o">.</span><span class="n">ifft2</span><span class="p">(</span><span class="n">sf</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">filtre</span><span class="o">*</span><span class="n">spectre</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">result</span>
+<span class="n">approx1</span> <span class="o">=</span> <span class="n">LinearApproximation</span><span class="p">(</span><span class="n">image_sub</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span>
+<span class="n">approx2</span> <span class="o">=</span> <span class="n">LinearApproximation</span><span class="p">(</span><span class="n">image_sub</span><span class="p">,</span><span class="mi">115</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot; snr &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">psnr</span><span class="p">(</span><span class="n">image_sub</span><span class="p">,</span><span class="n">approx1</span><span class="p">),</span><span class="mi">3</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">approx1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot; snr &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">psnr</span><span class="p">(</span><span class="n">image_sub</span><span class="p">,</span><span class="n">approx2</span><span class="p">),</span><span class="mi">3</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">approx2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot; Initial image &quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_sub</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ex-explain-what-is-done-in-the-previous-cell">
+<h2>Ex. Explain what is done in the previous cell.<a class="headerlink" href="#ex-explain-what-is-done-in-the-previous-cell" title="Permalink to this headline">¶</a></h2>
+<p>Une image bruitée est créée avec un filtre de taille n * n. On perd donc de l’information dans l’image. Vient ensuite le calcul du ration signal/bruit pour quantifier comment l’image est filtrée.</p>
+</div>
+<div class="section" id="id2">
+<h2>Answer: <span class="math notranslate nohighlight">\(#############\)</span>.<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="ex-redo-the-experiment-but-in-considering-the-non-linear-approximation-of-the-image-by-taking-the-first-m-larger-coefficients-in-the-spectrum">
+<h2>Ex: Redo the experiment but in considering the non-linear approximation of the image by taking the first <span class="math notranslate nohighlight">\(M\)</span> larger coefficients in the spectrum.<a class="headerlink" href="#ex-redo-the-experiment-but-in-considering-the-non-linear-approximation-of-the-image-by-taking-the-first-m-larger-coefficients-in-the-spectrum" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="compare-the-linear-and-the-non-linear-approximation">
+<h2>Compare the linear and the non-linear approximation.<a class="headerlink" href="#compare-the-linear-and-the-non-linear-approximation" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Your code here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="your-answer-here">
+<h2>Your answer here. <span class="math notranslate nohighlight">\(#############\)</span>.<a class="headerlink" href="#your-answer-here" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="stft-short-time-fourier-transform-and-source-separation">
+<h1>4. STFT  (Short Time Fourier Transform) and source separation.<a class="headerlink" href="#stft-short-time-fourier-transform-and-source-separation" title="Permalink to this headline">¶</a></h1>
+<p>### In this part, we use STFT which is a collection of Fourier transform of a 1D signal on time subintervals. We use it in order to experiment source separation which comes from the idea that the different signals may present very different behaviour in the frequency domain.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># utils to load the sounds.</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">wave</span> <span class="k">as</span> <span class="nn">wv</span>
+
+<span class="k">def</span> <span class="nf">load_sound</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">n0</span><span class="p">):</span>
+    
+    <span class="n">x_raw</span> <span class="o">=</span> <span class="n">wv</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">x_raw</span><span class="o">.</span><span class="n">getnframes</span><span class="p">()</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">x_raw</span><span class="o">.</span><span class="n">readframes</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;Int16&#39;</span><span class="p">)</span>
+    <span class="n">x_raw</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    
+    <span class="k">if</span> <span class="n">file</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="mi">8</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;bird.wav&quot;</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">6001</span><span class="p">))</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">12500</span><span class="p">,</span> <span class="mi">15001</span><span class="p">))</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">22500</span><span class="p">,</span> <span class="mi">24001</span><span class="p">))</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">32500</span><span class="p">,</span><span class="mi">34001</span><span class="p">)))</span>
+
+    <span class="k">if</span> <span class="n">n0</span> <span class="o">!=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">n0</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="n">n0</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">x</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>## Hereafter, we load the <span class="math notranslate nohighlight">\(3\)</span> sounds and plot the second one.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1024</span><span class="o">*</span><span class="mi">16</span>
+<span class="n">s</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1">#number of signals.</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">n</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">load_sound</span><span class="p">(</span><span class="s2">&quot;bird.wav&quot;</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">load_sound</span><span class="p">(</span><span class="s2">&quot;female.wav&quot;</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">load_sound</span><span class="p">(</span><span class="s2">&quot;male.wav&quot;</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">),(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1">#number of micros</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="we-simulate-two-micros-which-are-implemented-by-linear-combinations-of-the-signals">
+<h2>We simulate two micros which are implemented by linear combinations of the signals.<a class="headerlink" href="#we-simulate-two-micros-which-are-implemented-by-linear-combinations-of-the-signals" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">theta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">.</span><span class="mi">2</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)))</span>
+<span class="c1">## recovered signals</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">M</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>### We use the STFT function from the python package signal and plot it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.signal</span> <span class="k">as</span> <span class="nn">sig</span>
+<span class="n">f</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">w</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">stft</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">stft</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;stft of signal 1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">w</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;stft of signal 2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>### We numerically check that the STFT and ISTFT are indeed inverse from each others.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">micro1</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">micro2</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">stft</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">im</span> <span class="p">:</span> <span class="n">sig</span><span class="o">.</span><span class="n">stft</span><span class="p">(</span><span class="n">im</span><span class="p">,</span><span class="n">noverlap</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span><span class="n">nperseg</span> <span class="o">=</span> <span class="mi">128</span><span class="p">)</span>
+<span class="n">istft</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">im</span> <span class="p">:</span> <span class="n">sig</span><span class="o">.</span><span class="n">istft</span><span class="p">(</span><span class="n">im</span><span class="p">,</span><span class="n">noverlap</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span><span class="n">nperseg</span> <span class="o">=</span> <span class="mi">128</span><span class="p">)</span>
+<span class="n">f</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">w1</span> <span class="o">=</span> <span class="n">stft</span><span class="p">(</span><span class="n">micro1</span><span class="p">)</span>
+<span class="n">f</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">w2</span> <span class="o">=</span> <span class="n">stft</span><span class="p">(</span><span class="n">micro2</span><span class="p">)</span>
+<span class="n">t</span><span class="p">,</span><span class="n">recov</span> <span class="o">=</span> <span class="n">istft</span><span class="p">(</span><span class="n">w1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">micro1</span> <span class="o">-</span> <span class="n">recov</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>### By selecting randomly a group of points in time, we plot in the plane the coordinates of the points, being the measured signals by the micros.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nbre_selec</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">shuffle</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">y</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">liste</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">y</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">shuffle</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">liste</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">nbre_selec</span><span class="p">],</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="p">[</span><span class="n">liste</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">nbre_selec</span><span class="p">],</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;o&quot;</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q-do-the-same-with-the-stft-signals-what-do-you-observe">
+<h2>Q: Do the same with the STFT signals, what do you observe ?<a class="headerlink" href="#q-do-the-same-with-the-stft-signals-what-do-you-observe" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nbre_selec</span> <span class="o">=</span> <span class="mi">3000</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">shuffle</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">w1</span><span class="o">.</span><span class="n">flatten</span><span class="p">()),</span><span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">w2</span><span class="o">.</span><span class="n">flatten</span><span class="p">())])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">liste2</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">H</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">shuffle</span><span class="p">(</span><span class="n">liste2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">H</span><span class="p">[</span><span class="n">liste2</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">nbre_selec</span><span class="p">],</span><span class="mi">0</span><span class="p">],</span><span class="n">H</span><span class="p">[</span><span class="n">liste2</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">nbre_selec</span><span class="p">],</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;o&quot;</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q-comment-the-code-below-after-running-it">
+<h2>Q. Comment the code below after running it.<a class="headerlink" href="#q-comment-the-code-below-after-running-it" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import math </span>
+<span class="c1">#Theta = np.zeros(np.shape(H)[0])</span>
+<span class="c1">#for i in range(np.shape(H)[0]):</span>
+<span class="c1">#    Theta[i] = math.atan2(H[i,1],H[i,0])%np.pi</span>
+<span class="c1">#print(np.shape(Theta))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#nbins = 400</span>
+<span class="c1">#t = np.linspace(np.pi/200,np.pi,nbins)</span>
+<span class="c1">#hist = np.histogram(Theta[:10000],t)</span>
+<span class="c1">#h = hist[0]/np.sum(hist[0])</span>
+<span class="c1">#t = t[:-1]</span>
+
+<span class="c1">#plt.figure(figsize = (7,5))</span>
+<span class="c1">#plt.bar(t, h, width = np.pi/nbins, color = &quot;darkblue&quot;, edgecolor = &quot;darkblue&quot;)</span>
+<span class="c1">#plt.xlim(0,np.pi)</span>
+<span class="c1">#plt.ylim(0,np.max(h))</span>
+<span class="c1">#plt.show()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Affiche les valeurs d&#39;angles les plus importantes.</span>
+<span class="c1">#theta = []</span>
+<span class="c1">#for xx in (h&gt;0.01)*t:</span>
+<span class="c1">#    if xx&gt;0:</span>
+<span class="c1">#        theta.append(xx)</span>
+<span class="c1">#print(theta)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Q. Comment the code below after running it ?<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">projections</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Estimated</span><span class="p">,</span><span class="n">W</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">projections</span><span class="p">)</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">threshold</span> <span class="o">=</span> <span class="o">.</span><span class="mi">005</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">W</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">D</span><span class="p">))</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">I</span><span class="o">*</span><span class="p">(</span><span class="n">D</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">masque</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">projections</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">masque</span><span class="p">)[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="n">masque</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="n">I</span><span class="o">==</span><span class="n">i</span><span class="p">)</span>
+<span class="n">source_stft</span> <span class="o">=</span> <span class="n">projections</span> <span class="o">*</span> <span class="n">masque</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">source_stft</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MaListe</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">f</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">w</span> <span class="o">=</span> <span class="n">stft</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">MaListe</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">snr</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">flatten</span><span class="p">()),</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">source_stft</span><span class="p">[</span><span class="n">i</span><span class="p">,:])))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">MaListe</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="mi">40</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;stft of source&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">MaListe</span><span class="p">[</span><span class="n">i</span><span class="p">])))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;stft of recovered signal&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">source_stft</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span> <span class="o">+</span> <span class="mf">1e-10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">MaListe</span><span class="p">[</span><span class="n">i</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">source_stft</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">MaListe</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+    <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">istft</span><span class="p">(</span><span class="n">temp</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">l</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">8000</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;recovered&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;source&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">snr</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">x</span><span class="p">[:,</span><span class="n">i</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./TD/TD2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By IMAC Students<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
