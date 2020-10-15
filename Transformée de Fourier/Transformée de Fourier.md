@@ -63,7 +63,7 @@ $$ \\ $$
 
 **<font color=red>Définition</font>** : 
 
-Soit $f \in L^1(\mathbb{R})$. et $\omega \in \mathbb{R}$
+Soit $f \in L^1(\mathbb{R})$ et $\omega \in \mathbb{R}$
 La transformée de Fourier de $f$ est définie par :
 
 $$ TF(f)(\omega) = \hat{f}(\omega) = \int_{\mathbb{R}} f(t) e^{-2i\pi\omega t}dt $$
@@ -96,14 +96,15 @@ donc $\forall \omega \ | \hat{f}(\omega) | \leq \int_{\mathbb{R}}^{} | f(t) | \ 
 
 * **<font color=red>Linéarité </font>**
 
-  Soit $a,b \in \mathbb{R}$  et  $f,g \in L^1(\mathbb{R})$
+Soit $a,b \in \mathbb{R}$  et  $f,g \in L^1(\mathbb{R})$
 
-  $$
-  TF(af+bg) = \widehat{af+bg} = a\hat{f}+b\hat{g} 
-  $$
+$$
+TF(af+bg) = \widehat{af+bg} = a\hat{f}+b\hat{g} 
+$$
   
 
 * **Démonstration** :
+
 $$
   \begin{align}
   TF(af+bg) =& <af+bg, e_\omega> \\
@@ -111,7 +112,7 @@ $$
   =& a<f, e_\omega> + b<g, e_\omega> \\
   =& a\hat{f}+b\hat{g} \quad \\
   \end{align}
-  $$
+$$
   
 * **<font color=red>Théorème du retard (translation temporelle) </font>** 
 
@@ -215,7 +216,7 @@ $$
   Soit $f : \mathbb{R} \to \mathbb{R}$​ différentiable
 
 $$
-\widehat{f'}(\omega) = 2i\pi\omega .\widehat{f}(\omega)
+\widehat{f'}(\omega) = 2i\pi\omega \widehat{f}(\omega)
 $$
 
 ​	**Démonstration** : 
@@ -226,7 +227,9 @@ $$
 >
 > $\int_{a}^{b} F'.G\ dt = [F.G]_{a}^{b} - \int_{a}^{b} F.G'\ dt $
 
- Fixons $M_1$ et $M_2$ deux réels positifs.
+Fixons $M_1$ et $M_2$ deux réels positifs.
+
+
 $$
 \begin{align}
 \widehat{f'}(\omega) = \lim\limits_{M_1 \to -\infty \\ M_2 \to +\infty} & \int_{M_1}^{M_2} f'(t) e^{-2i\pi \omega t}dt \\
@@ -241,11 +244,16 @@ $$
 =& 2i\pi\omega .\widehat{f}(\omega) \\
 \end{align}
 $$
-​	par <font color=red>généralisation</font> si $f$ est différentiable $p$ fois tq $\forall i \in \mathbb{Z} : f^{(i)} \in L^2$ alors :
+
+
+par <font color=red>généralisation</font> si $f$ est différentiable $p$ fois tq $\forall i \in \mathbb{Z} : f^{(i)} \in L^2$ alors :
+
+
 $$
 \widehat{f^{(p)}}(\omega) = (2i\pi\omega)^p .\widehat{f}(\omega)
 $$
-​	De plus, si  $\widehat{f^{(p)}}(\omega)$ est d'énergie finie, $L^2(\mathbb{R})$ alors :  $ \widehat{f^{(p)}}(\omega) \in L^2(\mathbb{R}) => (2i \pi \omega)^p \hat{f}(\omega) \in L^2(\mathbb{R}) $
+
+De plus, si  $\widehat{f^{(p)}}(\omega)$ est d'énergie finie, $L^2(\mathbb{R})$ alors :  $ \widehat{f^{(p)}}(\omega) \in L^2(\mathbb{R}) => (2i \pi \omega)^p \hat{f}(\omega) \in L^2(\mathbb{R}) $
 
 - **<font color=red>Dérivation fréquentielle</font>** 
 
@@ -289,12 +297,17 @@ $$
 Soit $h,g \in L^2(\mathbb{R})$
 
 On définit la **convolution h $\ast$ g** tel que :
+
+
 $$
 (h \ast g)(t) = \int_\mathbb{R} h(t-u)g(u) du
 $$
+
+
 **Signal porte**
 
 On défini le signal porte $\Pi_{[a,b]}$ part la formule suivante :
+
 $$
 \Pi_{[a,b]}(t) = \left\{
 \begin{array}{ll}
@@ -303,6 +316,7 @@ $$
 \end{array}
 \right.
 $$
+
 
 > Par convention si a et b ne sont pas précisés alors  $\Pi(x) = \Pi_{[-\frac{1}{2}, \frac{1}{2}]}(x)$
 
@@ -325,15 +339,18 @@ On a les propriétés suivantes :
   \right.$
 - $\int_{\mathbb{R}}^{}| f \ast g(t)| \ dt \leq \int_{\mathbb{R}}^{}| f| \ dt \ \int_{\mathbb{R}}^{}|g| \ dt$
 
-- **<font color=red>Transformée de Fourier d’un produit de convolution</font>**:
 
-  Soit $f,g \in L^2(\mathbb{R})$, on a :
+**<font color=red>Transformée de Fourier d’un produit de convolution</font>**:
+
+Soit $f,g \in L^2(\mathbb{R})$, on a :
 
 $$
 \widehat{f \ast g}(\omega) = \hat{f}(\omega)\hat{g}(\omega)
 $$
 
-​	**Démonstration** : 
+
+**Démonstration** : 
+
 $$
 \begin{align}
 \widehat{f \ast g}(\omega) =& \int_{\mathbb{R}\times\mathbb{R}} f(u)g(t-u)du\;e^{-2i\pi \omega t}dt \\
@@ -387,14 +404,16 @@ $$
 généralisation en dimension n :
 
 Soit $x = (x_1, \dots, x_n)$et $ \omega = (\omega_1, \dots, \omega_n)$
+
 $$
 \widehat{f}(\omega_1,\dots,\omega_n) = \int_{\mathbb{R}^n}f(x_1,\dots,x_n) e^{-2i\pi<\omega, x>}dx_1\dots dx_n
 $$
+
 La plupart des propriétés déjà vues en $1D$ restent vraies en $nD$ cependant il y a quelques exceptions: 
 
 - $$TF(f(ax_1,ax_2)) = \frac{1}{|a|^2}\hat{f}(\frac{w_1}{a},\frac{w_2}{a})$$
 
-- $TF( \frac{\delta f}{\delta_{x_1}}) = (2i\pi\omega_1)\widehat{f}(\omega_1,\omega_2)$
+- $$TF( \frac{\delta f}{\delta_{x_1}}) = (2i\pi\omega_1)\widehat{f}(\omega_1,\omega_2)$$
 
 > $\frac{\delta}{\delta x_1}f$ indique une dérivée partielle.  Cela signifie que l'on dérive la fonction par rapport à la $1^{ère}$ variable uniquement en considèrent la seconde (ici $x_2$) comme constante.
 
