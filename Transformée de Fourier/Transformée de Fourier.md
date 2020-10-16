@@ -1,4 +1,4 @@
-# Transformée de Fourier
+﻿# Transformée de Fourier
 
 > La transformée de Fourier est une opération qui transforme une fonction intégrable sur $\mathbb{R}$ en une autre fonction.
 
@@ -29,6 +29,10 @@
 [**Formule sommatoire de Poisson**](#Formule-sommatoire-de-Poisson)
 
 [**Peigne de Dirac**](#Peigne-de-Dirac)
+
+[**Transformée de Fourier discrète**](#Transformée-de-Fourier-discrète)
+
+[**Fast fourier transform**](#Fast-fourier-transform)
 
 ## Signaux continus en 1D
 
@@ -559,7 +563,37 @@ $Te$: temps d'échantillonnage
 
 Soit $s:\mathbb{R} \to \mathbb{C}$ à bande passante $\hat{s}(\omega) = 0$ si $\omega \notin [-\omega_c,\omega_c]$ alors si $Te < \frac{1}{2\omega_c}$, on peut reconstruire $s$ par la formule d'interpolation.
 
-$$ s(t) = \sum_{n\in\mathbb{Z}}^{}s(nTe)\frac{sin(\frac{\pi(t-nTe)}{Te})}{\pi(\frac{t-nTe}{Te})}$$
+$$ f(t) = \sum_{n\in\mathbb{Z}}^{}Te.f(nTe)\frac{sin(\frac{\pi(t-nTe)}{Te})}{\pi(\frac{t-nTe}{Te})}$$
+
+Si on pose $\phi_{Te} \ \text{le sinus cardinal} : \phi_{Te}=\frac{\frac{sin(\pi T)}{Te}}{\frac{\pi t}{Te}}$
+
+On peut donc écrire : 
+
+$$ f = \sum_{n\in\mathbb{Z}}^{}Te.f(nTe)\delta_{nTe} \ast \phi_{Te}$$
+
+**Problème :** le sinus cardinal décroît lentement vers 0. Pour reconstruire f(t), on a besoin de beaucoup d'échantillons pour une bonne précision.
+
+<font color=red>Hypothèse sur f :</font>
+
+$supp(\hat{f}) \subset [-B,B]$  et $[-B, B] \subset [-\frac{1}{2Te},\frac{1}{2Te}]$
+On multiplie par une porte
+
+$$\hat{f}(\omega)= \hat{f_d}(\omega) . \Pi_{[-\frac{1}{2Te},\frac{1}{2Te}]}$$
+
+On applique $TF^{-1}$ avec $\phi_{Te}(t) = \frac{sin(\frac{\pi t}{Te})}{\frac{\pi t}{Te}}$
+
+On a donc :
+
+$\hat{f} = \hat{f_d}.h$
+
+$$
+\begin{align}
+f = f_d \ast TF^{-1}(h)
+&= \sum_{n\in\mathbb{Z}}^{} f(nTe)_{\delta_{nTe}} * TF^{-1}(h)
+\end{align}
+$$
+
+et $TF^{-1}(h)$ décroit vite car h est régulier.
 
 On retient donc que sous des hypothèses de bande passante, on peut reconstruire exactement le signal échantillonné suffisamment rapidement. Ce théorème établit les conditions qui permettent l'échantillonnage d'un signal de largeur spectrale et d'amplitude limitées.
 
@@ -570,6 +604,18 @@ La fréquence d'échantillonnage $Fe$ doit respecter la règle suivante : $Fe > 
 $$TF(s^{(n)}) = (2i\pi\omega)^nTF(s)$$
 
 $TF(s)$ est le support dans $[-\omega_c,\omega_c]$
+
+### Shannon en 2D
+
+Si $\hat{f}$ a un support dans $[-\frac{1}{2Te},\frac{1}{2Te}]^2$
+
+alors :
+
+$$ f(x) = \sum_{n_1, n_2\in\mathbb{Z^2}}^{}f(n_1Te,n_2Te)\phi_T(x-(n_1T,n_2T))$$
+
+avec $$\phi_T : \mathbb{R^2} \to \mathbb{R}$$
+
+$$x \to \frac{\frac{sin(\pi x_1)}{T}}{\frac{\pi x_1}{T}} . \frac{\frac{sin(\pi x_2)}{T}}{\frac{\pi x_2}{T}}$$
 
 ## Formule sommatoire de Poisson
 
@@ -597,3 +643,55 @@ $$\sum_{k=-\infty}^{\infty}\delta_{k T}(t) = \sum_{k=-\infty}^{\infty}\delta(t-k
 Cette distribution périodique est particulièrement utile dans les problèmes d'échantillonnage, remplacement d'une fonction continue par une suite de valeurs de la fonction séparées par un pas de temps $T$. Elle est $T$-périodique et tempérée, comme dérivée d'une fonction constante par morceaux ; on peut donc la développer en série de Fourier.
 
 ![Peigne de Dirac](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/DiracComb.png/1200px-DiracComb.png)
+
+## Transformée de Fourier discrète 
+
+On se donne un signal de longueur $N$ $(s_n)_{n=0,...,N-1}$
+
+$\hat{s}(k)=\sum _{n=0}^{N-1}s(n)e ^{-2\mathrm {i} \pi k{\frac {n}{N}}}\qquad {\text{pour}}\qquad 0\leqslant k<N$
+
+Soit $\omega = e^{\frac{-2i\pi}{N}}$ 	alors on a :
+
+$$\hat{s}_k = \sum_{n=0}^{N-1}s_n(\omega^k)^n$$
+
+Soit s un signal périodique donc 
+
+$$ s = \hat{s}_ne^{\frac{2i \pi nt}{T}}$$
+
+sachant que $A_{k,n} = (\omega^k)^n$, on a :
+
+$$ s = \hat{s}_ne^{2i \pi n\frac{t}{T}}$$ où T est la période du signal
+
+**<font color="red">Inverse de la TFD</font> :**
+
+Soit une image f de taille M × N. La transformée de Fourier discrète inverse permet de calculer l’image originale à partir d’une transformée de Fourier : 
+
+$$f(m,n) = \frac{1}{MN}\sum^{M−1}_{u=0}\sum^{N−1}_{v=0}F(u,v)e^{+j 2\pi(\frac{um}{M} + \frac{vn}{N})}$$
+
+où $F(u,v)$ représente la TFD de l'image f. 
+
+$$F(u,v) = \frac{1}{MN}\sum^{M−1}_{u=0}\sum^{N−1}_{v=0}f(m,n)e^{−j 2\pi(\frac{um}{M} + \frac{vn}{N})}$$
+
+Le produit de convolution de deux images est équivalent à la multiplication de leurs TFD.
+
+### TFD en 2D :
+
+$$\hat{X}_{k_1,k_2} = \sum_{n_1,n_2}^{N-1}X_{n_1,n_2}e^{\frac{-2i\pi k_1 n_1}{N_1}} e^{\frac{-2i\pi k_2 n_2}{N_2}}$$
+
+
+## Fast fourier transform
+
+> On introduit l'algorithme de la FFT pour calculer la TFD car sa compléxité varie en $O(nlog(n))$ contrairement à l'algorithme naïf en $O(n^2)$
+
+Lorsqu’on désire calculer la transformée de Fourier d’une fonction $x(t)$  à l’aide d’un ordinateur, ce dernier ne travaille que sur des valeurs discrètes, on est amené à :
+-   discrétiser la fonction temporelle,
+-   tronquer la fonction temporelle,
+-   discrétiser la fonction fréquentielle.
+
+$$
+\begin{align}
+X_k = \sum_{n=0}^{N-1}x_ne^{\frac{-2i \pi nk}{N}}
+&= \sum_{m=0}^{N/2-1}x_{2m}e^{\frac{-2i \pi (2mk)}{2N}} +  \sum_{m=0}^{N/2-1}x_{2m+1}e^{\frac{-2i \pi ((2m+1)k)}{M}}
+&= \sum_{m=0}^{M-1}x_{2m}e^{\frac{-2i \pi (mk)}{M}} +  \sum_{m=0}^{M-1}x_{2m+1}e^{\frac{-2i \pi (mk)}{M}}
+\end{align}
+$$
