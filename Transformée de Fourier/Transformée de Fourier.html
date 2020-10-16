@@ -257,6 +257,13 @@
   <a class="reference internal nav-link" href="#echantillonnage-et-theoreme-de-shannon">
    Échantillonnage et théorème de Shannon
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#shannon-en-2d">
+     Shannon en 2D
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#formule-sommatoire-de-poisson">
@@ -266,6 +273,23 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#peigne-de-dirac">
    Peigne de Dirac
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transformee-de-fourier-discrete">
+   Transformée de Fourier discrète
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tfd-en-2d">
+     TFD en 2D :
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fast-fourier-transform">
+   Fast fourier transform
   </a>
  </li>
 </ul>
@@ -299,6 +323,8 @@
 <p><a class="reference external" href="#%C3%89chantillonnage-et-th%C3%A9or%C3%A8me-de-Shannon"><strong>Échantillonnage et théorème de Shannon</strong></a></p>
 <p><a class="reference external" href="#Formule-sommatoire-de-Poisson"><strong>Formule sommatoire de Poisson</strong></a></p>
 <p><a class="reference external" href="#Peigne-de-Dirac"><strong>Peigne de Dirac</strong></a></p>
+<p><a class="reference external" href="#Transform%C3%A9e-de-Fourier-discr%C3%A8te"><strong>Transformée de Fourier discrète</strong></a></p>
+<p><a class="reference external" href="#Fast-fourier-transform"><strong>Fast fourier transform</strong></a></p>
 </div>
 <div class="section" id="signaux-continus-en-1d">
 <h2>Signaux continus en 1D<a class="headerlink" href="#signaux-continus-en-1d" title="Permalink to this headline">¶</a></h2>
@@ -773,13 +799,44 @@ Avec <span class="math notranslate nohighlight">\(g\)</span> continue</p></li>
 <p><strong><font color=red>Théorème de Shannon</font> :</strong></p>
 <p>Soit <span class="math notranslate nohighlight">\(s:\mathbb{R} \to \mathbb{C}\)</span> à bande passante <span class="math notranslate nohighlight">\(\hat{s}(\omega) = 0\)</span> si <span class="math notranslate nohighlight">\(\omega \notin [-\omega_c,\omega_c]\)</span> alors si <span class="math notranslate nohighlight">\(Te &lt; \frac{1}{2\omega_c}\)</span>, on peut reconstruire <span class="math notranslate nohighlight">\(s\)</span> par la formule d’interpolation.</p>
 <div class="math notranslate nohighlight">
-\[ s(t) = \sum_{n\in\mathbb{Z}}^{}s(nTe)\frac{sin(\frac{\pi(t-nTe)}{Te})}{\pi(\frac{t-nTe}{Te})}\]</div>
+\[ f(t) = \sum_{n\in\mathbb{Z}}^{}Te.f(nTe)\frac{sin(\frac{\pi(t-nTe)}{Te})}{\pi(\frac{t-nTe}{Te})}\]</div>
+<p>Si on pose <span class="math notranslate nohighlight">\(\phi_{Te} \ \text{le sinus cardinal} : \phi_{Te}=\frac{\frac{sin(\pi T)}{Te}}{\frac{\pi t}{Te}}\)</span></p>
+<p>On peut donc écrire :</p>
+<div class="math notranslate nohighlight">
+\[ f = \sum_{n\in\mathbb{Z}}^{}Te.f(nTe)\delta_{nTe} \ast \phi_{Te}\]</div>
+<p><strong>Problème :</strong> le sinus cardinal décroît lentement vers 0. Pour reconstruire f(t), on a besoin de beaucoup d’échantillons pour une bonne précision.</p>
+<p><font color=red>Hypothèse sur f :</font></p>
+<p><span class="math notranslate nohighlight">\(supp(\hat{f}) \subset [-B,B]\)</span>  et <span class="math notranslate nohighlight">\([-B, B] \subset [-\frac{1}{2Te},\frac{1}{2Te}]\)</span>
+On multiplie par une porte</p>
+<div class="math notranslate nohighlight">
+\[\hat{f}(\omega)= \hat{f_d}(\omega) . \Pi_{[-\frac{1}{2Te},\frac{1}{2Te}]}\]</div>
+<p>On applique <span class="math notranslate nohighlight">\(TF^{-1}\)</span> avec <span class="math notranslate nohighlight">\(\phi_{Te}(t) = \frac{sin(\frac{\pi t}{Te})}{\frac{\pi t}{Te}}\)</span></p>
+<p>On a donc :</p>
+<p><span class="math notranslate nohighlight">\(\hat{f} = \hat{f_d}.h\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+f = f_d \ast TF^{-1}(h)
+&amp;= \sum_{n\in\mathbb{Z}}^{} f(nTe)_{\delta_{nTe}} * TF^{-1}(h)
+\end{align}
+\]</div>
+<p>et <span class="math notranslate nohighlight">\(TF^{-1}(h)\)</span> décroit vite car h est régulier.</p>
 <p>On retient donc que sous des hypothèses de bande passante, on peut reconstruire exactement le signal échantillonné suffisamment rapidement. Ce théorème établit les conditions qui permettent l’échantillonnage d’un signal de largeur spectrale et d’amplitude limitées.</p>
 <p>La fréquence d’échantillonnage <span class="math notranslate nohighlight">\(Fe\)</span> doit respecter la règle suivante : <span class="math notranslate nohighlight">\(Fe &gt; 2f_0\)</span> sachant que <span class="math notranslate nohighlight">\(f_0=\nu_0 Fe\)</span></p>
 <p>{<span class="math notranslate nohighlight">\(f\)</span> à bande passante} <span class="math notranslate nohighlight">\(\subset\)</span> signaux très régulier</p>
 <div class="math notranslate nohighlight">
 \[TF(s^{(n)}) = (2i\pi\omega)^nTF(s)\]</div>
 <p><span class="math notranslate nohighlight">\(TF(s)\)</span> est le support dans <span class="math notranslate nohighlight">\([-\omega_c,\omega_c]\)</span></p>
+<div class="section" id="shannon-en-2d">
+<h3>Shannon en 2D<a class="headerlink" href="#shannon-en-2d" title="Permalink to this headline">¶</a></h3>
+<p>Si <span class="math notranslate nohighlight">\(\hat{f}\)</span> a un support dans <span class="math notranslate nohighlight">\([-\frac{1}{2Te},\frac{1}{2Te}]^2\)</span></p>
+<p>alors :</p>
+<div class="math notranslate nohighlight">
+\[ f(x) = \sum_{n_1, n_2\in\mathbb{Z^2}}^{}f(n_1Te,n_2Te)\phi_T(x-(n_1T,n_2T))\]</div>
+<p>avec $<span class="math notranslate nohighlight">\(\phi_T : \mathbb{R^2} \to \mathbb{R}\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[x \to \frac{\frac{sin(\pi x_1)}{T}}{\frac{\pi x_1}{T}} . \frac{\frac{sin(\pi x_2)}{T}}{\frac{\pi x_2}{T}}\]</div>
+</div>
 </div>
 <div class="section" id="formule-sommatoire-de-poisson">
 <h2>Formule sommatoire de Poisson<a class="headerlink" href="#formule-sommatoire-de-poisson" title="Permalink to this headline">¶</a></h2>
@@ -801,6 +858,49 @@ $<span class="math notranslate nohighlight">\(\sum _{m=-\infty }^{\infty }|{\hat
 \[\sum_{k=-\infty}^{\infty}\delta_{k T}(t) = \sum_{k=-\infty}^{\infty}\delta(t-kT)\]</div>
 <p>Cette distribution périodique est particulièrement utile dans les problèmes d’échantillonnage, remplacement d’une fonction continue par une suite de valeurs de la fonction séparées par un pas de temps <span class="math notranslate nohighlight">\(T\)</span>. Elle est <span class="math notranslate nohighlight">\(T\)</span>-périodique et tempérée, comme dérivée d’une fonction constante par morceaux ; on peut donc la développer en série de Fourier.</p>
 <p><img alt="Peigne de Dirac" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/DiracComb.png/1200px-DiracComb.png" /></p>
+</div>
+<div class="section" id="transformee-de-fourier-discrete">
+<h2>Transformée de Fourier discrète<a class="headerlink" href="#transformee-de-fourier-discrete" title="Permalink to this headline">¶</a></h2>
+<p>On se donne un signal de longueur <span class="math notranslate nohighlight">\(N\)</span> <span class="math notranslate nohighlight">\((s_n)_{n=0,...,N-1}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hat{s}(k)=\sum _{n=0}^{N-1}s(n)e ^{-2\mathrm {i} \pi k{\frac {n}{N}}}\qquad {\text{pour}}\qquad 0\leqslant k&lt;N\)</span></p>
+<p>Soit <span class="math notranslate nohighlight">\(\omega = e^{\frac{-2i\pi}{N}}\)</span> 	alors on a :</p>
+<div class="math notranslate nohighlight">
+\[\hat{s}_k = \sum_{n=0}^{N-1}s_n(\omega^k)^n\]</div>
+<p>Soit s un signal périodique donc</p>
+<div class="math notranslate nohighlight">
+\[ s = \hat{s}_ne^{\frac{2i \pi nt}{T}}\]</div>
+<p>sachant que <span class="math notranslate nohighlight">\(A_{k,n} = (\omega^k)^n\)</span>, on a :</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned} s = \hat{s}_ne^{2i \pi n\frac{t}{T}}$$ où T est la période du signal\\**&lt;font color=&quot;red&quot;&gt;Inverse de la TFD&lt;/font&gt; :**\\Soit une image f de taille M × N. La transformée de Fourier discrète inverse permet de calculer l’image originale à partir d’une transformée de Fourier : \\$$f(m,n) = \frac{1}{MN}\sum^{M−1}_{u=0}\sum^{N−1}_{v=0}F(u,v)e^{+j 2\pi(\frac{um}{M} + \frac{vn}{N})}\end{aligned}\end{align} \]</div>
+<p>où <span class="math notranslate nohighlight">\(F(u,v)\)</span> représente la TFD de l’image f.</p>
+<div class="math notranslate nohighlight">
+\[F(u,v) = \frac{1}{MN}\sum^{M−1}_{u=0}\sum^{N−1}_{v=0}f(m,n)e^{−j 2\pi(\frac{um}{M} + \frac{vn}{N})}\]</div>
+<p>Le produit de convolution de deux images est équivalent à la multiplication de leurs TFD.</p>
+<div class="section" id="tfd-en-2d">
+<h3>TFD en 2D :<a class="headerlink" href="#tfd-en-2d" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[\hat{X}_{k_1,k_2} = \sum_{n_1,n_2}^{N-1}X_{n_1,n_2}e^{\frac{-2i\pi k_1 n_1}{N_1}} e^{\frac{-2i\pi k_2 n_2}{N_2}}\]</div>
+</div>
+</div>
+<div class="section" id="fast-fourier-transform">
+<h2>Fast fourier transform<a class="headerlink" href="#fast-fourier-transform" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>On introduit l’algorithme de la FFT pour calculer la TFD car sa compléxité varie en <span class="math notranslate nohighlight">\(O(nlog(n))\)</span> contrairement à l’algorithme naïf en <span class="math notranslate nohighlight">\(O(n^2)\)</span></p>
+</div></blockquote>
+<p>Lorsqu’on désire calculer la transformée de Fourier d’une fonction <span class="math notranslate nohighlight">\(x(t)\)</span>  à l’aide d’un ordinateur, ce dernier ne travaille que sur des valeurs discrètes, on est amené à :</p>
+<ul class="simple">
+<li><p>discrétiser la fonction temporelle,</p></li>
+<li><p>tronquer la fonction temporelle,</p></li>
+<li><p>discrétiser la fonction fréquentielle.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+X_k = \sum_{n=0}^{N-1}x_ne^{\frac{-2i \pi nk}{N}}
+&amp;= \sum_{m=0}^{N/2-1}x_{2m}e^{\frac{-2i \pi (2mk)}{2N}} +  \sum_{m=0}^{N/2-1}x_{2m+1}e^{\frac{-2i \pi ((2m+1)k)}{M}}
+&amp;= \sum_{m=0}^{M-1}x_{2m}e^{\frac{-2i \pi (mk)}{M}} +  \sum_{m=0}^{M-1}x_{2m+1}e^{\frac{-2i \pi (mk)}{M}}
+\end{align}
+\]</div>
 </div>
 </div>
 
