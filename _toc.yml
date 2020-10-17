@@ -5,7 +5,7 @@
   - file: Introduction/Introduction
   - file: Transformée de Fourier/Transformée de Fourier
   
- - part: Filtrage
+- part: Filtrage
   chapters:
   - file: Filtrage/Filtre
 
