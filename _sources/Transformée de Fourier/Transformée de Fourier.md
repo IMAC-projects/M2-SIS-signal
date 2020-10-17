@@ -573,10 +573,11 @@ $$ f = \sum_{n\in\mathbb{Z}}^{}Te.f(nTe)\delta_{nTe} \ast \phi_{Te}$$
 
 **Problème :** le sinus cardinal décroît lentement vers 0. Pour reconstruire f(t), on a besoin de beaucoup d'échantillons pour une bonne précision.
 
-<font color=red>Hypothèse sur f :</font>
+**<font color=red>Hypothèse sur f :</font>**
 
 $supp(\hat{f}) \subset [-B,B]$  et $[-B, B] \subset [-\frac{1}{2Te},\frac{1}{2Te}]$
-On multiplie par une porte
+
+On multiplie par une porte :
 
 $$\hat{f}(\omega)= \hat{f_d}(\omega) . \Pi_{[-\frac{1}{2Te},\frac{1}{2Te}]}$$
 
@@ -613,7 +614,7 @@ alors :
 
 $$ f(x) = \sum_{n_1, n_2\in\mathbb{Z^2}}^{}f(n_1Te,n_2Te)\phi_T(x-(n_1T,n_2T))$$
 
-avec $$\phi_T : \mathbb{R^2} \to \mathbb{R}$$
+avec $\phi_T : \mathbb{R^2} \to \mathbb{R}$
 
 $$x \to \frac{\frac{sin(\pi x_1)}{T}}{\frac{\pi x_1}{T}} . \frac{\frac{sin(\pi x_2)}{T}}{\frac{\pi x_2}{T}}$$
 
@@ -660,7 +661,9 @@ $$ s = \hat{s}_ne^{\frac{2i \pi nt}{T}}$$
 
 sachant que $A_{k,n} = (\omega^k)^n$, on a :
 
-$$ s = \hat{s}_ne^{2i \pi n\frac{t}{T}}$$ où T est la période du signal
+$$ s = \hat{s}_ne^{2i \pi n\frac{t}{T}}$$ 
+
+où T est la période du signal
 
 **<font color="red">Inverse de la TFD</font> :**
 

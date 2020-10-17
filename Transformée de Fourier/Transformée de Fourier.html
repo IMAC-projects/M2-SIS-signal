@@ -817,9 +817,9 @@ Avec <span class="math notranslate nohighlight">\(g\)</span> continue</p></li>
 <div class="math notranslate nohighlight">
 \[ f = \sum_{n\in\mathbb{Z}}^{}Te.f(nTe)\delta_{nTe} \ast \phi_{Te}\]</div>
 <p><strong>Problème :</strong> le sinus cardinal décroît lentement vers 0. Pour reconstruire f(t), on a besoin de beaucoup d’échantillons pour une bonne précision.</p>
-<p><font color=red>Hypothèse sur f :</font></p>
-<p><span class="math notranslate nohighlight">\(supp(\hat{f}) \subset [-B,B]\)</span>  et <span class="math notranslate nohighlight">\([-B, B] \subset [-\frac{1}{2Te},\frac{1}{2Te}]\)</span>
-On multiplie par une porte</p>
+<p><strong><font color=red>Hypothèse sur f :</font></strong></p>
+<p><span class="math notranslate nohighlight">\(supp(\hat{f}) \subset [-B,B]\)</span>  et <span class="math notranslate nohighlight">\([-B, B] \subset [-\frac{1}{2Te},\frac{1}{2Te}]\)</span></p>
+<p>On multiplie par une porte :</p>
 <div class="math notranslate nohighlight">
 \[\hat{f}(\omega)= \hat{f_d}(\omega) . \Pi_{[-\frac{1}{2Te},\frac{1}{2Te}]}\]</div>
 <p>On applique <span class="math notranslate nohighlight">\(TF^{-1}\)</span> avec <span class="math notranslate nohighlight">\(\phi_{Te}(t) = \frac{sin(\frac{\pi t}{Te})}{\frac{\pi t}{Te}}\)</span></p>
@@ -845,7 +845,7 @@ f = f_d \ast TF^{-1}(h)
 <p>alors :</p>
 <div class="math notranslate nohighlight">
 \[ f(x) = \sum_{n_1, n_2\in\mathbb{Z^2}}^{}f(n_1Te,n_2Te)\phi_T(x-(n_1T,n_2T))\]</div>
-<p>avec $<span class="math notranslate nohighlight">\(\phi_T : \mathbb{R^2} \to \mathbb{R}\)</span>$</p>
+<p>avec <span class="math notranslate nohighlight">\(\phi_T : \mathbb{R^2} \to \mathbb{R}\)</span></p>
 <div class="math notranslate nohighlight">
 \[x \to \frac{\frac{sin(\pi x_1)}{T}}{\frac{\pi x_1}{T}} . \frac{\frac{sin(\pi x_2)}{T}}{\frac{\pi x_2}{T}}\]</div>
 </div>
@@ -883,7 +883,12 @@ $<span class="math notranslate nohighlight">\(\sum _{m=-\infty }^{\infty }|{\hat
 \[ s = \hat{s}_ne^{\frac{2i \pi nt}{T}}\]</div>
 <p>sachant que <span class="math notranslate nohighlight">\(A_{k,n} = (\omega^k)^n\)</span>, on a :</p>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned} s = \hat{s}_ne^{2i \pi n\frac{t}{T}}$$ où T est la période du signal\\**&lt;font color=&quot;red&quot;&gt;Inverse de la TFD&lt;/font&gt; :**\\Soit une image f de taille M × N. La transformée de Fourier discrète inverse permet de calculer l’image originale à partir d’une transformée de Fourier : \\$$f(m,n) = \frac{1}{MN}\sum^{M−1}_{u=0}\sum^{N−1}_{v=0}F(u,v)e^{+j 2\pi(\frac{um}{M} + \frac{vn}{N})}\end{aligned}\end{align} \]</div>
+\[ s = \hat{s}_ne^{2i \pi n\frac{t}{T}}\]</div>
+<p>où T est la période du signal</p>
+<p><strong><font color="red">Inverse de la TFD</font> :</strong></p>
+<p>Soit une image f de taille M × N. La transformée de Fourier discrète inverse permet de calculer l’image originale à partir d’une transformée de Fourier :</p>
+<div class="math notranslate nohighlight">
+\[f(m,n) = \frac{1}{MN}\sum^{M−1}_{u=0}\sum^{N−1}_{v=0}F(u,v)e^{+j 2\pi(\frac{um}{M} + \frac{vn}{N})}\]</div>
 <p>où <span class="math notranslate nohighlight">\(F(u,v)\)</span> représente la TFD de l’image f.</p>
 <div class="math notranslate nohighlight">
 \[F(u,v) = \frac{1}{MN}\sum^{M−1}_{u=0}\sum^{N−1}_{v=0}f(m,n)e^{−j 2\pi(\frac{um}{M} + \frac{vn}{N})}\]</div>
