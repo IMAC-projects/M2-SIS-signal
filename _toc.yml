@@ -4,6 +4,10 @@
   chapters:
   - file: Introduction/Introduction
   - file: Transformée de Fourier/Transformée de Fourier
+  
+ - part: Filtrage
+  chapters:
+  - file: Filtrage/Filtre
 
 - part: TD
   chapters:
