@@ -57,6 +57,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="TP 1: Analyse en fréquence de signaux sonores." href="../TD1/TP1%20-%20EEA%20-%20Exercices.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -128,10 +129,65 @@
   TD
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../TD1/TP1%20-%20EEA%20-%20Exercices.html">
    TP 1: Analyse en fréquence de signaux sonores.
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. Shannon’s theorem in use.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#simple-exercice-with-the-spectrum-of-a-signal">
+   2. Simple exercice with the spectrum of a signal.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#a-on-a-1d-signal">
+   A. On a 1D signal.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#important-remark">
+   Important remark:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#b-on-an-image">
+   B. On an image.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#hereafter-we-construct-an-image-from-a-random-modification-of-the-phase-of-the-fft-of-an-image-which-contains-what-is-called-texture-information-that-is-repetitive-patterns">
+   Hereafter, we construct an image from a random modification of the phase of the FFT of an image, which contains what is called texture information, that is repetitive patterns.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#ex-redo-the-experiment-with-the-animal-image-what-do-you-observe">
+   Ex: Redo the experiment with the animal image. What do you observe?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#convolution">
+   3. Convolution.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#ex-suppressing-the-aliasing-effect">
+   Ex: Suppressing the aliasing effect.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#linear-and-non-linear-approximation">
+   3. Linear and non-linear approximation.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#stft-short-time-fourier-transform-and-source-separation">
+   4. STFT  (Short Time Fourier Transform) and source separation.
   </a>
  </li>
 </ul>
@@ -176,7 +232,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/TD/TD2/TD 2 FFT - Exercices.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/TD/TD2/TP2 - FFT - Exercices.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -201,7 +257,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/TD/TD2/TD 2 FFT - Exercices.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/TD/TD2/TP2 - FFT - Exercices.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -474,7 +530,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/TD 2 FFT - Exercices_3_0.png" src="../../_images/TD 2 FFT - Exercices_3_0.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_3_0.png" src="../../_images/TP2 - FFT - Exercices_3_0.png" />
 </div>
 </div>
 <div class="section" id="ex-choose-a-sampling-time-t-e-sample-this-signal-and-then-show-the-reconstruction-using-linear-interpolation">
@@ -500,7 +556,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/TD 2 FFT - Exercices_5_0.png" src="../../_images/TD 2 FFT - Exercices_5_0.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_5_0.png" src="../../_images/TP2 - FFT - Exercices_5_0.png" />
 </div>
 </div>
 </div>
@@ -534,8 +590,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/TD 2 FFT - Exercices_7_0.png" src="../../_images/TD 2 FFT - Exercices_7_0.png" />
-<img alt="../../_images/TD 2 FFT - Exercices_7_1.png" src="../../_images/TD 2 FFT - Exercices_7_1.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_7_0.png" src="../../_images/TP2 - FFT - Exercices_7_0.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_7_1.png" src="../../_images/TP2 - FFT - Exercices_7_1.png" />
 </div>
 </div>
 </div>
@@ -562,10 +618,10 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(599, 493, 3)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f79722a5a90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f87b532ead0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/TD 2 FFT - Exercices_9_2.png" src="../../_images/TD 2 FFT - Exercices_9_2.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_9_2.png" src="../../_images/TP2 - FFT - Exercices_9_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -590,13 +646,13 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(240, 365)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f7972247850&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f87b52ce990&gt;
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../../_images/TD 2 FFT - Exercices_10_3.png" src="../../_images/TD 2 FFT - Exercices_10_3.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_10_3.png" src="../../_images/TP2 - FFT - Exercices_10_3.png" />
 </div>
 </div>
 </div>
@@ -625,7 +681,7 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>500
 </pre></div>
 </div>
-<img alt="../../_images/TD 2 FFT - Exercices_13_1.png" src="../../_images/TD 2 FFT - Exercices_13_1.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_13_1.png" src="../../_images/TP2 - FFT - Exercices_13_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -697,7 +753,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39; The 0 frequency is in the middle. &#39;)
 </pre></div>
 </div>
-<img alt="../../_images/TD 2 FFT - Exercices_20_1.png" src="../../_images/TD 2 FFT - Exercices_20_1.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_20_1.png" src="../../_images/TP2 - FFT - Exercices_20_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -711,10 +767,10 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f7972045710&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f87b50cd6d0&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/TD 2 FFT - Exercices_21_1.png" src="../../_images/TD 2 FFT - Exercices_21_1.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_21_1.png" src="../../_images/TP2 - FFT - Exercices_21_1.png" />
 </div>
 </div>
 <div class="section" id="ex-read-the-script-above-and-explain-what-it-does-the-illustrated-phenomenon-is-called-the-gibbs-phenomenon-and-is-due-to-the-slow-convergence-of-the-fourier-serie-at-the-discontinuites-of-the-signal">
@@ -733,10 +789,10 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
   This is separate from the ipykernel package so we can avoid doing imports until
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f7972281b50&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f87b52a0690&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/TD 2 FFT - Exercices_24_2.png" src="../../_images/TD 2 FFT - Exercices_24_2.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_24_2.png" src="../../_images/TP2 - FFT - Exercices_24_2.png" />
 </div>
 </div>
 </div>
@@ -767,7 +823,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Even coeff&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/TD 2 FFT - Exercices_27_1.png" src="../../_images/TD 2 FFT - Exercices_27_1.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_27_1.png" src="../../_images/TP2 - FFT - Exercices_27_1.png" />
 </div>
 </div>
 <p>1 valeur sur 2 est nulle : c’est pour cela que l’on considère uniquement la moitié du signal</p>
@@ -802,10 +858,10 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f795d6b0f90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f87a071f210&gt;
 </pre></div>
 </div>
-<img alt="../../_images/TD 2 FFT - Exercices_31_1.png" src="../../_images/TD 2 FFT - Exercices_31_1.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_31_1.png" src="../../_images/TP2 - FFT - Exercices_31_1.png" />
 </div>
 </div>
 <div class="section" id="hereafter-we-represent-the-logarithm-of-the-module-of-the-image-spectrum">
@@ -826,10 +882,10 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f795d5ff550&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f87a05f9210&gt;
 </pre></div>
 </div>
-<img alt="../../_images/TD 2 FFT - Exercices_33_1.png" src="../../_images/TD 2 FFT - Exercices_33_1.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_33_1.png" src="../../_images/TP2 - FFT - Exercices_33_1.png" />
 </div>
 </div>
 </div>
@@ -866,10 +922,10 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f795d4bc7d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f87a051f650&gt;
 </pre></div>
 </div>
-<img alt="../../_images/TD 2 FFT - Exercices_35_1.png" src="../../_images/TD 2 FFT - Exercices_35_1.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_35_1.png" src="../../_images/TP2 - FFT - Exercices_35_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -880,10 +936,10 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f795d474890&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f87a04d8a50&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/TD 2 FFT - Exercices_36_1.png" src="../../_images/TD 2 FFT - Exercices_36_1.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_36_1.png" src="../../_images/TP2 - FFT - Exercices_36_1.png" />
 </div>
 </div>
 </div>
@@ -917,10 +973,10 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f795d35dc50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f87a03c0fd0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/TD 2 FFT - Exercices_39_1.png" src="../../_images/TD 2 FFT - Exercices_39_1.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_39_1.png" src="../../_images/TP2 - FFT - Exercices_39_1.png" />
 </div>
 </div>
 </div>
@@ -952,10 +1008,10 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f795d28d950&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f87a0271c50&gt;
 </pre></div>
 </div>
-<img alt="../../_images/TD 2 FFT - Exercices_41_1.png" src="../../_images/TD 2 FFT - Exercices_41_1.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_41_1.png" src="../../_images/TP2 - FFT - Exercices_41_1.png" />
 </div>
 </div>
 <p>The racoon is blurred</p>
@@ -991,10 +1047,10 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f795d1cb590&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f87a022d4d0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/TD 2 FFT - Exercices_45_1.png" src="../../_images/TD 2 FFT - Exercices_45_1.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_45_1.png" src="../../_images/TP2 - FFT - Exercices_45_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1044,7 +1100,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/TD 2 FFT - Exercices_48_0.png" src="../../_images/TD 2 FFT - Exercices_48_0.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_48_0.png" src="../../_images/TP2 - FFT - Exercices_48_0.png" />
 </div>
 </div>
 </div>
@@ -1106,7 +1162,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/TD 2 FFT - Exercices_52_0.png" src="../../_images/TD 2 FFT - Exercices_52_0.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_52_0.png" src="../../_images/TP2 - FFT - Exercices_52_0.png" />
 </div>
 </div>
 <div class="section" id="ex-explain-what-is-done-in-the-previous-cell">
@@ -1268,7 +1324,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x214c2c33f08&gt;
 </pre></div>
 </div>
-<img alt="../../_images/TD 2 FFT - Exercices_65_1.png" src="../../_images/TD 2 FFT - Exercices_65_1.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_65_1.png" src="../../_images/TP2 - FFT - Exercices_65_1.png" />
 </div>
 </div>
 <p>### We numerically check that the STFT and ISTFT are indeed inverse from each others.</p>
@@ -1310,7 +1366,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x214c78d98c8&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/TD 2 FFT - Exercices_69_2.png" src="../../_images/TD 2 FFT - Exercices_69_2.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_69_2.png" src="../../_images/TP2 - FFT - Exercices_69_2.png" />
 </div>
 </div>
 </div>
@@ -1329,7 +1385,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/TD 2 FFT - Exercices_71_0.png" src="../../_images/TD 2 FFT - Exercices_71_0.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_71_0.png" src="../../_images/TP2 - FFT - Exercices_71_0.png" />
 </div>
 </div>
 </div>
@@ -1368,7 +1424,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/TD 2 FFT - Exercices_74_0.png" src="../../_images/TD 2 FFT - Exercices_74_0.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_74_0.png" src="../../_images/TP2 - FFT - Exercices_74_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1504,7 +1560,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 <span class="ne">IndexError</span>: list index out of range
 </pre></div>
 </div>
-<img alt="../../_images/TD 2 FFT - Exercices_81_1.png" src="../../_images/TD 2 FFT - Exercices_81_1.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_81_1.png" src="../../_images/TP2 - FFT - Exercices_81_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1583,6 +1639,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="../TD1/TP1%20-%20EEA%20-%20Exercices.html" title="previous page">TP 1: Analyse en fréquence de signaux sonores.</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
