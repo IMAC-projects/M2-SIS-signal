@@ -218,6 +218,101 @@
    Sommaire
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definitions">
+   Définitions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-red-amplification-font">
+     <strong>
+      <font color="red">
+       Amplification
+      </font>
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-red-saturation-font">
+     <strong>
+      <font color="red">
+       Saturation
+      </font>
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-red-octave-font">
+     <strong>
+      <font color="red">
+       Octave
+      </font>
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-red-decade-font">
+     <strong>
+      <font color="red">
+       Décade
+      </font>
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-red-gain-font">
+     <strong>
+      <font color="red">
+       Gain
+      </font>
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-red-frequence-de-coupure-font">
+     <strong>
+      <font color="red">
+       Fréquence de coupure
+      </font>
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-red-bande-passante-font">
+     <strong>
+      <font color="red">
+       Bande passante
+      </font>
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtre-passe-haut">
+   Filtre passe-haut
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtre-passe-bas">
+   Filtre passe-bas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtre-passe-bande">
+   Filtre passe-bande
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtre-coupe-bande">
+   Filtre coupe-bande
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -237,7 +332,93 @@
 <div class="section" id="sommaire">
 <h2>Sommaire<a class="headerlink" href="#sommaire" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="#Introduction"><strong>Introduction</strong></a></p>
-<p>On fait passer une convolution sur le signal pour sélectionner un contenu fréquentiel.</p>
+<p><a class="reference external" href="#D%C3%A9finitions"><strong>Définitions</strong></a></p>
+<p><a class="reference external" href="#Filtre-passe-haut"><strong>Filtre passe-haut</strong></a></p>
+<p><a class="reference external" href="#Filtre-passe-bas"><strong>Filtre passe-bas</strong></a></p>
+<p><a class="reference external" href="#Filtre-passe-bande"><strong>Filtre passe-bande</strong></a></p>
+<p><a class="reference external" href="#Filtre-coupe-bande"><strong>Filtre coupe-bande</strong></a></p>
+<p><a class="reference external" href="#Filtrage-analogique"><strong>Filtrage analogique</strong></a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="#Dirac"><strong>Dirac</strong></a></p></li>
+<li><p><a class="reference external" href="#R%C3%A9ponse-impulsionnelle"><strong>Réponse impulsionnelle</strong></a></p></li>
+<li><p><a class="reference external" href="#Causalit%C3%A9"><strong>Causalité</strong></a></p></li>
+<li><p><a class="reference external" href="#Gain-et-phase"><strong>Gain et phase</strong></a></p></li>
+<li><p><a class="reference external" href="#Fonction-de-transfert"><strong>Fonction de transfert</strong></a></p></li>
+</ul>
+<p><a class="reference external" href="#Filtrage-num%C3%A9rique"><strong>Filtrage numérique</strong></a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="#Transform%C3%A9e-en-Z"><strong>Transformée en Z</strong></a></p></li>
+<li><p><a class="reference external" href="#Causalit%C3%A9"><strong>Causalité</strong></a></p></li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>On parle de filtrage de signal lorsqu’on atténue (la suppression est difficile) ou favorise dans un signal des fréquences par rapport à d’autres.</p>
+<p>En général, on recense 4 types de filtres :</p>
+<ul class="simple">
+<li><p>Le filtre passe-haut qui laisse passer les fréquences hautes</p></li>
+<li><p>Le filtre passe-bas qui laisse passer les fréquences basses</p></li>
+<li><p>Le filtre passe-bande qui laisse passer une bande de fréquence</p></li>
+<li><p>Le filtre coupe-bande qui supprime une bande de fréquence</p></li>
+</ul>
+<p><img src="http://www.siloged.fr/cours/html/ssi_filtrage/lib/gabarit.png"  
+alt="schéma filtres" style="text-align:center;"/></p>
+<p>De nombreux systèmes physiques peuvent être schématisés du point de vue de la théorie du signal par le lien entre le signal d’entrée <span class="math notranslate nohighlight">\(e\)</span> et le signal de sortie <span class="math notranslate nohighlight">\(s\)</span>.</p>
+<p><img src="https://i.ibb.co/BzfTXmW/Capture-d-cran-2020-10-26-221553.png"  
+alt="schéma filtres" style="text-align:center;"/></p>
+<p>Cette correspondance entre l’entrée et la sortie est notée <span class="math notranslate nohighlight">\(s = H(e)\)</span>.</p>
+</div>
+<div class="section" id="definitions">
+<h2>Définitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="font-color-red-amplification-font">
+<h3><strong><font color=red>Amplification</font></strong><a class="headerlink" href="#font-color-red-amplification-font" title="Permalink to this headline">¶</a></h3>
+<p>L’amplification d’un signal consiste à augmenter une ou certaine de ses grandeurs électriques :</p>
+<ul class="simple">
+<li><p>le courant : amplification de courant</p></li>
+<li><p>la tension : amplification de tension</p></li>
+<li><p>la puissance : amplification de puissance</p></li>
+</ul>
+<p>L’amplification de puissance étant à la fois une amplification de courant et de tension.</p>
+<p>Une opération d’amplification est donc une opération de multiplication par une constante supérieure à 1.</p>
+</div>
+<div class="section" id="font-color-red-saturation-font">
+<h3><strong><font color=red>Saturation</font></strong><a class="headerlink" href="#font-color-red-saturation-font" title="Permalink to this headline">¶</a></h3>
+<p>Les structures de traitement des signaux analogiques sont réalisées avec des amplificateurs. Ces derniers ne peuvent restituer, au maximum que la tension maximum qui les alimente.
+Si théoriquement ils doivent restituer plus, la tension de sortie ne dépassera pas cette tension d’alimentation. On dit qu’ils saturent.</p>
+</div>
+<div class="section" id="font-color-red-octave-font">
+<h3><strong><font color=red>Octave</font></strong><a class="headerlink" href="#font-color-red-octave-font" title="Permalink to this headline">¶</a></h3>
+<p>Une octave est un rapport de deux entre deux fréquences.
+Par exemple un LA2 de fréquence 440Hz est une octave en dessous d’un LA3 de 880Hz.
+Pour changer de son à l’octave, on double par exemple la longueur d’une flûte</p>
+</div>
+<div class="section" id="font-color-red-decade-font">
+<h3><strong><font color=red>Décade</font></strong><a class="headerlink" href="#font-color-red-decade-font" title="Permalink to this headline">¶</a></h3>
+<p>Une décade est un rapport de 10 entre deux fréquences. Généralement, pour des grandeurs évoluant par décade, on utilise une échelle logarithmique (logarithme décimal) de sorte que les phénomènes soient plus visibles.</p>
+</div>
+<div class="section" id="font-color-red-gain-font">
+<h3><strong><font color=red>Gain</font></strong><a class="headerlink" href="#font-color-red-gain-font" title="Permalink to this headline">¶</a></h3>
+<p>Plutôt que de parler de coefficient d’amplification, on préfère parler de gain.
+Le gain désigne la capacité d’une structure à augmenter ou diminuer la puissance ou l’amplitude d’un signal. Si le gain est positif, la structure amplifie le signal, si le gain est négatif, la structure atténue le signal.</p>
+<p>L’unité du gain est le décibel noté <span class="math notranslate nohighlight">\(dB\)</span>.</p>
+</div>
+<div class="section" id="font-color-red-frequence-de-coupure-font">
+<h3><strong><font color=red>Fréquence de coupure</font></strong><a class="headerlink" href="#font-color-red-frequence-de-coupure-font" title="Permalink to this headline">¶</a></h3>
+<p>La fréquence de coupure spécifie une fréquence particulière à laquelle le signal est atténué de <span class="math notranslate nohighlight">\(-3dB\)</span> (ou subit une atténuation de <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}}\)</span> par rapport à l’amplitude maximale.
+Selon la position de cette fréquence par rapport à la courbe de fréquence on parle de fréquence de coupure basse ou de fréquence de coupure haute.</p>
+</div>
+<div class="section" id="font-color-red-bande-passante-font">
+<h3><strong><font color=red>Bande passante</font></strong><a class="headerlink" href="#font-color-red-bande-passante-font" title="Permalink to this headline">¶</a></h3>
+<p>C’est la différence entre la fréquence de coupure haute et la fréquence de coupure basse. Les deux fréquences sont prises pour une atténuation par rapport au maximum de <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}}\)</span>.</p>
+</div>
+</div>
+<div class="section" id="filtre-passe-haut">
+<h2>Filtre passe-haut<a class="headerlink" href="#filtre-passe-haut" title="Permalink to this headline">¶</a></h2>
+<p>Un filtre passe-haut laisse passer les fréquences hautes et atténue les fréquences basses.</p>
+</div>
+<div class="section" id="filtre-passe-bas">
+<h2>Filtre passe-bas<a class="headerlink" href="#filtre-passe-bas" title="Permalink to this headline">¶</a></h2>
+<p>Un filtre passe-bas laisse passer les fréquences entre 0Hz et la fréquence de coupure <span class="math notranslate nohighlight">\(f_c\)</span>. Au-delà de <span class="math notranslate nohighlight">\(f_c\)</span>, les fréquences sont atténuées.</p>
 <p><strong>Exemple du filtre passe-bas :</strong></p>
 <div class="math notranslate nohighlight">
 \[s_{[0,1]^2 \to \mathbb{R}} \sim\hat{s} * \Pi_{[-Bc,Bc]}\]</div>
@@ -246,6 +427,15 @@
 <p>En fait, pour calculer la convolution, on peut utiliser la <strong>FFT</strong>.</p>
 <div class="math notranslate nohighlight">
 \[s \ast h = FFT^{-1}(FFT(s) .FFT(h))\]</div>
+<p>On fait passer une convolution sur le signal pour sélectionner un contenu fréquentiel.</p>
+</div>
+<div class="section" id="filtre-passe-bande">
+<h2>Filtre passe-bande<a class="headerlink" href="#filtre-passe-bande" title="Permalink to this headline">¶</a></h2>
+<p>Un filtre passe-bande est un filtre ne laissant passer qu’une bande ou intervalle de fréquences compris entre une fréquence de coupure basse et une fréquence de coupure haute du filtre. Il cumule le fonctionnement du filtre passe-bas et du filtre passe-haut.</p>
+</div>
+<div class="section" id="filtre-coupe-bande">
+<h2>Filtre coupe-bande<a class="headerlink" href="#filtre-coupe-bande" title="Permalink to this headline">¶</a></h2>
+<p>Un filtre coupe-bande aussi appelé filtre réjecteur de bande est un filtre empêchant le passage d’un intervalle de fréquences. Il est composé d’un filtre passe-haut et d’un filtre passe-bas dont les fréquences de coupure sont souvent proches mais différentes, la fréquence de coupure du filtre passe-bas est systématiquement inférieure à la fréquence de coupure du filtre passe-haut.</p>
 </div>
 </div>
 
