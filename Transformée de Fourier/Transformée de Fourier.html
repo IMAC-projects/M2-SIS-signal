@@ -913,7 +913,7 @@ $<span class="math notranslate nohighlight">\(\sum _{m=-\infty }^{\infty }|{\hat
 <ul class="simple">
 <li><p>discrétiser la fonction temporelle,</p></li>
 <li><p>tronquer la fonction temporelle,</p></li>
-<li><p>discrétiser la fonction fréquentielle.</p></li>
+<li><p>discrétiser la fonction fréquentielle</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[
@@ -923,6 +923,12 @@ X_k = \sum_{n=0}^{N-1}x_ne^{\frac{-2i \pi nk}{N}}
 &amp;= \sum_{m=0}^{M-1}x_{2m}e^{\frac{-2i \pi (mk)}{M}} +  \sum_{m=0}^{M-1}x_{2m+1}e^{\frac{-2i \pi (mk)}{M}}
 \end{align}
 \]</div>
+<p>La FFT est donc une décomposition par alternance de signal de <span class="math notranslate nohighlight">\(N = 2^m\)</span> points dans le domaine temporel en <span class="math notranslate nohighlight">\(N\)</span> signaux de 1 point.</p>
+<div class="math notranslate nohighlight">
+\[f_j = \sum^{n-1}_{k=0}x_ke^{\frac{-2\pi i}{n}jk}\]</div>
+<p><strong><font color="red">Rappel sur la double somme </font> :</strong></p>
+<div class="math notranslate nohighlight">
+\[ (\sum_{n}^{}x[n]) (\sum_{k}^{}x[k]) = \sum_{n,k}^{}(x[n].x[k])\]</div>
 </div>
 </div>
 
