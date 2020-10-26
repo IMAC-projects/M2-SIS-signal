@@ -689,7 +689,7 @@ $$\hat{X}_{k_1,k_2} = \sum_{n_1,n_2}^{N-1}X_{n_1,n_2}e^{\frac{-2i\pi k_1 n_1}{N_
 Lorsqu’on désire calculer la transformée de Fourier d’une fonction $x(t)$  à l’aide d’un ordinateur, ce dernier ne travaille que sur des valeurs discrètes, on est amené à :
 -   discrétiser la fonction temporelle,
 -   tronquer la fonction temporelle,
--   discrétiser la fonction fréquentielle.
+-   discrétiser la fonction fréquentielle
 
 $$
 \begin{align}
@@ -698,3 +698,11 @@ X_k = \sum_{n=0}^{N-1}x_ne^{\frac{-2i \pi nk}{N}}
 &= \sum_{m=0}^{M-1}x_{2m}e^{\frac{-2i \pi (mk)}{M}} +  \sum_{m=0}^{M-1}x_{2m+1}e^{\frac{-2i \pi (mk)}{M}}
 \end{align}
 $$
+
+La FFT est donc une décomposition par alternance de signal de $N = 2^m$ points dans le domaine temporel en $N$ signaux de 1 point.
+
+$$f_j = \sum^{n-1}_{k=0}x_ke^{\frac{-2\pi i}{n}jk}$$
+
+**<font color="red">Rappel sur la double somme </font> :**
+
+$$ (\sum_{n}^{}x[n]) (\sum_{k}^{}x[k]) = \sum_{n,k}^{}(x[n].x[k])$$
