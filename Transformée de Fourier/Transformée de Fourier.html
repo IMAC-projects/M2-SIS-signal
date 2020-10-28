@@ -909,6 +909,7 @@ $<span class="math notranslate nohighlight">\(\sum _{m=-\infty }^{\infty }|{\hat
 <blockquote>
 <div><p>On introduit l’algorithme de la FFT pour calculer la TFD car sa compléxité varie en <span class="math notranslate nohighlight">\(O(nlog(n))\)</span> contrairement à l’algorithme naïf en <span class="math notranslate nohighlight">\(O(n^2)\)</span></p>
 </div></blockquote>
+<p>L’algorithme de la FFT est un algorithme qui permet d’effectuer la TF de manière plus optimale.</p>
 <p>Lorsqu’on désire calculer la transformée de Fourier d’une fonction <span class="math notranslate nohighlight">\(x(t)\)</span>  à l’aide d’un ordinateur, ce dernier ne travaille que sur des valeurs discrètes, on est amené à :</p>
 <ul class="simple">
 <li><p>discrétiser la fonction temporelle,</p></li>
@@ -929,6 +930,23 @@ X_k = \sum_{n=0}^{N-1}x_ne^{\frac{-2i \pi nk}{N}}
 <p><strong><font color="red">Rappel sur la double somme </font> :</strong></p>
 <div class="math notranslate nohighlight">
 \[ (\sum_{n}^{}x[n]) (\sum_{k}^{}x[k]) = \sum_{n,k}^{}(x[n].x[k])\]</div>
+<p>Pour étudier la FFT à temps discret, on n’analyse pas ce qu’il y a au-delà de <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span>, on étudie le signal sur l’intervalle <span class="math notranslate nohighlight">\([0;\frac{N}{2}]\)</span></p>
+<p><strong>Un exemple de la technique du zéro padding</strong> :</p>
+<p><span class="math notranslate nohighlight">\(\vec{Y} = \begin{pmatrix} Y[0] \\ Y[N+M-1] \end{pmatrix}\)</span></p>
+<p>Calculez <span class="math notranslate nohighlight">\(Y[k]\)</span> en faisant intervenir la TF <span class="math notranslate nohighlight">\(X(\nu)\)</span></p>
+<p>Soit <span class="math notranslate nohighlight">\(\tilde{N} = N+M\)</span></p>
+<p><span class="math notranslate nohighlight">\(Y[k] = Y(\frac{k}{\tilde{N}})\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+Y(\nu) = \sum^{\tilde{N}-1}_{n=0} y[n]e^{-i2\pi n \nu}
+&amp;= \sum^{N-1}_{n=0} y[n]e^{-i2\pi n \nu} + \sum^{N+M-1}_{n=N} y[n]e^{-i2\pi n \nu}
+&amp;= X(\nu)
+\end{align}
+\]</div>
+<p><span class="math notranslate nohighlight">\(Y[k] = X(\frac{k}{N+M})\)</span></p>
+<p>On a <span class="math notranslate nohighlight">\(\frac{1}{N+M} &lt; \frac{1}{N}\)</span></p>
+<p>donc le pas d’échantillonnage de la fonction <span class="math notranslate nohighlight">\(X(\nu)\)</span> est plus fin. On mets autant de 0 que le nombre d’échantillon.</p>
 </div>
 </div>
 
