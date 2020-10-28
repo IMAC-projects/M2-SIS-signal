@@ -686,6 +686,8 @@ $$\hat{X}_{k_1,k_2} = \sum_{n_1,n_2}^{N-1}X_{n_1,n_2}e^{\frac{-2i\pi k_1 n_1}{N_
 
 > On introduit l'algorithme de la FFT pour calculer la TFD car sa compléxité varie en $O(nlog(n))$ contrairement à l'algorithme naïf en $O(n^2)$
 
+L'algorithme de la FFT est un algorithme qui permet d'effectuer la TF de manière plus optimale.
+
 Lorsqu’on désire calculer la transformée de Fourier d’une fonction $x(t)$  à l’aide d’un ordinateur, ce dernier ne travaille que sur des valeurs discrètes, on est amené à :
 -   discrétiser la fonction temporelle,
 -   tronquer la fonction temporelle,
@@ -706,3 +708,29 @@ $$f_j = \sum^{n-1}_{k=0}x_ke^{\frac{-2\pi i}{n}jk}$$
 **<font color="red">Rappel sur la double somme </font> :**
 
 $$ (\sum_{n}^{}x[n]) (\sum_{k}^{}x[k]) = \sum_{n,k}^{}(x[n].x[k])$$
+
+Pour étudier la FFT à temps discret, on n'analyse pas ce qu'il y a au-delà de $\frac{1}{2}$, on étudie le signal sur l'intervalle $[0;\frac{N}{2}]$
+
+**Un exemple de la technique du zéro padding** : 
+
+$\vec{Y} = \begin{pmatrix} Y[0] \\ Y[N+M-1] \end{pmatrix}$
+
+Calculez $Y[k]$ en faisant intervenir la TF $X(\nu)$
+
+Soit $\tilde{N} = N+M$
+
+$Y[k] = Y(\frac{k}{\tilde{N}})$
+
+$$
+\begin{align}
+Y(\nu) = \sum^{\tilde{N}-1}_{n=0} y[n]e^{-i2\pi n \nu}
+&= \sum^{N-1}_{n=0} y[n]e^{-i2\pi n \nu} + \sum^{N+M-1}_{n=N} y[n]e^{-i2\pi n \nu}
+&= X(\nu)
+\end{align}
+$$
+
+$Y[k] = X(\frac{k}{N+M})$
+
+On a $\frac{1}{N+M} < \frac{1}{N}$
+
+donc le pas d'échantillonnage de la fonction $X(\nu)$ est plus fin. On mets autant de 0 que le nombre d'échantillon.
