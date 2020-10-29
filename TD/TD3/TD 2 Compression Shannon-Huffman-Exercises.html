@@ -1,0 +1,793 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A. The goal of this part is to implement the Huffman coding and how it can be enhanced to reach the optimal bound. &#8212; M2 Signal classes</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">M2 Signal classes</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../README.html">
+   Master 2 Image science - Signal processing classes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Fourier
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduction/Introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Transform%C3%A9e%20de%20Fourier/Transform%C3%A9e%20de%20Fourier.html">
+   Transformée de Fourier
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Filtrage
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Filtrage/Filtre.html">
+   Filtre
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  TD
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD1/TP1%20-%20EEA%20-%20Exercices.html">
+   TP 1: Analyse en fréquence de signaux sonores.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD2/TP2%20-%20FFT%20-%20Exercices.html">
+   TP2 : FFT
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/TD/TD3/TD 2 Compression Shannon-Huffman-Exercises.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/TD/TD3/TD 2 Compression Shannon-Huffman-Exercises.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   A. The goal of this part is to implement the Huffman coding and how it can be enhanced to reach the optimal bound.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-definition-of-the-entropy-given-a-probability-vector-on-a-finite-space-omega-omega-1-ldots-omega-n-denoted-by-p-p-1-ldots-p-n-the-entropy-is-the-quantity-defined-by-h-p-sum-i-1-n-p-i-log-p-i-it-s-a-concave-function-which-is-positive-since-p-i-in-0-1-and-thus-log-p-i-leq-0">
+     The definition of the entropy: Given a probability vector on a finite space
+     <span class="math notranslate nohighlight">
+      \(\Omega = \{\omega_1,\ldots,\omega_n\}\)
+     </span>
+     denoted by
+     <span class="math notranslate nohighlight">
+      \(p = (p_1,\ldots,p_n)\)
+     </span>
+     . The entropy is the quantity defined by
+     <span class="math notranslate nohighlight">
+      \(H(p) = -\sum_{i = 1}^n p_i \log(p_i)\)
+     </span>
+     . It’s a concave function which is positive since
+     <span class="math notranslate nohighlight">
+      \(p_i \in [0,1]\)
+     </span>
+     and thus
+     <span class="math notranslate nohighlight">
+      \(\log(p_i) \leq 0\)
+     </span>
+     .
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#in-what-follows-we-consider-that-the-omega-i-are-letters-of-some-alphabet-which-have-a-frequency-of-appearance-of-p-i">
+   In what follows, we consider that the
+   <span class="math notranslate nohighlight">
+    \(\omega_i\)
+   </span>
+   are letters of some alphabet which have a frequency of appearance of
+   <span class="math notranslate nohighlight">
+    \(p_i\)
+   </span>
+   .
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-use-a-python-library-to-represent-a-binary-tree-we-assume-that-the-tree-is-coded-in-the-following-way-here-is-an-example-a-b-c-d-e">
+     We use a python library to represent a binary tree. We assume that the tree is coded in the following way, here is an example,
+     <span class="math notranslate nohighlight">
+      \((a,((b,c),(d,e))\)
+     </span>
+     .
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q1-write-a-function-that-generates-the-huffman-tree-with-the-probability-h-as-input-plot-the-tree-with-the-function-above">
+     Q1. Write a function that generates the Huffman tree with the probability
+     <span class="math notranslate nohighlight">
+      \(h\)
+     </span>
+     as input. Plot the tree with the function above.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q2-write-the-function-huffmangencode-which-computes-the-huffman-code-of-an-element-in-0-1-2-3-4-and-print-it">
+     Q2. Write the function HuffmanGencode which computes the Huffman code of an element in
+     <span class="math notranslate nohighlight">
+      \(0,1,2,3,4\)
+     </span>
+     and print it.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q3-write-a-function-that-generates-a-random-sequence-of-numbers-between-0-and-4-according-to-the-probability-h">
+     Q3. Write a function that generates a random sequence of numbers between
+     <span class="math notranslate nohighlight">
+      \(0\)
+     </span>
+     and
+     <span class="math notranslate nohighlight">
+      \(4\)
+     </span>
+     according to the probability
+     <span class="math notranslate nohighlight">
+      \(h\)
+     </span>
+     .
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-consider-a-probability-as-below-on-an-alphabet-of-two-letters-a-b">
+     We consider a probability as below on an alphabet of two letters
+     <span class="math notranslate nohighlight">
+      \(a,b\)
+     </span>
+     .
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q7-compute-the-entropy-associated-with-this-probability-and-generalize-for-an-alphabet-described-by-blocks-of-k-letters">
+     Q7: Compute the entropy associated with this probability and generalize for an alphabet described by blocks of
+     <span class="math notranslate nohighlight">
+      \(k\)
+     </span>
+     letters.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q7bis-compare-the-length-of-the-huffman-code-and-the-shannon-bound-how-to-explain-the-difference-in-order-to-improve-the-result-we-use-huffman-coding-on-blocks-of-length-k">
+     Q7bis. Compare the length of the Huffman code and the Shannon bound. How to explain the difference ? In order to improve the result, we use Huffman coding on blocks of length
+     <span class="math notranslate nohighlight">
+      \(k\)
+     </span>
+     .
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q10-given-a-random-sequence-generated-from-the-probability-h-plot-the-performance-of-the-huffman-code-length-of-the-code-shannon-bound-in-terms-of-k-the-block-length-comment">
+     Q10. Given a random sequence generated from the probability
+     <span class="math notranslate nohighlight">
+      \(h\)
+     </span>
+     , plot the performance of the Huffman code (length of the code - Shannon bound) in terms of
+     <span class="math notranslate nohighlight">
+      \(k\)
+     </span>
+     the block length. Comment.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#b-the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir">
+   B. The goal of this part is to explore implementations of a FIR or an IIR.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q1-implement-an-ideal-low-pass-filter-using-fourier-transform-in-1d">
+     Q1. Implement an ideal low pass filter using Fourier transform in 1D:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compute-the-inverse-fft-of-a-low-pass-filter-and-cut-it-with-a-window-that-will-be-passed-in-argument">
+       Compute the inverse FFT of a low pass filter and cut it with a window that will be passed in argument.
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q2-implement-an-iir-filter-defined-by-its-numerator-which-will-be-set-to-a-constant-b-and-its-denominator-which-will-be-set-to-1-az-1">
+     Q2. Implement an IIR filter defined by its numerator which will be set to a  constant
+     <span class="math notranslate nohighlight">
+      \(b\)
+     </span>
+     and its denominator which will be set to
+     <span class="math notranslate nohighlight">
+      \(1-az^{-1}\)
+     </span>
+     .
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="a-the-goal-of-this-part-is-to-implement-the-huffman-coding-and-how-it-can-be-enhanced-to-reach-the-optimal-bound">
+<h1>A. The goal of this part is to implement the Huffman coding and how it can be enhanced to reach the optimal bound.<a class="headerlink" href="#a-the-goal-of-this-part-is-to-implement-the-huffman-coding-and-how-it-can-be-enhanced-to-reach-the-optimal-bound" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">pylab</span> <span class="k">as</span> <span class="nn">pl</span>
+<span class="kn">import</span> <span class="nn">scipy.signal</span> <span class="k">as</span> <span class="nn">sg</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="the-definition-of-the-entropy-given-a-probability-vector-on-a-finite-space-omega-omega-1-ldots-omega-n-denoted-by-p-p-1-ldots-p-n-the-entropy-is-the-quantity-defined-by-h-p-sum-i-1-n-p-i-log-p-i-it-s-a-concave-function-which-is-positive-since-p-i-in-0-1-and-thus-log-p-i-leq-0">
+<h2>The definition of the entropy: Given a probability vector on a finite space <span class="math notranslate nohighlight">\(\Omega = \{\omega_1,\ldots,\omega_n\}\)</span> denoted by <span class="math notranslate nohighlight">\(p = (p_1,\ldots,p_n)\)</span>. The entropy is the quantity defined by <span class="math notranslate nohighlight">\(H(p) = -\sum_{i = 1}^n p_i \log(p_i)\)</span>. It’s a concave function which is positive since <span class="math notranslate nohighlight">\(p_i \in [0,1]\)</span> and thus <span class="math notranslate nohighlight">\(\log(p_i) \leq 0\)</span>.<a class="headerlink" href="#the-definition-of-the-entropy-given-a-probability-vector-on-a-finite-space-omega-omega-1-ldots-omega-n-denoted-by-p-p-1-ldots-p-n-the-entropy-is-the-quantity-defined-by-h-p-sum-i-1-n-p-i-log-p-i-it-s-a-concave-function-which-is-positive-since-p-i-in-0-1-and-thus-log-p-i-leq-0" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ShannonEntropy</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="mf">1e-15</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-10</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Shannon entropy&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">-</span><span class="n">x</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f3d82411ad0&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/TD 2 Compression Shannon-Huffman-Exercises_4_1.png" src="../../_images/TD 2 Compression Shannon-Huffman-Exercises_4_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="in-what-follows-we-consider-that-the-omega-i-are-letters-of-some-alphabet-which-have-a-frequency-of-appearance-of-p-i">
+<h1>In what follows, we consider that the <span class="math notranslate nohighlight">\(\omega_i\)</span> are letters of some alphabet which have a frequency of appearance of <span class="math notranslate nohighlight">\(p_i\)</span>.<a class="headerlink" href="#in-what-follows-we-consider-that-the-omega-i-are-letters-of-some-alphabet-which-have-a-frequency-of-appearance-of-p-i" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Generate a random text according to the frequencies.</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">512</span><span class="p">;</span> <span class="n">p</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">p</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)]</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">h</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Empirical p = </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span><span class="k">h</span>[0])
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.29101562 0.70898438]
+Empirical p = 0.29
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="n">ShannonEntropy</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Entropy = </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span><span class="k">e</span>)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entropy = 0.87
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Definition of the probability h</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">15</span><span class="p">,</span> <span class="o">.</span><span class="mi">4</span><span class="p">,</span> <span class="o">.</span><span class="mi">15</span><span class="p">,</span> <span class="o">.</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ShannonEntropy</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.1464393446710153
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="we-use-a-python-library-to-represent-a-binary-tree-we-assume-that-the-tree-is-coded-in-the-following-way-here-is-an-example-a-b-c-d-e">
+<h2>We use a python library to represent a binary tree. We assume that the tree is coded in the following way, here is an example, <span class="math notranslate nohighlight">\((a,((b,c),(d,e))\)</span>.<a class="headerlink" href="#we-use-a-python-library-to-represent-a-binary-tree-we-assume-that-the-tree-is-coded-in-the-following-way-here-is-an-example-a-b-c-d-e" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## import ete3 using if you have conda: </span>
+<span class="c1">## conda install -c etetoolkit ete3</span>
+<span class="c1">## otherwise try: pip install ete3 pyQT5</span>
+<span class="kn">import</span> <span class="nn">ete3</span> <span class="k">as</span> <span class="nn">ete</span>
+<span class="c1">## Define the tree</span>
+<span class="n">T</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,((</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">),(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">)))</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">ete</span><span class="o">.</span><span class="n">Tree</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ete</span><span class="o">.</span><span class="n">TreeStyle</span><span class="p">()</span>
+<span class="c1">#ts.rotation = 90</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="mi">90</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">branch_vertical_margin</span> <span class="o">=</span> <span class="mi">50</span> <span class="c1"># 10 pixels between adjacent branches</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">show_leaf_name</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1">#</span>
+
+<span class="n">nstyle</span> <span class="o">=</span> <span class="n">ete</span><span class="o">.</span><span class="n">NodeStyle</span><span class="p">()</span>
+<span class="n">nstyle</span><span class="p">[</span><span class="s2">&quot;shape&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;square&quot;</span>
+<span class="n">nstyle</span><span class="p">[</span><span class="s2">&quot;size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">nstyle</span><span class="p">[</span><span class="s2">&quot;fgcolor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;orange&quot;</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">traverse</span><span class="p">():</span>
+    <span class="n">n</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="n">nstyle</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">iter_leaves</span><span class="p">():</span>
+    <span class="n">node</span><span class="o">.</span><span class="n">add_face</span><span class="p">(</span><span class="n">ete</span><span class="o">.</span><span class="n">AttrFace</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">fsize</span><span class="o">=</span><span class="mi">20</span><span class="p">),</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  
+    
+<span class="n">t</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%%</span><span class="s2">inline&quot;</span><span class="p">,</span> <span class="n">tree_style</span> <span class="o">=</span> <span class="n">ts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="mi">0</span><span class="n">fffa760194d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">## conda install -c etetoolkit ete3</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">## otherwise try: pip install ete3 pyQT5</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">ete3</span> <span class="k">as</span> <span class="nn">ete</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">## Define the tree</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">T</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,((</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">),(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">)))</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;ete3&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q1-write-a-function-that-generates-the-huffman-tree-with-the-probability-h-as-input-plot-the-tree-with-the-function-above">
+<h2>Q1. Write a function that generates the Huffman tree with the probability <span class="math notranslate nohighlight">\(h\)</span> as input. Plot the tree with the function above.<a class="headerlink" href="#q1-write-a-function-that-generates-the-huffman-tree-with-the-probability-h-as-input-plot-the-tree-with-the-function-above" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Create the tree as a list.</span>
+<span class="c1"># https://www.math.upenn.edu/~deturck/m170/wk8/lecture/huffman/huffman.html</span>
+
+<span class="c1"># h a vector of proba</span>
+<span class="k">def</span> <span class="nf">CreateTree</span><span class="p">(</span><span class="n">h</span><span class="p">):</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="p">[[</span><span class="n">proba</span><span class="p">,</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">65</span> <span class="o">+</span> <span class="n">idx</span><span class="p">)]</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">proba</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">h</span><span class="p">)]</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">while</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">T</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]])</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+        
+    <span class="c1"># TODO transform T to be readable</span>
+    <span class="k">return</span> <span class="n">T</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="n">CreateTree</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.1, &#39;A&#39;], [0.15, &#39;D&#39;], [0.25, &#39;AB&#39;], [0.4, &#39;C&#39;]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q2-write-the-function-huffmangencode-which-computes-the-huffman-code-of-an-element-in-0-1-2-3-4-and-print-it">
+<h2>Q2. Write the function HuffmanGencode which computes the Huffman code of an element in <span class="math notranslate nohighlight">\(0,1,2,3,4\)</span>  and print it.<a class="headerlink" href="#q2-write-the-function-huffmangencode-which-computes-the-huffman-code-of-an-element-in-0-1-2-3-4-and-print-it" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">HuffmanGencode</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">codes</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
+    <span class="n">codes</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1">## dictionnary the key is a number and </span>
+                <span class="c1">## the value is the code in 0,1.</span>
+    <span class="k">return</span> <span class="n">codes</span>    
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q3-write-a-function-that-generates-a-random-sequence-of-numbers-between-0-and-4-according-to-the-probability-h">
+<h2>Q3. Write a function that generates a random sequence of numbers between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(4\)</span> according to the probability <span class="math notranslate nohighlight">\(h\)</span>.<a class="headerlink" href="#q3-write-a-function-that-generates-a-random-sequence-of-numbers-between-0-and-4-according-to-the-probability-h" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">RandGen</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
+    <span class="n">sample</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">return</span> <span class="n">sample</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">RandGen</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>### Q4. Write a function which maps a random sequence as above into its Huffman code and test it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">CodeHuffman</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">codes</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">code</span> <span class="o">=</span> <span class="n">CodeHuffman</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">codes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">16</span><span class="o">-</span><span class="mi">74</span><span class="n">f707e3a832</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">code</span> <span class="o">=</span> <span class="n">CodeHuffman</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">codes</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;codes&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>### Q5. Compare with the Shannon bound.
+### Q6. Write below a function that decodes the Huffman code and test it on a random sequence. Check that it is the inverse of the coding map.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">DecodeHuffman</span><span class="p">(</span><span class="n">code</span><span class="p">,</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>## Block Huffman coding to reach better performances.</p>
+</div>
+<div class="section" id="we-consider-a-probability-as-below-on-an-alphabet-of-two-letters-a-b">
+<h2>We consider a probability as below on an alphabet of two letters <span class="math notranslate nohighlight">\(a,b\)</span>.<a class="headerlink" href="#we-consider-a-probability-as-below-on-an-alphabet-of-two-letters-a-b" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="q7-compute-the-entropy-associated-with-this-probability-and-generalize-for-an-alphabet-described-by-blocks-of-k-letters">
+<h2>Q7: Compute the entropy associated with this probability and generalize for an alphabet described by blocks of <span class="math notranslate nohighlight">\(k\)</span> letters.<a class="headerlink" href="#q7-compute-the-entropy-associated-with-this-probability-and-generalize-for-an-alphabet-described-by-blocks-of-k-letters" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="o">.</span><span class="mi">12</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">t</span><span class="p">]</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">20000</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q7bis-compare-the-length-of-the-huffman-code-and-the-shannon-bound-how-to-explain-the-difference-in-order-to-improve-the-result-we-use-huffman-coding-on-blocks-of-length-k">
+<h2>Q7bis. Compare the length of the Huffman code and the Shannon bound. How to explain the difference ? In order to improve the result, we use Huffman coding on blocks of length <span class="math notranslate nohighlight">\(k\)</span>.<a class="headerlink" href="#q7bis-compare-the-length-of-the-huffman-code-and-the-shannon-bound-how-to-explain-the-difference-in-order-to-improve-the-result-we-use-huffman-coding-on-blocks-of-length-k" title="Permalink to this headline">¶</a></h2>
+<p>### Q8. Write a code that takes as input a sequence of length <span class="math notranslate nohighlight">\(k\)</span> of letters and associate a binary code. Then, write a function that takes as inputs a random sequence its code by block of length <span class="math notranslate nohighlight">\(k\)</span>. We assume that the length is a multiple of <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">CodeBlocks</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">0</span>
+<span class="k">def</span> <span class="nf">GenNewCode</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>### Q9. Write a function that gives the empirical probability of the message encoded by <span class="math notranslate nohighlight">\(k\)</span>-blocks.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">EstimateProbabilites</span><span class="p">(</span><span class="n">code</span><span class="p">,</span><span class="n">taille_blocs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q10-given-a-random-sequence-generated-from-the-probability-h-plot-the-performance-of-the-huffman-code-length-of-the-code-shannon-bound-in-terms-of-k-the-block-length-comment">
+<h2>Q10. Given a random sequence generated from the probability <span class="math notranslate nohighlight">\(h\)</span>, plot the performance of the Huffman code (length of the code - Shannon bound) in terms of <span class="math notranslate nohighlight">\(k\)</span> the block length. Comment.<a class="headerlink" href="#q10-given-a-random-sequence-generated-from-the-probability-h-plot-the-performance-of-the-huffman-code-length-of-the-code-shannon-bound-in-terms-of-k-the-block-length-comment" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="b-the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir">
+<h1>B. The goal of this part is to explore implementations of a FIR or an IIR.<a class="headerlink" href="#b-the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="q1-implement-an-ideal-low-pass-filter-using-fourier-transform-in-1d">
+<h2>Q1. Implement an ideal low pass filter using Fourier transform in 1D:<a class="headerlink" href="#q1-implement-an-ideal-low-pass-filter-using-fourier-transform-in-1d" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="compute-the-inverse-fft-of-a-low-pass-filter-and-cut-it-with-a-window-that-will-be-passed-in-argument">
+<h3>Compute the inverse FFT of a low pass filter and cut it with a window that will be passed in argument.<a class="headerlink" href="#compute-the-inverse-fft-of-a-low-pass-filter-and-cut-it-with-a-window-that-will-be-passed-in-argument" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="q2-implement-an-iir-filter-defined-by-its-numerator-which-will-be-set-to-a-constant-b-and-its-denominator-which-will-be-set-to-1-az-1">
+<h2>Q2. Implement an IIR filter defined by its numerator which will be set to a  constant <span class="math notranslate nohighlight">\(b\)</span> and its denominator which will be set to <span class="math notranslate nohighlight">\(1-az^{-1}\)</span>.<a class="headerlink" href="#q2-implement-an-iir-filter-defined-by-its-numerator-which-will-be-set-to-a-constant-b-and-its-denominator-which-will-be-set-to-1-az-1" title="Permalink to this headline">¶</a></h2>
+<p>### What can you say about the range of the parameter <span class="math notranslate nohighlight">\(a\)</span> in order to obtain a stable filter.
+### Experimentally, determine the ranges of <span class="math notranslate nohighlight">\(a\)</span> to get respectively a low-pass filter and a high-pass filter. Give a theoretical explanation.</p>
+<p>## In the following, we are given an electrocardiogram. We plot it as a function of time and we</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### load the data which is an electrocardiogram which is sampled at 360Hz</span>
+<span class="n">ecg</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">misc</span><span class="o">.</span><span class="n">electrocardiogram</span><span class="p">()</span>
+<span class="c1">### Different plots.</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="mf">360.0</span>
+<span class="c1">### Since it is sampled at 360Hz, recall that Hz is the number of cycle per second, then the</span>
+<span class="c1">### time is obtained as follows:</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ecg</span><span class="o">.</span><span class="n">size</span><span class="p">)</span> <span class="o">/</span> <span class="n">fs</span>
+<span class="c1">### simple plot.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">ecg</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;time in s&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;ECG in mV&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mf">10.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time min&quot;</span><span class="p">,</span> <span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time max&quot;</span><span class="p">,</span> <span class="n">time</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Use the scipy function to get the power spectrum of the signal.</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">Pxx</span> <span class="o">=</span> <span class="n">sg</span><span class="o">.</span><span class="n">welch</span><span class="p">(</span><span class="n">ecg</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span> <span class="n">scaling</span><span class="o">=</span><span class="s2">&quot;spectrum&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">Pxx</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Frequency in Hz&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Power spectrum of the ECG in mV**2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">f</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>### Q3. Estimate the number of heartbeats in the following electrocardiogram and estimate the mean value of the interval between two heartbeats. You can use the method of your choice. A possible method consists in using a band pass filter and then extract the maximum values of the filtered signal.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./TD/TD3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By IMAC Students<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
