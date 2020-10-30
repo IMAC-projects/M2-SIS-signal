@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A. The goal of this part is to implement the Huffman coding and how it can be enhanced to reach the optimal bound. &#8212; M2 Signal classes</title>
+    <title>TP3 : Compression Shannon-Huffman &#8212; M2 Signal classes</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -161,25 +161,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   A. The goal of this part is to implement the Huffman coding and how it can be enhanced to reach the optimal bound.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#in-what-follows-we-consider-that-the-omega-i-are-letters-of-some-alphabet-which-have-a-frequency-of-appearance-of-p-i">
-   In what follows, we consider that the
-   <span class="math notranslate nohighlight">
-    \(\omega_i\)
-   </span>
-   are letters of some alphabet which have a frequency of appearance of
-   <span class="math notranslate nohighlight">
-    \(p_i\)
-   </span>
-   .
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#b-the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir">
-   B. The goal of this part is to explore implementations of a FIR or an IIR.
+   TP3 : Compression Shannon-Huffman
   </a>
  </li>
 </ul>
@@ -271,12 +253,12 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-the-goal-of-this-part-is-to-implement-the-huffman-coding-and-how-it-can-be-enhanced-to-reach-the-optimal-bound">
    A. The goal of this part is to implement the Huffman coding and how it can be enhanced to reach the optimal bound.
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#the-definition-of-the-entropy-given-a-probability-vector-on-a-finite-space-omega-omega-1-ldots-omega-n-denoted-by-p-p-1-ldots-p-n-the-entropy-is-the-quantity-defined-by-h-p-sum-i-1-n-p-i-log-p-i-it-s-a-concave-function-which-is-positive-since-p-i-in-0-1-and-thus-log-p-i-leq-0">
      The definition of the entropy: Given a probability vector on a finite space
      <span class="math notranslate nohighlight">
@@ -301,22 +283,20 @@
      .
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#in-what-follows-we-consider-that-the-omega-i-are-letters-of-some-alphabet-which-have-a-frequency-of-appearance-of-p-i">
-   In what follows, we consider that the
-   <span class="math notranslate nohighlight">
-    \(\omega_i\)
-   </span>
-   are letters of some alphabet which have a frequency of appearance of
-   <span class="math notranslate nohighlight">
-    \(p_i\)
-   </span>
-   .
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#in-what-follows-we-consider-that-the-omega-i-are-letters-of-some-alphabet-which-have-a-frequency-of-appearance-of-p-i">
+     In what follows, we consider that the
+     <span class="math notranslate nohighlight">
+      \(\omega_i\)
+     </span>
+     are letters of some alphabet which have a frequency of appearance of
+     <span class="math notranslate nohighlight">
+      \(p_i\)
+     </span>
+     .
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#we-use-a-python-library-to-represent-a-binary-tree-we-assume-that-the-tree-is-coded-in-the-following-way-here-is-an-example-a-b-c-d-e">
      We use a python library to represent a binary tree. We assume that the tree is coded in the following way, here is an example,
      <span class="math notranslate nohighlight">
@@ -325,7 +305,7 @@
      .
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#q1-write-a-function-that-generates-the-huffman-tree-with-the-probability-h-as-input-plot-the-tree-with-the-function-above">
      Q1. Write a function that generates the Huffman tree with the probability
      <span class="math notranslate nohighlight">
@@ -334,7 +314,7 @@
      as input. Plot the tree with the function above.
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#q2-write-the-function-huffmangencode-which-computes-the-huffman-code-of-an-element-in-0-1-2-3-4-and-print-it">
      Q2. Write the function HuffmanGencode which computes the Huffman code of an element in
      <span class="math notranslate nohighlight">
@@ -343,7 +323,7 @@
      and print it.
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#q3-write-a-function-that-generates-a-random-sequence-of-numbers-between-0-and-4-according-to-the-probability-h">
      Q3. Write a function that generates a random sequence of numbers between
      <span class="math notranslate nohighlight">
@@ -360,7 +340,27 @@
      .
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q4-write-a-function-which-maps-a-random-sequence-as-above-into-its-huffman-code-and-test-it">
+     Q4. Write a function which maps a random sequence as above into its Huffman code and test it.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q5-compare-with-the-shannon-bound">
+     Q5. Compare with the Shannon bound.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q6-write-below-a-function-that-decodes-the-huffman-code-and-test-it-on-a-random-sequence-check-that-it-is-the-inverse-of-the-coding-map">
+     Q6. Write below a function that decodes the Huffman code and test it on a random sequence. Check that it is the inverse of the coding map.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#block-huffman-coding-to-reach-better-performances">
+     Block Huffman coding to reach better performances.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#we-consider-a-probability-as-below-on-an-alphabet-of-two-letters-a-b">
      We consider a probability as below on an alphabet of two letters
      <span class="math notranslate nohighlight">
@@ -369,7 +369,7 @@
      .
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#q7-compute-the-entropy-associated-with-this-probability-and-generalize-for-an-alphabet-described-by-blocks-of-k-letters">
      Q7: Compute the entropy associated with this probability and generalize for an alphabet described by blocks of
      <span class="math notranslate nohighlight">
@@ -378,7 +378,7 @@
      letters.
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#q7bis-compare-the-length-of-the-huffman-code-and-the-shannon-bound-how-to-explain-the-difference-in-order-to-improve-the-result-we-use-huffman-coding-on-blocks-of-length-k">
      Q7bis. Compare the length of the Huffman code and the Shannon bound. How to explain the difference ? In order to improve the result, we use Huffman coding on blocks of length
      <span class="math notranslate nohighlight">
@@ -387,7 +387,33 @@
      .
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q8-write-a-code-that-takes-as-input-a-sequence-of-length-k-of-letters-and-associate-a-binary-code-then-write-a-function-that-takes-as-inputs-a-random-sequence-its-code-by-block-of-length-k-we-assume-that-the-length-is-a-multiple-of-k">
+     Q8. Write a code that takes as input a sequence of length
+     <span class="math notranslate nohighlight">
+      \(k\)
+     </span>
+     of letters and associate a binary code. Then, write a function that takes as inputs a random sequence its code by block of length
+     <span class="math notranslate nohighlight">
+      \(k\)
+     </span>
+     . We assume that the length is a multiple of
+     <span class="math notranslate nohighlight">
+      \(k\)
+     </span>
+     .
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q9-write-a-function-that-gives-the-empirical-probability-of-the-message-encoded-by-k-blocks">
+     Q9. Write a function that gives the empirical probability of the message encoded by
+     <span class="math notranslate nohighlight">
+      \(k\)
+     </span>
+     -blocks.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#q10-given-a-random-sequence-generated-from-the-probability-h-plot-the-performance-of-the-huffman-code-length-of-the-code-shannon-bound-in-terms-of-k-the-block-length-comment">
      Q10. Given a random sequence generated from the probability
      <span class="math notranslate nohighlight">
@@ -402,24 +428,22 @@
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#b-the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir">
    B. The goal of this part is to explore implementations of a FIR or an IIR.
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#q1-implement-an-ideal-low-pass-filter-using-fourier-transform-in-1d">
      Q1. Implement an ideal low pass filter using Fourier transform in 1D:
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#compute-the-inverse-fft-of-a-low-pass-filter-and-cut-it-with-a-window-that-will-be-passed-in-argument">
-       Compute the inverse FFT of a low pass filter and cut it with a window that will be passed in argument.
-      </a>
-     </li>
-    </ul>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compute-the-inverse-fft-of-a-low-pass-filter-and-cut-it-with-a-window-that-will-be-passed-in-argument">
+     Compute the inverse FFT of a low pass filter and cut it with a window that will be passed in argument.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#q2-implement-an-iir-filter-defined-by-its-numerator-which-will-be-set-to-a-constant-b-and-its-denominator-which-will-be-set-to-1-az-1">
      Q2. Implement an IIR filter defined by its numerator which will be set to a  constant
      <span class="math notranslate nohighlight">
@@ -430,6 +454,36 @@
       \(1-az^{-1}\)
      </span>
      .
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-can-you-say-about-the-range-of-the-parameter-a-in-order-to-obtain-a-stable-filter">
+       What can you say about the range of the parameter
+       <span class="math notranslate nohighlight">
+        \(a\)
+       </span>
+       in order to obtain a stable filter.
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#experimentally-determine-the-ranges-of-a-to-get-respectively-a-low-pass-filter-and-a-high-pass-filter-give-a-theoretical-explanation">
+       Experimentally, determine the ranges of
+       <span class="math notranslate nohighlight">
+        \(a\)
+       </span>
+       to get respectively a low-pass filter and a high-pass filter. Give a theoretical explanation.
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#in-the-following-we-are-given-an-electrocardiogram-we-plot-it-as-a-function-of-time-and-we">
+     In the following, we are given an electrocardiogram. We plot it as a function of time and we
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q3-estimate-the-number-of-heartbeats-in-the-following-electrocardiogram-and-estimate-the-mean-value-of-the-interval-between-two-heartbeats-you-can-use-the-method-of-your-choice-a-possible-method-consists-in-using-a-band-pass-filter-and-then-extract-the-maximum-values-of-the-filtered-signal">
+     Q3. Estimate the number of heartbeats in the following electrocardiogram and estimate the mean value of the interval between two heartbeats. You can use the method of your choice. A possible method consists in using a band pass filter and then extract the maximum values of the filtered signal.
     </a>
    </li>
   </ul>
@@ -445,8 +499,10 @@
         
               <div>
                 
-  <div class="section" id="a-the-goal-of-this-part-is-to-implement-the-huffman-coding-and-how-it-can-be-enhanced-to-reach-the-optimal-bound">
-<h1>A. The goal of this part is to implement the Huffman coding and how it can be enhanced to reach the optimal bound.<a class="headerlink" href="#a-the-goal-of-this-part-is-to-implement-the-huffman-coding-and-how-it-can-be-enhanced-to-reach-the-optimal-bound" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="tp3-compression-shannon-huffman">
+<h1>TP3 : Compression Shannon-Huffman<a class="headerlink" href="#tp3-compression-shannon-huffman" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="a-the-goal-of-this-part-is-to-implement-the-huffman-coding-and-how-it-can-be-enhanced-to-reach-the-optimal-bound">
+<h2>A. The goal of this part is to implement the Huffman coding and how it can be enhanced to reach the optimal bound.<a class="headerlink" href="#a-the-goal-of-this-part-is-to-implement-the-huffman-coding-and-how-it-can-be-enhanced-to-reach-the-optimal-bound" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
@@ -460,7 +516,7 @@
 </div>
 </div>
 <div class="section" id="the-definition-of-the-entropy-given-a-probability-vector-on-a-finite-space-omega-omega-1-ldots-omega-n-denoted-by-p-p-1-ldots-p-n-the-entropy-is-the-quantity-defined-by-h-p-sum-i-1-n-p-i-log-p-i-it-s-a-concave-function-which-is-positive-since-p-i-in-0-1-and-thus-log-p-i-leq-0">
-<h2>The definition of the entropy: Given a probability vector on a finite space <span class="math notranslate nohighlight">\(\Omega = \{\omega_1,\ldots,\omega_n\}\)</span> denoted by <span class="math notranslate nohighlight">\(p = (p_1,\ldots,p_n)\)</span>. The entropy is the quantity defined by <span class="math notranslate nohighlight">\(H(p) = -\sum_{i = 1}^n p_i \log(p_i)\)</span>. It’s a concave function which is positive since <span class="math notranslate nohighlight">\(p_i \in [0,1]\)</span> and thus <span class="math notranslate nohighlight">\(\log(p_i) \leq 0\)</span>.<a class="headerlink" href="#the-definition-of-the-entropy-given-a-probability-vector-on-a-finite-space-omega-omega-1-ldots-omega-n-denoted-by-p-p-1-ldots-p-n-the-entropy-is-the-quantity-defined-by-h-p-sum-i-1-n-p-i-log-p-i-it-s-a-concave-function-which-is-positive-since-p-i-in-0-1-and-thus-log-p-i-leq-0" title="Permalink to this headline">¶</a></h2>
+<h3>The definition of the entropy: Given a probability vector on a finite space <span class="math notranslate nohighlight">\(\Omega = \{\omega_1,\ldots,\omega_n\}\)</span> denoted by <span class="math notranslate nohighlight">\(p = (p_1,\ldots,p_n)\)</span>. The entropy is the quantity defined by <span class="math notranslate nohighlight">\(H(p) = -\sum_{i = 1}^n p_i \log(p_i)\)</span>. It’s a concave function which is positive since <span class="math notranslate nohighlight">\(p_i \in [0,1]\)</span> and thus <span class="math notranslate nohighlight">\(\log(p_i) \leq 0\)</span>.<a class="headerlink" href="#the-definition-of-the-entropy-given-a-probability-vector-on-a-finite-space-omega-omega-1-ldots-omega-n-denoted-by-p-p-1-ldots-p-n-the-entropy-is-the-quantity-defined-by-h-p-sum-i-1-n-p-i-log-p-i-it-s-a-concave-function-which-is-positive-since-p-i-in-0-1-and-thus-log-p-i-leq-0" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ShannonEntropy</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
@@ -479,16 +535,15 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9e6ed2dad0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9cb8d09c90&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_4_1.png" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_4_1.png" />
-</div>
+<img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_5_1.png" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_5_1.png" />
 </div>
 </div>
 </div>
 <div class="section" id="in-what-follows-we-consider-that-the-omega-i-are-letters-of-some-alphabet-which-have-a-frequency-of-appearance-of-p-i">
-<h1>In what follows, we consider that the <span class="math notranslate nohighlight">\(\omega_i\)</span> are letters of some alphabet which have a frequency of appearance of <span class="math notranslate nohighlight">\(p_i\)</span>.<a class="headerlink" href="#in-what-follows-we-consider-that-the-omega-i-are-letters-of-some-alphabet-which-have-a-frequency-of-appearance-of-p-i" title="Permalink to this headline">¶</a></h1>
+<h3>In what follows, we consider that the <span class="math notranslate nohighlight">\(\omega_i\)</span> are letters of some alphabet which have a frequency of appearance of <span class="math notranslate nohighlight">\(p_i\)</span>.<a class="headerlink" href="#in-what-follows-we-consider-that-the-omega-i-are-letters-of-some-alphabet-which-have-a-frequency-of-appearance-of-p-i" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Generate a random text according to the frequencies.</span>
@@ -502,8 +557,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.29492188 0.70507812]
-Empirical p = 0.29
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.3203125 0.6796875]
+Empirical p = 0.32
 </pre></div>
 </div>
 </div>
@@ -516,7 +571,7 @@ Empirical p = 0.29
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entropy = 0.87
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entropy = 0.90
 </pre></div>
 </div>
 </div>
@@ -535,8 +590,9 @@ Empirical p = 0.29
 </div>
 </div>
 </div>
+</div>
 <div class="section" id="we-use-a-python-library-to-represent-a-binary-tree-we-assume-that-the-tree-is-coded-in-the-following-way-here-is-an-example-a-b-c-d-e">
-<h2>We use a python library to represent a binary tree. We assume that the tree is coded in the following way, here is an example, <span class="math notranslate nohighlight">\((a,((b,c),(d,e))\)</span>.<a class="headerlink" href="#we-use-a-python-library-to-represent-a-binary-tree-we-assume-that-the-tree-is-coded-in-the-following-way-here-is-an-example-a-b-c-d-e" title="Permalink to this headline">¶</a></h2>
+<h3>We use a python library to represent a binary tree. We assume that the tree is coded in the following way, here is an example, <span class="math notranslate nohighlight">\((a,((b,c),(d,e))\)</span>.<a class="headerlink" href="#we-use-a-python-library-to-represent-a-binary-tree-we-assume-that-the-tree-is-coded-in-the-following-way-here-is-an-example-a-b-c-d-e" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## import ete3 using if you have conda: </span>
@@ -586,7 +642,7 @@ Empirical p = 0.29
 </div>
 </div>
 <div class="section" id="q1-write-a-function-that-generates-the-huffman-tree-with-the-probability-h-as-input-plot-the-tree-with-the-function-above">
-<h2>Q1. Write a function that generates the Huffman tree with the probability <span class="math notranslate nohighlight">\(h\)</span> as input. Plot the tree with the function above.<a class="headerlink" href="#q1-write-a-function-that-generates-the-huffman-tree-with-the-probability-h-as-input-plot-the-tree-with-the-function-above" title="Permalink to this headline">¶</a></h2>
+<h3>Q1. Write a function that generates the Huffman tree with the probability <span class="math notranslate nohighlight">\(h\)</span> as input. Plot the tree with the function above.<a class="headerlink" href="#q1-write-a-function-that-generates-the-huffman-tree-with-the-probability-h-as-input-plot-the-tree-with-the-function-above" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Create the tree as a list.</span>
@@ -639,12 +695,12 @@ Empirical p = 0.29
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.15, &#39;D&#39;], [0.25, &#39;AB&#39;], [0.4, &#39;C&#39;], [1.0, &#39;CABDE&#39;]]
 </pre></div>
 </div>
-<img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_12_1.png" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_12_1.png" />
+<img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_13_1.png" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_13_1.png" />
 </div>
 </div>
 </div>
 <div class="section" id="q2-write-the-function-huffmangencode-which-computes-the-huffman-code-of-an-element-in-0-1-2-3-4-and-print-it">
-<h2>Q2. Write the function HuffmanGencode which computes the Huffman code of an element in <span class="math notranslate nohighlight">\(0,1,2,3,4\)</span>  and print it.<a class="headerlink" href="#q2-write-the-function-huffmangencode-which-computes-the-huffman-code-of-an-element-in-0-1-2-3-4-and-print-it" title="Permalink to this headline">¶</a></h2>
+<h3>Q2. Write the function HuffmanGencode which computes the Huffman code of an element in <span class="math notranslate nohighlight">\(0,1,2,3,4\)</span>  and print it.<a class="headerlink" href="#q2-write-the-function-huffmangencode-which-computes-the-huffman-code-of-an-element-in-0-1-2-3-4-and-print-it" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">HuffmanGencode</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">codes</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
@@ -657,7 +713,7 @@ Empirical p = 0.29
 </div>
 </div>
 <div class="section" id="q3-write-a-function-that-generates-a-random-sequence-of-numbers-between-0-and-4-according-to-the-probability-h">
-<h2>Q3. Write a function that generates a random sequence of numbers between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(4\)</span> according to the probability <span class="math notranslate nohighlight">\(h\)</span>.<a class="headerlink" href="#q3-write-a-function-that-generates-a-random-sequence-of-numbers-between-0-and-4-according-to-the-probability-h" title="Permalink to this headline">¶</a></h2>
+<h3>Q3. Write a function that generates a random sequence of numbers between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(4\)</span> according to the probability <span class="math notranslate nohighlight">\(h\)</span>.<a class="headerlink" href="#q3-write-a-function-that-generates-a-random-sequence-of-numbers-between-0-and-4-according-to-the-probability-h" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">RandGen</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
@@ -668,7 +724,9 @@ Empirical p = 0.29
 </div>
 </div>
 </div>
-<p>### Q4. Write a function which maps a random sequence as above into its Huffman code and test it.</p>
+</div>
+<div class="section" id="q4-write-a-function-which-maps-a-random-sequence-as-above-into-its-huffman-code-and-test-it">
+<h3>Q4. Write a function which maps a random sequence as above into its Huffman code and test it.<a class="headerlink" href="#q4-write-a-function-which-maps-a-random-sequence-as-above-into-its-huffman-code-and-test-it" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">CodeHuffman</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">codes</span><span class="p">):</span>
@@ -688,7 +746,7 @@ Empirical p = 0.29
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">16</span><span class="o">-</span><span class="mi">74</span><span class="n">f707e3a832</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">15</span><span class="o">-</span><span class="mi">74</span><span class="n">f707e3a832</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">code</span> <span class="o">=</span> <span class="n">CodeHuffman</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">codes</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
 
@@ -697,8 +755,12 @@ Empirical p = 0.29
 </div>
 </div>
 </div>
-<p>### Q5. Compare with the Shannon bound.
-### Q6. Write below a function that decodes the Huffman code and test it on a random sequence. Check that it is the inverse of the coding map.</p>
+</div>
+<div class="section" id="q5-compare-with-the-shannon-bound">
+<h3>Q5. Compare with the Shannon bound.<a class="headerlink" href="#q5-compare-with-the-shannon-bound" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="q6-write-below-a-function-that-decodes-the-huffman-code-and-test-it-on-a-random-sequence-check-that-it-is-the-inverse-of-the-coding-map">
+<h3>Q6. Write below a function that decodes the Huffman code and test it on a random sequence. Check that it is the inverse of the coding map.<a class="headerlink" href="#q6-write-below-a-function-that-decodes-the-huffman-code-and-test-it-on-a-random-sequence-check-that-it-is-the-inverse-of-the-coding-map" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">DecodeHuffman</span><span class="p">(</span><span class="n">code</span><span class="p">,</span><span class="n">T</span><span class="p">):</span>
@@ -708,13 +770,15 @@ Empirical p = 0.29
 </div>
 </div>
 </div>
-<p>## Block Huffman coding to reach better performances.</p>
+</div>
+<div class="section" id="block-huffman-coding-to-reach-better-performances">
+<h3>Block Huffman coding to reach better performances.<a class="headerlink" href="#block-huffman-coding-to-reach-better-performances" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="we-consider-a-probability-as-below-on-an-alphabet-of-two-letters-a-b">
-<h2>We consider a probability as below on an alphabet of two letters <span class="math notranslate nohighlight">\(a,b\)</span>.<a class="headerlink" href="#we-consider-a-probability-as-below-on-an-alphabet-of-two-letters-a-b" title="Permalink to this headline">¶</a></h2>
+<h3>We consider a probability as below on an alphabet of two letters <span class="math notranslate nohighlight">\(a,b\)</span>.<a class="headerlink" href="#we-consider-a-probability-as-below-on-an-alphabet-of-two-letters-a-b" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="q7-compute-the-entropy-associated-with-this-probability-and-generalize-for-an-alphabet-described-by-blocks-of-k-letters">
-<h2>Q7: Compute the entropy associated with this probability and generalize for an alphabet described by blocks of <span class="math notranslate nohighlight">\(k\)</span> letters.<a class="headerlink" href="#q7-compute-the-entropy-associated-with-this-probability-and-generalize-for-an-alphabet-described-by-blocks-of-k-letters" title="Permalink to this headline">¶</a></h2>
+<h3>Q7: Compute the entropy associated with this probability and generalize for an alphabet described by blocks of <span class="math notranslate nohighlight">\(k\)</span> letters.<a class="headerlink" href="#q7-compute-the-entropy-associated-with-this-probability-and-generalize-for-an-alphabet-described-by-blocks-of-k-letters" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="o">.</span><span class="mi">12</span>
@@ -727,8 +791,10 @@ Empirical p = 0.29
 </div>
 </div>
 <div class="section" id="q7bis-compare-the-length-of-the-huffman-code-and-the-shannon-bound-how-to-explain-the-difference-in-order-to-improve-the-result-we-use-huffman-coding-on-blocks-of-length-k">
-<h2>Q7bis. Compare the length of the Huffman code and the Shannon bound. How to explain the difference ? In order to improve the result, we use Huffman coding on blocks of length <span class="math notranslate nohighlight">\(k\)</span>.<a class="headerlink" href="#q7bis-compare-the-length-of-the-huffman-code-and-the-shannon-bound-how-to-explain-the-difference-in-order-to-improve-the-result-we-use-huffman-coding-on-blocks-of-length-k" title="Permalink to this headline">¶</a></h2>
-<p>### Q8. Write a code that takes as input a sequence of length <span class="math notranslate nohighlight">\(k\)</span> of letters and associate a binary code. Then, write a function that takes as inputs a random sequence its code by block of length <span class="math notranslate nohighlight">\(k\)</span>. We assume that the length is a multiple of <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<h3>Q7bis. Compare the length of the Huffman code and the Shannon bound. How to explain the difference ? In order to improve the result, we use Huffman coding on blocks of length <span class="math notranslate nohighlight">\(k\)</span>.<a class="headerlink" href="#q7bis-compare-the-length-of-the-huffman-code-and-the-shannon-bound-how-to-explain-the-difference-in-order-to-improve-the-result-we-use-huffman-coding-on-blocks-of-length-k" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="q8-write-a-code-that-takes-as-input-a-sequence-of-length-k-of-letters-and-associate-a-binary-code-then-write-a-function-that-takes-as-inputs-a-random-sequence-its-code-by-block-of-length-k-we-assume-that-the-length-is-a-multiple-of-k">
+<h3>Q8. Write a code that takes as input a sequence of length <span class="math notranslate nohighlight">\(k\)</span> of letters and associate a binary code. Then, write a function that takes as inputs a random sequence its code by block of length <span class="math notranslate nohighlight">\(k\)</span>. We assume that the length is a multiple of <span class="math notranslate nohighlight">\(k\)</span>.<a class="headerlink" href="#q8-write-a-code-that-takes-as-input-a-sequence-of-length-k-of-letters-and-associate-a-binary-code-then-write-a-function-that-takes-as-inputs-a-random-sequence-its-code-by-block-of-length-k-we-assume-that-the-length-is-a-multiple-of-k" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">CodeBlocks</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -739,7 +805,9 @@ Empirical p = 0.29
 </div>
 </div>
 </div>
-<p>### Q9. Write a function that gives the empirical probability of the message encoded by <span class="math notranslate nohighlight">\(k\)</span>-blocks.</p>
+</div>
+<div class="section" id="q9-write-a-function-that-gives-the-empirical-probability-of-the-message-encoded-by-k-blocks">
+<h3>Q9. Write a function that gives the empirical probability of the message encoded by <span class="math notranslate nohighlight">\(k\)</span>-blocks.<a class="headerlink" href="#q9-write-a-function-that-gives-the-empirical-probability-of-the-message-encoded-by-k-blocks" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">EstimateProbabilites</span><span class="p">(</span><span class="n">code</span><span class="p">,</span><span class="n">taille_blocs</span><span class="p">):</span>
@@ -750,22 +818,28 @@ Empirical p = 0.29
 </div>
 </div>
 <div class="section" id="q10-given-a-random-sequence-generated-from-the-probability-h-plot-the-performance-of-the-huffman-code-length-of-the-code-shannon-bound-in-terms-of-k-the-block-length-comment">
-<h2>Q10. Given a random sequence generated from the probability <span class="math notranslate nohighlight">\(h\)</span>, plot the performance of the Huffman code (length of the code - Shannon bound) in terms of <span class="math notranslate nohighlight">\(k\)</span> the block length. Comment.<a class="headerlink" href="#q10-given-a-random-sequence-generated-from-the-probability-h-plot-the-performance-of-the-huffman-code-length-of-the-code-shannon-bound-in-terms-of-k-the-block-length-comment" title="Permalink to this headline">¶</a></h2>
+<h3>Q10. Given a random sequence generated from the probability <span class="math notranslate nohighlight">\(h\)</span>, plot the performance of the Huffman code (length of the code - Shannon bound) in terms of <span class="math notranslate nohighlight">\(k\)</span> the block length. Comment.<a class="headerlink" href="#q10-given-a-random-sequence-generated-from-the-probability-h-plot-the-performance-of-the-huffman-code-length-of-the-code-shannon-bound-in-terms-of-k-the-block-length-comment" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 <div class="section" id="b-the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir">
-<h1>B. The goal of this part is to explore implementations of a FIR or an IIR.<a class="headerlink" href="#b-the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir" title="Permalink to this headline">¶</a></h1>
+<h2>B. The goal of this part is to explore implementations of a FIR or an IIR.<a class="headerlink" href="#b-the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="q1-implement-an-ideal-low-pass-filter-using-fourier-transform-in-1d">
-<h2>Q1. Implement an ideal low pass filter using Fourier transform in 1D:<a class="headerlink" href="#q1-implement-an-ideal-low-pass-filter-using-fourier-transform-in-1d" title="Permalink to this headline">¶</a></h2>
+<h3>Q1. Implement an ideal low pass filter using Fourier transform in 1D:<a class="headerlink" href="#q1-implement-an-ideal-low-pass-filter-using-fourier-transform-in-1d" title="Permalink to this headline">¶</a></h3>
+</div>
 <div class="section" id="compute-the-inverse-fft-of-a-low-pass-filter-and-cut-it-with-a-window-that-will-be-passed-in-argument">
 <h3>Compute the inverse FFT of a low pass filter and cut it with a window that will be passed in argument.<a class="headerlink" href="#compute-the-inverse-fft-of-a-low-pass-filter-and-cut-it-with-a-window-that-will-be-passed-in-argument" title="Permalink to this headline">¶</a></h3>
 </div>
-</div>
 <div class="section" id="q2-implement-an-iir-filter-defined-by-its-numerator-which-will-be-set-to-a-constant-b-and-its-denominator-which-will-be-set-to-1-az-1">
-<h2>Q2. Implement an IIR filter defined by its numerator which will be set to a  constant <span class="math notranslate nohighlight">\(b\)</span> and its denominator which will be set to <span class="math notranslate nohighlight">\(1-az^{-1}\)</span>.<a class="headerlink" href="#q2-implement-an-iir-filter-defined-by-its-numerator-which-will-be-set-to-a-constant-b-and-its-denominator-which-will-be-set-to-1-az-1" title="Permalink to this headline">¶</a></h2>
-<p>### What can you say about the range of the parameter <span class="math notranslate nohighlight">\(a\)</span> in order to obtain a stable filter.
-### Experimentally, determine the ranges of <span class="math notranslate nohighlight">\(a\)</span> to get respectively a low-pass filter and a high-pass filter. Give a theoretical explanation.</p>
-<p>## In the following, we are given an electrocardiogram. We plot it as a function of time and we</p>
+<h3>Q2. Implement an IIR filter defined by its numerator which will be set to a  constant <span class="math notranslate nohighlight">\(b\)</span> and its denominator which will be set to <span class="math notranslate nohighlight">\(1-az^{-1}\)</span>.<a class="headerlink" href="#q2-implement-an-iir-filter-defined-by-its-numerator-which-will-be-set-to-a-constant-b-and-its-denominator-which-will-be-set-to-1-az-1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="what-can-you-say-about-the-range-of-the-parameter-a-in-order-to-obtain-a-stable-filter">
+<h4>What can you say about the range of the parameter <span class="math notranslate nohighlight">\(a\)</span> in order to obtain a stable filter.<a class="headerlink" href="#what-can-you-say-about-the-range-of-the-parameter-a-in-order-to-obtain-a-stable-filter" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="experimentally-determine-the-ranges-of-a-to-get-respectively-a-low-pass-filter-and-a-high-pass-filter-give-a-theoretical-explanation">
+<h4>Experimentally, determine the ranges of <span class="math notranslate nohighlight">\(a\)</span> to get respectively a low-pass filter and a high-pass filter. Give a theoretical explanation.<a class="headerlink" href="#experimentally-determine-the-ranges-of-a-to-get-respectively-a-low-pass-filter-and-a-high-pass-filter-give-a-theoretical-explanation" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="in-the-following-we-are-given-an-electrocardiogram-we-plot-it-as-a-function-of-time-and-we">
+<h3>In the following, we are given an electrocardiogram. We plot it as a function of time and we<a class="headerlink" href="#in-the-following-we-are-given-an-electrocardiogram-we-plot-it-as-a-function-of-time-and-we" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### load the data which is an electrocardiogram which is sampled at 360Hz</span>
@@ -787,6 +861,13 @@ Empirical p = 0.29
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_35_0.png" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_35_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>time min 0.0
+time max 299.9972222222222
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -800,8 +881,14 @@ Empirical p = 0.29
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_36_0.png" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_36_0.png" />
 </div>
-<p>### Q3. Estimate the number of heartbeats in the following electrocardiogram and estimate the mean value of the interval between two heartbeats. You can use the method of your choice. A possible method consists in using a band pass filter and then extract the maximum values of the filtered signal.</p>
+</div>
+</div>
+<div class="section" id="q3-estimate-the-number-of-heartbeats-in-the-following-electrocardiogram-and-estimate-the-mean-value-of-the-interval-between-two-heartbeats-you-can-use-the-method-of-your-choice-a-possible-method-consists-in-using-a-band-pass-filter-and-then-extract-the-maximum-values-of-the-filtered-signal">
+<h3>Q3. Estimate the number of heartbeats in the following electrocardiogram and estimate the mean value of the interval between two heartbeats. You can use the method of your choice. A possible method consists in using a band pass filter and then extract the maximum values of the filtered signal.<a class="headerlink" href="#q3-estimate-the-number-of-heartbeats-in-the-following-electrocardiogram-and-estimate-the-mean-value-of-the-interval-between-two-heartbeats-you-can-use-the-method-of-your-choice-a-possible-method-consists-in-using-a-band-pass-filter-and-then-extract-the-maximum-values-of-the-filtered-signal" title="Permalink to this headline">¶</a></h3>
+</div>
 </div>
 </div>
 
