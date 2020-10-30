@@ -57,6 +57,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="TP2 : FFT" href="../TD2/TP2%20-%20FFT%20-%20Exercices.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -147,7 +148,7 @@
   TD
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../TD1/TP1%20-%20EEA%20-%20Exercices.html">
    TP 1: Analyse en fréquence de signaux sonores.
@@ -158,13 +159,13 @@
    TP2 : FFT
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP3%20-%20Compression%20Shannon-Huffman-Exercises.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    A. The goal of this part is to implement the Huffman coding and how it can be enhanced to reach the optimal bound.
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="TP3%20-%20Compression%20Shannon-Huffman-Exercises.html#in-what-follows-we-consider-that-the-omega-i-are-letters-of-some-alphabet-which-have-a-frequency-of-appearance-of-p-i">
+  <a class="reference internal" href="#in-what-follows-we-consider-that-the-omega-i-are-letters-of-some-alphabet-which-have-a-frequency-of-appearance-of-p-i">
    In what follows, we consider that the
    <span class="math notranslate nohighlight">
     \(\omega_i\)
@@ -177,7 +178,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="TP3%20-%20Compression%20Shannon-Huffman-Exercises.html#b-the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir">
+  <a class="reference internal" href="#b-the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir">
    B. The goal of this part is to explore implementations of a FIR or an IIR.
   </a>
  </li>
@@ -223,7 +224,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/TD/TD3/TD 2 Compression Shannon-Huffman-Exercises.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/TD/TD3/TP3 - Compression Shannon-Huffman-Exercises.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -248,7 +249,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/TD/TD3/TD 2 Compression Shannon-Huffman-Exercises.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/TD/TD3/TP3 - Compression Shannon-Huffman-Exercises.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -478,10 +479,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f7f0791fd10&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f2efb660d90&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/TD 2 Compression Shannon-Huffman-Exercises_4_1.png" src="../../_images/TD 2 Compression Shannon-Huffman-Exercises_4_1.png" />
+<img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_4_1.png" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_4_1.png" />
 </div>
 </div>
 </div>
@@ -501,8 +502,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.3125 0.6875]
-Empirical p = 0.31
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.33203125 0.66796875]
+Empirical p = 0.33
 </pre></div>
 </div>
 </div>
@@ -515,7 +516,7 @@ Empirical p = 0.31
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entropy = 0.90
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entropy = 0.92
 </pre></div>
 </div>
 </div>
@@ -598,23 +599,47 @@ Empirical p = 0.31
     <span class="n">T</span> <span class="o">=</span> <span class="p">[]</span>
     
     <span class="k">while</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="n">T</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]])</span>
         <span class="n">X</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+        <span class="n">T</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         
     <span class="c1"># TODO transform T to be readable</span>
     <span class="k">return</span> <span class="n">T</span>
 
 <span class="n">T</span> <span class="o">=</span> <span class="n">CreateTree</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="p">((</span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
+
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">ete</span><span class="o">.</span><span class="n">Tree</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ete</span><span class="o">.</span><span class="n">TreeStyle</span><span class="p">()</span>
+<span class="c1">#ts.rotation = 90</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="mi">90</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">branch_vertical_margin</span> <span class="o">=</span> <span class="mi">50</span> <span class="c1"># 10 pixels between adjacent branches</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">show_leaf_name</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1">#</span>
+
+<span class="n">nstyle</span> <span class="o">=</span> <span class="n">ete</span><span class="o">.</span><span class="n">NodeStyle</span><span class="p">()</span>
+<span class="n">nstyle</span><span class="p">[</span><span class="s2">&quot;shape&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;square&quot;</span>
+<span class="n">nstyle</span><span class="p">[</span><span class="s2">&quot;size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">nstyle</span><span class="p">[</span><span class="s2">&quot;fgcolor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;orange&quot;</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">traverse</span><span class="p">():</span>
+    <span class="n">n</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="n">nstyle</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">iter_leaves</span><span class="p">():</span>
+    <span class="n">node</span><span class="o">.</span><span class="n">add_face</span><span class="p">(</span><span class="n">ete</span><span class="o">.</span><span class="n">AttrFace</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">fsize</span><span class="o">=</span><span class="mi">20</span><span class="p">),</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  
+    
+<span class="n">t</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%%</span><span class="s2">inline&quot;</span><span class="p">,</span> <span class="n">tree_style</span> <span class="o">=</span> <span class="n">ts</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.1, &#39;A&#39;], [0.15, &#39;D&#39;], [0.25, &#39;AB&#39;], [0.4, &#39;C&#39;]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.15, &#39;D&#39;], [0.25, &#39;AB&#39;], [0.4, &#39;C&#39;], [1.0, &#39;CABDE&#39;]]
 </pre></div>
 </div>
+<img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_12_1.png" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_12_1.png" />
 </div>
 </div>
 </div>
@@ -808,6 +833,7 @@ Empirical p = 0.31
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="../TD2/TP2%20-%20FFT%20-%20Exercices.html" title="previous page">TP2 : FFT</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
