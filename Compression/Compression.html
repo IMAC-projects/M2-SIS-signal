@@ -243,19 +243,95 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   Introduction
+  <a class="reference internal nav-link" href="#types-de-compression">
+   Types de compression
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#echantillonnage">
-   Échantillonnage
+  <a class="reference internal nav-link" href="#taux-de-compression">
+   Taux de compression
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quantification">
-   Quantification
+  <a class="reference internal nav-link" href="#entropie-de-shannon">
+   Entropie de Shannon
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition">
+     Définition
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interpretation">
+     Interprétation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemple">
+     Exemple
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#codage-de-huffman">
+   Codage de Huffman
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#principe">
+     Principe
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inegalite-de-kraft">
+     Inégalité de Kraft
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#limitations-du-codage-de-huffman">
+     Limitations du codage de Huffman
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#codage-rle">
+   Codage RLE
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cas-du-jpeg">
+   Cas du JPEG
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformation-espace-de-couleurs">
+     Transformation : espace de couleurs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sous-echantillonnage-de-la-chrominance">
+     Sous-échantillonnage de la chrominance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#passage-en-frequence-transformation-en-cosinus-discretes">
+     Passage en fréquence : Transformation en cosinus discrètes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quantification">
+     Quantification
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#encodage-codage-rle-et-codage-de-huffman">
+     Encodage - codage RLE et codage de Huffman
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -270,35 +346,140 @@
                 
   <div class="section" id="compression">
 <h1>Compression<a class="headerlink" href="#compression" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>La compression de données consiste à ne conserver que les données pertinentes afin de réduire la taille de stockage.</p>
-</div></blockquote>
+<p>La <strong>compression de données</strong> est l’opération consistant à <strong>transformer</strong> une donnée A en une autres B pouvant <strong>restituer</strong> les mêmes informations, ou des informations <em>“proches”</em>, en utilisant un algorithme de <em>décompression</em>.</p>
+<p>C’est une opération dite de <strong>codage</strong> qui change la représentation des données visant à en <strong>diminuer</strong> la taille (de stockage) de celles-ci au prix d’un travail de compression (et de décompression pour la restitution des données).</p>
 <div class="section" id="sommaire">
 <h2>Sommaire<a class="headerlink" href="#sommaire" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="#Introduction"><strong>Introduction</strong></a></p>
-<p><a class="reference external" href="#%C3%89chantillonnage"><strong>Échantillonnage</strong></a></p>
-<p><a class="reference external" href="#Quantification"><strong>Quantification</strong></a></p>
-</div>
-<div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>Lorsque l’on transporte une image ou un son, il faut passer du format analogique (réel) au format numérique (virtuel). Il faut donc un  conditionnement et un codage. Puis il faut transporter ces informations par un « tunnel », autrement appelé « canal de transmission ».</p>
-<p><img src="http://www.fortisfio.com/wp-content/uploads/2013/02/codage-arrow.png"  
-alt="schéma filtres" style="text-align:center;"/></p>
-<p>Types de compression :</p>
 <ul class="simple">
-<li><p>Sans pertes : le signal original peut être récupéré du signal compressé. On exploite uniquement la redondance des données ou utilise une transformation réversible</p></li>
-<li><p>Avec pertes : le signal original ne peut être récupéré du signal compressé. On exploite la redondance des données et la perception humaine</p></li>
+<li><p>[<strong>Types de compression</strong>](#Types de compression)</p></li>
+<li><p>[<strong>Taux de compression</strong>](#Taux de compression)</p></li>
+<li><p>[<strong>Entropie de Shannon</strong>](#Entropie de Shannon)</p></li>
+<li><p>[<strong>Codage de Huffman</strong>](#Codage de Huffman)</p></li>
 </ul>
-<p>Transmission analogique : le procédé reproduit la forme même du signal que l’on veut transmettre.
-Transmission numérique : on traduit le signal en une suite de bits</p>
 </div>
-<div class="section" id="echantillonnage">
-<h2>Échantillonnage<a class="headerlink" href="#echantillonnage" title="Permalink to this headline">¶</a></h2>
-<p>Théorème de Shannon</p>
+<div class="section" id="types-de-compression">
+<h2>Types de compression<a class="headerlink" href="#types-de-compression" title="Permalink to this headline">¶</a></h2>
+<p>Il existe deux types de compression de données:</p>
+<ul>
+<li><p>La <strong>sans perte</strong> restituant après décompression un signal (données) strictement identique à l’original avant compression.
+On peux exploiter par exemple la redondance des données ou des a priori sur la source de données.
+(<strong>Codage RLE,</strong> <strong>codage de Huffman</strong>, <strong>codage LZW</strong> …)</p></li>
+<li><p>A l’inverse, la <strong>avec perte</strong> restituant un signal différent mais relativement <em>“proche”</em> du signal d’origine mais permet une compression plus importante.
+On considère généralement la différence entre les deux signaux comme négligeable (non perceptibles) et étant une perte acceptable dans certains cas pour que la source de données reste compréhensible/perceptible.
+On peux par exemple exploiter la perception humaine pour définir l’information négligeable (comme les hautes fréquences d’une image par exemple).</p>
+<p>(<strong>sous échantillonnage</strong>, <strong>Codage par DTC</strong>, <strong>codage par ondelettes</strong> …)</p>
+</li>
+</ul>
+</div>
+<div class="section" id="taux-de-compression">
+<h2>Taux de compression<a class="headerlink" href="#taux-de-compression" title="Permalink to this headline">¶</a></h2>
+<p>Le taux de compression que l’on peut noté <span class="math notranslate nohighlight">\(\tau\)</span> est relié au rapport entre la taille <span class="math notranslate nohighlight">\(b\)</span> du fichier compressé <span class="math notranslate nohighlight">\(B\)</span> et la taille <span class="math notranslate nohighlight">\(a\)</span> du fichier original <span class="math notranslate nohighlight">\(A\)</span>. Le taux de compression est généralement exprimé en pourcentage et est défini par :
+$<span class="math notranslate nohighlight">\(
+\tau = 1 - (b/a)
+\)</span><span class="math notranslate nohighlight">\(
+**Exemple :** \)</span>a<span class="math notranslate nohighlight">\( = 550 Mo,  \)</span>b<span class="math notranslate nohighlight">\(=250 Mo , \)</span>\tau = 1 - (250/550) = 54%$</p>
+<p>L’algorithme utilisé cherche généralement à obtenir un taux de compression inférieur à 1.</p>
+</div>
+<div class="section" id="entropie-de-shannon">
+<h2>Entropie de Shannon<a class="headerlink" href="#entropie-de-shannon" title="Permalink to this headline">¶</a></h2>
+<p>L’<strong>entropie de Shannon</strong>, crée par Claude Shannon, est une fonction mathématique qui permet de quantifié la quantité d’information contenue par une source d’information. Cette source peut être un texte écrit dans une langue donnée, un signal électrique ou encore un fichier informatique quelconque.</p>
+<p>Autrement dit, l’entropie de Shannon indique la <strong>quantité d’information nécessaire</strong> pour que l’on puisse déterminer sans ambiguïté ce que l’on perçois d’une source de données.
+En particulier, plus la source est redondante, moins elle contient d’information. Par exemple, si une source envoie toujours le même symbole, par exemple la lettre ‘a’, alors son entropie est <em>nulle</em>, c’est-à-dire minimale, car l’on peut identifié sans aucune connaissances et sans ambiguïté le prochains symbole émis par la source. En l’absence de contraintes particulières, l’entropie est maximale pour une source dont tous les symboles sont équiprobables.</p>
+<div class="section" id="definition">
+<h3>Définition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h3>
+<p>Pour une source, qui est une variable aléatoire discrète <span class="math notranslate nohighlight">\(X\)</span> comportant <span class="math notranslate nohighlight">\(N\)</span> symboles distincts, chaque symbole <span class="math notranslate nohighlight">\(x_i\)</span> ayant une probabilité <span class="math notranslate nohighlight">\(P_i\)</span> d’apparaître. Les symboles représentent les réalisations possibles de la variable aléatoire <span class="math notranslate nohighlight">\(X\)</span>.
+L’<strong>entropie</strong> <span class="math notranslate nohighlight">\(H\)</span> de la source <span class="math notranslate nohighlight">\(X\)</span> est définie comme :
+$<span class="math notranslate nohighlight">\(
+H_b(X) = -\mathbb{E}[log_b(P(X))] = -\sum_{i=1}^N P_i.log_b(P_i)
+\)</span><span class="math notranslate nohighlight">\(
+Où \)</span>\mathbb{E}<span class="math notranslate nohighlight">\( désigne l'espérance mathématique, et \)</span>log_b<span class="math notranslate nohighlight">\( le logarithme en base *b*. 
+On utilise en général un logarithme à base 2 car l'entropie s'exprime alors en nombre de bits par symbole. Dans ce cas, on peut interpréter \)</span>H(X)<span class="math notranslate nohighlight">\( comme le nombre de questions à réponse binaire que l'on doit poser en moyenne à la source, ou la quantité d'information en bits que la source doit fournir au récepteur pour que ce dernier puisse déterminer sans ambiguïté la valeur de \)</span>X$.</p>
+<div class="math notranslate nohighlight">
+\[
+H(X) = H_2(X) = -\sum_{i=1}^N P_i.log_2(P_i)
+\]</div>
+</div>
+<div class="section" id="interpretation">
+<h3>Interprétation<a class="headerlink" href="#interpretation" title="Permalink to this headline">¶</a></h3>
+<p>Dans le cas où l’on dispose d’un nombre <span class="math notranslate nohighlight">\(N\)</span> de symboles de la forme <span class="math notranslate nohighlight">\(N= 2^n\)</span> avec <span class="math notranslate nohighlight">\(n\)</span> entier, et où les <span class="math notranslate nohighlight">\(N\)</span> symboles sont équiprobables, il suffit de <span class="math notranslate nohighlight">\(n\)</span> questions, en procédant par dichotomie, pour déterminer le symbole envoyé par la source. Dans ce cas, la quantité d’information contenue par le symbole est exactement <span class="math notranslate nohighlight">\(n = log_2(N)\)</span>.
+$<span class="math notranslate nohighlight">\(
+\begin{align}
+H(X) =&amp; -\sum_{i=1}^N P_i.log_2(P_i) \\
+	 =&amp; -\sum_{i=1}^N \frac{1}{N}.log_2(\frac{1}{N}) \\
+	 =&amp; -\frac{1}{N} \sum_{i=1}^N log_2(\frac{1}{N}) \\
+	 =&amp; -\frac{1}{N} * N.log_2(\frac{1}{2^n}) \\
+	 =&amp;\quad log_2(2^n) = n\\
+\end{align}
+\)</span><span class="math notranslate nohighlight">\(
+De manière plus générale, il est naturel de conserver cette formule dans le cas où \)</span>N<span class="math notranslate nohighlight">\( n'est pas une puissance de 2. Par exemple, si les symboles sont les lettres de l'alphabet et que l'on les considères toutes équiprobables, alors l'information contenue par un symbole est \)</span>log_2(26) \approx 4.7$ .
+Cette valeur est une valeurs intermédiaire entre 4 bits (permettant de coder 16 symboles) et 5 bits (qui permet d’en coder 32).</p>
+</div>
+<div class="section" id="exemple">
+<h3>Exemple<a class="headerlink" href="#exemple" title="Permalink to this headline">¶</a></h3>
+<p>Considérons une urne contenant des boules de 4 couleurs différentes: rouge, bleue, jaune et vert, toutes équiprobables.
+On tire une boule au hasard et il s’agit d’en identifier la couleur. Comme aucun tirage n’est privilégié, l’entropie est ici maximale égale à  <span class="math notranslate nohighlight">\(log_2(4)=2\)</span>.
+Si on convient que les couleurs sont codées respectivement <span class="math notranslate nohighlight">\(00\)</span>, <span class="math notranslate nohighlight">\(01\)</span>, <span class="math notranslate nohighlight">\(10\)</span>, <span class="math notranslate nohighlight">\(11\)</span>, l’information contenue dans le tirage correspond effectivement à 2 bits.</p>
+<p>Mais si une certaine couleur est plus représentée que les autres, alors l’entropie est légèrement réduite. Supposons par exemple que l’urne contienne 4 boules rouges, 2 bleues, 1 jaune et 1 verte.</p>
+<p>On peux calculer l’entropie de la manière suivante:
+$<span class="math notranslate nohighlight">\(
+\begin{align}
+H(X) =&amp; -\sum_{i=1}^N P_i.log_2(P_i) \\
+	 =&amp; -\left( \frac{4}{8}.log_2(\frac{4}{8}) + \frac{2}{8}.log_2(\frac{2}{8}) + \frac{1}{8}.log_2(\frac{2}{8}) + \frac{2}{8}.log_2(\frac{1}{8})\right) \\
+	 =&amp; -\left( \frac{log_2(\frac{1}{2})}{2} + \frac{log_2(\frac{1}{4})}{4} + \frac{log_2(\frac{1}{8})}{8} + \frac{log_2(\frac{1}{8})}{8}\right) \\
+	 =&amp; \quad \frac{log_2(2)}{2} + \frac{log_2(4)}{4} + \frac{log_2(8)}{8} + \frac{log_2(8)}{8} \\
+	 =&amp; \quad \frac{1}{2} + \frac{2}{4} + \frac{3}{8} + \frac{3}{8} \\
+	 =&amp; \quad \frac{7}{4} = 1.75
+\end{align}
+\)</span><span class="math notranslate nohighlight">\(
+Si les couleurs sont codées respectivement \)</span>0<span class="math notranslate nohighlight">\( pour le rouge, \)</span>10<span class="math notranslate nohighlight">\( pour le bleu, \)</span>110<span class="math notranslate nohighlight">\( pour le jaune et \)</span>111$ pour le vert, alors l’information sur la couleur tirée occupe 1 bit une fois sur deux, 2 bits une fois sur quatre et 3 bits une fois sur quatre, soit en moyenne 7/4 bits, correspondant à l’entropie calculée.</p>
+</div>
+</div>
+<div class="section" id="codage-de-huffman">
+<h2>Codage de Huffman<a class="headerlink" href="#codage-de-huffman" title="Permalink to this headline">¶</a></h2>
+<p>Le <strong>codage de Huffman</strong> est un algorithme de compression de données <strong>sans perte</strong>. Il consiste à utiliser un code à longueur variable pour représenter un symbole d’une source de données en ayant une connaissance préalable (ou une estimation) des probabilités d’apparition des symboles de cette source. Un code court étant associé aux symboles les plus fréquents.</p>
+<p>Un code de Huffman est optimal au sens de la plus courte longueur pour un codage par symbole, et une distribution de probabilité connue. Des méthodes plus complexes réalisant une modélisation probabiliste de la source permettent d’obtenir de meilleurs ratios de compression.</p>
+<div class="section" id="principe">
+<h3>Principe<a class="headerlink" href="#principe" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>TODO: arbre, code préfixe (contre exemple code pas préfixe avec plusieurs interprétations possibles)</p>
+</div></blockquote>
+</div>
+<div class="section" id="inegalite-de-kraft">
+<h3>Inégalité de Kraft<a class="headerlink" href="#inegalite-de-kraft" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="limitations-du-codage-de-huffman">
+<h3>Limitations du codage de Huffman<a class="headerlink" href="#limitations-du-codage-de-huffman" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>TODO : définir longueur moyenne, bornes par entropie</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="codage-rle">
+<h2>Codage RLE<a class="headerlink" href="#codage-rle" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>TODO</p>
+</div></blockquote>
+</div>
+<div class="section" id="cas-du-jpeg">
+<h2>Cas du JPEG<a class="headerlink" href="#cas-du-jpeg" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>TODO</p>
+</div></blockquote>
+<div class="section" id="transformation-espace-de-couleurs">
+<h3>Transformation : espace de couleurs<a class="headerlink" href="#transformation-espace-de-couleurs" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="sous-echantillonnage-de-la-chrominance">
+<h3>Sous-échantillonnage de la chrominance<a class="headerlink" href="#sous-echantillonnage-de-la-chrominance" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="passage-en-frequence-transformation-en-cosinus-discretes">
+<h3>Passage en fréquence : Transformation en cosinus discrètes<a class="headerlink" href="#passage-en-frequence-transformation-en-cosinus-discretes" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="quantification">
-<h2>Quantification<a class="headerlink" href="#quantification" title="Permalink to this headline">¶</a></h2>
-<p>On cherche à convertir un signal échantillonné (dont l’amplitude peut prendre une infinité de valeur) en une séquence de caractères discrets, issus d’un alphabet fini de <span class="math notranslate nohighlight">\(N\)</span> caractères.</p>
+<h3>Quantification<a class="headerlink" href="#quantification" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="encodage-codage-rle-et-codage-de-huffman">
+<h3>Encodage - codage RLE et codage de Huffman<a class="headerlink" href="#encodage-codage-rle-et-codage-de-huffman" title="Permalink to this headline">¶</a></h3>
+</div>
 </div>
 </div>
 
