@@ -1,16 +1,24 @@
 - file: README
 
-- part: Fourier
+- part: Introduction
   chapters:
   - file: Introduction/Introduction
+
+- part: Fourier
+  chapters:
   - file: Transformée de Fourier/Transformée de Fourier
   
 - part: Filtrage
   chapters:
   - file: Filtrage/Filtre
 
+- part: Compression
+  chapters:
+  - file: Compression/Compression
+
 - part: TD
   chapters:
   - file: TD/TD1/TP1 - EEA - Exercices
   - file: TD/TD2/TP2 - FFT - Exercices
+  - file: TD/TD3/TP3 - Compression Shannon-Huffman-Exercises
  
