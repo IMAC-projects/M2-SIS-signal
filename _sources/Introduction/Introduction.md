@@ -17,7 +17,7 @@
 
 Décomposition en signaux élémentaire : 
 * dans un espace Euclidien ($\mathbb{R}$)
-* $\forall$ vecteur $f$. $f = (f_1, ..., f_n) = \sum_{i=1}^{n} (f_{i}+e_{i})$
+* $\forall$ vecteur $f$. $f = (f_1, ..., f_n) = \sum_{i=1}^{n} (f_{i}\times e_{i})$
 * une image peut donc s'écrire :
 
 $$ 
@@ -57,7 +57,7 @@ On considère $<f,g> = \sum_{i=1}^{n}f_i g_i$, produit scalaire sur $\mathbb{R}^
 
 **<font color=red>Propriétés </font>** : 
 * $<f + \lambda g, h> = <f,h> + \lambda <g,h>, \lambda \in \mathbb{R}$
-* $<f,f> \geq 0$
+* $<f,f> \geqslant 0$
 * $<f,f> = 0 \Leftrightarrow f = 0$
 * $<f,g> = <g,f>$
 
