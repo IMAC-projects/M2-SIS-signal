@@ -841,8 +841,10 @@ Avec <span class="math notranslate nohighlight">\(g\)</span> continue</p></li>
 </div>
 <div class="section" id="echantillonnage-et-theoreme-de-shannon">
 <h2>Échantillonnage et théorème de Shannon<a class="headerlink" href="#echantillonnage-et-theoreme-de-shannon" title="Permalink to this headline">¶</a></h2>
+<p>L’échantillonnage consiste à prélever à intervalle de temps régulier des échantillons du signal. Le signal devient alors périodique avec la <span class="math notranslate nohighlight">\(T_e\)</span> la période d’échantillonnage.</p>
+<div class="math notranslate nohighlight">
+\[T_e = \frac{1}{fe}\]</div>
 <p><strong><font color=red>Motivation</font> :</strong> étant donné un signal analogique <span class="math notranslate nohighlight">\(s: \mathbb{R} \to \mathbb{R}\)</span>. On échantillonne le signal en <strong><span class="math notranslate nohighlight">\((nTe)_{n\in\mathbb{Z}}\)</span></strong></p>
-<p><span class="math notranslate nohighlight">\(Te\)</span>: temps d’échantillonnage</p>
 <p>Étant donné <span class="math notranslate nohighlight">\((s(nTe))_{n\in\mathbb{Z}}\)</span>, peut-on avoir accès à <span class="math notranslate nohighlight">\(s(t)\)</span> ? <span class="math notranslate nohighlight">\(\to\)</span> non en toute généralité. Si <span class="math notranslate nohighlight">\(Te &lt;&lt; 1\)</span>, on aura une bonne approximation. Que se passe-t-il quand <span class="math notranslate nohighlight">\(Te\)</span> augmente ?</p>
 <p><strong><font color=red>Théorème de Shannon</font> :</strong></p>
 <p>Soit <span class="math notranslate nohighlight">\(s:\mathbb{R} \to \mathbb{C}\)</span> à bande passante <span class="math notranslate nohighlight">\(\hat{s}(\omega) = 0\)</span> si <span class="math notranslate nohighlight">\(\omega \notin [-\omega_c,\omega_c]\)</span> alors si <span class="math notranslate nohighlight">\(Te &lt; \frac{1}{2\omega_c}\)</span>, on peut reconstruire <span class="math notranslate nohighlight">\(s\)</span> par la formule d’interpolation.</p>
@@ -870,7 +872,7 @@ f = f_d \ast TF^{-1}(h)
 \]</div>
 <p>et <span class="math notranslate nohighlight">\(TF^{-1}(h)\)</span> décroit vite car h est régulier.</p>
 <p>On retient donc que sous des hypothèses de bande passante, on peut reconstruire exactement le signal échantillonné suffisamment rapidement. Ce théorème établit les conditions qui permettent l’échantillonnage d’un signal de largeur spectrale et d’amplitude limitées.</p>
-<p>La fréquence d’échantillonnage <span class="math notranslate nohighlight">\(Fe\)</span> doit respecter la règle suivante : <span class="math notranslate nohighlight">\(Fe &gt; 2f_0\)</span> sachant que <span class="math notranslate nohighlight">\(f_0=\nu_0 Fe\)</span></p>
+<p>La période d’échantillonnage <span class="math notranslate nohighlight">\(Te\)</span> doit respecter la règle suivante : <span class="math notranslate nohighlight">\(Te &gt; 2f_{max}\)</span>. Si cette contrainte n’est pas respectée, alors on a un <strong>repliement spectral</strong> car le signal analogique et l’échantillonnage se superposent.</p>
 <p>{<span class="math notranslate nohighlight">\(f\)</span> à bande passante} <span class="math notranslate nohighlight">\(\subset\)</span> signaux très régulier</p>
 <div class="math notranslate nohighlight">
 \[TF(s^{(n)}) = (2i\pi\omega)^nTF(s)\]</div>
