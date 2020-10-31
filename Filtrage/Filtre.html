@@ -344,6 +344,43 @@
    Filtre coupe-bande
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtre-analogique">
+   Filtre analogique
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reponse-impulsionnelle">
+     Réponse impulsionnelle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#causalite">
+     Causalité
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stabilite">
+     Stabilité
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gain-et-phase">
+     Gain et phase
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fonction-de-transfert">
+     Fonction de transfert
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtre-numerique">
+   Filtre numérique
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -358,7 +395,7 @@
   <div class="section" id="filtre">
 <h1>Filtre<a class="headerlink" href="#filtre" title="Permalink to this headline">¶</a></h1>
 <blockquote>
-<div><p>Un filtre est un système. Le filtrage correspond à sélectionner certaines fréquences du signal.</p>
+<div><p>Un filtre est un système électronique qui nous permet de sélectionner une ou plusieurs parties d’un signal ou de rejeter la partie qui ne nous intéresse pas, tels que les bruits parasites.</p>
 </div></blockquote>
 <div class="section" id="sommaire">
 <h2>Sommaire<a class="headerlink" href="#sommaire" title="Permalink to this headline">¶</a></h2>
@@ -370,9 +407,9 @@
 <p><a class="reference external" href="#Filtre-coupe-bande"><strong>Filtre coupe-bande</strong></a></p>
 <p><a class="reference external" href="#Filtrage-analogique"><strong>Filtrage analogique</strong></a></p>
 <ul class="simple">
-<li><p><a class="reference external" href="#Dirac"><strong>Dirac</strong></a></p></li>
 <li><p><a class="reference external" href="#R%C3%A9ponse-impulsionnelle"><strong>Réponse impulsionnelle</strong></a></p></li>
 <li><p><a class="reference external" href="#Causalit%C3%A9"><strong>Causalité</strong></a></p></li>
+<li><p><a class="reference external" href="#Stabilit%C3%A9"><strong>Stabilité</strong></a></p></li>
 <li><p><a class="reference external" href="#Gain-et-phase"><strong>Gain et phase</strong></a></p></li>
 <li><p><a class="reference external" href="#Fonction-de-transfert"><strong>Fonction de transfert</strong></a></p></li>
 </ul>
@@ -384,7 +421,7 @@
 </div>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>On parle de filtrage de signal lorsqu’on atténue (la suppression est difficile) ou favorise dans un signal des fréquences par rapport à d’autres.</p>
+<p>On parle de filtrage de signal lorsqu’on atténue (la suppression est difficile) ou favorise dans un signal des fréquences par rapport à d’autres. Tous les supports de transmission (c’est-à-dire tous les câbles) se comportent comme des filtres. Le filtrage dépend de leur bande de fréquence.</p>
 <p>En général, on recense 4 types de filtres :</p>
 <ul class="simple">
 <li><p>Le filtre passe-haut qui laisse passer les fréquences hautes</p></li>
@@ -398,6 +435,9 @@ alt="schéma filtres" style="text-align:center;"/></p>
 <p><img src="https://i.ibb.co/BzfTXmW/Capture-d-cran-2020-10-26-221553.png"  
 alt="schéma filtres" style="text-align:center;"/></p>
 <p>Cette correspondance entre l’entrée et la sortie est notée <span class="math notranslate nohighlight">\(s = H(e)\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(H\)</span> est une convolution. On a donc :</p>
+<div class="math notranslate nohighlight">
+\[s = H \ast e = e \ast H\]</div>
 </div>
 <div class="section" id="definitions">
 <h2>Définitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h2>
@@ -445,11 +485,11 @@ Selon la position de cette fréquence par rapport à la courbe de fréquence on 
 </div>
 <div class="section" id="filtre-passe-haut">
 <h2>Filtre passe-haut<a class="headerlink" href="#filtre-passe-haut" title="Permalink to this headline">¶</a></h2>
-<p>Un filtre passe-haut laisse passer les fréquences hautes et atténue les fréquences basses.</p>
+<p>Un filtre passe-haut ne laisse passer que les fréquences hautes qui sont supérieurs à sa fréquence de coupure <span class="math notranslate nohighlight">\(f_c\)</span>. Il atténue les fréquences basses.</p>
 </div>
 <div class="section" id="filtre-passe-bas">
 <h2>Filtre passe-bas<a class="headerlink" href="#filtre-passe-bas" title="Permalink to this headline">¶</a></h2>
-<p>Un filtre passe-bas laisse passer les fréquences entre 0Hz et la fréquence de coupure <span class="math notranslate nohighlight">\(f_c\)</span>. Au-delà de <span class="math notranslate nohighlight">\(f_c\)</span>, les fréquences sont atténuées.</p>
+<p>Un filtre passe-bas ne laisse passer que les fréquences inférieur à sa fréquence de coupure <span class="math notranslate nohighlight">\(f_c\)</span>. Au-delà de <span class="math notranslate nohighlight">\(f_c\)</span>, les fréquences sont atténuées.</p>
 <p><strong>Exemple du filtre passe-bas :</strong></p>
 <div class="math notranslate nohighlight">
 \[s_{[0,1]^2 \to \mathbb{R}} \sim\hat{s} * \Pi_{[-Bc,Bc]}\]</div>
@@ -466,7 +506,48 @@ Selon la position de cette fréquence par rapport à la courbe de fréquence on 
 </div>
 <div class="section" id="filtre-coupe-bande">
 <h2>Filtre coupe-bande<a class="headerlink" href="#filtre-coupe-bande" title="Permalink to this headline">¶</a></h2>
-<p>Un filtre coupe-bande aussi appelé filtre réjecteur de bande est un filtre empêchant le passage d’un intervalle de fréquences. Il est composé d’un filtre passe-haut et d’un filtre passe-bas dont les fréquences de coupure sont souvent proches mais différentes, la fréquence de coupure du filtre passe-bas est systématiquement inférieure à la fréquence de coupure du filtre passe-haut.</p>
+<p>Un filtre coupe-bande aussi appelé filtre réjecteur de bande est un filtre empêchant le passage d’un intervalle de fréquences. Il est composé d’un filtre passe-haut et d’un filtre passe-bas dont les fréquences de coupure sont souvent proches mais différentes, la fréquence de coupure du filtre passe-bas est systématiquement  inférieure à la fréquence de coupure du filtre passe-haut.</p>
+</div>
+<div class="section" id="filtre-analogique">
+<h2>Filtre analogique<a class="headerlink" href="#filtre-analogique" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reponse-impulsionnelle">
+<h3>Réponse impulsionnelle<a class="headerlink" href="#reponse-impulsionnelle" title="Permalink to this headline">¶</a></h3>
+<p>Si le signal entrant est une impulsion de Dirac <span class="math notranslate nohighlight">\(δ(t)\)</span>, sa réponse impulsionnelle, parfois dite <em>percusionnelle</em>, est <span class="math notranslate nohighlight">\(h(t)\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[h(t) = S[\delta(t)]\]</div>
+<p>On a en sortie :</p>
+<div class="math notranslate nohighlight">
+\[ H(e(t)) = \int_{}^{}e(u) h(t−u) du = \int_{}^{}h(u) e(t−u) du = h(t) \ast e(t)\]</div>
+</div>
+<div class="section" id="causalite">
+<h3>Causalité<a class="headerlink" href="#causalite" title="Permalink to this headline">¶</a></h3>
+<p>Un filtre est dit causal si et seulement si à une entrée <span class="math notranslate nohighlight">\(e\)</span> nulle pour <span class="math notranslate nohighlight">\(t &lt; 0\)</span> correspond une sortie <span class="math notranslate nohighlight">\(s = H(e)\)</span> nulle pour <span class="math notranslate nohighlight">\(t &lt; 0\)</span>. Autrement dit, le filtre est causal si :</p>
+<div class="math notranslate nohighlight">
+\[h(t) = 0 \ \text{pour} \ t&lt;0\]</div>
+<p>C’est-à-dire qu’il ne doit pas y avoir de réponse en absence d’action.</p>
+<p>Les systèmes causaux ont une réponse impulsionnelle nulle.</p>
+</div>
+<div class="section" id="stabilite">
+<h3>Stabilité<a class="headerlink" href="#stabilite" title="Permalink to this headline">¶</a></h3>
+<p>Un filtre est stable si et seulement si à toute entrée  <span class="math notranslate nohighlight">\(x(t)\)</span>  bornée <span class="math notranslate nohighlight">\(M\)</span> correspond une sortie <span class="math notranslate nohighlight">\(y(t)\)</span> bornée  <span class="math notranslate nohighlight">\(M′\)</span>.</p>
+<p>La condition nécessaire et suffisante pour qu’un filtre linéaire soit stable est que :</p>
+<div class="math notranslate nohighlight">
+\[\int_{-\infty}^{+\infty}|h(t)|  dt &lt; \infty\]</div>
+<p>Première conséquence :</p>
+<div class="math notranslate nohighlight">
+\[h(t) \to 0 \ \text {quand} \ t \to +\infty\]</div>
+<p>Un filtre <strong>causal</strong> et <strong>stable</strong> est <strong>réalisable</strong>.</p>
+</div>
+<div class="section" id="gain-et-phase">
+<h3>Gain et phase<a class="headerlink" href="#gain-et-phase" title="Permalink to this headline">¶</a></h3>
+<p>On appelle gain complexe du filtre la TF de la réponse impulsionnelle <span class="math notranslate nohighlight">\(h\)</span>.</p>
+</div>
+<div class="section" id="fonction-de-transfert">
+<h3>Fonction de transfert<a class="headerlink" href="#fonction-de-transfert" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="filtre-numerique">
+<h2>Filtre numérique<a class="headerlink" href="#filtre-numerique" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
