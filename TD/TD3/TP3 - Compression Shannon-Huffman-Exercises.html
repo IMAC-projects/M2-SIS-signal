@@ -55,6 +55,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="prev" title="TP2 : FFT" href="../TD2/TP2%20-%20FFT%20-%20Exercices.html" />
@@ -76,6 +77,8 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../../index.html">
   
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
   
   <h1 class="site-logo" id="site-title">M2 Signal classes</h1>
   
@@ -89,18 +92,6 @@
 
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../README.html">
-   Master 2 Image science - Signal processing classes
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Introduction
- </span>
-</p>
-<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../../Introduction/Introduction.html">
    Introduction
@@ -217,6 +208,22 @@
 </div>
         <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/IMAC-projects/M2-SIS-signal"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/IMAC-projects/M2-SIS-signal/issues/new?title=Issue%20on%20page%20%2FTD/TD3/TP3 - Compression Shannon-Huffman-Exercises.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
@@ -231,7 +238,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/TD/TD3/TP3 - Compression Shannon-Huffman-Exercises.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/IMAC-projects/M2-SIS-signal/master?urlpath=tree/TD/TD3/TP3 - Compression Shannon-Huffman-Exercises.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -535,7 +542,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fdbb11d2b50&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f839a82fd10&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_5_1.png" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_5_1.png" />
@@ -557,8 +564,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.27734375 0.72265625]
-Empirical p = 0.28
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.29882812 0.70117188]
+Empirical p = 0.30
 </pre></div>
 </div>
 </div>
@@ -571,7 +578,7 @@ Empirical p = 0.28
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entropy = 0.85
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entropy = 0.88
 </pre></div>
 </div>
 </div>
@@ -691,12 +698,6 @@ Empirical p = 0.28
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.15, &#39;D&#39;], [0.25, &#39;AB&#39;], [0.4, &#39;C&#39;], [1.0, &#39;CABDE&#39;]]
-</pre></div>
-</div>
-<img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_13_1.png" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_13_1.png" />
-</div>
 </div>
 </div>
 <div class="section" id="q2-write-the-function-huffmangencode-which-computes-the-huffman-code-of-an-element-in-0-1-2-3-4-and-print-it">
@@ -740,17 +741,6 @@ Empirical p = 0.28
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">code</span> <span class="o">=</span> <span class="n">CodeHuffman</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">codes</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">15</span><span class="o">-</span><span class="mi">74</span><span class="n">f707e3a832</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">code</span> <span class="o">=</span> <span class="n">CodeHuffman</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">codes</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;codes&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -861,13 +851,6 @@ Empirical p = 0.28
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_35_0.png" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_35_0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>time min 0.0
-time max 299.9972222222222
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -880,9 +863,6 @@ time max 299.9972222222222
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_36_0.png" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_36_0.png" />
 </div>
 </div>
 </div>

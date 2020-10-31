@@ -55,6 +55,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="TP2 : FFT" href="../TD2/TP2%20-%20FFT%20-%20Exercices.html" />
@@ -77,6 +78,8 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../../index.html">
   
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
   
   <h1 class="site-logo" id="site-title">M2 Signal classes</h1>
   
@@ -90,18 +93,6 @@
 
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../README.html">
-   Master 2 Image science - Signal processing classes
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Introduction
- </span>
-</p>
-<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../../Introduction/Introduction.html">
    Introduction
@@ -218,6 +209,22 @@
 </div>
         <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/IMAC-projects/M2-SIS-signal"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/IMAC-projects/M2-SIS-signal/issues/new?title=Issue%20on%20page%20%2FTD/TD1/TP1 - EEA - Exercices.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
@@ -232,7 +239,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/TD/TD1/TP1 - EEA - Exercices.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/IMAC-projects/M2-SIS-signal/master?urlpath=tree/TD/TD1/TP1 - EEA - Exercices.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -452,7 +459,7 @@ fft et l&#39;inverse de la ftt sont bien inverses numériques
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fa4a0fce950&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f8a1786c9d0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/TP1 - EEA - Exercices_10_1.png" src="../../_images/TP1 - EEA - Exercices_10_1.png" />
@@ -515,7 +522,7 @@ fft et l&#39;inverse de la ftt sont bien inverses numériques
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fa4a0e8f290&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f8a1772f2d0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/TP1 - EEA - Exercices_15_1.png" src="../../_images/TP1 - EEA - Exercices_15_1.png" />
@@ -657,7 +664,7 @@ la longueur du signal mono en secondes est  20
   return array(a, dtype, copy=False, order=order)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fa4a0389390&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f8a16c28450&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/TP1 - EEA - Exercices_25_2.png" src="../../_images/TP1 - EEA - Exercices_25_2.png" />
@@ -768,7 +775,7 @@ la longueur du signal mono en secondes est  1
   return array(a, dtype, copy=False, order=order)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fa499049f10&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f8a13a59ed0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/TP1 - EEA - Exercices_35_2.png" src="../../_images/TP1 - EEA - Exercices_35_2.png" />
