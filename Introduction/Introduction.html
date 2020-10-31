@@ -249,6 +249,11 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-au-signal">
+   Introduction au signal
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#decomposition-signal-dans-une-base">
    Décomposition signal dans une base
   </a>
@@ -274,12 +279,19 @@
   <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <blockquote>
-<div><p>Introduction au cours de représentation et filtrage numérique 1D/2D du M2 SIS.</p>
+<div><p>Introduction au cours de représentation et filtrage numérique 1D/2D du M2 Informatique - Sciences de l’image effectué à l’Université Gustave Eiffel. La retranscription est effectuée majoritairement par <a class="reference external" href="https://github.com/dsmtE">Enguerrand De Smet</a> et <a class="reference external" href="https://github.com/LafLaurine">Laurine Lafontaine</a>.</p>
 </div></blockquote>
 <div class="section" id="sommaire">
 <h2>Sommaire<a class="headerlink" href="#sommaire" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="#Introduction-au-signal"><strong>Introduction au signal</strong></a></p>
 <p><a class="reference external" href="#D%C3%A9composition-signal-dans-une-base"><strong>Décomposition signal dans une base</strong></a></p>
 <p><a class="reference external" href="#Projection-orthogonale"><strong>Projection orthogonale</strong></a></p>
+</div>
+<div class="section" id="introduction-au-signal">
+<h2>Introduction au signal<a class="headerlink" href="#introduction-au-signal" title="Permalink to this headline">¶</a></h2>
+<p>Un signal est une représentation physique d’une information qui se propage le long d’un support entre l’émission et la réception. On se demande à chaque fois quelle est la nature de l’information transportée (audio, sonore, visuelle).
+Toute information est susceptible d’être codée en émission et décodée en réception.</p>
+<p>Pour étudier un signal et apporter les traitements nécessaires, on peut se baser sur sa représentation graphique et mathématique.</p>
 </div>
 <div class="section" id="decomposition-signal-dans-une-base">
 <h2>Décomposition signal dans une base<a class="headerlink" href="#decomposition-signal-dans-une-base" title="Permalink to this headline">¶</a></h2>
@@ -313,7 +325,7 @@ f \approx \sum_{i=1}^{p} \lambda_i \nu_i
 <li><p><span class="math notranslate nohighlight">\(\lVert f + g \rVert \leq  \lVert f \rVert +  \lVert g \rVert\)</span></p></li>
 </ul>
 <p><strong>Remarque</strong> :</p>
-<p>Sur <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, le produit scalaire (canonique) : <span class="math notranslate nohighlight">\( &lt;x,y&gt; = \sum_{i=1}^{n} x_i y_i \)</span></p>
+<p>Sur <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, le produit scalaire (canonique) : <span class="math notranslate nohighlight">\(&lt;x,y&gt; = \sum_{i=1}^{n} x_i y_i\)</span></p>
 <div class="math notranslate nohighlight">
 \[ 
 f = \sum_{i=1}^{p} &lt;f, \nu_i&gt; \nu_i + \ reste 

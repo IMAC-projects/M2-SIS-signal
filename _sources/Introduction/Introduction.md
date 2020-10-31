@@ -1,13 +1,22 @@
 ﻿
 # Introduction
 
-> Introduction au cours de représentation et filtrage numérique 1D/2D du M2 SIS.
+> Introduction au cours de représentation et filtrage numérique 1D/2D du M2 Informatique - Sciences de l'image effectué à l'Université Gustave Eiffel. La retranscription est effectuée majoritairement par [Enguerrand De Smet](https://github.com/dsmtE) et [Laurine Lafontaine](https://github.com/LafLaurine).
 
 ## Sommaire
+
+[**Introduction au signal**](#Introduction-au-signal)
 
 [**Décomposition signal dans une base**](#Décomposition-signal-dans-une-base)
 
 [**Projection orthogonale**](#Projection-orthogonale)
+
+## Introduction au signal
+
+Un signal est une représentation physique d'une information qui se propage le long d'un support entre l'émission et la réception. On se demande à chaque fois quelle est la nature de l'information transportée (audio, sonore, visuelle).
+Toute information est susceptible d'être codée en émission et décodée en réception. 
+
+Pour étudier un signal et apporter les traitements nécessaires, on peut se baser sur sa représentation graphique et mathématique.
 
 ## Décomposition signal dans une base
 
@@ -45,7 +54,7 @@ On considère un cas particulier : la famille $(\nu_1, ..., \nu_p)$ est **orthon
 
 **Remarque** :
 
-Sur $\mathbb{R}^n$, le produit scalaire (canonique) : $ <x,y> = \sum_{i=1}^{n} x_i y_i $
+Sur $\mathbb{R}^n$, le produit scalaire (canonique) : $<x,y> = \sum_{i=1}^{n} x_i y_i$
 
 $$ 
 f = \sum_{i=1}^{p} <f, \nu_i> \nu_i + \ reste 
