@@ -1,8 +1,4 @@
-- file: README
-
-- part: Introduction
-  chapters:
-  - file: Introduction/Introduction
+- file: Introduction/Introduction
 
 - part: Fourier
   chapters:
