@@ -553,9 +553,11 @@ $\forall f \in \mathbb{C}^\infty(\mathbb{R}, \mathbb{C}) \ tq \ f(x) = 0 \ si \ 
 
 ## Échantillonnage et théorème de Shannon
 
-**<font color=red>Motivation</font> :** étant donné un signal analogique $s: \mathbb{R} \to \mathbb{R}$. On échantillonne le signal en **$(nTe)_{n\in\mathbb{Z}}$**
+L'échantillonnage consiste à prélever à intervalle de temps régulier des échantillons du signal. Le signal devient alors périodique avec la $T_e$ la période d'échantillonnage. 
 
-$Te$: temps d'échantillonnage
+$$T_e = \frac{1}{fe}$$
+
+**<font color=red>Motivation</font> :** étant donné un signal analogique $s: \mathbb{R} \to \mathbb{R}$. On échantillonne le signal en **$(nTe)_{n\in\mathbb{Z}}$**
 
 Étant donné $(s(nTe))_{n\in\mathbb{Z}}$, peut-on avoir accès à $s(t)$ ? $\to$ non en toute généralité. Si $Te << 1$, on aura une bonne approximation. Que se passe-t-il quand $Te$ augmente ?
 
@@ -598,7 +600,7 @@ et $TF^{-1}(h)$ décroit vite car h est régulier.
 
 On retient donc que sous des hypothèses de bande passante, on peut reconstruire exactement le signal échantillonné suffisamment rapidement. Ce théorème établit les conditions qui permettent l'échantillonnage d'un signal de largeur spectrale et d'amplitude limitées.
 
-La fréquence d'échantillonnage $Fe$ doit respecter la règle suivante : $Fe > 2f_0$ sachant que $f_0=\nu_0 Fe$
+La période d'échantillonnage $Te$ doit respecter la règle suivante : $Te > 2f_{max}$. Si cette contrainte n'est pas respectée, alors on a un **repliement spectral** car le signal analogique et l'échantillonnage se superposent.
 
 {$f$ à bande passante} $\subset$ signaux très régulier
 
