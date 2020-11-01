@@ -374,12 +374,41 @@
      Fonction de transfert
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtres-ideaux">
+     Filtres idéaux
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#filtre-passe-bas-ideal">
+       Filtre passe-bas idéal
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#filtres-passe-haut-ideal">
+       Filtres passe-haut idéal
+      </a>
+     </li>
+    </ul>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#filtre-numerique">
    Filtre numérique
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformee-en-z">
+     Transformée en Z
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Causalité
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -412,6 +441,7 @@
 <li><p><a class="reference external" href="#Stabilit%C3%A9"><strong>Stabilité</strong></a></p></li>
 <li><p><a class="reference external" href="#Gain-et-phase"><strong>Gain et phase</strong></a></p></li>
 <li><p><a class="reference external" href="#Fonction-de-transfert"><strong>Fonction de transfert</strong></a></p></li>
+<li><p><a class="reference external" href="#Filtres-id%C3%A9aux"><strong>Filtres idéaux</strong></a></p></li>
 </ul>
 <p><a class="reference external" href="#Filtrage-num%C3%A9rique"><strong>Filtrage numérique</strong></a></p>
 <ul class="simple">
@@ -540,14 +570,73 @@ Selon la position de cette fréquence par rapport à la courbe de fréquence on 
 </div>
 <div class="section" id="gain-et-phase">
 <h3>Gain et phase<a class="headerlink" href="#gain-et-phase" title="Permalink to this headline">¶</a></h3>
-<p>On appelle gain complexe du filtre la TF de la réponse impulsionnelle <span class="math notranslate nohighlight">\(h\)</span>.</p>
+<p>On appelle gain complexe du filtre la TF de la réponse impulsionnelle <span class="math notranslate nohighlight">\(h\)</span>. L’étude d’un filtre se fait en considérant sa réponse fréquentielle, constituée du gain <span class="math notranslate nohighlight">\(G(f)\)</span> et du déphasage <span class="math notranslate nohighlight">\(\phi(f)\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[G(f) = \frac{G_0}{\sqrt{1+(\frac{f}{f_c})^{2n}}}\]</div>
+<p><span class="math notranslate nohighlight">\(G_0\)</span> est le gain dans la bande passante.</p>
+<p>On définit la phase <span class="math notranslate nohighlight">\(\phi\)</span>, en degré ou en radian, comme la différence de phase entre le signal de sortie et le signal d’entrée : <span class="math notranslate nohighlight">\(\phi = \phi_s − \phi_e\)</span></p>
+<p>Le déphasage entre le signal de sortie et celui d’entrée dépend du type de filtre et il varie avec la fréquence.</p>
 </div>
 <div class="section" id="fonction-de-transfert">
 <h3>Fonction de transfert<a class="headerlink" href="#fonction-de-transfert" title="Permalink to this headline">¶</a></h3>
+<p>Un autre moyen de caractériser un filtre est de fournir sa fonction de transfert <span class="math notranslate nohighlight">\(H(\omega)\)</span>, qui peut être obtenue en divisant le spectre fréquentiel du signal de sortie avec celui du signal de l’entrée du filtre. Tout filtre linéaire est entièrement décrit par sa réponse fréquentielle en amplitude <span class="math notranslate nohighlight">\(|H(\omega)|\)</span> (le gain) et sa réponse de phase <span class="math notranslate nohighlight">\(arg H(\omega)\)</span> liée à sa réponse impulsionnelle.</p>
+</div>
+<div class="section" id="filtres-ideaux">
+<h3>Filtres idéaux<a class="headerlink" href="#filtres-ideaux" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="filtre-passe-bas-ideal">
+<h4>Filtre passe-bas idéal<a class="headerlink" href="#filtre-passe-bas-ideal" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="filtres-passe-haut-ideal">
+<h4>Filtres passe-haut idéal<a class="headerlink" href="#filtres-passe-haut-ideal" title="Permalink to this headline">¶</a></h4>
+</div>
 </div>
 </div>
 <div class="section" id="filtre-numerique">
 <h2>Filtre numérique<a class="headerlink" href="#filtre-numerique" title="Permalink to this headline">¶</a></h2>
+<p>Un filtre numérique est une application <span class="math notranslate nohighlight">\(F : L^2 (\mathbb{Z}) \to  L^2 (\mathbb{Z})\)</span>. On parle de filtre linéaire si <span class="math notranslate nohighlight">\(F\)</span> est linéaire. La sortie à l’instant <span class="math notranslate nohighlight">\(n\)</span> d’un filtre numérique dépend de la sortie aux instants précédents <span class="math notranslate nohighlight">\((m \leq n − 1)\)</span> et de l’entrée à tout instant (<span class="math notranslate nohighlight">\(m \leq n\)</span> : filtre causal). Nous nous limiterons aux filtres linéaires invariants, ce qui impose que le signal filtré <span class="math notranslate nohighlight">\(y(n)\)</span> s’écrive alors comme une combinaison linéaire des échantillons passés de <span class="math notranslate nohighlight">\(x(n)\)</span> et <span class="math notranslate nohighlight">\(y(n-1)\)</span> dont les coefficients <span class="math notranslate nohighlight">\(a_k\)</span> et <span class="math notranslate nohighlight">\(b_k\)</span> fixeront le type de filtre.</p>
+<p><font color=red>Translation en temps : </font></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+T_{\tau}  : L^2 (\mathbb{Z}) \to  L^2 (\mathbb{Z})
+=&amp; (a_n)_{n \in \mathbb{Z}} \to (a_n - \tau)_{n \in \mathbb{Z}} 
+\end{align}
+\]</div>
+<p><font color=red>Théorème : </font>
+Si F, un filtre linéaire vérifie <span class="math notranslate nohighlight">\(T_{\tau}F = FT_{\tau}((a_n))\)</span> alors F est une convolution.</p>
+<p><strong>Exemples :</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((a_n)_{n \in \mathbb{Z}} \to (\frac{a_n+a_{n+1}}{2})_{n \to \mathbb{Z}}\)</span> <span class="math notranslate nohighlight">\(\to\)</span> linéaire et commute avec translation</p></li>
+<li><p><span class="math notranslate nohighlight">\((a_n) \to (na_n)_{n  \in \mathbb{Z}} \to\)</span> linéaire</p></li>
+<li><p><span class="math notranslate nohighlight">\((a_n)_{n \in \mathbb{Z}} \to (an^2 + 1)_{n  \in \mathbb{Z}} \to\)</span> non linéaire</p></li>
+</ul>
+<div class="section" id="transformee-en-z">
+<h3>Transformée en Z<a class="headerlink" href="#transformee-en-z" title="Permalink to this headline">¶</a></h3>
+<p>Dans le cas de signaux discrets comme les signaux numériques, les transformées de Fourier sont très limitées en particulier pour les signaux possédant une infinité d’échantillons. Pour palier à ce problème, on introduit la transformée en Z, qui est une transformée de signaux discrets. La variable complexe z utilisée est alors discrète.</p>
+<p>Soit <span class="math notranslate nohighlight">\(x(n)\)</span> un signal discret quelconque. Sa transformée en Z s’écrit :</p>
+<div class="math notranslate nohighlight">
+\[X(z) = Z\left\{x(n) \right\} = \sum^{+\infty}_{n=-\infty} x(n)z^{−n},  z \in \left\{z ∈ \mathbb{C} \sum^{+\infty}_{n=-\infty} x(n)z^{−n} \ \text{converge} \ \right\}\]</div>
+<p><font color=red>Remarque : </font>
+On retrouve la définition de la transformée de Fourier en posant <span class="math notranslate nohighlight">\(z = e^{\frac{j2\pi f}{fe}}\)</span> avec <span class="math notranslate nohighlight">\(fe\)</span> la fréquence d’échantillonnage.</p>
+<div class="math notranslate nohighlight">
+\[X(f) = Xz(e^{j2 \pi f})\]</div>
+<p><strong><font color=red>Zéro : </font></strong> on définit les zéros de la fonction <span class="math notranslate nohighlight">\(X_z\)</span> tels que <span class="math notranslate nohighlight">\(X_z(z) = 0\)</span>
+<strong><font color=red>Pôles : </font></strong> on définit les pôles de la fonction <span class="math notranslate nohighlight">\(X_z\)</span> tels que <span class="math notranslate nohighlight">\(|X_z(z)| \to +\infty\)</span></p>
+<p>Le domaine de convergence est le sous-ensemble de <span class="math notranslate nohighlight">\(\mathbb{C}\)</span> dans lequel la série converge. Autrement dit, le domaine de convergence de la transformée en z de la suite <span class="math notranslate nohighlight">\((x_n)_{n \in Z}\)</span> est l’ensemble :</p>
+<div class="math notranslate nohighlight">
+\[(z \in \mathbb{C} \sum^{+\infty}_{n = -\infty} x_n^{z −n} \ \ \text{existe})\]</div>
+<p>On l’appelle également <strong>couronne de convergence</strong>.</p>
+<p><span class="math notranslate nohighlight">\(X(z)\)</span> existe si <span class="math notranslate nohighlight">\(x(n)\)</span> a une croissance au plus exponentielle, auquel cas le domaine de convergence est compris dans une couronne :</p>
+<ul class="simple">
+<li><p>de petit rayon le majorant de la base du côté des <span class="math notranslate nohighlight">\(n\)</span> négatifs</p></li>
+<li><p>de grand rayon le majorant de la base du côté des <span class="math notranslate nohighlight">\(n\)</span> positifs</p></li>
+<li><p>si la suite <span class="math notranslate nohighlight">\(x(n)\)</span> est de durée finie (ce qui est vrai dans la plupart des cas), le domaine de convergence est le plan tout entier</p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h3>Causalité<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>F est causal si pour <span class="math notranslate nohighlight">\((yk) = F((xi))\)</span>. Si la valeur <span class="math notranslate nohighlight">\(y_n\)</span> ne dépend que des <span class="math notranslate nohighlight">\(x_k, k \leq n\)</span></p>
+</div>
 </div>
 </div>
 
