@@ -542,7 +542,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fb35739e8d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f0e5f917b50&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_5_1.png" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_5_1.png" />
@@ -564,8 +564,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.265625 0.734375]
-Empirical p = 0.27
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.3359375 0.6640625]
+Empirical p = 0.34
 </pre></div>
 </div>
 </div>
@@ -578,7 +578,7 @@ Empirical p = 0.27
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entropy = 0.84
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entropy = 0.92
 </pre></div>
 </div>
 </div>
@@ -602,50 +602,24 @@ Empirical p = 0.27
 <h3>We use a python library to represent a binary tree. We assume that the tree is coded in the following way, here is an example, <span class="math notranslate nohighlight">\((a,((b,c),(d,e))\)</span>.<a class="headerlink" href="#we-use-a-python-library-to-represent-a-binary-tree-we-assume-that-the-tree-is-coded-in-the-following-way-here-is-an-example-a-b-c-d-e" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## import ete3 using if you have conda: </span>
-<span class="c1">## conda install -c etetoolkit ete3</span>
-<span class="c1">## otherwise try: pip install ete3 pyQT5</span>
-<span class="kn">import</span> <span class="nn">ete3</span> <span class="k">as</span> <span class="nn">ete</span>
-<span class="c1">## Define the tree</span>
-<span class="n">T</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,((</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">),(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">igraph</span> <span class="k">as</span> <span class="nn">ig</span> <span class="c1"># also needs &#39;pip install pycairo&#39;</span>
+<span class="c1"># https://igraph.org/python/doc/tutorial/tutorial.html#layouts-and-plotting</span>
 
-<span class="n">t</span> <span class="o">=</span> <span class="n">ete</span><span class="o">.</span><span class="n">Tree</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">ig</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_vertices</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">vs</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">]</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_edges</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)])</span>
 
-<span class="n">ts</span> <span class="o">=</span> <span class="n">ete</span><span class="o">.</span><span class="n">TreeStyle</span><span class="p">()</span>
-<span class="c1">#ts.rotation = 90</span>
-<span class="n">ts</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="mi">90</span>
-<span class="n">ts</span><span class="o">.</span><span class="n">branch_vertical_margin</span> <span class="o">=</span> <span class="mi">50</span> <span class="c1"># 10 pixels between adjacent branches</span>
-<span class="n">ts</span><span class="o">.</span><span class="n">show_leaf_name</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1">#</span>
-
-<span class="n">nstyle</span> <span class="o">=</span> <span class="n">ete</span><span class="o">.</span><span class="n">NodeStyle</span><span class="p">()</span>
-<span class="n">nstyle</span><span class="p">[</span><span class="s2">&quot;shape&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;square&quot;</span>
-<span class="n">nstyle</span><span class="p">[</span><span class="s2">&quot;size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">nstyle</span><span class="p">[</span><span class="s2">&quot;fgcolor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;orange&quot;</span>
-
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">traverse</span><span class="p">():</span>
-    <span class="n">n</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="n">nstyle</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">iter_leaves</span><span class="p">():</span>
-    <span class="n">node</span><span class="o">.</span><span class="n">add_face</span><span class="p">(</span><span class="n">ete</span><span class="o">.</span><span class="n">AttrFace</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">fsize</span><span class="o">=</span><span class="mi">20</span><span class="p">),</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  
-    
-<span class="n">t</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%%</span><span class="s2">inline&quot;</span><span class="p">,</span> <span class="n">tree_style</span> <span class="o">=</span> <span class="n">ts</span><span class="p">)</span>
+<span class="c1"># Display the graph</span>
+<span class="n">visual_style</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">visual_style</span><span class="p">[</span><span class="s2">&quot;bbox&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="n">visual_style</span><span class="p">[</span><span class="s2">&quot;vertex_label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">vs</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+<span class="n">ig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">layout</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">layout_reingold_tilford</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="o">**</span><span class="n">visual_style</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="mi">0</span><span class="n">fffa760194d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">## conda install -c etetoolkit ete3</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">## otherwise try: pip install ete3 pyQT5</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">ete3</span> <span class="k">as</span> <span class="nn">ete</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">## Define the tree</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">T</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,((</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">),(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">)))</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;ete3&#39;
-</pre></div>
-</div>
-</div>
+<img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_11_0.svg" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_11_0.svg" /></div>
 </div>
 </div>
 <div class="section" id="q1-write-a-function-that-generates-the-huffman-tree-with-the-probability-h-as-input-plot-the-tree-with-the-function-above">
@@ -655,49 +629,56 @@ Empirical p = 0.27
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Create the tree as a list.</span>
 <span class="c1"># https://www.math.upenn.edu/~deturck/m170/wk8/lecture/huffman/huffman.html</span>
 
+<span class="k">class</span> <span class="nc">NodeTree</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">proba</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proba</span> <span class="o">=</span> <span class="n">proba</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">right</span>
+
 <span class="c1"># h a vector of proba</span>
 <span class="k">def</span> <span class="nf">CreateTree</span><span class="p">(</span><span class="n">h</span><span class="p">):</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="p">[[</span><span class="n">proba</span><span class="p">,</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">65</span> <span class="o">+</span> <span class="n">idx</span><span class="p">)]</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">proba</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">h</span><span class="p">)]</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">T</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">NodeTree</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="mi">65</span> <span class="o">+</span> <span class="n">idx</span><span class="p">),</span> <span class="n">proba</span><span class="p">)</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">proba</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">h</span><span class="p">)]</span>
+    <span class="n">nodes</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">node</span><span class="p">:</span> <span class="n">node</span><span class="o">.</span><span class="n">proba</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     
-    <span class="k">while</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]])</span>
-        <span class="n">X</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
-        <span class="n">T</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">left</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="n">right</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">NodeTree</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">left</span><span class="o">.</span><span class="n">proba</span> <span class="o">+</span> <span class="n">right</span><span class="o">.</span><span class="n">proba</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="n">nodes</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">node</span><span class="p">:</span> <span class="n">node</span><span class="o">.</span><span class="n">proba</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         
-    <span class="c1"># TODO transform T to be readable</span>
-    <span class="k">return</span> <span class="n">T</span>
+    <span class="k">return</span> <span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="n">T</span> <span class="o">=</span> <span class="n">CreateTree</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
-<span class="n">T</span> <span class="o">=</span> <span class="p">((</span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
+<span class="c1"># root a NodeTree root node</span>
+<span class="k">def</span> <span class="nf">BuildIgGraph</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">ig</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+    <span class="n">queue</span> <span class="o">=</span> <span class="p">[</span><span class="n">root</span><span class="p">]</span>
+    <span class="n">parentId</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">add_vertex</span><span class="p">((</span><span class="n">root</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">root</span><span class="o">.</span><span class="n">proba</span><span class="p">))</span><span class="o">.</span><span class="n">index</span>
 
-
-<span class="n">t</span> <span class="o">=</span> <span class="n">ete</span><span class="o">.</span><span class="n">Tree</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
-
-<span class="n">ts</span> <span class="o">=</span> <span class="n">ete</span><span class="o">.</span><span class="n">TreeStyle</span><span class="p">()</span>
-<span class="c1">#ts.rotation = 90</span>
-<span class="n">ts</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="mi">90</span>
-<span class="n">ts</span><span class="o">.</span><span class="n">branch_vertical_margin</span> <span class="o">=</span> <span class="mi">50</span> <span class="c1"># 10 pixels between adjacent branches</span>
-<span class="n">ts</span><span class="o">.</span><span class="n">show_leaf_name</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1">#</span>
-
-<span class="n">nstyle</span> <span class="o">=</span> <span class="n">ete</span><span class="o">.</span><span class="n">NodeStyle</span><span class="p">()</span>
-<span class="n">nstyle</span><span class="p">[</span><span class="s2">&quot;shape&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;square&quot;</span>
-<span class="n">nstyle</span><span class="p">[</span><span class="s2">&quot;size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">nstyle</span><span class="p">[</span><span class="s2">&quot;fgcolor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;orange&quot;</span>
-
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">traverse</span><span class="p">():</span>
-    <span class="n">n</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="n">nstyle</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">iter_leaves</span><span class="p">():</span>
-    <span class="n">node</span><span class="o">.</span><span class="n">add_face</span><span class="p">(</span><span class="n">ete</span><span class="o">.</span><span class="n">AttrFace</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">fsize</span><span class="o">=</span><span class="mi">20</span><span class="p">),</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">:</span>
+            <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
+            <span class="nb">id</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">add_vertex</span><span class="p">((</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">proba</span><span class="p">))</span><span class="o">.</span><span class="n">index</span>
+            <span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">parentId</span><span class="p">,</span> <span class="nb">id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">:</span>
+            <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
+            <span class="nb">id</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">add_vertex</span><span class="p">((</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">proba</span><span class="p">))</span><span class="o">.</span><span class="n">index</span>
+            <span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">parentId</span><span class="p">,</span> <span class="nb">id</span><span class="p">)</span>
     
-<span class="n">t</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%%</span><span class="s2">inline&quot;</span><span class="p">,</span> <span class="n">tree_style</span> <span class="o">=</span> <span class="n">ts</span><span class="p">)</span>
+        <span class="n">parentId</span> <span class="o">=</span> <span class="nb">id</span>
+
+    <span class="k">return</span> <span class="n">g</span>
+        
+<span class="n">root</span> <span class="o">=</span> <span class="n">CreateTree</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">BuildIgGraph</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+<span class="n">ig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">layout</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">layout_reingold_tilford</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">vertex_label_dist</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vertex_label</span><span class="o">=</span><span class="n">g</span><span class="o">.</span><span class="n">vs</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">bbox</span> <span class="o">=</span> <span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">300</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_13_0.svg" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_13_0.svg" /></div>
 </div>
 </div>
 <div class="section" id="q2-write-the-function-huffmangencode-which-computes-the-huffman-code-of-an-element-in-0-1-2-3-4-and-print-it">
@@ -741,6 +722,17 @@ Empirical p = 0.27
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">code</span> <span class="o">=</span> <span class="n">CodeHuffman</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">codes</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">74</span><span class="n">f707e3a832</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">code</span> <span class="o">=</span> <span class="n">CodeHuffman</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">codes</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;codes&#39; is not defined
 </pre></div>
 </div>
 </div>

@@ -17,44 +17,16 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-## import ete3 using if you have conda: 
-## conda install -c etetoolkit ete3
-## otherwise try: pip install ete3 pyQT5
-import ete3 as ete
-## Define the tree
-T = ("a",(("b","c"),("d","e")))
-
-t = ete.Tree(str(T)+";")
-
-ts = ete.TreeStyle()
-#ts.rotation = 90
-ts.scale = 90
-ts.branch_vertical_margin = 50 # 10 pixels between adjacent branches
-ts.show_leaf_name = False #
-
-nstyle = ete.NodeStyle()
-nstyle["shape"] = "square"
-nstyle["size"] = 20
-nstyle["fgcolor"] = "orange"
-
-for n in t.traverse():
-    n.set_style(nstyle)
-
-for node in t.iter_leaves():
-    node.add_face(ete.AttrFace("name", fsize=20), column=0)  
-    
-t.render("%%inline", tree_style = ts)
+code = CodeHuffman(x,codes)
+print(code)
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m<ipython-input-7-0fffa760194d>[0m in [0;36m<module>[0;34m[0m
-[1;32m      2[0m [0;31m## conda install -c etetoolkit ete3[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m [0;31m## otherwise try: pip install ete3 pyQT5[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 4[0;31m [0;32mimport[0m [0mete3[0m [0;32mas[0m [0mete[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      5[0m [0;31m## Define the tree[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      6[0m [0mT[0m [0;34m=[0m [0;34m([0m[0;34m"a"[0m[0;34m,[0m[0;34m([0m[0;34m([0m[0;34m"b"[0m[0;34m,[0m[0;34m"c"[0m[0;34m)[0m[0;34m,[0m[0;34m([0m[0;34m"d"[0m[0;34m,[0m[0;34m"e"[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-12-74f707e3a832>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mcode[0m [0;34m=[0m [0mCodeHuffman[0m[0;34m([0m[0mx[0m[0;34m,[0m[0mcodes[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mprint[0m[0;34m([0m[0mcode[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mModuleNotFoundError[0m: No module named 'ete3'
-ModuleNotFoundError: No module named 'ete3'
+[0;31mNameError[0m: name 'codes' is not defined
+NameError: name 'codes' is not defined
 
