@@ -1,6 +1,6 @@
 ﻿# Filtre
 
-> Un filtre est un système. Le filtrage correspond à sélectionner certaines fréquences du signal.
+> Un filtre est un système électronique qui nous permet de sélectionner une ou plusieurs parties d'un signal ou de rejeter la partie qui ne nous intéresse pas, tels que les bruits parasites.
 
 ## Sommaire
  
@@ -17,9 +17,9 @@
 [**Filtre coupe-bande**](#Filtre-coupe-bande)
 
 [**Filtrage analogique**](#Filtrage-analogique)
- - [**Dirac**](#Dirac)
  - [**Réponse impulsionnelle**](#Réponse-impulsionnelle)
  - [**Causalité**](#Causalité)
+ - [**Stabilité**](#Stabilité)
  - [**Gain et phase**](#Gain-et-phase)
  - [**Fonction de transfert**](#Fonction-de-transfert)
 
@@ -30,7 +30,7 @@
 
 ## Introduction
 
-On parle de filtrage de signal lorsqu'on atténue (la suppression est difficile) ou favorise dans un signal des fréquences par rapport à d'autres.
+On parle de filtrage de signal lorsqu'on atténue (la suppression est difficile) ou favorise dans un signal des fréquences par rapport à d'autres. Tous les supports de transmission (c'est-à-dire tous les câbles) se comportent comme des filtres. Le filtrage dépend de leur bande de fréquence. 
 
 En général, on recense 4 types de filtres :
 -   Le filtre passe-haut qui laisse passer les fréquences hautes
@@ -48,6 +48,10 @@ De nombreux systèmes physiques peuvent être schématisés du point de vue de l
 alt="schéma filtres" style="text-align:center;"/>
 
 Cette correspondance entre l’entrée et la sortie est notée $s = H(e)$.
+
+$H$ est une convolution. On a donc : 
+
+$$s = H \ast e = e \ast H$$
 
 ## Définitions 
 
@@ -92,11 +96,11 @@ C'est la différence entre la fréquence de coupure haute et la fréquence de co
 
 ## Filtre passe-haut
 
-Un filtre passe-haut laisse passer les fréquences hautes et atténue les fréquences basses.
+Un filtre passe-haut ne laisse passer que les fréquences hautes qui sont supérieurs à sa fréquence de coupure $f_c$. Il atténue les fréquences basses.
 
 ## Filtre passe-bas
 
-Un filtre passe-bas laisse passer les fréquences entre 0Hz et la fréquence de coupure $f_c$. Au-delà de $f_c$, les fréquences sont atténuées.
+Un filtre passe-bas ne laisse passer que les fréquences inférieur à sa fréquence de coupure $f_c$. Au-delà de $f_c$, les fréquences sont atténuées.
 
 **Exemple du filtre passe-bas :**
 
@@ -118,4 +122,49 @@ Un filtre passe-bande est un filtre ne laissant passer qu’une bande ou interva
 
 ## Filtre coupe-bande
 
-Un filtre coupe-bande aussi appelé filtre réjecteur de bande est un filtre empêchant le passage d'un intervalle de fréquences. Il est composé d'un filtre passe-haut et d'un filtre passe-bas dont les fréquences de coupure sont souvent proches mais différentes, la fréquence de coupure du filtre passe-bas est systématiquement inférieure à la fréquence de coupure du filtre passe-haut.
+Un filtre coupe-bande aussi appelé filtre réjecteur de bande est un filtre empêchant le passage d'un intervalle de fréquences. Il est composé d'un filtre passe-haut et d'un filtre passe-bas dont les fréquences de coupure sont souvent proches mais différentes, la fréquence de coupure du filtre passe-bas est systématiquement  inférieure à la fréquence de coupure du filtre passe-haut.
+
+## Filtre analogique
+
+### Réponse impulsionnelle
+
+Si le signal entrant est une impulsion de Dirac $δ(t)$, sa réponse impulsionnelle, parfois dite *percusionnelle*, est $h(t)$.
+
+$$h(t) = S[\delta(t)]$$
+
+On a en sortie : 
+
+$$ H(e(t)) = \int_{}^{}e(u) h(t−u) du = \int_{}^{}h(u) e(t−u) du = h(t) \ast e(t)$$
+
+### Causalité
+
+Un filtre est dit causal si et seulement si à une entrée $e$ nulle pour $t < 0$ correspond une sortie $s = H(e)$ nulle pour $t < 0$. Autrement dit, le filtre est causal si : 
+
+$$h(t) = 0 \ \text{pour} \ t<0$$
+
+C'est-à-dire qu'il ne doit pas y avoir de réponse en absence d’action.
+
+Les systèmes causaux ont une réponse impulsionnelle nulle.
+
+### Stabilité
+
+Un filtre est stable si et seulement si à toute entrée  $x(t)$  bornée $M$ correspond une sortie $y(t)$ bornée  $M′$.
+
+La condition nécessaire et suffisante pour qu’un filtre linéaire soit stable est que :
+
+$$\int_{-\infty}^{+\infty}|h(t)|  dt < \infty$$
+
+Première conséquence :
+
+$$h(t) \to 0 \ \text {quand} \ t \to +\infty$$
+
+Un filtre **causal** et **stable** est **réalisable**.
+
+### Gain et phase
+
+On appelle gain complexe du filtre la TF de la réponse impulsionnelle $h$.
+
+### Fonction de transfert
+
+## Filtre numérique
+
