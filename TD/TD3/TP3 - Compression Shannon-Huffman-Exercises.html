@@ -25,8 +25,8 @@
     href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -131,6 +131,53 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../../Compression/Compression.html">
    Compression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Compression/Compression.html#il-existe-plusieurs-manieres-de-representer-les-couleurs-dune-image-soit-par-les-trois-composantes-rouge-vert-et-bleu-de-la-synthese-additive-dune-couleur-representation-rgb-soit-par-une-representation-circulaire-des-couleurs-ou-lon-represente-trois-composantes-de-teinte-de-saturation-et-de-luminance-dune-couleur-representation-tsl-enfin-il-est-egalement-possible-de-representer-dabord-la-luminance-signal-en-niveau-de-gris-et-par-la-suite-les-deux-chrominances-qui-representent-chacune-une-difference-de-couleur-par-rapport-a-la-luminance-respectivement-u-ou-cb-pour-la-difference-avec-le-bleu-b-y-et-y-ou-cr-pour-la-difference-avec-rouge-r-y-il-est-donc-possible-de-passer-de-rgb-a-yuv-ycbcr-via-les-calcul-suivants-begin-bmatrix-mathrm-y-mathrm-u-mathrm-v-end-bmatrix">
+   Il existe plusieurs manières de représenter les couleurs d’une image, soit par les trois composantes
+   <em>
+    <strong>
+     Rouge, Vert et Bleu
+    </strong>
+   </em>
+   de la synthèse additive d’une couleur (représentation RGB), soit par une représentation circulaire des couleurs où l’on représente trois composantes de
+   <em>
+    <strong>
+     teinte
+    </strong>
+   </em>
+   , de
+   <em>
+    <strong>
+     saturation
+    </strong>
+   </em>
+   , et de
+   <em>
+    <strong>
+     luminance
+    </strong>
+   </em>
+   d’une couleur (représentation TSL). Enfin il est également possible de représenter d’abord la luminance (signal en niveau de gris) et par la suite les deux chrominances, qui représentent chacune une différence de couleur par rapport à la luminance respectivement
+   <strong>
+    U
+   </strong>
+   ou
+   <strong>
+    Cb
+   </strong>
+   pour la différence avec le bleu (B-Y) et
+   <strong>
+    Y
+   </strong>
+   ou Cr pour la différence avec rouge (R - Y). Il est donc possible de passer de RGB a YUV (
+   <strong>
+    YCbCr
+   </strong>
+   ) via les calcul suivants:
+$$
+\begin{bmatrix}\mathrm {Y} \mathrm {U} \mathrm {V} \end{bmatrix}
   </a>
  </li>
 </ul>
@@ -542,7 +589,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7effb68cca10&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f4e84267cd0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_5_1.png" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_5_1.png" />
@@ -564,8 +611,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.31445312 0.68554688]
-Empirical p = 0.31
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.27539062 0.72460938]
+Empirical p = 0.28
 </pre></div>
 </div>
 </div>
@@ -578,7 +625,7 @@ Empirical p = 0.31
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entropy = 0.90
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entropy = 0.85
 </pre></div>
 </div>
 </div>

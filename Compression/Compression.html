@@ -25,8 +25,8 @@
     href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -132,6 +132,53 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Compression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#il-existe-plusieurs-manieres-de-representer-les-couleurs-dune-image-soit-par-les-trois-composantes-rouge-vert-et-bleu-de-la-synthese-additive-dune-couleur-representation-rgb-soit-par-une-representation-circulaire-des-couleurs-ou-lon-represente-trois-composantes-de-teinte-de-saturation-et-de-luminance-dune-couleur-representation-tsl-enfin-il-est-egalement-possible-de-representer-dabord-la-luminance-signal-en-niveau-de-gris-et-par-la-suite-les-deux-chrominances-qui-representent-chacune-une-difference-de-couleur-par-rapport-a-la-luminance-respectivement-u-ou-cb-pour-la-difference-avec-le-bleu-b-y-et-y-ou-cr-pour-la-difference-avec-rouge-r-y-il-est-donc-possible-de-passer-de-rgb-a-yuv-ycbcr-via-les-calcul-suivants-begin-bmatrix-mathrm-y-mathrm-u-mathrm-v-end-bmatrix">
+   Il existe plusieurs manières de représenter les couleurs d’une image, soit par les trois composantes
+   <em>
+    <strong>
+     Rouge, Vert et Bleu
+    </strong>
+   </em>
+   de la synthèse additive d’une couleur (représentation RGB), soit par une représentation circulaire des couleurs où l’on représente trois composantes de
+   <em>
+    <strong>
+     teinte
+    </strong>
+   </em>
+   , de
+   <em>
+    <strong>
+     saturation
+    </strong>
+   </em>
+   , et de
+   <em>
+    <strong>
+     luminance
+    </strong>
+   </em>
+   d’une couleur (représentation TSL). Enfin il est également possible de représenter d’abord la luminance (signal en niveau de gris) et par la suite les deux chrominances, qui représentent chacune une différence de couleur par rapport à la luminance respectivement
+   <strong>
+    U
+   </strong>
+   ou
+   <strong>
+    Cb
+   </strong>
+   pour la différence avec le bleu (B-Y) et
+   <strong>
+    Y
+   </strong>
+   ou Cr pour la différence avec rouge (R - Y). Il est donc possible de passer de RGB a YUV (
+   <strong>
+    YCbCr
+   </strong>
+   ) via les calcul suivants:
+$$
+\begin{bmatrix}\mathrm {Y} \mathrm {U} \mathrm {V} \end{bmatrix}
   </a>
  </li>
 </ul>
@@ -244,96 +291,174 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sommaire">
-   Sommaire
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#types-de-compression">
-   Types de compression
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#taux-de-compression">
-   Taux de compression
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#entropie-de-shannon">
-   Entropie de Shannon
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Compression
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#definition">
-     Définition
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sommaire">
+     Sommaire
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#interpretation">
-     Interprétation
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#types-de-compression">
+     Types de compression
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exemple">
-     Exemple
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#taux-de-compression">
+     Taux de compression
     </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#entropie-de-shannon">
+     Entropie de Shannon
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#definition">
+       Définition
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#interpretation">
+       Interprétation
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exemple">
+       Exemple
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#codage-de-huffman">
+     Codage de Huffman
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#code-prefixe">
+       Code Préfixe
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#principe">
+       Principe
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#inegalite-de-kraft">
+       Inégalité de Kraft
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#theoreme-de-kraft-mcmillan">
+       Théorème de Kraft-McMillan
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#longueur-moyenne">
+       Longueur moyenne
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#limitations-du-codage-de-huffman">
+       Limitations du codage de Huffman
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#theoreme-de-shannon">
+         Théorème de Shannon
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#codage-rle">
+     Codage RLE
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cas-du-jpeg">
+     Cas du JPEG
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#transformation-espace-de-couleurs">
+       Transformation : espace de couleurs
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#codage-de-huffman">
-   Codage de Huffman
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#il-existe-plusieurs-manieres-de-representer-les-couleurs-dune-image-soit-par-les-trois-composantes-rouge-vert-et-bleu-de-la-synthese-additive-dune-couleur-representation-rgb-soit-par-une-representation-circulaire-des-couleurs-ou-lon-represente-trois-composantes-de-teinte-de-saturation-et-de-luminance-dune-couleur-representation-tsl-enfin-il-est-egalement-possible-de-representer-dabord-la-luminance-signal-en-niveau-de-gris-et-par-la-suite-les-deux-chrominances-qui-representent-chacune-une-difference-de-couleur-par-rapport-a-la-luminance-respectivement-u-ou-cb-pour-la-difference-avec-le-bleu-b-y-et-y-ou-cr-pour-la-difference-avec-rouge-r-y-il-est-donc-possible-de-passer-de-rgb-a-yuv-ycbcr-via-les-calcul-suivants-begin-bmatrix-mathrm-y-mathrm-u-mathrm-v-end-bmatrix">
+   Il existe plusieurs manières de représenter les couleurs d’une image, soit par les trois composantes
+   <em>
+    <strong>
+     Rouge, Vert et Bleu
+    </strong>
+   </em>
+   de la synthèse additive d’une couleur (représentation RGB), soit par une représentation circulaire des couleurs où l’on représente trois composantes de
+   <em>
+    <strong>
+     teinte
+    </strong>
+   </em>
+   , de
+   <em>
+    <strong>
+     saturation
+    </strong>
+   </em>
+   , et de
+   <em>
+    <strong>
+     luminance
+    </strong>
+   </em>
+   d’une couleur (représentation TSL). Enfin il est également possible de représenter d’abord la luminance (signal en niveau de gris) et par la suite les deux chrominances, qui représentent chacune une différence de couleur par rapport à la luminance respectivement
+   <strong>
+    U
+   </strong>
+   ou
+   <strong>
+    Cb
+   </strong>
+   pour la différence avec le bleu (B-Y) et
+   <strong>
+    Y
+   </strong>
+   ou Cr pour la différence avec rouge (R - Y). Il est donc possible de passer de RGB a YUV (
+   <strong>
+    YCbCr
+   </strong>
+   ) via les calcul suivants:
+$$
+\begin{bmatrix}\mathrm {Y} \mathrm {U} \mathrm {V} \end{bmatrix}
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#principe">
-     Principe
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#inegalite-de-kraft">
-     Inégalité de Kraft
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#limitations-du-codage-de-huffman">
-     Limitations du codage de Huffman
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#codage-rle">
-   Codage RLE
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cas-du-jpeg">
-   Cas du JPEG
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#transformation-espace-de-couleurs">
-     Transformation : espace de couleurs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#sous-echantillonnage-de-la-chrominance">
      Sous-échantillonnage de la chrominance
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#passage-en-frequence-transformation-en-cosinus-discretes">
      Passage en fréquence : Transformation en cosinus discrètes
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#quantification">
      Quantification
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#encodage-codage-rle-et-codage-de-huffman">
      Encodage - codage RLE et codage de Huffman
     </a>
@@ -368,10 +493,10 @@
 <h2>Types de compression<a class="headerlink" href="#types-de-compression" title="Permalink to this headline">¶</a></h2>
 <p>Il existe deux types de compression de données:</p>
 <ul>
-<li><p>La <strong>sans perte</strong> restituant après décompression un signal (données) strictement identique à l’original avant compression.
+<li><p>La compression <strong>sans perte</strong> restituant après décompression un signal (données) strictement identique à l’original avant compression.
 On peux exploiter par exemple la redondance des données ou des a priori sur la source de données.
 (<strong>Codage RLE,</strong> <strong>codage de Huffman</strong>, <strong>codage LZW</strong> …)</p></li>
-<li><p>A l’inverse, la <strong>avec perte</strong> restituant un signal différent mais relativement <em>“proche”</em> du signal d’origine mais permet une compression plus importante.
+<li><p>A l’inverse, la compression <strong>avec perte</strong> restituant un signal différent mais relativement <em>“proche”</em> du signal d’origine mais permet une compression plus importante.
 On considère généralement la différence entre les deux signaux comme négligeable (non perceptibles) et étant une perte acceptable dans certains cas pour que la source de données reste compréhensible/perceptible.
 On peux par exemple exploiter la perception humaine pour définir l’information négligeable (comme les hautes fréquences d’une image par exemple).</p>
 <p>(<strong>sous échantillonnage</strong>, <strong>Codage par DTC</strong>, <strong>codage par ondelettes</strong> …)</p>
@@ -445,26 +570,220 @@ Si les couleurs sont codées respectivement \)</span>0<span class="math notransl
 <h2>Codage de Huffman<a class="headerlink" href="#codage-de-huffman" title="Permalink to this headline">¶</a></h2>
 <p>Le <strong>codage de Huffman</strong> est un algorithme de compression de données <strong>sans perte</strong>. Il consiste à utiliser un code à longueur variable pour représenter un symbole d’une source de données en ayant une connaissance préalable (ou une estimation) des probabilités d’apparition des symboles de cette source. Un code court étant associé aux symboles les plus fréquents.</p>
 <p>Un code de Huffman est optimal au sens de la plus courte longueur pour un codage par symbole, et une distribution de probabilité connue. Des méthodes plus complexes réalisant une modélisation probabiliste de la source permettent d’obtenir de meilleurs ratios de compression.</p>
+<div class="section" id="code-prefixe">
+<h3>Code Préfixe<a class="headerlink" href="#code-prefixe" title="Permalink to this headline">¶</a></h3>
+<p>Soit <span class="math notranslate nohighlight">\(C\)</span> un code.
+Il est dit <strong>code préfixe</strong> si aucun mot du code n’a pour préfixe un autre mot du code ou autrement dit, si aucun mot de ce code n’est le début d’un autre mot de code.</p>
+<p>Contre exemple :
+Soit <span class="math notranslate nohighlight">\(X = \{a, b, c, d\}\)</span> un ensemble de symbole.
+On considère le code <span class="math notranslate nohighlight">\(C\)</span> suivant  (<span class="math notranslate nohighlight">\(x \in X\)</span>) :
+$<span class="math notranslate nohighlight">\(
+C(x) = \left\{
+\begin{array}{rl}
+01 &amp;:\; x = a  \\ 
+010 &amp;:\; x = b \\
+111 &amp;:\; x = c \\
+11 &amp;:\; x = d
+\end{array}
+\right.
+\)</span><span class="math notranslate nohighlight">\(
+Le codage \)</span>010111<span class="math notranslate nohighlight">\( peux alors s'interpréter de deux façon: \)</span>a;a;d<span class="math notranslate nohighlight">\( ou \)</span>b;c<span class="math notranslate nohighlight">\(.
+Ce code **possède plusieurs interprétations**, il n'est pas préfixe car le code du symbole \)</span>d<span class="math notranslate nohighlight">\( est le début du code du symbole de \)</span>c$.</p>
+<p><strong>Remarque :</strong> À un code préfixe <span class="math notranslate nohighlight">\(C\)</span> nous pouvons toujours associer un arbre binaire, où tous les mots de code se situent sur les feuilles de l’arbre.
+<span class="math notranslate nohighlight">\(C(X ) = \{000, 100, 101, 0010, 0101, 1100, 1111, 00110, 00111, 01000, 01001, 11010, 11011, 11100, 11101\}\)</span></p>
+<p><img alt="image-20201031141224315" src="../_images/ArbrePrefixe.png" /></p>
+<p><strong>Remarques:</strong></p>
+<ul class="simple">
+<li><p>Autre mot de code ne peut être trouvé dans les sous-arbres qui ont comme racine un mot de code (les branches en pointillé dans la Figure).</p></li>
+<li><p>Soit <span class="math notranslate nohighlight">\(n\)</span> niveau n de l’arbre binaire. Le nombre maximal de mots de code de longueur <span class="math notranslate nohighlight">\(n\)</span> est <span class="math notranslate nohighlight">\(2^n\)</span>.</p></li>
+<li><p>Le nombre de descendants au niveau <span class="math notranslate nohighlight">\(n\)</span> d’un nœud du niveau <span class="math notranslate nohighlight">\(m\)</span> tel que <span class="math notranslate nohighlight">\(m ≤ n\)</span> est <span class="math notranslate nohighlight">\(2n−m \)</span>.</p></li>
+</ul>
+</div>
 <div class="section" id="principe">
 <h3>Principe<a class="headerlink" href="#principe" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><p>TODO: arbre, code préfixe (contre exemple code pas préfixe avec plusieurs interprétations possibles)</p>
+<div><p>TODO: expliquer la méthode, probabilités, construction de l’arbre et décodage</p>
 </div></blockquote>
 </div>
 <div class="section" id="inegalite-de-kraft">
 <h3>Inégalité de Kraft<a class="headerlink" href="#inegalite-de-kraft" title="Permalink to this headline">¶</a></h3>
+<p>Soient <span class="math notranslate nohighlight">\(X = \{x_0, x_1, \dots, x_n \}\)</span> une source et <span class="math notranslate nohighlight">\(C\)</span> un code uniquement décodable (préfixe) de <span class="math notranslate nohighlight">\(X\)</span> sur un alphabet de taille <span class="math notranslate nohighlight">\(\tau\)</span>.  on note <span class="math notranslate nohighlight">\(l_i = l(C(x_i))\)</span> la longueur du code représentant le symbole <span class="math notranslate nohighlight">\(x_i\)</span> dans le codage <span class="math notranslate nohighlight">\(C\)</span>. Alors on a :
+$<span class="math notranslate nohighlight">\(
+\sum_{x \in X} \tau^{- l(C(x))} \leq 1
+\)</span><span class="math notranslate nohighlight">\(
+De manière moins générique, pour un codage \)</span>C<span class="math notranslate nohighlight">\( binaire (d'alphabet de taille \)</span>\tau = 2<span class="math notranslate nohighlight">\() alors on a :
+\)</span><span class="math notranslate nohighlight">\(
+\sum_{x \in X} 2^{-l(C(x))} = \sum_{i=1}^n 2^{-l_i} \leq 1
+\)</span>$</p>
+<p><strong><font color=red>Demonstration : </font></strong> ( <span class="math notranslate nohighlight">\(\tau = 2\)</span> pour plus de clarté)</p>
+<blockquote>
+<div><p>la démonstration est faite en considérant <span class="math notranslate nohighlight">\(\tau = 2\)</span> par simplicité mais peut se généraliser facilement.</p>
+</div></blockquote>
+<p><img alt="image-20201031141224315" src="../_images/ArbrePrefixe.png" /></p>
+<p>Si le code préfixe, on peut faire une démonstration simple par analogie avec son graphe.
+Notons la taille maximum d’un mot dans notre codage <span class="math notranslate nohighlight">\(C\)</span> :  <span class="math notranslate nohighlight">\(l_{max} = Max(l_i)_{i \in [\hspace{-0.1em}[ 1, n ]\hspace{-0.1em}]}\)</span>  (dans le graphe ci dessus <span class="math notranslate nohighlight">\(l_{max} = 5\)</span>)
+Comme ce code est préfixe, il existe des zones interdites pour placer les différents symboles comme expliqué précédemment.</p>
+<p>Si on se place sur une feuille quelconque de l’arbre représentant notre code préfixe, alors il y a <span class="math notranslate nohighlight">\(2^{(l_{max}-l_i)}\)</span> descendants inaccessibles entre ce nœud et le niveau max. L’arbre complet de <span class="math notranslate nohighlight">\(l_{max}\)</span> niveaux  possède  <span class="math notranslate nohighlight">\(2^{l_{max}}\)</span> feuilles.  La somme des descendants inaccessibles doit donc naturellement être inférieure au nombre maximal de descendants.
+$<span class="math notranslate nohighlight">\(
+\sum_{i=1}^n 2^{l_{max}- l_i} \leq 2^{l_{max}}
+\)</span><span class="math notranslate nohighlight">\(
+ce qui donne naturellement après simplification: 
+\)</span><span class="math notranslate nohighlight">\(
+\sum_{i=1}^n 2^{-l_i} \leq 1
+\)</span>$</p>
+<blockquote>
+<div><p>Remarque :</p>
+<p>Le codage est optimal lorsque qu’il y a égalité</p>
+</div></blockquote>
+<p>Bonus: La réciproque est vrai !</p>
+</div>
+<div class="section" id="theoreme-de-kraft-mcmillan">
+<h3>Théorème de Kraft-McMillan<a class="headerlink" href="#theoreme-de-kraft-mcmillan" title="Permalink to this headline">¶</a></h3>
+<p>Soit <span class="math notranslate nohighlight">\({n(x) &gt; 0, x \in X }\)</span>, des entiers positifs qui vérifient l’inégalité de Kraft-McMillan):
+$<span class="math notranslate nohighlight">\(
+\sum_{x \in X} 2^{- n(x)} \leq 1
+\)</span><span class="math notranslate nohighlight">\(
+ Alors, *il existe un code de préfixe* \)</span>C<span class="math notranslate nohighlight">\( avec longueurs \)</span>l(x) = n(x)$ (Qui est donc, nécessairement, uniquement décodable.)</p>
+</div>
+<div class="section" id="longueur-moyenne">
+<h3>Longueur moyenne<a class="headerlink" href="#longueur-moyenne" title="Permalink to this headline">¶</a></h3>
+<p>Soient <span class="math notranslate nohighlight">\(X = \{x_0, x_1, \dots, x_n \}\)</span> une source, <span class="math notranslate nohighlight">\(p_i = p(x_i) = \mathbb{P}(X = x_i)\)</span> la probabilité d’apparition du caractère <span class="math notranslate nohighlight">\(x_i\)</span> et <span class="math notranslate nohighlight">\(C\)</span> un codage de Huffman associé à <span class="math notranslate nohighlight">\(X\)</span>.
+Il est possible d’exprimer la longueur moyenne de ce codage via la formule:
+$<span class="math notranslate nohighlight">\(
+\mathbb{L}(C) = \sum_{x\in X} p_i.l(C(x)) = \sum_{x\in X} p_i.l_i
+\)</span>$</p>
 </div>
 <div class="section" id="limitations-du-codage-de-huffman">
 <h3>Limitations du codage de Huffman<a class="headerlink" href="#limitations-du-codage-de-huffman" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="theoreme-de-shannon">
+<h4>Théorème de Shannon<a class="headerlink" href="#theoreme-de-shannon" title="Permalink to this headline">¶</a></h4>
+<p>La longueur moyenne de tout code préfixe <span class="math notranslate nohighlight">\(\mathbb{L}(C)\)</span> d’alphabet de taille <span class="math notranslate nohighlight">\(\tau\)</span> pour la source <span class="math notranslate nohighlight">\(X\)</span> est supérieure ou égale à l’entropie de la source:
+$<span class="math notranslate nohighlight">\(
+H_\tau(X) \leq \mathbb{L}(C)
+\)</span>$</p>
+<p>De plus,il est possible de monter qu’il existe un code de préfixe <span class="math notranslate nohighlight">\(C\)</span> qui code <span class="math notranslate nohighlight">\(X\)</span> avec une longueur moyenne à moins d’un bit de son entropie :
+$<span class="math notranslate nohighlight">\(
+\mathbb{L}(C) \leq H_\tau(X) +1
+\)</span><span class="math notranslate nohighlight">\(
+Pour résumer, On peut montrer que pour une source \)</span>X<span class="math notranslate nohighlight">\( d'entropie de Shannon \)</span>H(X)<span class="math notranslate nohighlight">\( la longueur moyenne \)</span>\mathbb{L}(C)<span class="math notranslate nohighlight">\( d'un mot de code obtenu par codage de Huffman \)</span>C<span class="math notranslate nohighlight">\( de \)</span>X<span class="math notranslate nohighlight">\( vérifie:
+\)</span><span class="math notranslate nohighlight">\(
+H(X) \leq \mathbb{L}(C) \leq H(X) +1
+\)</span>$</p>
+<hr class="docutils" />
+<p><strong><font color=red>Demonstration <span class="math notranslate nohighlight">\(H_\tau(X) \leq \mathbb{L}(C)\)</span>: </font></strong> ( <span class="math notranslate nohighlight">\(\tau = 2\)</span> pour plus de clarté)
+$<span class="math notranslate nohighlight">\(
+\begin{align}
+\mathbb{L}(C) - H(X) =&amp; \sum_{i=1}^n p_i.l_i + \sum_{i=1}^n p_i.log_2(p_i) \\
+=&amp; \sum_{i=1}^n p_i.-1.(-l_i) + \sum_{i=1}^n p_i.log_2(p_i) \\
+=&amp; -\sum_{i=1}^n p_i.log_2(2^{-l_i}) + \sum_{i=1}^n p_i.log_2(p_i) \\
+\end{align}
+\)</span><span class="math notranslate nohighlight">\(
+Posons une nouvelle distribution de probabilité normé (de somme égale à 1) de \)</span>X<span class="math notranslate nohighlight">\( :
+\)</span><span class="math notranslate nohighlight">\(
+q(x_i) = q_i = \frac{2^{-l(C(x))}}{\sum_{i=1}^n2^{-l(C(x))}}= \frac{2^{-l_i}}{\sum_{i=1}^n2^{-l_i}} = \frac{2^{-l_i}}{S}
+\)</span>$</p>
+<p>où on pose <span class="math notranslate nohighlight">\(S = \sum_{i=1}^n2^{-l_i}\)</span></p>
+<p>ainsi on a :
+$<span class="math notranslate nohighlight">\(
+\begin{align}
+\mathbb{L}(C) - H(X) =&amp; -\sum_{i=1}^n p_i.log_2(S.q_i) + \sum_{i=1}^n p_i.log_2(p_i) \\
+=&amp; -\sum_{i=1}^n p_i.(log_2(S) + log_2(q_i))+ \sum_{i=1}^n p_i.log_2(p_i) \\
+=&amp; -\sum_{i=1}^n p_i.log_2(S) -\sum_{i=1}^n p_i.log_2(q_i) + \sum_{i=1}^n p_i.log_2(p_i) \\
+=&amp; -log_2(S)\sum_{i=1}^n p_i + \sum_{i=1}^n p_i.(log_2(p_i)- log_2(q_i)) \\
+=&amp; -log_2(S) + \sum_{i=1}^n p_i.log_2(\frac{p_i}{q_i}) \\
+\end{align}
+\)</span><span class="math notranslate nohighlight">\(
+Remarquons que, comme \)</span>S = \sum_{i=1}^n2^{-l_i}<span class="math notranslate nohighlight">\(, \)</span>S<span class="math notranslate nohighlight">\( est une grandeur inférieure à 1 étant donné l'inégalité de Kraft. Le logarithme de \)</span>S<span class="math notranslate nohighlight">\( est donc négatif, précédé d'un moins donc \)</span>-log_2(S) \geq 0$.</p>
+<p>Le terme de droite correspond à la définition d’entropie relative <span class="math notranslate nohighlight">\(D(p||q) = \sum_{i=1}^n p_i.log_2(\frac{p_i}{q_i})\)</span>
+Il est possible de montrer que l’entropie relative est une grandeur positive.</p>
 <blockquote>
-<div><p>TODO : définir longueur moyenne, bornes par entropie</p>
+<div><p>Inégalité de Jensen</p>
+<p>Soit <span class="math notranslate nohighlight">\(f\)</span> une fonction convexe, f <span class="math notranslate nohighlight">\(\mathbb{R}^n \to \mathbb{R}\)</span>  et <span class="math notranslate nohighlight">\(X\)</span> un vecteur aléatoire <span class="math notranslate nohighlight">\(X \in \mathbb{R}^n\)</span> avec une loi de probabilité <span class="math notranslate nohighlight">\(p\)</span> alors :
+$<span class="math notranslate nohighlight">\(
+\mathbb{E}_p[f(x)] \geq f(\mathbb{E}_p[x])
+\)</span>$</p>
+<hr class="docutils" />
+<div class="math notranslate nohighlight">
+\[
+&gt; D(p||q) = \sum_{i=1}^n p_i.log_2(\frac{p_i}{q_i}) = \sum_{i=1}^n p_i.-log_2(\frac{q_i}{p_i}) = \mathbb{E}_p[-log_2(\frac{q(x)}{p(x)})]
+&gt; \]</div>
+<p>Comme <span class="math notranslate nohighlight">\(-log(.)\)</span> est convexe,
+$<span class="math notranslate nohighlight">\(
+\begin{align}
+D(p||q) \geq&amp; -log_2(\mathbb{E}_p[\frac{q(x)}{p(x)}]) \\
+\geq&amp; -log_2(\sum_{i=1}^n p_i.\frac{q_i}{p_i}) \\
+\geq&amp; -log_2(\sum_{i=1}^n q_i) \\
+\geq&amp; -log_2(1) = 0 \\
+\end{align}
+\)</span><span class="math notranslate nohighlight">\(
+Finalement on a bien
+\)</span><span class="math notranslate nohighlight">\(
+D(p||q) \geq 0
+\)</span>$</p>
+<p>Les deux termes sont alors positifs et on a donc :
+$<span class="math notranslate nohighlight">\(
+\mathbb{L}(C) - H(X) \ge 0 \\
+\mathbb{L}(C) \geq H(X)
+\)</span>$</p>
 </div></blockquote>
+<hr class="docutils" />
+<p><strong><font color=red>Démonstration <span class="math notranslate nohighlight">\(\mathbb{L}(C) \leq H_\tau(X) +1\)</span>: </font></strong> ( <span class="math notranslate nohighlight">\(\tau = 2\)</span> pour plus de clarté)</p>
+<p>Soient <span class="math notranslate nohighlight">\(X = \{x_0, x_1, \dots, x_n \}\)</span> une source, <span class="math notranslate nohighlight">\(p_i = \mathbb{P}(X = x_i)\)</span> la probabilité d’apparition du caractère <span class="math notranslate nohighlight">\(x_i\)</span> .</p>
+<p>Commençons par démontrer qu’il existe un code dont les longueurs  <span class="math notranslate nohighlight">\(l_i\)</span> sont égales à :
+$<span class="math notranslate nohighlight">\(
+l_i = l(C(x_i)) = \lceil log_2(\frac{1}{pi})\rceil
+\)</span><span class="math notranslate nohighlight">\(
+Pour \)</span>x\geq 0<span class="math notranslate nohighlight">\( ,on sait que \)</span>x \leq \lceil x\rceil \leq x + 1<span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+\begin{array}{ccc}
+x &amp;\leq&amp; \lceil x\rceil \\
+-\lceil x\rceil &amp;\leq&amp; -x \\
+\end{array}
+\)</span><span class="math notranslate nohighlight">\(
+Comme  \)</span>x \geq 0<span class="math notranslate nohighlight">\( on peut élevé à la puissance 2
+\)</span><span class="math notranslate nohighlight">\(
+2^{-\lceil x\rceil} \leq\; 2^{-x}
+\)</span><span class="math notranslate nohighlight">\(
+En remplacent  \)</span>x<span class="math notranslate nohighlight">\( par \)</span>log_2(\frac{1}{p_i})<span class="math notranslate nohighlight">\( on obtient: 
+\)</span><span class="math notranslate nohighlight">\(
+\sum_{i=1}^n 2^{-\lceil log_2(\frac{1}{p_i}) \rceil} \leq \sum_{i=1}^n 2^{- log_2(\frac{1}{p_i})} = \sum_{i=1}^n p_i = 1
+\)</span><span class="math notranslate nohighlight">\(
+Alors d'après le Théorème de Kraft-McMillan il existe un code \)</span>C<span class="math notranslate nohighlight">\( préfixe dont les longueurs sont égales à \)</span>l_i = l(C(x_i)) = \lceil log_2(\frac{1}{pi})\rceil$</p>
+<p>Calculons la longueur moyenne de ce code :
+$<span class="math notranslate nohighlight">\(
+\begin{align}
+\mathbb{L}(C) =&amp; \sum_{i\in n} p_i.l_i \\
+=&amp; \sum_{i\in n} p_i\lceil log_2(\frac{1}{pi})\rceil \\
+\leq&amp; \sum_{i\in n} p_i(log_2(\frac{1}{pi})+1) \\
+\leq&amp; -\sum_{i\in n} p_i.log_2(p_i) + \sum_{i\in n}p_i \\
+\leq&amp; H(X) + 1 \\
+\end{align}
+\)</span>$</p>
+</div>
 </div>
 </div>
 <div class="section" id="codage-rle">
 <h2>Codage RLE<a class="headerlink" href="#codage-rle" title="Permalink to this headline">¶</a></h2>
+<p>Le <strong>run-length encoding</strong>, est un algorithme de compression de données sans perte en informatique.</p>
+<p>L’idée général est, pour une source de données <span class="math notranslate nohighlight">\(X\)</span>, considéré les répétitions successives de ses symboles. Cela consiste à remplacer les suites de caractères identiques par ce caractère suivi du nombre de répétition de celui-ci. Par exemple, pour la suite de suivante :</p>
 <blockquote>
-<div><p>TODO</p>
+<div><p>A C F X X X X C C U U U D C C C C C</p>
+</div></blockquote>
+<p>Le codage <strong>RLE</strong> deviens :</p>
+<blockquote>
+<div><p>1 A 1 C 1 F 4 X 2 C 3 U 1 D 4 C</p>
+</div></blockquote>
+<p>Cela peux s’écrire plus efficacement directement avec le symbole lorsque celui-ci n’est présent qu’une fois (On obtient alors toujours au maximum la même taille) :</p>
+<blockquote>
+<div><p>A C F 4 X 2 C 3 U D 4 C</p>
+</div></blockquote>
+<p>Car cela peux mener à une suite de symbole plus longue dans le cas contraire:</p>
+<blockquote>
+<div><p>WBWBWBWBWB</p>
+</div></blockquote>
+<p>deviens sans cette astuce :</p>
+<blockquote>
+<div><p>1W1B1W1B1W1B1W1B1W1B</p>
 </div></blockquote>
 </div>
 <div class="section" id="cas-du-jpeg">
@@ -475,18 +794,141 @@ Si les couleurs sont codées respectivement \)</span>0<span class="math notransl
 <div class="section" id="transformation-espace-de-couleurs">
 <h3>Transformation : espace de couleurs<a class="headerlink" href="#transformation-espace-de-couleurs" title="Permalink to this headline">¶</a></h3>
 </div>
+</div>
+</div>
+<div class="section" id="il-existe-plusieurs-manieres-de-representer-les-couleurs-dune-image-soit-par-les-trois-composantes-rouge-vert-et-bleu-de-la-synthese-additive-dune-couleur-representation-rgb-soit-par-une-representation-circulaire-des-couleurs-ou-lon-represente-trois-composantes-de-teinte-de-saturation-et-de-luminance-dune-couleur-representation-tsl-enfin-il-est-egalement-possible-de-representer-dabord-la-luminance-signal-en-niveau-de-gris-et-par-la-suite-les-deux-chrominances-qui-representent-chacune-une-difference-de-couleur-par-rapport-a-la-luminance-respectivement-u-ou-cb-pour-la-difference-avec-le-bleu-b-y-et-y-ou-cr-pour-la-difference-avec-rouge-r-y-il-est-donc-possible-de-passer-de-rgb-a-yuv-ycbcr-via-les-calcul-suivants-begin-bmatrix-mathrm-y-mathrm-u-mathrm-v-end-bmatrix">
+<h1>Il existe plusieurs manières de représenter les couleurs d’une image, soit par les trois composantes <em><strong>Rouge, Vert et Bleu</strong></em> de la synthèse additive d’une couleur (représentation RGB), soit par une représentation circulaire des couleurs où l’on représente trois composantes de <em><strong>teinte</strong></em>, de <em><strong>saturation</strong></em>, et de <em><strong>luminance</strong></em> d’une couleur (représentation TSL). Enfin il est également possible de représenter d’abord la luminance (signal en niveau de gris) et par la suite les deux chrominances, qui représentent chacune une différence de couleur par rapport à la luminance respectivement <strong>U</strong> ou <strong>Cb</strong> pour la différence avec le bleu (B-Y) et <strong>Y</strong> ou Cr pour la différence avec rouge (R - Y). Il est donc possible de passer de RGB a YUV (<strong>YCbCr</strong>) via les calcul suivants:
+$$
+\begin{bmatrix}\mathrm {Y} \mathrm {U} \mathrm {V} \end{bmatrix}<a class="headerlink" href="#il-existe-plusieurs-manieres-de-representer-les-couleurs-dune-image-soit-par-les-trois-composantes-rouge-vert-et-bleu-de-la-synthese-additive-dune-couleur-representation-rgb-soit-par-une-representation-circulaire-des-couleurs-ou-lon-represente-trois-composantes-de-teinte-de-saturation-et-de-luminance-dune-couleur-representation-tsl-enfin-il-est-egalement-possible-de-representer-dabord-la-luminance-signal-en-niveau-de-gris-et-par-la-suite-les-deux-chrominances-qui-representent-chacune-une-difference-de-couleur-par-rapport-a-la-luminance-respectivement-u-ou-cb-pour-la-difference-avec-le-bleu-b-y-et-y-ou-cr-pour-la-difference-avec-rouge-r-y-il-est-donc-possible-de-passer-de-rgb-a-yuv-ycbcr-via-les-calcul-suivants-begin-bmatrix-mathrm-y-mathrm-u-mathrm-v-end-bmatrix" title="Permalink to this headline">¶</a></h1>
+<p>\begin{bmatrix}
+0,299 &amp; 0,587 &amp; 0,114\
+-0,14713 &amp; -0,28886 &amp; 0,436\
+0,615 &amp; -0,51498 &amp; -0,10001
+\end{bmatrix}
+.
+\begin{bmatrix}\mathrm {R} \mathrm {G} \mathrm {B} \end{bmatrix}
+$$</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}\mathrm {R} \\\mathrm {G} \\\mathrm {B} \end{bmatrix}
+=
+\begin{bmatrix}
+1 &amp; 0 &amp; 1,13983 \\
+1 &amp; -0,39465 &amp; -0,58060  \\
+1 &amp; 2,03211 &amp; 0
+\end{bmatrix}
+.
+\begin{bmatrix}\mathrm {Y} \\\mathrm {U} \\\mathrm {V} \end{bmatrix}
+\end{split}\]</div>
+<p>L’intérêt d’une telle transformation est que la vision humaine présente une <strong>sensibilité moindre</strong> à la couleur qu’à la luminosité. On va donc pouvoir <strong>sous échantillonner</strong> les composantes de chrominance sans affecter fortement la qualité du rendu final du l’image.</p>
 <div class="section" id="sous-echantillonnage-de-la-chrominance">
-<h3>Sous-échantillonnage de la chrominance<a class="headerlink" href="#sous-echantillonnage-de-la-chrominance" title="Permalink to this headline">¶</a></h3>
+<h2>Sous-échantillonnage de la chrominance<a class="headerlink" href="#sous-echantillonnage-de-la-chrominance" title="Permalink to this headline">¶</a></h2>
+<p>L’œil humain est beaucoup plus sensible aux variations de lumière qu’à celles de couleur. Ainsi afin de pouvoir permettre un meilleur taux de compression, il est possible de <strong>réduire la répétition</strong> entre les informations de couleurs.</p>
+<p>On fait donc appel au <strong>sous-échantillonnage de chrominance</strong>. Cela va donc permettre de réduire la résolution spatiale c’est-à-dire réduire la quantité d’information sur une même surface. On peut ainsi se demander comment cela fonctionne.</p>
+<p>Le procédé reste relativement simple. En effet il repose sur la <strong>suppression de paires (Cb;Cr)</strong> ou (U;V) de certains pixels de l’image. Toutefois il est nécessaire de choisir le mode de sous-échantillonnage parmi ceux utilisés en JPEG : le mode 4:2:0, 4:2:2 ou le mode 4:4:4.</p>
+<p>Chaque triplet se décompose ainsi en trois nombres (J : a : ​b) correspondant chacun à une information sur le bloc. On considérera ici un bloc comme étant une région de quatre pixels de largeur sur 2 pixels de hauteur.</p>
+<p>Le nombre <strong>J</strong> représente le nombre d’échantillons de luminance par ligne ou encore la largeur du bloc pour le traitement de la chrominance. Ici au vue de la définition que nous avons donné du bloc on peut ici considérer que J vaut 4.</p>
+<p>Le nombre <strong>a</strong> représente le nombre d’échantillons de chrominance (Cb, Cr) dans la première ligne tandis que b représente celui de la deuxième ligne.</p>
+<p><img alt="Subsampling modes" src="../_images/subSampling.png" /></p>
+<p>Ainsi, en s’intéressant de plus près au schéma, on peut voir l’évolution du bloc selon les différents modes de sous échantillonnage appliqués.</p>
+<ul class="simple">
+<li><p>On peut donc voir qu’en commençant par la gauche, le premier mode 4:4:4 correspond au mode où aucune altération n’a été réalisée. Nous sommes donc dans le cas de notre image d’origine. Chaque case possède bien une information de luminance (carré gris Y) ainsi que les deux informations de chrominances (triangles bleu Cb et rouge Cr).</p></li>
+<li><p>Dans le second mode 4:2:2, les informations de luminances sont conservées mais on ne conserve que deux couples d’informations de chrominance sur les quatre de chaque ligne. Les deux composantes de chrominance sont donc échantillonnées à la moitié de la fréquence d’échantillonnage de luminance. Les pixels ne contenant pas d’informations de chrominances sont affichés lors du décodage avec une moyenne des valeurs gauche et droite.</p></li>
+<li><p>Dans le troisième mode <strong>4:2:0</strong>, seules deux des couples d’informations de chrominances de la première ligne sont conservées. Pour retrouver les informations perdues, on procédera de la même manière que dans le mode précédent en moyennant les valeurs manquantes lors du décodage.</p></li>
+<li><p>Le dernier mode <strong>4:1:1</strong> est peu utilisée voire jamais dans le cas du JPEG.</p></li>
+</ul>
+<p>Grâce à cette méthode, le nombre d’échantillons contenu dans l’image diminuant, le volume de l’image traitée diminue aussi permettant donc d’obtenir une image moins conséquente en terme de taille sans pour autant la dégrader de façon trop visible pour l’œil humain.</p>
 </div>
 <div class="section" id="passage-en-frequence-transformation-en-cosinus-discretes">
-<h3>Passage en fréquence : Transformation en cosinus discrètes<a class="headerlink" href="#passage-en-frequence-transformation-en-cosinus-discretes" title="Permalink to this headline">¶</a></h3>
+<h2>Passage en fréquence : Transformation en cosinus discrètes<a class="headerlink" href="#passage-en-frequence-transformation-en-cosinus-discretes" title="Permalink to this headline">¶</a></h2>
+<p>Jusqu’à présent, on a juste transformé le mode de couleur en YUV ou YCbCr et appliqué un sous-échantillonnage sur les composantes de la chrominance. Nous allons à présent appliquer la DCT à l’image.</p>
+<p>Considérons ici par simplicité pour les explications une unique couche, la luminance.</p>
+<p>A l’image d’une transformée de Fourier, il est possible d’appliquer une <strong>transformée en cosinus discrète TCD ou DCT</strong> à un signal/image. Cela permet de représenter l’image sous forme de “fréquences”.</p>
+<p>La DCT, et en particulier la DCT-II est très utilisée en traitement du signal. L’intérêt d’une telle transformation en fréquence se voit particulièrement bien sur l’image suivante (un échantillon de taille 8x8 de notre image) :</p>
+<p><img alt="DCT coefficients" src="../_images/DCTonBlock8x8.png" />A gauche un bloc de notre image, et à droite le calcul des coefficients de la DCT-II . On voit clairement ici que les coefficients de grande importance pour reconstituer l’image se concentrent en haut à gauche (les coefficients dit de <em>basses fréquences</em>).</p>
+<p>L’idée de la compression par DCT est de conserver uniquement les quelques coefficients important (basses fréquences) non nuls utiles pour reconstruire la majorité de l’image et annuler les autres de petites valeurs par quantification (c’est une opération analogue à l’application d’un filtre passe bas).</p>
+<p>La DCT-II s’applique en 2D via la formule suivante : ( sur un bloc de taille <span class="math notranslate nohighlight">\(M\times N\)</span>)
+$<span class="math notranslate nohighlight">\(
+DCT[i, j] = \frac{2}{\sqrt{MN}} C(i)C(j)\sum^{N-1}_{x=0}\sum^{M-1}_{y=0} pixel[x, y].cos(\frac{\pi i}{2N}.(2x+1)).cos(\frac{\pi j}{2M}.(2y+1))
+\)</span><span class="math notranslate nohighlight">\(
+avec :
+\)</span><span class="math notranslate nohighlight">\(
+C(x) = \left\{
+\begin{array}{rl}
+\frac{1}{\sqrt{2}} &amp; \text{si } x = 0  \\ 
+1 &amp; \text{sinon} \\
+\end{array}
+\right.
+\)</span><span class="math notranslate nohighlight">\(
+ \)</span>\frac{2}{\sqrt{MN}}<span class="math notranslate nohighlight">\( , \)</span>C(i)<span class="math notranslate nohighlight">\( et \)</span>C(j)$ sont des facteurs qui permettent de rendre la transformation orthogonale car cette forme normalisée est très utilisée en pratique.</p>
+<p>L’application de la DCT est une opération <strong>théoriquement sans perte d’informations</strong> ; les coefficients initiaux peuvent être retrouvés en appliquant la « DCT inverse » au résultat de la DCT. Dans la pratique, une certaine perte d’informations reste cependant possible en raison des erreurs d’arrondis introduites en cours de calcul.</p>
+<hr class="docutils" />
+<p>À chaque bloc de <span class="math notranslate nohighlight">\(N \times N\)</span> pixels sont ainsi associés <span class="math notranslate nohighlight">\(N \times N\)</span> fréquences.</p>
+<p>Celle-ci est appliquée sur les deux axes de l’image 2D, ci-dessous une représentation des différentes fréquences ainsi obtenue sur les deux axes.</p>
+<p><img alt="Représentation des fréquences" src="../_images/DCT.jpg" /></p>
 </div>
 <div class="section" id="quantification">
-<h3>Quantification<a class="headerlink" href="#quantification" title="Permalink to this headline">¶</a></h3>
+<h2>Quantification<a class="headerlink" href="#quantification" title="Permalink to this headline">¶</a></h2>
+<p>L’œil humain distingue difficilement les zones de hautes fréquences, il est donc envisageable de <strong>réduire l’importance de ces zones de hautes fréquences</strong> sur l’image considérée.</p>
+<p>Ainsi cette opération permettra également de réduire la place mémoire nécessaire pour le stockage de l’image en question.</p>
+<p>Le principe de la quantification est relativement simple.</p>
+<p>Cela repose sur une division de chaque coefficient de la matrice DCT obtenue par une constante afin de réduire le nombre d’entiers utilisés pour chaque valeur. La valeur de la constante va dépendre de l’endroit où se trouves les coefficients et l’on va donc réaliser une division de la matrice obtenue après DCT par une nouvelle matrice dite  <strong>de quantification</strong> .</p>
+<p>Les basses fréquences étant représentées par les coefficients situés dans le coin haut gauche de la matrice de coefficients de la DTC et l’œil humain étant plus sensible à ces fréquences-ci, les coefficients de la matrice de quantification seront plus faibles dans cette zone afin de pouvoir mieux <strong>conserver les informations importantes pour notre système visuel</strong>.</p>
+<p>Exemple de matrice de quantification :
+$<span class="math notranslate nohighlight">\(
+\begin{bmatrix}
+3&amp;5&amp;7&amp;9&amp;11&amp;13&amp;15&amp;17\\
+5&amp;7&amp;9&amp;11&amp;13&amp;15&amp;17&amp;19\\
+7&amp;9&amp;11&amp;13&amp;15&amp;17&amp;19&amp;21\\
+9&amp;11&amp;13&amp;15&amp;17&amp;19&amp;21&amp;23\\
+11&amp;13&amp;15&amp;17&amp;19&amp;21&amp;23&amp;25\\
+13&amp;15&amp;17&amp;19&amp;21&amp;23&amp;25&amp;27\\
+15&amp;17&amp;19&amp;21&amp;23&amp;25&amp;27&amp;29\\
+17&amp;19&amp;21&amp;23&amp;25&amp;27&amp;29&amp;31
+\end{bmatrix}
+\)</span>$</p>
+<blockquote>
+<div><p>les coefficients les plus fort correspondent aux hautes fréquences</p>
+</div></blockquote>
+<p>Après division, il suffit de prendre l’arrondis des coefficients qui seront pour la plupart nuls. On <strong>élimine ainsi les informations de faible importance</strong> pour notre vision. C’est donc à cette étape-ci qu’il y a <strong>pertes ou destruction d’informations par rapport à l’image originale</strong> et c’est pour cette raison que l’on qualifie la compression JPEG d’irréversible et destructive.</p>
+<p>Voilà le résultat de cette étape de quantification une image complète appliquée par blocs de <span class="math notranslate nohighlight">\(8 \times 8\)</span>
+<img alt="blockwise DCT quantization" src="../_images/DCTQuantization.png" /></p>
+<p>Et voici un exemple plus spécifiquement sur un bloc particulier avant et après quantification :
+$<span class="math notranslate nohighlight">\(
+\begin{bmatrix}
+1260&amp;-1&amp;-12&amp;-5&amp;2&amp;-2&amp;-3&amp;1\\
+-23&amp;-17&amp;-6&amp;-3&amp;-3&amp;0&amp;0&amp;-1\\
+-11&amp;-9&amp;-2&amp;2&amp;0&amp;-1&amp;-1&amp;0\\
+-7&amp;-2&amp;0&amp;1&amp;1&amp;0&amp;0&amp;0\\
+-1&amp;-1&amp;1&amp;2&amp;0&amp;-1&amp;1&amp;1\\
+2&amp;0&amp;2&amp;0&amp;-1&amp;1&amp;1&amp;-1\\
+-1&amp;0&amp;0&amp;-1&amp;0&amp;2&amp;1&amp;-1\\
+-3&amp;2&amp;-4&amp;-2&amp;2&amp;1&amp;-1&amp;0
+\end{bmatrix}
+\to
+\begin{bmatrix}
+79&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0\\
+-2&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+-1&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0
+\end{bmatrix}
+\)</span>$</p>
 </div>
 <div class="section" id="encodage-codage-rle-et-codage-de-huffman">
-<h3>Encodage - codage RLE et codage de Huffman<a class="headerlink" href="#encodage-codage-rle-et-codage-de-huffman" title="Permalink to this headline">¶</a></h3>
-</div>
+<h2>Encodage - codage RLE et codage de Huffman<a class="headerlink" href="#encodage-codage-rle-et-codage-de-huffman" title="Permalink to this headline">¶</a></h2>
+<p>On observe, après quantification, que le nouveau bloc générée contient de nombreux 0 (correspondant aux hautes fréquences) redondants et il va être possible de coder ces informations efficacement.</p>
+<p>On va commencer par ordonnée les coefficients en suivant un parcours en zigzag à partir du coins supérieur gauche du bloc.</p>
+<p><img alt="zigzag" src="../_images/zigzag.png" /></p>
+<p>Ce qui nous donne pour l’exemple précédant la suite d’information utile : <em><strong>79 0 -2 -1 -1 -1 0 0 -1</strong></em>où les autres valeurs sont uniquement des zéro.</p>
+<p>C’est ici qu’intervient le <strong>codage RLE</strong> basé sur la valeur 0 (le codage RLE intervient uniquement sur cette dernière), et l’information représentant notre bloc donne ici :</p>
+<p><strong>79 0 -2 -1 -1 -1 0[2] -1 0[55]</strong></p>
+<p>On utilise généralement un caractère particulier pour signifier la fin de la séquence et on peut donc omettre les derniers zéro :</p>
+<p><strong>79 0 -2 -1 -1 -1 0[2] -1</strong></p>
+<p>Pour finir, on appliqué aux valeurs précédemment obtenu un <strong>encodage de Huffman</strong>. Il va permettre de donner une correspondance des bits à écrire plus efficace pour constituer notre fichier final.</p>
 </div>
 </div>
 
