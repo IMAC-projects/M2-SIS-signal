@@ -1,6 +1,6 @@
 ﻿# Filtre
 
-> Un filtre est un système électronique qui nous permet de sélectionner une ou plusieurs parties d'un signal ou de rejeter la partie qui ne nous intéresse pas, tels que les bruits parasites.
+> Un filtre est un système électronique qui nous permet de sélectionner une ou plusieurs parties d'un signal ou de rejeter la partie qui ne nous intéresse pas, tels que les bruits parasites. 
 
 ## Sommaire
  
@@ -22,6 +22,7 @@
  - [**Stabilité**](#Stabilité)
  - [**Gain et phase**](#Gain-et-phase)
  - [**Fonction de transfert**](#Fonction-de-transfert)
+ - [**Filtres idéaux**](#Filtres-idéaux)
 
 [**Filtrage numérique**](#Filtrage-numérique)
  - [**Transformée en Z**](#Transformée-en-Z)
@@ -162,9 +163,74 @@ Un filtre **causal** et **stable** est **réalisable**.
 
 ### Gain et phase
 
-On appelle gain complexe du filtre la TF de la réponse impulsionnelle $h$.
+On appelle gain complexe du filtre la TF de la réponse impulsionnelle $h$. L'étude d'un filtre se fait en considérant sa réponse fréquentielle, constituée du gain $G(f)$ et du déphasage $\phi(f)$.
+
+$$G(f) = \frac{G_0}{\sqrt{1+(\frac{f}{f_c})^{2n}}}$$
+
+$G_0$ est le gain dans la bande passante.
+
+On définit la phase $\phi$, en degré ou en radian, comme la différence de phase entre le signal de sortie et le signal d’entrée : $\phi = \phi_s − \phi_e$
+
+Le déphasage entre le signal de sortie et celui d'entrée dépend du type de filtre et il varie avec la fréquence.
 
 ### Fonction de transfert
 
+Un autre moyen de caractériser un filtre est de fournir sa fonction de transfert $H(\omega)$, qui peut être obtenue en divisant le spectre fréquentiel du signal de sortie avec celui du signal de l’entrée du filtre. Tout filtre linéaire est entièrement décrit par sa réponse fréquentielle en amplitude $|H(\omega)|$ (le gain) et sa réponse de phase $arg H(\omega)$ liée à sa réponse impulsionnelle.
+
+### Filtres idéaux
+
+#### Filtre passe-bas idéal
+
+#### Filtres passe-haut idéal
+
 ## Filtre numérique
 
+Un filtre numérique est une application $F : L^2 (\mathbb{Z}) \to  L^2 (\mathbb{Z})$. On parle de filtre linéaire si $F$ est linéaire. La sortie à l’instant $n$ d’un filtre numérique dépend de la sortie aux instants précédents $(m \leq n − 1)$ et de l’entrée à tout instant ($m \leq n$ : filtre causal). Nous nous limiterons aux filtres linéaires invariants, ce qui impose que le signal filtré $y(n)$ s’écrive alors comme une combinaison linéaire des échantillons passés de $x(n)$ et $y(n-1)$ dont les coefficients $a_k$ et $b_k$ fixeront le type de filtre.
+
+<font color=red>Translation en temps : </font>
+
+$$
+\begin{align}
+T_{\tau}  : L^2 (\mathbb{Z}) \to  L^2 (\mathbb{Z})
+=& (a_n)_{n \in \mathbb{Z}} \to (a_n - \tau)_{n \in \mathbb{Z}} 
+\end{align}
+$$
+
+<font color=red>Théorème : </font>
+Si F, un filtre linéaire vérifie $T_{\tau}F = FT_{\tau}((a_n))$ alors F est une convolution. 
+
+**Exemples :**
+
+- $(a_n)_{n \in \mathbb{Z}} \to (\frac{a_n+a_{n+1}}{2})_{n \to \mathbb{Z}}$ $\to$ linéaire et commute avec translation
+- $(a_n) \to (na_n)_{n  \in \mathbb{Z}} \to$ linéaire
+- $(a_n)_{n \in \mathbb{Z}} \to (an^2 + 1)_{n  \in \mathbb{Z}} \to$ non linéaire
+
+### Transformée en Z
+
+Dans le cas de signaux discrets comme les signaux numériques, les transformées de Fourier sont très limitées en particulier pour les signaux possédant une infinité d’échantillons. Pour palier à ce problème, on introduit la transformée en Z, qui est une transformée de signaux discrets. La variable complexe z utilisée est alors discrète.
+
+Soit $x(n)$ un signal discret quelconque. Sa transformée en Z s’écrit : 
+
+$$X(z) = Z\left\{x(n) \right\} = \sum^{+\infty}_{n=-\infty} x(n)z^{−n},  z \in \left\{z ∈ \mathbb{C} \sum^{+\infty}_{n=-\infty} x(n)z^{−n} \ \text{converge} \ \right\}$$
+
+<font color=red>Remarque : </font> 
+On retrouve la définition de la transformée de Fourier en posant $z = e^{\frac{j2\pi f}{fe}}$ avec $fe$ la fréquence d’échantillonnage. 
+
+$$X(f) = Xz(e^{j2 \pi f})$$
+
+**<font color=red>Zéro : </font>** on définit les zéros de la fonction $X_z$ tels que $X_z(z) = 0$
+**<font color=red>Pôles : </font>** on définit les pôles de la fonction $X_z$ tels que $|X_z(z)| \to +\infty$
+
+Le domaine de convergence est le sous-ensemble de $\mathbb{C}$ dans lequel la série converge. Autrement dit, le domaine de convergence de la transformée en z de la suite $(x_n)_{n \in Z}$ est l’ensemble : 
+
+$$(z \in \mathbb{C} \sum^{+\infty}_{n = -\infty} x_n^{z −n} \ \ \text{existe})$$
+
+On l'appelle également **couronne de convergence**. 
+
+$X(z)$ existe si $x(n)$ a une croissance au plus exponentielle, auquel cas le domaine de convergence est compris dans une couronne : 
+- de petit rayon le majorant de la base du côté des $n$ négatifs 
+- de grand rayon le majorant de la base du côté des $n$ positifs 
+- si la suite $x(n)$ est de durée finie (ce qui est vrai dans la plupart des cas), le domaine de convergence est le plan tout entier
+
+### Causalité
+F est causal si pour $(yk) = F((xi))$. Si la valeur $y_n$ ne dépend que des $x_k, k \leq n$
