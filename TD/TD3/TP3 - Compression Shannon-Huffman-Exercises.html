@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -45,7 +45,7 @@
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -83,22 +83,19 @@
   <h1 class="site-logo" id="site-title">M2 Signal classes</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../../Introduction/Introduction.html">
    Introduction
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Fourier
  </span>
@@ -110,7 +107,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Filtrage
  </span>
@@ -122,7 +119,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Compression
  </span>
@@ -134,7 +131,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption collapsible-parent">
  <span class="caption-text">
   TD
  </span>
@@ -157,9 +154,7 @@
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -188,11 +183,11 @@
             <i class="fas fa-arrow-up"></i>
         </button>
         
-        <div class="dropdown-buttons-trigger">
+        
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -204,8 +199,8 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
+
         <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
@@ -365,15 +360,6 @@
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#block-huffman-coding-to-reach-better-performances">
      Block Huffman coding to reach better performances.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#we-consider-a-probability-as-below-on-an-alphabet-of-two-letters-a-b">
-     We consider a probability as below on an alphabet of two letters
-     <span class="math notranslate nohighlight">
-      \(a,b\)
-     </span>
-     .
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -542,7 +528,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f80dd9e8090&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f47e407bf50&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_5_1.png" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_5_1.png" />
@@ -564,8 +550,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.28515625 0.71484375]
-Empirical p = 0.29
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.30078125 0.69921875]
+Empirical p = 0.30
 </pre></div>
 </div>
 </div>
@@ -578,7 +564,7 @@ Empirical p = 0.29
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entropy = 0.86
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entropy = 0.88
 </pre></div>
 </div>
 </div>
@@ -628,6 +614,7 @@ Empirical p = 0.29
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Create the tree as a list.</span>
 <span class="c1"># https://www.math.upenn.edu/~deturck/m170/wk8/lecture/huffman/huffman.html</span>
+<span class="c1"># https://bhrigu.me/blog/2017/01/17/huffman-coding-python-implementation/</span>
 
 <span class="k">class</span> <span class="nc">NodeTree</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">proba</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -655,7 +642,6 @@ Empirical p = 0.29
     <span class="n">g</span> <span class="o">=</span> <span class="n">ig</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
     <span class="n">queue</span> <span class="o">=</span> <span class="p">[</span><span class="n">root</span><span class="p">]</span>
     <span class="n">parentId</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">add_vertex</span><span class="p">((</span><span class="n">root</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">root</span><span class="o">.</span><span class="n">proba</span><span class="p">))</span><span class="o">.</span><span class="n">index</span>
-
     <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">node</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">:</span>
@@ -670,25 +656,109 @@ Empirical p = 0.29
         <span class="n">parentId</span> <span class="o">=</span> <span class="nb">id</span>
 
     <span class="k">return</span> <span class="n">g</span>
-        
+
+<span class="k">def</span> <span class="nf">print2DUtil</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">space</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span> 
+    <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="o">==</span> <span class="kc">None</span><span class="p">):</span> 
+        <span class="k">return</span>
+
+    <span class="n">space</span> <span class="o">+=</span> <span class="mi">10</span>
+    <span class="n">print2DUtil</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">space</span><span class="p">)</span>  
+  
+    <span class="c1"># Print current node after space</span>
+    <span class="nb">print</span><span class="p">()</span>  
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">space</span><span class="p">):</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="n">end</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>  
+    <span class="nb">print</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot; (&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">proba</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>  
+  
+    <span class="c1"># Process left child  </span>
+    <span class="n">print2DUtil</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">space</span><span class="p">)</span>  
+    
 <span class="n">root</span> <span class="o">=</span> <span class="n">CreateTree</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">BuildIgGraph</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
-<span class="n">ig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">layout</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">layout_reingold_tilford</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">vertex_label_dist</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vertex_label</span><span class="o">=</span><span class="n">g</span><span class="o">.</span><span class="n">vs</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">bbox</span> <span class="o">=</span> <span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">300</span><span class="p">))</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">BuildIgGraph</span><span class="p">(</span><span class="n">root</span><span class="p">)</span> <span class="c1"># FIXME</span>
+<span class="c1">#ig.plot(g, layout = g.layout_reingold_tilford(root=0), vertex_label_dist = -1, vertex_label=g.vs[&quot;name&quot;], bbox = (500, 300))</span>
+
+<span class="n">print2DUtil</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_13_0.svg" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_13_0.svg" /></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                              E (0.2)
+
+                     (0.35)
+
+                              B (0.15)
+
+           (0.6)
+
+                              D (0.15)
+
+                     (0.25)
+
+                              A (0.1)
+
+ (1.0)
+
+          C (0.4)
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="q2-write-the-function-huffmangencode-which-computes-the-huffman-code-of-an-element-in-0-1-2-3-4-and-print-it">
 <h3>Q2. Write the function HuffmanGencode which computes the Huffman code of an element in <span class="math notranslate nohighlight">\(0,1,2,3,4\)</span>  and print it.<a class="headerlink" href="#q2-write-the-function-huffmangencode-which-computes-the-huffman-code-of-an-element-in-0-1-2-3-4-and-print-it" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">HuffmanGencode</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">codes</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
-    <span class="n">codes</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1">## dictionnary the key is a number and </span>
-                <span class="c1">## the value is the code in 0,1.</span>
-    <span class="k">return</span> <span class="n">codes</span>    
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">getPathFromX</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span> 
+    <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">root</span><span class="p">):</span> 
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="c1"># if it is the required node  </span>
+    <span class="c1"># return true</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">x</span><span class="p">):</span>      
+        <span class="k">return</span> <span class="kc">True</span>
+      
+    <span class="c1"># else check whether the required node  </span>
+    <span class="c1"># lies in the left subtree or right  </span>
+    <span class="c1"># subtree of the current node  </span>
+    <span class="k">if</span> <span class="n">getPathFromX</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">if</span> <span class="n">getPathFromX</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+      
+    <span class="c1"># required node does not lie either in  </span>
+    <span class="c1"># the left or right subtree of the current  </span>
+    <span class="c1"># node. Thus, remove current node&#39;s value   </span>
+    <span class="c1"># from &#39;arr&#39;and then return false</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> 
+    <span class="k">return</span> <span class="kc">False</span>
+
+
+<span class="k">def</span> <span class="nf">HuffmanGencode</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">letter</span><span class="p">):</span>
+    <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="nb">chr</span><span class="p">(</span><span class="mi">65</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">letter</span><span class="p">)]</span> <span class="c1"># Alphabet until letter</span>
+    <span class="n">codes</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">keys</span><span class="p">):</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">getPathFromX</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+        <span class="n">pathChain</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">path</span><span class="p">:</span>
+            <span class="n">pathChain</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+        <span class="n">codes</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">keys</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span><span class="n">pathChain</span><span class="p">})</span>
+        
+    <span class="k">return</span> <span class="n">codes</span>
+
+<span class="c1"># vector to store the path  </span>
+<span class="n">codes</span> <span class="o">=</span> <span class="n">HuffmanGencode</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A == 0, B == 1, etc&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">codes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A == 0, B == 1, etc
+{&#39;A&#39;: &#39;001&#39;, &#39;B&#39;: &#39;011&#39;, &#39;C&#39;: &#39;0&#39;, &#39;D&#39;: &#39;101&#39;, &#39;E&#39;: &#39;111&#39;}
 </pre></div>
 </div>
 </div>
@@ -698,10 +768,31 @@ Empirical p = 0.29
 <h3>Q3. Write a function that generates a random sequence of numbers between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(4\)</span> according to the probability <span class="math notranslate nohighlight">\(h\)</span>.<a class="headerlink" href="#q3-write-a-function-that-generates-a-random-sequence-of-numbers-between-0-and-4-according-to-the-probability-h" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">RandGen</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
-    <span class="n">sample</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">return</span> <span class="n">sample</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">RandGen</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">random</span>
+
+<span class="k">def</span> <span class="nf">RandGen</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">number</span><span class="p">))</span>
+
+<span class="n">message</span> <span class="o">=</span> <span class="n">RandGen</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="c1"># 0 is for &#39;A&#39; and so on</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 2 2 4 4 3 2 2 4 4 3 3 4 4 1 0 2 2 4 3 0 2 2 1 2 3 2 2 2 2 2 4 3 4 2 3 0
+ 2 1 3 1 2 2 4 2 0 2 4 4 2 4 2 4 2 3 2 2 1 2 4 2 1 3 2 2 2 2 0 4 1 2 2 4 2
+ 2 4 2 4 0 0 2 2 0 2 3 0 4 2 2 2 2 2 1 2 2 1 1 2 2 2 2 2 2 4 1 2 2 2 0 2 2
+ 1 2 3 2 2 3 3 2 1 4 4 4 4 2 1 2 2 4 1 2 4 3 2 2 2 2 2 1 2 4 2 1 1 1 1 3 1
+ 2 3 1 2 2 3 3 2 2 4 1 4 4 1 2 0 1 4 2 4 2 1 2 0 2 0 1 4 3 3 2 2 4 2 0 4 2
+ 1 1 1 3 0 2 2 4 2 2 2 2 0 0 2 3 2 3 3 2 1 1 2 2 0 2 2 2 4 4 4 0 0 2 2 1 3
+ 3 3 1 1 0 2 3 4 4 3 4 2 2 3 2 3 0 1 4 2 2 3 0 2 0 4 4 3 2 4 4 2 2 2 1 2 2
+ 3 2 2 2 0 2 2 2 2 3 4 4 3 2 2 0 2 3 0 4 2 2 2 1 2 2 4 1 1 2 2 4 4 4 2 3 2
+ 4 4 2 2 2 1 4 2 4 1 3 4 4 4 4 1 1 2 1 2 1 1 2 4 4 2 2 2 2 0 3 0 2 2 2 0 4
+ 1 2 4 3 2 2 2 2 3 2 1 2 1 4 0 3 2 0 1 4 2 2 2 2 4 0 3 4 2 1 4 4 2 1 2 2 4
+ 4 4 4 3 4 2 4 4 4 0 0 0 3 1 2 1 0 3 4 4 2 2 3 3 2 3 2 0 4 4 0 2 2 2 2 2 1
+ 2 4 1 4 0 2 2 0 4 2 1 2 4 2 2 2 1 2 2 4 4 2 2 2 2 0 4 2 3 3 3 4 2 2 1 2 2
+ 1 2 2 1 2 3 4 2 2 2 1 4 4 4 4 1 0 1 3 1 2 2 1 4 1 2 2 1 4 4 0 3 3 1 2 3 4
+ 2 2 3 3 3 0 2 1 0 1 0 4 4 4 4 3 4 4 4 2 4 2 1 0 3 3 3 3 2 0 2]
 </pre></div>
 </div>
 </div>
@@ -711,28 +802,19 @@ Empirical p = 0.29
 <h3>Q4. Write a function which maps a random sequence as above into its Huffman code and test it.<a class="headerlink" href="#q4-write-a-function-which-maps-a-random-sequence-as-above-into-its-huffman-code-and-test-it" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">CodeHuffman</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">codes</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">CodeHuffman</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">codes</span><span class="p">):</span>
     <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">elt</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">+=</span> <span class="n">codes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="mi">65</span> <span class="o">+</span> <span class="n">elt</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">result</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">code</span> <span class="o">=</span> <span class="n">CodeHuffman</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">codes</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+
+<span class="n">compressedMessage</span> <span class="o">=</span> <span class="n">CodeHuffman</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">codes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">compressedMessage</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">74</span><span class="n">f707e3a832</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">code</span> <span class="o">=</span> <span class="n">CodeHuffman</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">codes</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;codes&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>00100111111101001111111011011111110110010011110100100011010100000111101111010100100111010110011100010111111011101110101000110111001110100000011110110011100111011100100100001010100111100000011000110110000001110110000010001101010010110100111111111111110011001110110111101000000110111001101101101110101101010110010110100111011111111011000101111101110011000100010111111011010011100011110011011011101001001110000001001010101011010011011000010001111111110010010001110110110101101100101011111111011110010101010010111110010100100011111111010111111000011001010000010000101111111101000010101001111000011001110110110011111111101010111111000011111011101110111111111111101101100110011011011111100000011010010000011110110111101000010100110011111001101000101111100001110011011110011111111001100111111111111101111011111111100100100110101100110011011111110010110101010001111111001000000110111011111001000011110011011100001100111111000000111101011011011110001100011000110101111000011111111111111011001011101011000111110110001111111100110110101101011110010110110100100110010110011111111111111011111111110111001100110110110110100010
 </pre></div>
 </div>
 </div>
@@ -740,14 +822,79 @@ Empirical p = 0.29
 </div>
 <div class="section" id="q5-compare-with-the-shannon-bound">
 <h3>Q5. Compare with the Shannon bound.<a class="headerlink" href="#q5-compare-with-the-shannon-bound" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://math.mit.edu/~shor/18.310/huffman.pdf">Source</a></p>
+<p>Let <span class="math notranslate nohighlight">\(A\)</span> be an alphabet, and let <span class="math notranslate nohighlight">\(pa\)</span> for <span class="math notranslate nohighlight">\(a \in A\)</span> denote the probability of occurrence of letter <span class="math notranslate nohighlight">\(a \in A\)</span>.</p>
+<p>Shannon bound :
+$<span class="math notranslate nohighlight">\(
+-\sum_{a \in A}^{}p_a log_2(p_a)
+\)</span>$</p>
+<p>Shannon bound is actually implemented above (ShannonEntropy)</p>
+<p>From Kraft’s inequality :</p>
+<p>Huffman coding gives an expected length <span class="math notranslate nohighlight">\(L\)</span> per letter satisfying:</p>
+<div class="math notranslate nohighlight">
+\[H(p) ≤ L ≤ H(p) + 1\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">expectedCodeLength</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">codes</span><span class="p">):</span>
+    <span class="n">codeLength</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">h</span><span class="p">):</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">codes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="mi">65</span> <span class="o">+</span> <span class="n">idx</span><span class="p">))</span>
+        <span class="n">codeLength</span> <span class="o">+=</span> <span class="n">prob</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        
+    <span class="k">return</span> <span class="n">codeLength</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shannon Entropy :&quot;</span><span class="p">,</span> <span class="n">ShannonEntropy</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Expected code length using Huffman : &quot;</span><span class="p">,</span> <span class="n">expectedCodeLength</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">codes</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shannon Entropy : 2.1464393446710153
+Expected code length using Huffman :  2.2
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="q6-write-below-a-function-that-decodes-the-huffman-code-and-test-it-on-a-random-sequence-check-that-it-is-the-inverse-of-the-coding-map">
 <h3>Q6. Write below a function that decodes the Huffman code and test it on a random sequence. Check that it is the inverse of the coding map.<a class="headerlink" href="#q6-write-below-a-function-that-decodes-the-huffman-code-and-test-it-on-a-random-sequence-check-that-it-is-the-inverse-of-the-coding-map" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">DecodeHuffman</span><span class="p">(</span><span class="n">code</span><span class="p">,</span><span class="n">T</span><span class="p">):</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">getLeaves</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="o">.</span><span class="n">left</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="p">[</span><span class="n">root</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+    <span class="n">leaves</span> <span class="o">=</span> <span class="n">getLeaves</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">)</span> <span class="o">+</span> <span class="n">getLeaves</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">leaves</span> 
+
+<span class="k">def</span> <span class="nf">isLeaf</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>  
+    <span class="k">if</span> <span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span> <span class="o">==</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+                
+<span class="c1"># FIXME</span>
+<span class="k">def</span> <span class="nf">DecodeHuffman</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">curr</span> <span class="o">=</span> <span class="n">root</span>
+    <span class="k">for</span> <span class="n">bit</span> <span class="ow">in</span> <span class="n">code</span><span class="p">:</span>
+        <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">left</span> <span class="k">if</span> <span class="n">bit</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span> <span class="k">else</span> <span class="n">curr</span><span class="o">.</span><span class="n">right</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">curr</span><span class="o">.</span><span class="n">left</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">curr</span><span class="o">.</span><span class="n">right</span> <span class="o">==</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="n">curr</span><span class="o">.</span><span class="n">name</span>
+            <span class="n">curr</span> <span class="o">=</span> <span class="n">root</span>
+    
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="c1"># TODO compare with previous question code</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">DecodeHuffman</span><span class="p">(</span><span class="n">compressedMessage</span><span class="p">,</span> <span class="n">root</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BBCCCCCCDACCCCCAACCCCCABBCCCDDBCDCEBCCCACCDCBBCCDCCBCCECACCCCACACDCECCACBCCDEBCCCABCCBCCACBBEDCDACCEECCECCAEECCCAEBECCDCBADACCCCCCCCCCCCBCBCCAACCDEBCACBCAAACDCCDCABADACACCCCCCAECACCCACBCECECACCCCADACECCCCBCAACDDACEECBDCDCCDAAEDBCCCCCCCCBBECCCAADCCABDCCCCCCCCACCBDCDDCCCCCBDDBCCCCCCCDCCCCCCEABDEDECACCCCCCDECDCBCCCEABCCAABCCCCCCCCDCACCCCEACCCACACACCCCCCCCCCCAABCBCAACCCCEECCDDEACCAACCDECDABCCCCBCDBACCCEACBCACCBCCCCCCCBCBCCCCCCCCCCCCACCACCCCCCCBBBCDCCBCBCACCCCCBADCDBCCCCCCBEECCACACCCBEACCBCACEABCCCCCEECCCCDCCAACCECCECCECCDCCCCEACCCCCCCCCCCCABACDCCECCCCCAECCCCCCCCBCADCCDCCCCBAADDABABCCCCCCCCCCCCCACCCCCCCCACBCBCAAADB
 </pre></div>
 </div>
 </div>
@@ -755,9 +902,9 @@ Empirical p = 0.29
 </div>
 <div class="section" id="block-huffman-coding-to-reach-better-performances">
 <h3>Block Huffman coding to reach better performances.<a class="headerlink" href="#block-huffman-coding-to-reach-better-performances" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="we-consider-a-probability-as-below-on-an-alphabet-of-two-letters-a-b">
-<h3>We consider a probability as below on an alphabet of two letters <span class="math notranslate nohighlight">\(a,b\)</span>.<a class="headerlink" href="#we-consider-a-probability-as-below-on-an-alphabet-of-two-letters-a-b" title="Permalink to this headline">¶</a></h3>
+<p>We consider a probability as below on an alphabet of two letters <span class="math notranslate nohighlight">\(a,b\)</span>.</p>
+<p><a class="reference external" href="https://pdf.sciencedirectassets.com/271503/1-s2.0-S0898122100X03720/1-s2.0-S0898122103901933/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEN3%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIBuudmqmxPLp4NLcVi9dA%2BtU%2BZ7Fqsn93bSvkcG9MHl4AiAVTZ2Cmq7kuRJ5LOn41GmRvRk8ypWKZBsJMCeHxf7QNyq0AwhGEAMaDDA1OTAwMzU0Njg2NSIM19ACkRn1r42F5GeZKpEDBHxIOPNCDwHEkqLlllskMiKuOTe56F1cCvrWKx1HfY%2Fl6twCxBz%2BSdoVLrIkKPK40eKupyJdXNM4xsz2tmBGDMb8aB5HzFFiLPAnsGPDFKA3Q1Ik51gurYYYaZ84OLH%2FSNvvXSASWHTNPTquQE9859%2FPkhjkif3R1943PoFVPQ34ixaPIWvjxc3XTIzXoAxqo9GXyODIt8DOFhWZUTWj5LYRnBzwK8hgRXRdlMduiMszhhisyq%2BDhc%2BBYa9XpPypJxvPjxkDvIezw%2BnK0C%2B67CWNLw%2BXgi%2Bz%2BcsC4iIqDHMsIC3P%2FZMVW2FKfsjejNI08f8gFvQAdNN1bjj%2B4Vx%2F4hPkT9Z%2Fjf1l3HZfVnsRFQsjSxJBmrV4gLXug%2Brp%2FThyJ8%2BTmmFFDKG9%2FueAOSIo0Mmnxg4fzXL4y22%2BFRk0yVqSusHUuX3v3RCjbMOyqPkyliJDlDBJjabDisbvuQTZYnbQJHHy72%2F%2FazGF78u4MIOH8vNUBXB54JrmgyYVvadJD4vuvorxO%2F%2Fs8ffZmnXlnh8widCf%2FQU67AFDwYwvC%2Fttno7l6NHgdGcM411Szt9geTqWWzGYI%2BxyREwYewpsZh5rWSSipPS8XVbH6BDhyPoe0E2GlvBZtJ4Ca%2F1WL66K1qOHl8a6ohfocKgTHggdgpDxeSjcu2UgcSLV4cItghTyBYjrCH%2FsrN0NJO5RZOC49n9VTdX%2B82dyfsLtGST4YwYixwbg3u3HQC5S202CXxcLLT1DybmDaqln4R2aJ49yiSkdEs7Kz5DoRqhdeGPSfZaqw1x9shMyWa7OuAb8VTqccKApd4msNG0h%2Fc54BC7y%2BymIatPlItEPEwaBqaWA%2B%2FyHk%2FrRGw%3D%3D&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20201108T140938Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=300&amp;X-Amz-Credential=ASIAQ3PHCVTYQ3Q5OJXQ%2F20201108%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=49976f9713b50ed645d6a82509721ca8532e2456afb1e49a912890fc1862842e&amp;hash=4af9114d967c854efbcf439e0682124788f9043ffad78102dfd45adab626c7c7&amp;host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&amp;pii=S0898122103901933&amp;tid=spdf-1e50d2e4-53f0-494b-9c76-495ddb86701a&amp;sid=412da8ce53a6d84d57881f54206b86c8c66fgxrqb&amp;type=client">Source 1</a></p>
+<p><a class="reference external" href="https://www.princeton.edu/~cuff/ele201/kulkarni_text/information.pdf">Source 2</a></p>
 </div>
 <div class="section" id="q7-compute-the-entropy-associated-with-this-probability-and-generalize-for-an-alphabet-described-by-blocks-of-k-letters">
 <h3>Q7: Compute the entropy associated with this probability and generalize for an alphabet described by blocks of <span class="math notranslate nohighlight">\(k\)</span> letters.<a class="headerlink" href="#q7-compute-the-entropy-associated-with-this-probability-and-generalize-for-an-alphabet-described-by-blocks-of-k-letters" title="Permalink to this headline">¶</a></h3>
@@ -766,7 +913,94 @@ Empirical p = 0.29
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="o">.</span><span class="mi">12</span>
 <span class="n">h</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">t</span><span class="p">]</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">20000</span>
-<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># Message to encored formed with only 1 and 2 (A and B)</span>
+
+<span class="kn">import</span> <span class="nn">itertools</span>
+
+<span class="c1"># h array of proba</span>
+<span class="c1"># dim the dimension of the blocks to generate</span>
+<span class="k">def</span> <span class="nf">CreateBlockTree</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">dim</span><span class="p">):</span>
+    <span class="n">elements</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">h</span><span class="p">)))</span>
+    <span class="n">couples</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="n">dim</span><span class="p">))</span> <span class="c1"># Cartesian product to get all possible couples</span>
+    
+    <span class="c1"># Merge proba of each couple</span>
+    <span class="n">block</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">keys</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">couple</span> <span class="ow">in</span> <span class="n">couples</span><span class="p">:</span>
+        <span class="n">prob</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">elt</span> <span class="ow">in</span> <span class="n">couple</span><span class="p">:</span>
+            <span class="n">prob</span> <span class="o">*=</span> <span class="n">elt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">value</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">65</span> <span class="o">+</span> <span class="n">elt</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            
+        <span class="n">block</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">prob</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+        <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    
+    <span class="c1"># Build tree</span>
+    <span class="n">nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">NodeTree</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">block</span><span class="p">]</span>
+    <span class="n">nodes</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">node</span><span class="p">:</span> <span class="n">node</span><span class="o">.</span><span class="n">proba</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">left</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="n">right</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">NodeTree</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">left</span><span class="o">.</span><span class="n">proba</span> <span class="o">+</span> <span class="n">right</span><span class="o">.</span><span class="n">proba</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="n">nodes</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">node</span><span class="p">:</span> <span class="n">node</span><span class="o">.</span><span class="n">proba</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        
+    <span class="k">return</span> <span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">keys</span>
+
+<span class="n">blockRoot</span><span class="p">,</span> <span class="n">blockKeys</span> <span class="o">=</span> <span class="n">CreateBlockTree</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">print2DUtil</span><span class="p">(</span><span class="n">blockRoot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>          BB (0.7744)
+
+ (1.0)
+
+                              BA (0.1056)
+
+                     (0.12)
+
+                              AA (0.0144)
+
+           (0.2256)
+
+                    AB (0.1056)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">HuffmanBlockGencode</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">keys</span><span class="p">):</span>
+    <span class="n">codes</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">keys</span><span class="p">):</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">getPathFromX</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+        <span class="n">pathChain</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">path</span><span class="p">:</span>
+            <span class="n">pathChain</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+        <span class="n">codes</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">keys</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span><span class="n">pathChain</span><span class="p">})</span>
+        
+    <span class="k">return</span> <span class="n">codes</span>
+
+<span class="c1"># vector to store the path </span>
+<span class="n">blockCodes</span> <span class="o">=</span> <span class="n">HuffmanBlockGencode</span><span class="p">(</span><span class="n">blockRoot</span><span class="p">,</span> <span class="n">blockKeys</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">blockCodes</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">expectedBlockCodeLength</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">codes</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">h</span><span class="p">):</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">codes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="mi">65</span> <span class="o">+</span> <span class="n">idx</span><span class="p">)</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">65</span> <span class="o">+</span> <span class="n">idx</span><span class="p">))</span>
+        <span class="n">result</span> <span class="o">+=</span> <span class="n">prob</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;AA&#39;: &#39;010&#39;, &#39;AB&#39;: &#39;00&#39;, &#39;BA&#39;: &#39;110&#39;, &#39;BB&#39;: &#39;1&#39;}
 </pre></div>
 </div>
 </div>
@@ -774,15 +1008,43 @@ Empirical p = 0.29
 </div>
 <div class="section" id="q7bis-compare-the-length-of-the-huffman-code-and-the-shannon-bound-how-to-explain-the-difference-in-order-to-improve-the-result-we-use-huffman-coding-on-blocks-of-length-k">
 <h3>Q7bis. Compare the length of the Huffman code and the Shannon bound. How to explain the difference ? In order to improve the result, we use Huffman coding on blocks of length <span class="math notranslate nohighlight">\(k\)</span>.<a class="headerlink" href="#q7bis-compare-the-length-of-the-huffman-code-and-the-shannon-bound-how-to-explain-the-difference-in-order-to-improve-the-result-we-use-huffman-coding-on-blocks-of-length-k" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Expected block code length using Huffman : :&quot;</span><span class="p">,</span> <span class="n">expectedBlockCodeLength</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">blockCodes</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shannon Entropy :&quot;</span><span class="p">,</span> <span class="n">ShannonEntropy</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Expected block code length using Huffman : : 1.24
+Shannon Entropy : 0.5293608652873644
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have two symbols that needs to be coded on 1 bit. The probabilities of symbol appearance are different than the one of obtain a letter. That is why we are so far from the entropy.</p>
 </div>
 <div class="section" id="q8-write-a-code-that-takes-as-input-a-sequence-of-length-k-of-letters-and-associate-a-binary-code-then-write-a-function-that-takes-as-inputs-a-random-sequence-its-code-by-block-of-length-k-we-assume-that-the-length-is-a-multiple-of-k">
 <h3>Q8. Write a code that takes as input a sequence of length <span class="math notranslate nohighlight">\(k\)</span> of letters and associate a binary code. Then, write a function that takes as inputs a random sequence its code by block of length <span class="math notranslate nohighlight">\(k\)</span>. We assume that the length is a multiple of <span class="math notranslate nohighlight">\(k\)</span>.<a class="headerlink" href="#q8-write-a-code-that-takes-as-input-a-sequence-of-length-k-of-letters-and-associate-a-binary-code-then-write-a-function-that-takes-as-inputs-a-random-sequence-its-code-by-block-of-length-k-we-assume-that-the-length-is-a-multiple-of-k" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">CodeBlocks</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">CodeBlocks</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">codes</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">elt</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">64</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">64</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># AB, BA, AA or BB</span>
+        <span class="n">result</span> <span class="o">+=</span> <span class="n">codes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">elt</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
 <span class="k">def</span> <span class="nf">GenNewCode</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">0</span>
+
+<span class="n">compressedBlockMessage</span> <span class="o">=</span> <span class="n">CodeBlocks</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">blockCodes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">compressedBlockMessage</span><span class="p">[:</span><span class="mi">512</span><span class="p">])</span> <span class="c1"># Only print the starts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11000111111111100011111111100011111111000111111111111111111110001100011100011111111111000111111110001111111100011111000111111111111111111111100100011110001111100011000111000111000111111100011100011111111111100011000111110001111111100011111111000110001111111100011111111111111111100011100011111111111000111111100011111000110010001110001100011111111111110001111111111110001100100011111111111000111111111110001111111110001100011111111000111100011111111110001111111111111110001111111111111111111111111000111111000111
 </pre></div>
 </div>
 </div>
@@ -792,7 +1054,7 @@ Empirical p = 0.29
 <h3>Q9. Write a function that gives the empirical probability of the message encoded by <span class="math notranslate nohighlight">\(k\)</span>-blocks.<a class="headerlink" href="#q9-write-a-function-that-gives-the-empirical-probability-of-the-message-encoded-by-k-blocks" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">EstimateProbabilites</span><span class="p">(</span><span class="n">code</span><span class="p">,</span><span class="n">taille_blocs</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">EstimateProbabilites</span><span class="p">(</span><span class="n">codes</span><span class="p">,</span><span class="n">blockSize</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">0</span>
 </pre></div>
 </div>
@@ -803,6 +1065,7 @@ Empirical p = 0.29
 <h3>Q10. Given a random sequence generated from the probability <span class="math notranslate nohighlight">\(h\)</span>, plot the performance of the Huffman code (length of the code - Shannon bound) in terms of <span class="math notranslate nohighlight">\(k\)</span> the block length. Comment.<a class="headerlink" href="#q10-given-a-random-sequence-generated-from-the-probability-h-plot-the-performance-of-the-huffman-code-length-of-the-code-shannon-bound-in-terms-of-k-the-block-length-comment" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
+<hr class="docutils" />
 <div class="section" id="b-the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir">
 <h2>B. The goal of this part is to explore implementations of a FIR or an IIR.<a class="headerlink" href="#b-the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="q1-implement-an-ideal-low-pass-filter-using-fourier-transform-in-1d">
@@ -843,6 +1106,13 @@ Empirical p = 0.29
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_41_0.png" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_41_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>time min 0.0
+time max 299.9972222222222
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -855,6 +1125,9 @@ Empirical p = 0.29
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_42_0.png" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_42_0.png" />
 </div>
 </div>
 </div>
