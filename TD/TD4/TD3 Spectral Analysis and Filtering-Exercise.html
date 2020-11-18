@@ -275,28 +275,28 @@
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#q-do-the-same-with-the-stft-signals-what-do-you-observe">
-     Q: Do the same with the STFT signals, what do you observe ?
+    <a class="reference internal nav-link" href="#q1-do-the-same-with-the-stft-signals-what-do-you-observe">
+     Q1: Do the same with the STFT signals, what do you observe ?
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#q-for-each-point-in-the-plot-above-compute-its-angle-angle-between-2-points-and-plot-the-distribution-of-the-angles-use-the-function-np-histogram-and-plot-it">
-     Q: For each point in the plot above, compute its angle (angle between 2 points) and plot the distribution of the angles (use the function np.histogram) and plot it.
+    <a class="reference internal nav-link" href="#q2-for-each-point-in-the-plot-above-compute-its-angle-angle-between-2-points-and-plot-the-distribution-of-the-angles-use-the-function-np-histogram-and-plot-it">
+     Q2: For each point in the plot above, compute its angle (angle between 2 points) and plot the distribution of the angles (use the function np.histogram) and plot it.
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#q-by-selecting-the-highest-peaks-of-the-distribution-estimate-the-angles-of-the-mixing">
-     Q: By selecting the highest peaks of the distribution, estimate the angles of the mixing.
+    <a class="reference internal nav-link" href="#q3-by-selecting-the-highest-peaks-of-the-distribution-estimate-the-angles-of-the-mixing">
+     Q3: By selecting the highest peaks of the distribution, estimate the angles of the mixing.
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#q-using-the-stft-recorded-signals-take-each-point-in-the-plane-and-compute-its-projection-on-each-recovered-directions-it-gives-a-vector-of-3-estimated-projections">
-     Q: Using the STFT recorded signals, take each point in the plane and compute its projection on each recovered directions. It gives a vector of 3 estimated projections.
+    <a class="reference internal nav-link" href="#q4-using-the-stft-recorded-signals-take-each-point-in-the-plane-and-compute-its-projection-on-each-recovered-directions-it-gives-a-vector-of-3-estimated-projections">
+     Q4: Using the STFT recorded signals, take each point in the plane and compute its projection on each recovered directions. It gives a vector of 3 estimated projections.
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#q-for-each-frequency-point-in-the-signal-stft-select-the-direction-on-which-it-has-the-largest-projection-and-threshold-using-the-code-below">
-     Q: For each frequency point in the signal STFT, select the direction on which it has the largest projection. And threshold using the code below.
+    <a class="reference internal nav-link" href="#q5-for-each-frequency-point-in-the-signal-stft-select-the-direction-on-which-it-has-the-largest-projection-and-threshold-using-the-code-below">
+     Q5: For each frequency point in the signal STFT, select the direction on which it has the largest projection. And threshold using the code below.
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
@@ -456,18 +456,20 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">theta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">.</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;theta:&quot;</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
 <span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)))</span>
 <span class="c1">## recorded signals</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">M</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;length of the signals&quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="n">mixedSignals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">M</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;length of the signals&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">mixedSignals</span><span class="p">))</span>
 <span class="c1"># Listen to the two recorded signals.</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Audio</span>
-<span class="n">Audio</span><span class="p">(</span><span class="n">y</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">rate</span> <span class="o">=</span> <span class="mi">15000</span><span class="p">)</span>
+<span class="n">Audio</span><span class="p">(</span><span class="n">mixedSignals</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">rate</span> <span class="o">=</span> <span class="mi">15000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>length of the signals (16384, 2)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>theta: [0.2        1.04719755 2.0943951 ]
+length of the signals (16384, 2)
 </pre></div>
 </div>
 <div class="output text_html">
@@ -481,54 +483,43 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.signal</span> <span class="k">as</span> <span class="nn">sig</span>
-<span class="n">f</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">w</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">stft</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">stft</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;stft of signal 1&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">w</span><span class="p">)))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;stft of signal 2&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+    <span class="n">f</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">w</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">stft</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;stft of signal </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">w</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16641
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fb28c1785d0&gt;
-</pre></div>
-</div>
-<img alt="../../_images/TD3 Spectral Analysis and Filtering-Exercise_10_2.png" src="../../_images/TD3 Spectral Analysis and Filtering-Exercise_10_2.png" />
+<img alt="../../_images/TD3 Spectral Analysis and Filtering-Exercise_10_0.png" src="../../_images/TD3 Spectral Analysis and Filtering-Exercise_10_0.png" />
 </div>
 </div>
 <p>### We numerically check that the STFT and ISTFT are indeed inverse from each others.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">micro1</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">micro2</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">micro1</span><span class="p">,</span> <span class="n">micro2</span><span class="p">]</span> <span class="o">=</span> <span class="n">mixedSignals</span><span class="o">.</span><span class="n">T</span> <span class="c1"># destructuring</span>
+
 <span class="n">stft</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">im</span> <span class="p">:</span> <span class="n">sig</span><span class="o">.</span><span class="n">stft</span><span class="p">(</span><span class="n">im</span><span class="p">,</span><span class="n">noverlap</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span><span class="n">nperseg</span> <span class="o">=</span> <span class="mi">128</span><span class="p">)</span>
 <span class="n">istft</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">im</span> <span class="p">:</span> <span class="n">sig</span><span class="o">.</span><span class="n">istft</span><span class="p">(</span><span class="n">im</span><span class="p">,</span><span class="n">noverlap</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span><span class="n">nperseg</span> <span class="o">=</span> <span class="mi">128</span><span class="p">)</span>
+
 <span class="n">f</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">w1</span> <span class="o">=</span> <span class="n">stft</span><span class="p">(</span><span class="n">micro1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">w1</span><span class="p">))</span>
 <span class="n">f</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">w2</span> <span class="o">=</span> <span class="n">stft</span><span class="p">(</span><span class="n">micro2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;w1:&#39;</span><span class="p">,</span> <span class="n">w1</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s1">&#39; w2:&#39;</span><span class="p">,</span> <span class="n">w2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">w1</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span><span class="n">w2</span><span class="o">.</span><span class="n">flatten</span><span class="p">()])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">W</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;W(&#39;</span><span class="p">,</span><span class="n">W</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="s1">&#39;):&#39;</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
 <span class="n">t</span><span class="p">,</span><span class="n">recov</span> <span class="o">=</span> <span class="n">istft</span><span class="p">(</span><span class="n">w1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">micro1</span> <span class="o">-</span> <span class="n">recov</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(65, 257)
-[[ 1.16144549e-02+0.j  1.61385888e-02+0.j  1.85006418e-02+0.j ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>w1: (65, 257)  w2: (65, 257)
+W( (2, 16705) ): [[ 1.16144549e-02+0.j  1.61385888e-02+0.j  1.85006418e-02+0.j ...
    1.18385135e-04+0.j  7.66135211e-04+0.j  4.97046266e-03+0.j]
  [ 2.27491165e-03+0.j  6.23925565e-03+0.j  4.34767210e-03+0.j ...
   -3.85635906e-05+0.j  2.08275687e-04+0.j  2.12086109e-03+0.j]]
-(2, 16705)
 1.1214543788890096e-27
 </pre></div>
 </div>
@@ -537,12 +528,18 @@
 <p>### By selecting randomly a group of points in time, we plot in the plane the coordinates of the points, being the measured signals by the micros.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nbre_selec</span> <span class="o">=</span> <span class="mi">3000</span>
-<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">shuffle</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">y</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">liste</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">y</span><span class="p">)[</span><span class="mi">0</span><span class="p">])]</span>
-<span class="n">shuffle</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">liste</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">nbre_selec</span><span class="p">],</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="p">[</span><span class="n">liste</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">nbre_selec</span><span class="p">],</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;o&quot;</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">shuffle</span>
+<span class="n">nbre_selec</span> <span class="o">=</span> <span class="mi">3000</span>
+
+<span class="k">def</span> <span class="nf">extractSomeValues</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">nb</span> <span class="o">=</span> <span class="mi">600</span><span class="p">):</span> <span class="c1"># along first axis</span>
+    <span class="n">randomId</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">shuffle</span><span class="p">(</span><span class="n">randomId</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="n">randomId</span><span class="p">[:</span><span class="n">nb</span><span class="p">]]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">mixedSignals</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">ySamples</span> <span class="o">=</span> <span class="n">extractSomeValues</span><span class="p">(</span><span class="n">mixedSignals</span><span class="p">,</span> <span class="n">nbre_selec</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ySamples</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">ySamples</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;o&quot;</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -555,112 +552,114 @@
 </div>
 </div>
 </div>
-<div class="section" id="q-do-the-same-with-the-stft-signals-what-do-you-observe">
-<h2>Q: Do the same with the STFT signals, what do you observe ?<a class="headerlink" href="#q-do-the-same-with-the-stft-signals-what-do-you-observe" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="q1-do-the-same-with-the-stft-signals-what-do-you-observe">
+<h2>Q1: Do the same with the STFT signals, what do you observe ?<a class="headerlink" href="#q1-do-the-same-with-the-stft-signals-what-do-you-observe" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here.</span>
-
-<span class="c1"># W represent STFT signals</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># W represent STFT signals</span>
 
 <span class="n">signal</span> <span class="o">=</span> <span class="n">W</span>
 <span class="c1">#to have it in the good axis</span>
-<span class="n">signal</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">signal</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">stftList</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">signal</span><span class="p">)[</span><span class="mi">0</span><span class="p">])]</span>
-<span class="n">shuffle</span><span class="p">(</span><span class="n">stftList</span><span class="p">)</span>
+<span class="n">signal</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">T</span>
+<span class="c1">#use on real part</span>
 <span class="n">signal</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">real</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">signal</span><span class="p">[</span><span class="n">stftList</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">nbre_selec</span><span class="p">],</span><span class="mi">0</span><span class="p">],</span><span class="n">signal</span><span class="p">[</span><span class="n">stftList</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">nbre_selec</span><span class="p">],</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;o&quot;</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="n">stftSamples</span> <span class="o">=</span> <span class="n">extractSomeValues</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">nbre_selec</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">stftSamples</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">stftSamples</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;o&quot;</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16705
-</pre></div>
-</div>
-<img alt="../../_images/TD3 Spectral Analysis and Filtering-Exercise_16_1.png" src="../../_images/TD3 Spectral Analysis and Filtering-Exercise_16_1.png" />
+<img alt="../../_images/TD3 Spectral Analysis and Filtering-Exercise_16_0.png" src="../../_images/TD3 Spectral Analysis and Filtering-Exercise_16_0.png" />
 </div>
 </div>
 <p>We observe that points congregates to 3 distincts lines that cross at a central point (the origin).</p>
 </div>
-<div class="section" id="q-for-each-point-in-the-plot-above-compute-its-angle-angle-between-2-points-and-plot-the-distribution-of-the-angles-use-the-function-np-histogram-and-plot-it">
-<h2>Q: For each point in the plot above, compute its angle (angle between 2 points) and plot the distribution of the angles (use the function np.histogram) and plot it.<a class="headerlink" href="#q-for-each-point-in-the-plot-above-compute-its-angle-angle-between-2-points-and-plot-the-distribution-of-the-angles-use-the-function-np-histogram-and-plot-it" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="q2-for-each-point-in-the-plot-above-compute-its-angle-angle-between-2-points-and-plot-the-distribution-of-the-angles-use-the-function-np-histogram-and-plot-it">
+<h2>Q2: For each point in the plot above, compute its angle (angle between 2 points) and plot the distribution of the angles (use the function np.histogram) and plot it.<a class="headerlink" href="#q2-for-each-point-in-the-plot-above-compute-its-angle-angle-between-2-points-and-plot-the-distribution-of-the-angles-use-the-function-np-histogram-and-plot-it" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#math.atan2() : Returns the tangent(y,x) in radius.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="c1">#math.atan2() : Returns the tangent(y,x) in radius</span>
 
-<span class="n">angles</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dstack</span><span class="p">((</span><span class="n">stftSamples</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">stftSamples</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]))[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">stftList</span><span class="p">:</span>
-    <span class="n">angle</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">signal</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">signal</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
-    <span class="n">angle</span> <span class="o">=</span> <span class="n">angle</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="c1">#take angle between 0 and pi</span>
-    <span class="n">angles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
-    
+<span class="n">angles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pts</span><span class="p">])</span>
+<span class="n">angles</span> <span class="o">=</span> <span class="n">angle</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="c1">#take angle between 0 and pi</span>
+
+<span class="n">resolution</span> <span class="o">=</span> <span class="mi">200</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Angles distribution&quot;</span><span class="p">)</span>
-<span class="n">histogram</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">histogram</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">resolution</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/TD3 Spectral Analysis and Filtering-Exercise_19_0.png" src="../../_images/TD3 Spectral Analysis and Filtering-Exercise_19_0.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="n">b9d1c43e8048</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">angles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pts</span><span class="p">])</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">angles</span> <span class="o">=</span> <span class="n">angle</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="c1">#take angle between 0 and pi</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">resolution</span> <span class="o">=</span> <span class="mi">200</span>
+
+<span class="ne">NameError</span>: name &#39;angle&#39; is not defined
+</pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="q-by-selecting-the-highest-peaks-of-the-distribution-estimate-the-angles-of-the-mixing">
-<h2>Q: By selecting the highest peaks of the distribution, estimate the angles of the mixing.<a class="headerlink" href="#q-by-selecting-the-highest-peaks-of-the-distribution-estimate-the-angles-of-the-mixing" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="q3-by-selecting-the-highest-peaks-of-the-distribution-estimate-the-angles-of-the-mixing">
+<h2>Q3: By selecting the highest peaks of the distribution, estimate the angles of the mixing.<a class="headerlink" href="#q3-by-selecting-the-highest-peaks-of-the-distribution-estimate-the-angles-of-the-mixing" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#A bin is range that represents the width of a single bar of the histogram along the X-axis</span>
-<span class="n">peakCounts</span><span class="p">,</span> <span class="n">peakBins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">peakCounts</span><span class="p">,</span> <span class="n">peakBins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span> <span class="n">resolution</span><span class="p">)</span>
 <span class="c1">#np.histogram computes the occurrences of input data that fall within each bin</span>
 <span class="c1">#which in turns determines the area (not necessarily the height if the bins aren&#39;t of equal width) of each bar.</span>
 
-<span class="n">peaks</span><span class="p">,</span> <span class="n">prop</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">find_peaks</span><span class="p">(</span><span class="n">peakCounts</span><span class="p">)</span>
+<span class="n">peaks</span><span class="p">,</span> <span class="n">prop</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">find_peaks</span><span class="p">(</span><span class="n">peakCounts</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">peakBins</span><span class="p">[</span><span class="n">peaks</span><span class="p">],</span> <span class="n">peakCounts</span><span class="p">[</span><span class="n">peaks</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="n">smallSignal</span> <span class="o">=</span> <span class="n">peakCounts</span><span class="p">[</span><span class="n">peaks</span><span class="p">]</span>
-<span class="n">smallSignal</span><span class="p">,</span> <span class="n">prop</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">find_peaks</span><span class="p">(</span><span class="n">peakCounts</span><span class="p">[</span><span class="n">peaks</span><span class="p">],</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># sort by argument in order to find our maximal peaks</span>
+<span class="c1"># ([-3:]) is used to keep only the first three maximum values</span>
+<span class="n">maxPeakIdx</span> <span class="o">=</span> <span class="n">peakCounts</span><span class="p">[</span><span class="n">peaks</span><span class="p">]</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span>
 
-<span class="n">mixingAngles</span> <span class="o">=</span> <span class="n">peakBins</span><span class="p">[</span><span class="n">peaks</span><span class="p">[</span><span class="n">smallSignal</span><span class="p">]]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Angles : &quot;</span><span class="p">,</span> <span class="n">mixingAngles</span><span class="p">)</span>
+<span class="n">peakAngles</span> <span class="o">=</span> <span class="n">peakBins</span><span class="p">[</span><span class="n">peaks</span><span class="p">][</span><span class="n">maxPeakIdx</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Angles : &quot;</span><span class="p">,</span> <span class="n">peakAngles</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <img alt="../../_images/TD3 Spectral Analysis and Filtering-Exercise_21_0.png" src="../../_images/TD3 Spectral Analysis and Filtering-Exercise_21_0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Angles :  [0.51827047 1.36632741 2.60700331]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Angles :  [1.02108836 2.08835235 0.18925025]
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="q-using-the-stft-recorded-signals-take-each-point-in-the-plane-and-compute-its-projection-on-each-recovered-directions-it-gives-a-vector-of-3-estimated-projections">
-<h2>Q: Using the STFT recorded signals, take each point in the plane and compute its projection on each recovered directions. It gives a vector of 3 estimated projections.<a class="headerlink" href="#q-using-the-stft-recorded-signals-take-each-point-in-the-plane-and-compute-its-projection-on-each-recovered-directions-it-gives-a-vector-of-3-estimated-projections" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="q4-using-the-stft-recorded-signals-take-each-point-in-the-plane-and-compute-its-projection-on-each-recovered-directions-it-gives-a-vector-of-3-estimated-projections">
+<h2>Q4: Using the STFT recorded signals, take each point in the plane and compute its projection on each recovered directions. It gives a vector of 3 estimated projections.<a class="headerlink" href="#q4-using-the-stft-recorded-signals-take-each-point-in-the-plane-and-compute-its-projection-on-each-recovered-directions-it-gives-a-vector-of-3-estimated-projections" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#https://stackoverflow.com/questions/9605556/how-to-project-a-point-onto-a-plane-in-3d</span>
 <span class="c1">#https://gamedev.stackexchange.com/questions/72528/how-can-i-project-a-3d-point-onto-a-3d-line</span>
 
-
-<span class="n">directions</span> <span class="o">=</span> <span class="n">mixingAngles</span>
+<span class="n">directions</span> <span class="o">=</span> <span class="n">peakAngles</span>
 <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">dots</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">angle</span> <span class="ow">in</span> <span class="n">directions</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Angle : &quot;</span><span class="p">,</span> <span class="n">angle</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">])</span>
-    <span class="n">direction</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span>
-    <span class="n">dotAngles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">direction</span><span class="p">,</span> <span class="n">direction</span><span class="p">)</span>
+    <span class="n">direction</span> <span class="o">=</span> <span class="p">[</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)]</span>
+    <span class="c1"># print(direction)</span>
+    <span class="n">dotAngles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">direction</span><span class="p">,</span> <span class="n">direction</span><span class="p">)</span> 
     <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
     <span class="n">dots</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dotAngles</span><span class="p">)</span>
-
     
 <span class="n">projections</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
 <span class="k">for</span> <span class="n">pt</span> <span class="ow">in</span> <span class="n">signal</span><span class="p">[:</span><span class="n">nbre_selec</span><span class="p">]:</span>
@@ -684,24 +683,20 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Angle :  0.5182704683495785
-[0.8686772512294434, 0.4953784747003632]
-Angle :  1.3663274122249442
-[0.20304716619697988, 0.9791689579941636]
-Angle :  2.6070033115981643
-[-0.8604779270368589, 0.5094877202468673]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Angle :  1.0210883637660098
+Angle :  2.088352354183552
+Angle :  0.18925025358763106
 </pre></div>
 </div>
 <img alt="../../_images/TD3 Spectral Analysis and Filtering-Exercise_23_1.png" src="../../_images/TD3 Spectral Analysis and Filtering-Exercise_23_1.png" />
 </div>
 </div>
 </div>
-<div class="section" id="q-for-each-frequency-point-in-the-signal-stft-select-the-direction-on-which-it-has-the-largest-projection-and-threshold-using-the-code-below">
-<h2>Q: For each frequency point in the signal STFT, select the direction on which it has the largest projection. And threshold using the code below.<a class="headerlink" href="#q-for-each-frequency-point-in-the-signal-stft-select-the-direction-on-which-it-has-the-largest-projection-and-threshold-using-the-code-below" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="q5-for-each-frequency-point-in-the-signal-stft-select-the-direction-on-which-it-has-the-largest-projection-and-threshold-using-the-code-below">
+<h2>Q5: For each frequency point in the signal STFT, select the direction on which it has the largest projection. And threshold using the code below.<a class="headerlink" href="#q5-for-each-frequency-point-in-the-signal-stft-select-the-direction-on-which-it-has-the-largest-projection-and-threshold-using-the-code-below" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### insert your code here.</span>
-<span class="n">threshold</span> <span class="o">=</span> <span class="o">.</span><span class="mi">005</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">threshold</span> <span class="o">=</span> <span class="o">.</span><span class="mi">005</span>
 <span class="c1">#D = np.sqrt(np.sum(W**2, 0))</span>
 <span class="c1">#I = I*(D &gt; threshold)</span>
 
@@ -773,7 +768,7 @@ Angle :  2.6070033115981643
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">16</span><span class="o">-</span><span class="mf">0295e159697</span><span class="n">f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">29</span><span class="o">-</span><span class="mf">0295e159697</span><span class="n">f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Audio</span>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">Audio</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span><span class="n">i</span><span class="p">],</span> <span class="n">rate</span> <span class="o">=</span> <span class="mi">15000</span><span class="p">)</span>
