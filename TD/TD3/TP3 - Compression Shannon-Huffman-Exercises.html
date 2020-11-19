@@ -421,66 +421,6 @@
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#b-the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir">
-   B. The goal of this part is to explore implementations of a FIR or an IIR.
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#q1-implement-an-ideal-low-pass-filter-using-fourier-transform-in-1d">
-     Q1. Implement an ideal low pass filter using Fourier transform in 1D:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#compute-the-inverse-fft-of-a-low-pass-filter-and-cut-it-with-a-window-that-will-be-passed-in-argument">
-     Compute the inverse FFT of a low pass filter and cut it with a window that will be passed in argument.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#q2-implement-an-iir-filter-defined-by-its-numerator-which-will-be-set-to-a-constant-b-and-its-denominator-which-will-be-set-to-1-az-1">
-     Q2. Implement an IIR filter defined by its numerator which will be set to a  constant
-     <span class="math notranslate nohighlight">
-      \(b\)
-     </span>
-     and its denominator which will be set to
-     <span class="math notranslate nohighlight">
-      \(1-az^{-1}\)
-     </span>
-     .
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#what-can-you-say-about-the-range-of-the-parameter-a-in-order-to-obtain-a-stable-filter">
-       What can you say about the range of the parameter
-       <span class="math notranslate nohighlight">
-        \(a\)
-       </span>
-       in order to obtain a stable filter.
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#experimentally-determine-the-ranges-of-a-to-get-respectively-a-low-pass-filter-and-a-high-pass-filter-give-a-theoretical-explanation">
-       Experimentally, determine the ranges of
-       <span class="math notranslate nohighlight">
-        \(a\)
-       </span>
-       to get respectively a low-pass filter and a high-pass filter. Give a theoretical explanation.
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#in-the-following-we-are-given-an-electrocardiogram-we-plot-it-as-a-function-of-time-and-we">
-     In the following, we are given an electrocardiogram. We plot it as a function of time and we
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#q3-estimate-the-number-of-heartbeats-in-the-following-electrocardiogram-and-estimate-the-mean-value-of-the-interval-between-two-heartbeats-you-can-use-the-method-of-your-choice-a-possible-method-consists-in-using-a-band-pass-filter-and-then-extract-the-maximum-values-of-the-filtered-signal">
-     Q3. Estimate the number of heartbeats in the following electrocardiogram and estimate the mean value of the interval between two heartbeats. You can use the method of your choice. A possible method consists in using a band pass filter and then extract the maximum values of the filtered signal.
-    </a>
-   </li>
-  </ul>
- </li>
 </ul>
 
         </nav>
@@ -528,7 +468,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f55debcf290&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9a787db650&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_5_1.png" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_5_1.png" />
@@ -550,8 +490,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.33984375 0.66015625]
-Empirical p = 0.34
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.265625 0.734375]
+Empirical p = 0.27
 </pre></div>
 </div>
 </div>
@@ -564,7 +504,7 @@ Empirical p = 0.34
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entropy = 0.92
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entropy = 0.84
 </pre></div>
 </div>
 </div>
@@ -732,8 +672,7 @@ Empirical p = 0.34
     <span class="c1"># node. Thus, remove current node&#39;s value   </span>
     <span class="c1"># from &#39;arr&#39;and then return false</span>
     <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="n">path</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> 
-    <span class="k">return</span> <span class="kc">False</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">HuffmanGencode</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">letter</span><span class="p">):</span>
@@ -745,8 +684,9 @@ Empirical p = 0.34
         <span class="n">pathChain</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
         <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">path</span><span class="p">:</span>
             <span class="n">pathChain</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+        <span class="c1">#don&#39;t forget to reverse the path because the tree is traversed in reverse</span>
+        <span class="n">pathChain</span> <span class="o">=</span> <span class="n">pathChain</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">codes</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">keys</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span><span class="n">pathChain</span><span class="p">})</span>
-        
     <span class="k">return</span> <span class="n">codes</span>
 
 <span class="c1"># vector to store the path  </span>
@@ -758,7 +698,7 @@ Empirical p = 0.34
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A == 0, B == 1, etc
-{&#39;A&#39;: &#39;001&#39;, &#39;B&#39;: &#39;011&#39;, &#39;C&#39;: &#39;0&#39;, &#39;D&#39;: &#39;101&#39;, &#39;E&#39;: &#39;111&#39;}
+{&#39;A&#39;: &#39;100&#39;, &#39;B&#39;: &#39;110&#39;, &#39;C&#39;: &#39;0&#39;, &#39;D&#39;: &#39;101&#39;, &#39;E&#39;: &#39;111&#39;}
 </pre></div>
 </div>
 </div>
@@ -773,26 +713,34 @@ Empirical p = 0.34
 <span class="k">def</span> <span class="nf">RandGen</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">number</span><span class="p">))</span>
 
-<span class="n">message</span> <span class="o">=</span> <span class="n">RandGen</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="c1"># 0 is for &#39;A&#39; and so on</span>
+<span class="n">message</span> <span class="o">=</span> <span class="n">RandGen</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span> <span class="c1"># 0 is for &#39;A&#39; and so on</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----------------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TO LETTER !&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----------------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">([</span><span class="nb">chr</span><span class="p">(</span><span class="mi">65</span> <span class="o">+</span> <span class="n">m</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">message</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 1 2 1 4 2 2 2 3 4 4 3 4 4 4 4 3 2 3 2 1 3 2 2 2 1 3 4 3 2 2 4 2 2 3 4 3
- 1 4 2 2 2 0 2 3 2 4 2 2 2 2 2 4 4 1 2 2 2 3 2 2 1 3 1 0 1 4 0 3 0 2 4 2 2
- 4 2 2 2 2 1 2 3 2 3 1 3 2 2 2 2 0 2 2 2 2 1 4 3 2 2 0 2 2 4 0 0 2 2 4 3 2
- 2 2 3 4 0 2 2 2 2 0 3 2 3 2 2 4 2 1 2 0 2 3 1 0 4 3 1 0 1 1 0 2 1 2 3 3 1
- 0 1 4 4 1 4 0 2 4 4 3 2 2 2 3 3 2 4 4 0 0 2 1 2 2 4 2 4 3 0 3 2 4 3 2 2 0
- 2 2 2 4 4 1 1 3 3 4 2 4 2 2 3 2 2 4 2 1 4 3 2 2 1 4 4 2 4 2 4 3 3 2 0 2 3
- 0 2 2 2 2 2 1 3 1 1 0 4 4 2 4 4 2 4 0 2 2 3 3 2 1 2 2 4 3 2 4 4 1 1 2 0 4
- 2 0 1 0 2 2 0 2 1 2 2 1 2 1 2 2 1 2 2 4 2 3 4 1 1 3 3 1 2 1 4 3 2 1 2 2 2
- 1 2 3 4 4 3 4 0 1 2 3 2 2 4 2 1 3 4 4 2 2 2 3 2 2 2 1 4 3 0 2 1 1 3 3 3 0
- 4 1 4 0 3 0 0 2 1 3 4 4 2 2 4 3 1 2 2 4 1 3 2 2 4 2 2 1 3 2 0 2 2 2 1 1 4
- 0 3 3 4 2 2 1 3 3 2 0 2 0 3 3 2 2 4 3 2 1 1 3 1 3 2 2 1 1 2 3 4 2 2 4 1 2
- 3 4 3 1 2 2 4 2 2 2 4 1 4 1 2 1 4 2 0 0 3 1 1 0 4 4 4 2 4 2 0 2 2 1 4 4 2
- 2 4 4 1 2 4 2 1 2 4 3 2 0 4 4 1 3 2 3 0 4 3 2 4 0 3 1 2 2 0 2 4 4 3 2 2 1
- 2 2 4 3 4 2 4 3 2 2 1 3 2 1 2 4 2 3 2 4 2 2 2 3 4 1 0 4 2 3 2]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3 3 2 2 4 4 4 4 2 1 4 2 3 1 2 3 1 1 2 2 3 2 2 4 4 1 1 3 0 2 2 0 2 2 4 3 2
+ 4 1 3 2 2 3 2 1 2 1 3 2 3 2 2 2 2 3 4 4 4 1 1 4 3 4 2 1 0 2 3 2 1 2 1 2 2
+ 3 4 0 2 3 4 1 2 2 2 1 3 3 4 2 2 1 0 2 1 0 4 2 0 2 1 2 4 2 1 1 1 2 2 2 0 0
+ 2 1 2 0 2 3 2 3 3 0 1 2 2 2 0 2 0 0 2 0 2 4 1 1 3 0 1 0 1 2 2 1 2 1 3 2 1
+ 2 2 4 2 4 4 2 1 3 3 0 2 2 3 2 2 2 2 1 4 2 1 2 3 3 3 2 3 2 4 1 3 4 2 1 2 4
+ 4 1 3 2 1 3 1 1 4 2 3 1 2 2 2 0 4 3 4 3 2 4 2 2 1 1 2 1 1 4 1 3 1 1 3 4 2
+ 2 2 3 2 2 4 3 4 1 2 2 1 2 0 2 4 2 2 2 4 0 2 4 3 3 2 2 2 2 2 2 1 3 2 1 2 2
+ 0 4 2 2 2 4 3 4 0 2 2 2 2 1 4 4 2 4 0 2 4 1 1 1 0 3 2 3 1 4 0 2 2 4 2 2 1
+ 2 3 1 2 2 1 3 2 2 0 2 2 1 4 1 0 0 1 2 2 4 4 3 4 2 2 4 2 2 2 2 2 2 3 3 4 4
+ 1 2 0 3 4 2 1 0 2 0 2 2 4 3 2 3 0 2 2 4 4 1 2 1 2 4 2 1 0 4 3 2 4 2 2 2 2
+ 2 0 2 4 1 2 4 1 4 0 4 3 4 4 4 2 3 4 0 4 0 3 2 4 4 4 3 2 4 2 2 3 4 4 2 2 0
+ 3 2 2 2 4 1 2 3 4 3 0 4 2 3 3 2 4 3 2 1 2 4 2 3 2 2 2 2 2 2 1 2 3 2 2 2 2
+ 2 3 2 3 2 0 0 1 4 1 1 4 2 4 2 2 2 2 1 2 1 3 4 4 1 2 3 3 0 4 0 2 1 2 2 2 1
+ 1 1 2 4 0 3 1 2 1 1 2 0 1 4 1 2 0 2 2 3 2 2 0 3 4 2 2 2 1 2 4]
+-----------------
+TO LETTER !
+-----------------
+[&#39;D&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;E&#39;, &#39;E&#39;, &#39;E&#39;, &#39;C&#39;, &#39;B&#39;, &#39;E&#39;, &#39;C&#39;, &#39;D&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;E&#39;, &#39;B&#39;, &#39;B&#39;, &#39;D&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;D&#39;, &#39;C&#39;, &#39;E&#39;, &#39;B&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;B&#39;, &#39;D&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;E&#39;, &#39;E&#39;, &#39;B&#39;, &#39;B&#39;, &#39;E&#39;, &#39;D&#39;, &#39;E&#39;, &#39;C&#39;, &#39;B&#39;, &#39;A&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;A&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;D&#39;, &#39;D&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;A&#39;, &#39;C&#39;, &#39;B&#39;, &#39;A&#39;, &#39;E&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;A&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;D&#39;, &#39;D&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;A&#39;, &#39;A&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;E&#39;, &#39;B&#39;, &#39;B&#39;, &#39;D&#39;, &#39;A&#39;, &#39;B&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;B&#39;, &#39;D&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;E&#39;, &#39;E&#39;, &#39;C&#39;, &#39;B&#39;, &#39;D&#39;, &#39;D&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;E&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;D&#39;, &#39;D&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;E&#39;, &#39;B&#39;, &#39;D&#39;, &#39;E&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;E&#39;, &#39;E&#39;, &#39;B&#39;, &#39;D&#39;, &#39;C&#39;, &#39;B&#39;, &#39;D&#39;, &#39;B&#39;, &#39;B&#39;, &#39;E&#39;, &#39;C&#39;, &#39;D&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;E&#39;, &#39;D&#39;, &#39;E&#39;, &#39;D&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;, &#39;B&#39;, &#39;B&#39;, &#39;E&#39;, &#39;B&#39;, &#39;D&#39;, &#39;B&#39;, &#39;B&#39;, &#39;D&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;D&#39;, &#39;E&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;A&#39;, &#39;C&#39;, &#39;E&#39;, &#39;D&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;D&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;D&#39;, &#39;E&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;E&#39;, &#39;E&#39;, &#39;C&#39;, &#39;E&#39;, &#39;A&#39;, &#39;C&#39;, &#39;E&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;A&#39;, &#39;D&#39;, &#39;C&#39;, &#39;D&#39;, &#39;B&#39;, &#39;E&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;E&#39;, &#39;B&#39;, &#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;E&#39;, &#39;D&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;D&#39;, &#39;E&#39;, &#39;E&#39;, &#39;B&#39;, &#39;C&#39;, &#39;A&#39;, &#39;D&#39;, &#39;E&#39;, &#39;C&#39;, &#39;B&#39;, &#39;A&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;D&#39;, &#39;C&#39;, &#39;D&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;E&#39;, &#39;B&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;B&#39;, &#39;A&#39;, &#39;E&#39;, &#39;D&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;E&#39;, &#39;B&#39;, &#39;C&#39;, &#39;E&#39;, &#39;B&#39;, &#39;E&#39;, &#39;A&#39;, &#39;E&#39;, &#39;D&#39;, &#39;E&#39;, &#39;E&#39;, &#39;E&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;A&#39;, &#39;E&#39;, &#39;A&#39;, &#39;D&#39;, &#39;C&#39;, &#39;E&#39;, &#39;E&#39;, &#39;E&#39;, &#39;D&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;D&#39;, &#39;A&#39;, &#39;E&#39;, &#39;C&#39;, &#39;D&#39;, &#39;D&#39;, &#39;C&#39;, &#39;E&#39;, &#39;D&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;E&#39;, &#39;B&#39;, &#39;B&#39;, &#39;E&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;B&#39;, &#39;D&#39;, &#39;E&#39;, &#39;E&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;D&#39;, &#39;A&#39;, &#39;E&#39;, &#39;A&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;, &#39;E&#39;, &#39;A&#39;, &#39;D&#39;, &#39;B&#39;, &#39;C&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;, &#39;A&#39;, &#39;B&#39;, &#39;E&#39;, &#39;B&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;D&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;E&#39;]
 </pre></div>
 </div>
 </div>
@@ -814,7 +762,7 @@ Empirical p = 0.34
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>00101100111110001011111111011111111111111010101001110100001110111110100111001011111010111110000010101011100000111111011000101000111010110010111110011010010111001110000011010101010111010000001000001111110100001001110010010011110100010111100100000011010101001110011000101010110011111010110010110110010011010110101100101111111101111100101111111010001011010111111001001001100111011110100110101111010000100011111101101110110111101110010100111001111110100011111111011101111011010001010100100000011101011011001111111011111101110010010110100110011110101111110110110001111000101100100001001100011001100011001110101111011011101101011001111110100110000110101111111101111001011010100111001110111111100010100001111110100100110111011011010011110111110011010010010011101111111001111010110011101110100111000111010001000011011111001101101111000111011010001000110110100111101001101110101110100011011010111100111011010111110101100111000111011111011001111100010011010110110011111111110111000100011111111001111110110111001101111010001111111011101010100111110101110011010110000101111111010001100111101111011110100011101001101110101011100010111101100111101010
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>101101001111111111110110111010111001011101100010100111111110110101100001000011110101111101010010101100110101010100001011111111111101101111011110110100010101100110001011111000101111110000110101101111001101000110100111010001100111011011011000010010001100100010101011011001100001000100100010001111101101011001101001100011001101010110001110111111011010110110000101000011011101100101101101010101111101011110110011111111010101101011101101110101110000100111101111101011100110110011011011111010111011010111100010100111101111110001100100011100011110001111011010000001101010110001001110001111011111000000110111111011110001111101101101001010101110111100001110011001011100011010100100001101111101001001100011111110111100111000000101101111111110010010111101101000100001111010101100001111111100110011101101001111010111000001000111110011111011110011110111111111101011111001111001010111111111101011100101111111001001010001111100101111101100111010110101111010110011101010000001100101000001010101010010011011111011011101110000110011010111111111001011011001111000110000110110110011110010111001101100100110111110010000101001001011110001100111
 </pre></div>
 </div>
 </div>
@@ -860,41 +808,25 @@ Expected code length using Huffman :  2.2
 <h3>Q6. Write below a function that decodes the Huffman code and test it on a random sequence. Check that it is the inverse of the coding map.<a class="headerlink" href="#q6-write-below-a-function-that-decodes-the-huffman-code-and-test-it-on-a-random-sequence-check-that-it-is-the-inverse-of-the-coding-map" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">getLeaves</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="p">:</span> 
-        <span class="k">return</span> <span class="p">[]</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="o">.</span><span class="n">left</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">:</span> 
-        <span class="k">return</span> <span class="p">[</span><span class="n">root</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
-    <span class="n">leaves</span> <span class="o">=</span> <span class="n">getLeaves</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">)</span> <span class="o">+</span> <span class="n">getLeaves</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">leaves</span> 
-
-<span class="k">def</span> <span class="nf">isLeaf</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="kc">None</span><span class="p">):</span>
-        <span class="k">return</span> <span class="kc">False</span>  
-    <span class="k">if</span> <span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span> <span class="o">==</span> <span class="kc">None</span><span class="p">):</span>
-        <span class="k">return</span> <span class="kc">True</span>
-    <span class="k">return</span> <span class="kc">False</span>
-                
-<span class="c1"># FIXME</span>
-<span class="k">def</span> <span class="nf">DecodeHuffman</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">DecodeHuffman</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
     <span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
     <span class="n">curr</span> <span class="o">=</span> <span class="n">root</span>
     <span class="k">for</span> <span class="n">bit</span> <span class="ow">in</span> <span class="n">code</span><span class="p">:</span>
-        <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">left</span> <span class="k">if</span> <span class="n">bit</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span> <span class="k">else</span> <span class="n">curr</span><span class="o">.</span><span class="n">right</span>
+        <span class="k">if</span> <span class="n">bit</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
+            <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">right</span>  
+        <span class="k">elif</span> <span class="n">bit</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">:</span>
+            <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">left</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">curr</span><span class="o">.</span><span class="n">left</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">curr</span><span class="o">.</span><span class="n">right</span> <span class="o">==</span> <span class="kc">None</span><span class="p">):</span>
             <span class="n">result</span> <span class="o">+=</span> <span class="n">curr</span><span class="o">.</span><span class="n">name</span>
             <span class="n">curr</span> <span class="o">=</span> <span class="n">root</span>
-    
     <span class="k">return</span> <span class="n">result</span>
-
-<span class="c1"># TODO compare with previous question code</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">DecodeHuffman</span><span class="p">(</span><span class="n">compressedMessage</span><span class="p">,</span> <span class="n">root</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BABCCCCECACCCCCCACCCCCCCCCCCCDCDACDECCCACCCDACBACCCDCCCCCEBDCACEBCCCCCAECDBCCDCCBACCCBCDDCCCBCCEBCDCDCACDEBEBCCCCCDECBCCBBBCCCDBACCBEECCDCDACBCECDCABCCCCDCCBAABBCDCCDCCBACCCCCCACCCBACCCCCDBADCCCCCCBBBCBCCACCDADCCCCDECECCCCCCAACAACCACBDACBCCCCCDBCCCCCCCACACCADBDCBEECCCDCCABCCCCCCACCCCACBBADABCCCDCCCCCCAAECCCCECABEDAECCBCECCBCCDCCCCAACADCCBCCCCCDAEADCCCCCCCCACCBADCBCCBCCACCCCCECDECCCCCCDDAACAADACCACCCBCDDDACACCCCCBCCCDCCBCCACDACECCCDBEAACCCBCAACCECCCADBECCADACCDAACDCCCDBCADCCCCBCCADCCCCCDCCBCCECCCACCCABCCCCECBCDCCABCCCCCCCCCACECECCCCCCCCBCCCCCAACBCACCDBCCCCCCACDCDACCCDCCCBCDCCEDCCCCCCCDBCBCCCACCACCDBCCDAACDCACECACCABCCCDC
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DDCCEEEECBECDBCDBBCCDCCEEBBDACCACCEDCEBDCCDCBCBDCDCCCCDEEEBBEDECBACDCBCBCCDEACDEBCCCBDDECCBACBAECACBCECBBBCCCAACBCACDCDDABCCCACAACACEBBDABABCCBCBDCBCCECEECBDDACCDCCCCBECBCDDDCDCEBDECBCEEBDCBDBBECDBCCCAEDEDCECCBBCBBEBDBBDECCCDCCEDEBCCBCACECCCEACEDDCCCCCCBDCBCCAECCCEDEACCCCBEECEACEBBBADCDBEACCECCBCDBCCBDCCACCBEBAABCCEEDECCECCCCCCDDEEBCADECBACACCEDCDACCEEBCBCECBAEDCECCCCCACEBCEBEAEDEEECDEAEADCEEEDCECCDEECCADCCCEBCDEDAECDDCEDCBCECDCCCCCCBCDCCCCCDCDCAABEBBECECCCCBCBDEEBCDDAEACBCCCBBBCEADBCBBCABEBCACCDCCADECCCBCE
 </pre></div>
 </div>
 </div>
@@ -1044,7 +976,7 @@ Shannon Entropy : 0.5293608652873644
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11111111111110001111111111111111111111100011111001000111111000111111111111111111111110001111000111111111110001111111111111100011111111111100011111111111111000111111111111111111110001111000110010001111111111100011110001111111111111111001000110001111111111000111111111000111111111100011111111111000111000111111110001110001100011001000111111111111111111111111111111111100011100011111111111111111100011000111111111111111111111111111111111000111000111111111111111111111111100011111111111100100011111111111111111111111
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11111111100011111111111111111100011000111000111111111111111110001110001111111000111111111111111111111111111111111111111111111110001111000110010001111111111111110001111111100011111111000111111000111111111000111000111111100011111111111111111111111111111111100011111111111111000111111111111111111111100100100011111111111110001110001100011111111111000111111111111111111100100011111111100011111111111111100011100011111111111111000111111111100011111111110001111111111100011100011111111111111111111111111111111001000111
 </pre></div>
 </div>
 </div>
@@ -1063,76 +995,6 @@ Shannon Entropy : 0.5293608652873644
 </div>
 <div class="section" id="q10-given-a-random-sequence-generated-from-the-probability-h-plot-the-performance-of-the-huffman-code-length-of-the-code-shannon-bound-in-terms-of-k-the-block-length-comment">
 <h3>Q10. Given a random sequence generated from the probability <span class="math notranslate nohighlight">\(h\)</span>, plot the performance of the Huffman code (length of the code - Shannon bound) in terms of <span class="math notranslate nohighlight">\(k\)</span> the block length. Comment.<a class="headerlink" href="#q10-given-a-random-sequence-generated-from-the-probability-h-plot-the-performance-of-the-huffman-code-length-of-the-code-shannon-bound-in-terms-of-k-the-block-length-comment" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-<hr class="docutils" />
-<div class="section" id="b-the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir">
-<h2>B. The goal of this part is to explore implementations of a FIR or an IIR.<a class="headerlink" href="#b-the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="q1-implement-an-ideal-low-pass-filter-using-fourier-transform-in-1d">
-<h3>Q1. Implement an ideal low pass filter using Fourier transform in 1D:<a class="headerlink" href="#q1-implement-an-ideal-low-pass-filter-using-fourier-transform-in-1d" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="compute-the-inverse-fft-of-a-low-pass-filter-and-cut-it-with-a-window-that-will-be-passed-in-argument">
-<h3>Compute the inverse FFT of a low pass filter and cut it with a window that will be passed in argument.<a class="headerlink" href="#compute-the-inverse-fft-of-a-low-pass-filter-and-cut-it-with-a-window-that-will-be-passed-in-argument" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="q2-implement-an-iir-filter-defined-by-its-numerator-which-will-be-set-to-a-constant-b-and-its-denominator-which-will-be-set-to-1-az-1">
-<h3>Q2. Implement an IIR filter defined by its numerator which will be set to a  constant <span class="math notranslate nohighlight">\(b\)</span> and its denominator which will be set to <span class="math notranslate nohighlight">\(1-az^{-1}\)</span>.<a class="headerlink" href="#q2-implement-an-iir-filter-defined-by-its-numerator-which-will-be-set-to-a-constant-b-and-its-denominator-which-will-be-set-to-1-az-1" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="what-can-you-say-about-the-range-of-the-parameter-a-in-order-to-obtain-a-stable-filter">
-<h4>What can you say about the range of the parameter <span class="math notranslate nohighlight">\(a\)</span> in order to obtain a stable filter.<a class="headerlink" href="#what-can-you-say-about-the-range-of-the-parameter-a-in-order-to-obtain-a-stable-filter" title="Permalink to this headline">¶</a></h4>
-</div>
-<div class="section" id="experimentally-determine-the-ranges-of-a-to-get-respectively-a-low-pass-filter-and-a-high-pass-filter-give-a-theoretical-explanation">
-<h4>Experimentally, determine the ranges of <span class="math notranslate nohighlight">\(a\)</span> to get respectively a low-pass filter and a high-pass filter. Give a theoretical explanation.<a class="headerlink" href="#experimentally-determine-the-ranges-of-a-to-get-respectively-a-low-pass-filter-and-a-high-pass-filter-give-a-theoretical-explanation" title="Permalink to this headline">¶</a></h4>
-</div>
-</div>
-<div class="section" id="in-the-following-we-are-given-an-electrocardiogram-we-plot-it-as-a-function-of-time-and-we">
-<h3>In the following, we are given an electrocardiogram. We plot it as a function of time and we<a class="headerlink" href="#in-the-following-we-are-given-an-electrocardiogram-we-plot-it-as-a-function-of-time-and-we" title="Permalink to this headline">¶</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### load the data which is an electrocardiogram which is sampled at 360Hz</span>
-<span class="n">ecg</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">misc</span><span class="o">.</span><span class="n">electrocardiogram</span><span class="p">()</span>
-<span class="c1">### Different plots.</span>
-<span class="n">fs</span> <span class="o">=</span> <span class="mf">360.0</span>
-<span class="c1">### Since it is sampled at 360Hz, recall that Hz is the number of cycle per second, then the</span>
-<span class="c1">### time is obtained as follows:</span>
-<span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ecg</span><span class="o">.</span><span class="n">size</span><span class="p">)</span> <span class="o">/</span> <span class="n">fs</span>
-<span class="c1">### simple plot.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">ecg</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;time in s&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;ECG in mV&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mf">10.2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time min&quot;</span><span class="p">,</span> <span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time max&quot;</span><span class="p">,</span> <span class="n">time</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_41_0.png" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_41_0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>time min 0.0
-time max 299.9972222222222
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Use the scipy function to get the power spectrum of the signal.</span>
-<span class="n">f</span><span class="p">,</span> <span class="n">Pxx</span> <span class="o">=</span> <span class="n">sg</span><span class="o">.</span><span class="n">welch</span><span class="p">(</span><span class="n">ecg</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span> <span class="n">scaling</span><span class="o">=</span><span class="s2">&quot;spectrum&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">Pxx</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Frequency in Hz&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Power spectrum of the ECG in mV**2&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">f</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_42_0.png" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_42_0.png" />
-</div>
-</div>
-</div>
-<div class="section" id="q3-estimate-the-number-of-heartbeats-in-the-following-electrocardiogram-and-estimate-the-mean-value-of-the-interval-between-two-heartbeats-you-can-use-the-method-of-your-choice-a-possible-method-consists-in-using-a-band-pass-filter-and-then-extract-the-maximum-values-of-the-filtered-signal">
-<h3>Q3. Estimate the number of heartbeats in the following electrocardiogram and estimate the mean value of the interval between two heartbeats. You can use the method of your choice. A possible method consists in using a band pass filter and then extract the maximum values of the filtered signal.<a class="headerlink" href="#q3-estimate-the-number-of-heartbeats-in-the-following-electrocardiogram-and-estimate-the-mean-value-of-the-interval-between-two-heartbeats-you-can-use-the-method-of-your-choice-a-possible-method-consists-in-using-a-band-pass-filter-and-then-extract-the-maximum-values-of-the-filtered-signal" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>
