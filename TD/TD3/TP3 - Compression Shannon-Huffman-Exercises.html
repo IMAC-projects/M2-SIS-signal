@@ -468,7 +468,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f1c61d0d750&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fd4b16cb5d0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_5_1.png" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_5_1.png" />
@@ -480,18 +480,21 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Generate a random text according to the frequencies.</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">512</span><span class="p">;</span> <span class="n">p</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">512</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mf">0.3</span>
 <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">p</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="n">h</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)]</span>
 <span class="n">h</span> <span class="o">=</span> <span class="n">h</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Empirical p = </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span><span class="k">h</span>[0])
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;probability distribution : </span><span class="si">{</span><span class="n">h</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Theoretical probability : </span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Empirical probability : </span><span class="si">{</span><span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.32617188 0.67382812]
-Empirical p = 0.33
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>probability distribution : [0.28515625 0.71484375]
+Theoretical probability : 0.3
+Empirical probability : 0.28515625
 </pre></div>
 </div>
 </div>
@@ -504,7 +507,7 @@ Empirical p = 0.33
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entropy = 0.91
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entropy = 0.86
 </pre></div>
 </div>
 </div>
@@ -513,12 +516,12 @@ Empirical p = 0.33
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Definition of the probability h</span>
 <span class="n">h</span> <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">15</span><span class="p">,</span> <span class="o">.</span><span class="mi">4</span><span class="p">,</span> <span class="o">.</span><span class="mi">15</span><span class="p">,</span> <span class="o">.</span><span class="mi">2</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ShannonEntropy</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Entropy = </span><span class="si">{</span><span class="n">ShannonEntropy</span><span class="p">(</span><span class="n">h</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.1464393446710153
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entropy = 2.1464393446710153
 </pre></div>
 </div>
 </div>
@@ -580,21 +583,20 @@ Empirical p = 0.33
 <span class="c1"># root a NodeTree root node</span>
 <span class="k">def</span> <span class="nf">BuildIgGraph</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
     <span class="n">g</span> <span class="o">=</span> <span class="n">ig</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
-    <span class="n">queue</span> <span class="o">=</span> <span class="p">[</span><span class="n">root</span><span class="p">]</span>
-    <span class="n">parentId</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">add_vertex</span><span class="p">((</span><span class="n">root</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">root</span><span class="o">.</span><span class="n">proba</span><span class="p">))</span><span class="o">.</span><span class="n">index</span>
-    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">node</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">:</span>
-            <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
-            <span class="nb">id</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">add_vertex</span><span class="p">((</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">proba</span><span class="p">))</span><span class="o">.</span><span class="n">index</span>
-            <span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">parentId</span><span class="p">,</span> <span class="nb">id</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">:</span>
-            <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
-            <span class="nb">id</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">add_vertex</span><span class="p">((</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">proba</span><span class="p">))</span><span class="o">.</span><span class="n">index</span>
-            <span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">parentId</span><span class="p">,</span> <span class="nb">id</span><span class="p">)</span>
-    
-        <span class="n">parentId</span> <span class="o">=</span> <span class="nb">id</span>
-
+    <span class="n">queue</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">rootIdx</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">add_vertex</span><span class="p">((</span><span class="n">root</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">root</span><span class="o">.</span><span class="n">proba</span><span class="p">))</span><span class="o">.</span><span class="n">index</span>
+    <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">root</span><span class="p">,</span> <span class="n">rootIdx</span><span class="p">])</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">queue</span><span class="p">):</span>
+        <span class="p">[</span><span class="n">root</span><span class="p">,</span> <span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="p">[</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">left</span><span class="p">:</span>
+            <span class="n">leftIdx</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">add_vertex</span><span class="p">((</span><span class="n">left</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">left</span><span class="o">.</span><span class="n">proba</span><span class="p">))</span><span class="o">.</span><span class="n">index</span>
+            <span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">leftIdx</span><span class="p">)</span>
+            <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">left</span><span class="p">,</span> <span class="n">leftIdx</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">right</span><span class="p">:</span>
+            <span class="n">rightIdx</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">add_vertex</span><span class="p">((</span><span class="n">right</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">right</span><span class="o">.</span><span class="n">proba</span><span class="p">))</span><span class="o">.</span><span class="n">index</span>
+            <span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">rightIdx</span><span class="p">)</span>
+            <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">right</span><span class="p">,</span> <span class="n">rightIdx</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">g</span>
 
 <span class="k">def</span> <span class="nf">print2DUtil</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">space</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span> 
@@ -614,34 +616,15 @@ Empirical p = 0.33
     <span class="n">print2DUtil</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">space</span><span class="p">)</span>  
     
 <span class="n">root</span> <span class="o">=</span> <span class="n">CreateTree</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">BuildIgGraph</span><span class="p">(</span><span class="n">root</span><span class="p">)</span> <span class="c1"># FIXME</span>
-<span class="c1">#ig.plot(g, layout = g.layout_reingold_tilford(root=0), vertex_label_dist = -1, vertex_label=g.vs[&quot;name&quot;], bbox = (500, 300))</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">BuildIgGraph</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+<span class="n">ig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">layout</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">layout_reingold_tilford</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">vertex_label_dist</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vertex_label</span><span class="o">=</span><span class="n">g</span><span class="o">.</span><span class="n">vs</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">bbox</span> <span class="o">=</span> <span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">300</span><span class="p">))</span>
 
-<span class="n">print2DUtil</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+<span class="c1">#print2DUtil(root)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                              E (0.2)
-
-                     (0.35)
-
-                              B (0.15)
-
-           (0.6)
-
-                              D (0.15)
-
-                     (0.25)
-
-                              A (0.1)
-
- (1.0)
-
-          C (0.4)
-</pre></div>
-</div>
-</div>
+<img alt="../../_images/TP3 - Compression Shannon-Huffman-Exercises_13_0.svg" src="../../_images/TP3 - Compression Shannon-Huffman-Exercises_13_0.svg" /></div>
 </div>
 </div>
 <div class="section" id="q2-write-the-function-huffmangencode-which-computes-the-huffman-code-of-an-element-in-0-1-2-3-4-and-print-it">
@@ -723,24 +706,24 @@ Empirical p = 0.33
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2 4 2 1 2 3 0 2 2 2 2 2 2 1 4 2 3 1 4 1 3 3 4 0 2 2 3 1 4 2 2 2 2 2 4 0 2
- 3 3 1 2 1 0 4 2 2 1 0 4 2 1 2 0 2 2 0 4 4 3 0 1 2 2 2 2 2 2 2 1 3 3 4 3 2
- 2 1 2 4 3 3 2 1 2 2 4 2 2 4 2 2 3 2 1 2 2 2 2 1 2 3 1 3 4 1 1 4 4 2 3 1 4
- 3 2 1 2 4 2 2 4 2 2 2 4 1 2 2 3 2 3 4 2 1 2 2 1 3 3 0 2 3 2 3 2 4 0 1 4 4
- 0 2 1 1 2 1 2 2 2 1 4 0 1 3 4 1 2 2 4 4 4 2 2 2 2 4 2 3 4 2 2 0 3 1 3 2 2
- 2 2 1 0 1 1 1 4 2 4 4 4 2 2 2 3 4 0 4 4 4 0 2 4 2 2 4 2 4 3 2 2 4 1 2 2 1
- 1 2 3 3 1 0 2 2 4 2 3 3 2 1 2 2 0 2 3 2 2 2 2 2 2 4 2 4 0 1 4 0 0 2 1 0 2
- 4 1 4 2 2 0 1 2 2 2 0 1 2 2 4 3 4 3 2 2 3 1 4 3 4 1 4 2 3 1 2 2 0 4 0 1 2
- 4 1 2 3 2 4 0 4 2 1 0 2 2 3 2 2 2 1 3 2 4 4 2 4 2 2 4 2 4 2 1 2 2 0 4 4 2
- 0 2 0 2 1 2 2 2 2 0 2 3 2 2 0 2 3 2 4 0 0 2 2 4 3 1 1 4 0 4 2 3 2 4 3 2 3
- 3 2 1 1 3 0 3 1 2 0 4 3 4 2 2 0 3 3 0 4 4 2 2 0 3 0 2 4 4 0 2 3 1 2 4 0 1
- 4 2 2 4 2 4 2 4 2 1 0 0 1 2 2 1 2 4 2 2 3 3 2 2 4 2 2 2 2 4 0 3 2 0 1 2 2
- 3 2 2 1 1 2 4 0 3 3 2 4 3 3 1 2 2 2 4 0 2 2 2 2 0 3 3 4 1 2 3 3 4 2 4 0 2
- 4 3 4 2 3 4 1 4 2 2 3 2 1 0 2 1 2 3 2 2 2 0 2 4 4 0 3 2 2 1 2]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3 2 4 1 3 2 4 2 2 0 1 3 1 2 2 0 1 4 2 3 4 4 3 2 3 2 4 3 3 2 3 0 1 2 0 2 3
+ 2 3 0 2 1 1 2 4 4 1 1 2 3 2 3 2 2 2 3 4 2 4 1 1 4 2 3 4 3 2 4 4 2 0 2 2 4
+ 4 2 1 4 0 4 1 2 4 4 2 2 0 3 1 0 4 4 3 1 0 2 1 2 3 0 1 1 0 1 2 4 2 2 1 1 0
+ 4 4 3 2 1 4 2 2 2 3 1 3 4 4 2 4 1 2 2 4 2 2 2 3 2 2 2 1 3 3 4 4 1 4 2 2 4
+ 4 0 1 0 2 3 4 3 1 1 0 4 1 1 2 2 4 4 2 0 2 4 4 0 2 1 4 0 0 2 2 3 1 3 4 2 2
+ 4 2 1 3 1 3 2 1 2 4 4 2 3 1 3 2 2 3 2 3 4 2 3 2 3 2 2 3 2 1 3 2 1 4 4 0 1
+ 2 2 2 1 3 0 1 2 1 4 0 2 2 2 2 1 0 1 2 4 2 1 2 2 2 2 2 4 1 2 0 2 2 0 2 2 1
+ 1 0 3 2 2 3 0 3 4 1 2 2 0 2 0 2 2 4 4 4 4 2 2 3 2 2 1 2 2 2 0 2 2 1 2 3 4
+ 2 2 4 2 4 3 0 4 1 2 2 4 2 1 3 1 1 3 2 2 2 2 4 2 4 1 2 0 0 2 2 2 2 1 1 2 4
+ 3 3 4 3 2 4 2 4 1 2 1 2 3 3 3 0 1 2 2 3 3 2 2 3 0 0 0 1 2 1 2 2 4 1 1 2 4
+ 0 3 2 2 2 2 0 4 2 0 2 2 1 0 2 3 4 2 2 4 2 4 1 1 2 4 3 2 2 2 0 2 2 2 3 2 2
+ 4 1 4 2 0 4 4 2 4 2 2 1 0 4 4 2 3 2 1 2 2 0 0 4 2 3 3 2 4 4 2 4 3 4 2 0 3
+ 2 2 2 2 2 4 4 2 2 0 2 1 2 2 2 1 2 2 3 2 4 1 0 2 3 4 1 2 3 0 2 2 4 3 2 2 2
+ 2 2 2 4 3 2 2 2 2 1 3 2 2 0 2 0 0 2 2 2 4 1 2 2 0 2 2 2 2 2 3]
 -----------------
 TO LETTER !
 -----------------
-[&#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;E&#39;, &#39;C&#39;, &#39;D&#39;, &#39;B&#39;, &#39;E&#39;, &#39;B&#39;, &#39;D&#39;, &#39;D&#39;, &#39;E&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;B&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;A&#39;, &#39;C&#39;, &#39;D&#39;, &#39;D&#39;, &#39;B&#39;, &#39;C&#39;, &#39;B&#39;, &#39;A&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;A&#39;, &#39;E&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;E&#39;, &#39;E&#39;, &#39;D&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;D&#39;, &#39;D&#39;, &#39;E&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;E&#39;, &#39;D&#39;, &#39;D&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;B&#39;, &#39;D&#39;, &#39;E&#39;, &#39;B&#39;, &#39;B&#39;, &#39;E&#39;, &#39;E&#39;, &#39;C&#39;, &#39;D&#39;, &#39;B&#39;, &#39;E&#39;, &#39;D&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;D&#39;, &#39;D&#39;, &#39;A&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;E&#39;, &#39;A&#39;, &#39;B&#39;, &#39;E&#39;, &#39;E&#39;, &#39;A&#39;, &#39;C&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;E&#39;, &#39;A&#39;, &#39;B&#39;, &#39;D&#39;, &#39;E&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;E&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;D&#39;, &#39;B&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;A&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;E&#39;, &#39;C&#39;, &#39;E&#39;, &#39;E&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;A&#39;, &#39;E&#39;, &#39;E&#39;, &#39;E&#39;, &#39;A&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;E&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;D&#39;, &#39;B&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;D&#39;, &#39;D&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;E&#39;, &#39;A&#39;, &#39;B&#39;, &#39;E&#39;, &#39;A&#39;, &#39;A&#39;, &#39;C&#39;, &#39;B&#39;, &#39;A&#39;, &#39;C&#39;, &#39;E&#39;, &#39;B&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;D&#39;, &#39;E&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;B&#39;, &#39;E&#39;, &#39;D&#39;, &#39;E&#39;, &#39;B&#39;, &#39;E&#39;, &#39;C&#39;, &#39;D&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;E&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;E&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;E&#39;, &#39;A&#39;, &#39;E&#39;, &#39;C&#39;, &#39;B&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;D&#39;, &#39;C&#39;, &#39;E&#39;, &#39;E&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;E&#39;, &#39;E&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;E&#39;, &#39;A&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;D&#39;, &#39;B&#39;, &#39;B&#39;, &#39;E&#39;, &#39;A&#39;, &#39;E&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;E&#39;, &#39;D&#39;, &#39;C&#39;, &#39;D&#39;, &#39;D&#39;, &#39;C&#39;, &#39;B&#39;, &#39;B&#39;, &#39;D&#39;, &#39;A&#39;, &#39;D&#39;, &#39;B&#39;, &#39;C&#39;, &#39;A&#39;, &#39;E&#39;, &#39;D&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;D&#39;, &#39;D&#39;, &#39;A&#39;, &#39;E&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;D&#39;, &#39;A&#39;, &#39;C&#39;, &#39;E&#39;, &#39;E&#39;, &#39;A&#39;, &#39;C&#39;, &#39;D&#39;, &#39;B&#39;, &#39;C&#39;, &#39;E&#39;, &#39;A&#39;, &#39;B&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;B&#39;, &#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;A&#39;, &#39;D&#39;, &#39;C&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;, &#39;E&#39;, &#39;A&#39;, &#39;D&#39;, &#39;D&#39;, &#39;C&#39;, &#39;E&#39;, &#39;D&#39;, &#39;D&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;D&#39;, &#39;D&#39;, &#39;E&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;D&#39;, &#39;E&#39;, &#39;C&#39;, &#39;E&#39;, &#39;A&#39;, &#39;C&#39;, &#39;E&#39;, &#39;D&#39;, &#39;E&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;B&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;B&#39;, &#39;A&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;E&#39;, &#39;E&#39;, &#39;A&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;]
+[&#39;D&#39;, &#39;C&#39;, &#39;E&#39;, &#39;B&#39;, &#39;D&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;B&#39;, &#39;D&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;B&#39;, &#39;E&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;E&#39;, &#39;D&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;E&#39;, &#39;D&#39;, &#39;D&#39;, &#39;C&#39;, &#39;D&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;D&#39;, &#39;A&#39;, &#39;C&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;, &#39;E&#39;, &#39;E&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;C&#39;, &#39;E&#39;, &#39;B&#39;, &#39;B&#39;, &#39;E&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;D&#39;, &#39;C&#39;, &#39;E&#39;, &#39;E&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;E&#39;, &#39;C&#39;, &#39;B&#39;, &#39;E&#39;, &#39;A&#39;, &#39;E&#39;, &#39;B&#39;, &#39;C&#39;, &#39;E&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;D&#39;, &#39;B&#39;, &#39;A&#39;, &#39;E&#39;, &#39;E&#39;, &#39;D&#39;, &#39;B&#39;, &#39;A&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;A&#39;, &#39;B&#39;, &#39;B&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;B&#39;, &#39;A&#39;, &#39;E&#39;, &#39;E&#39;, &#39;D&#39;, &#39;C&#39;, &#39;B&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;B&#39;, &#39;D&#39;, &#39;E&#39;, &#39;E&#39;, &#39;C&#39;, &#39;E&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;D&#39;, &#39;D&#39;, &#39;E&#39;, &#39;E&#39;, &#39;B&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;E&#39;, &#39;A&#39;, &#39;B&#39;, &#39;A&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;D&#39;, &#39;B&#39;, &#39;B&#39;, &#39;A&#39;, &#39;E&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;E&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;E&#39;, &#39;E&#39;, &#39;A&#39;, &#39;C&#39;, &#39;B&#39;, &#39;E&#39;, &#39;A&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;B&#39;, &#39;D&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;B&#39;, &#39;D&#39;, &#39;B&#39;, &#39;D&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;E&#39;, &#39;E&#39;, &#39;C&#39;, &#39;D&#39;, &#39;B&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;B&#39;, &#39;D&#39;, &#39;C&#39;, &#39;B&#39;, &#39;E&#39;, &#39;E&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;D&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;B&#39;, &#39;E&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;B&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;B&#39;, &#39;A&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;A&#39;, &#39;D&#39;, &#39;E&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;E&#39;, &#39;E&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;E&#39;, &#39;D&#39;, &#39;A&#39;, &#39;E&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;B&#39;, &#39;D&#39;, &#39;B&#39;, &#39;B&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;E&#39;, &#39;B&#39;, &#39;C&#39;, &#39;A&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;, &#39;E&#39;, &#39;D&#39;, &#39;D&#39;, &#39;E&#39;, &#39;D&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;E&#39;, &#39;B&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;D&#39;, &#39;D&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;, &#39;E&#39;, &#39;A&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;E&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;A&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;E&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;, &#39;E&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;B&#39;, &#39;E&#39;, &#39;C&#39;, &#39;A&#39;, &#39;E&#39;, &#39;E&#39;, &#39;C&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;A&#39;, &#39;E&#39;, &#39;E&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;A&#39;, &#39;E&#39;, &#39;C&#39;, &#39;D&#39;, &#39;D&#39;, &#39;C&#39;, &#39;E&#39;, &#39;E&#39;, &#39;C&#39;, &#39;E&#39;, &#39;D&#39;, &#39;E&#39;, &#39;C&#39;, &#39;A&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;E&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;, &#39;C&#39;, &#39;E&#39;, &#39;B&#39;, &#39;A&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;B&#39;, &#39;D&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;A&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;E&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;A&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;, &#39;D&#39;]
 </pre></div>
 </div>
 </div>
@@ -762,7 +745,7 @@ TO LETTER !
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>011101100101100000000110111010111011111010110111110000101110111000001111000101101110011010011100110100111011001000010011111110110011000000001101011011111010011001111011010110001110011100101011000001100101110101111110110111111010111011110101100111001110001111100010101011110110001101011011000101010101111001101111111000110110011000011011110011010111111000111111111000011101011110010010111010100001101001101101101110111111111000101111100111111111100011100111011110100111110001101100101101110100001110101101011000100010100000011101111001101111001000110100011111011100100110000100110001111011111010010111011110111111011101011100010011110011001111100101011110011101101000010100011010101111110111001110111011000100111111010001000110000010001010010001010111100100001111011101101111001110101011110101011010110110101100101110010011110111100100101101100111111001001011000111111100010111001111001101110011101110111011010010011000110011100101101001110000111100101010011000101001101100111100101101011110110111000011110000001001011011111100101101111011110001111011110101111110111001010110100011001010001000111111100101001100
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10101111101010111001001101011100010011011101011111111010101011110110101011001100100010101011000110110011111111011001010101000101111011111011011101011111010111111010000111111011011110011111001111110010010111010011111110111010001100101100110110100110011100110110100111111101011011100010111010111111101111100011100010100011010110111111111011100111111100110100010111110111011010011111011000111111010001111111000110111100100001011101011110011101101011101010110011111101011101010010101011110101010100101011010101101111111001100001101011001100110111100000011010011001110110000001111100100001000011011010010100101100101111110001000100001111111111110010100110000100001100101111001110111101100111110001110110101110110101000011101111100100100000011011001111011011111010111011111001100101101101100110001011010010110010010011001100011111011001111001010000100111010000110100010111100111011111011001111010001000001010011111011101001111110111001101001111110101011000100100111010110101111110111101111010010100000111111001000110000110001010111110100010111111001011000011110100000011110100001101010010001001000001111100010000000101
 </pre></div>
 </div>
 </div>
@@ -826,7 +809,7 @@ Expected code length using Huffman :  2.2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CECBCDACCCCCCBECDBEBDDEACCDBECCCCCEACDDBCBAECCBAECBCACCAEEDABCCCCCCCBDDEDCCBCEDDCBCCECCECCDCBCCCCBCDBDEBBEECDBEDCBCECCECCCEBCCDCDECBCCBDDACDCDCEABEEACBBCBCCCBEABDEBCCEEECCCCECDECCADBDCCCCBABBBECEEECCCDEAEEEACECCECEDCCEBCCBBCDDBACCECDDCBCCACDCCCCCCECEABEAACBACEBECCABCCCABCCEDEDCCDBEDEBECDBCCAEABCEBCDCEAECBACCDCCCBDCEECECCECECBCCAEECACACBCCCCACDCCACDCEAACCEDBBEAECDCEDCDDCBBDADBCAEDECCADDAEECCADACEEACDBCEABECCECECECBAABCCBCECCDDCCECCCCEADCABCCDCCBBCEADDCEDDBCCCEACCCCADDEBCDDECEACEDECDEBECCDCBACBCDCCCACEEADCCBC
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DCEBDCECCABDBCCABECDEEDCDCEDDCDABCACDCDACBBCEEBBCDCDCCCDECEBBECDEDCEECACCEECBEAEBCEECCADBAEEDBACBCDABBABCECCBBAEEDCBECCCDBDEECEBCCECCCDCCCBDDEEBECCEEABACDEDBBAEBBCCEECACEEACBEAACCDBDECCECBDBDCBCEECDBDCCDCDECDCDCCDCBDCBEEABCCCBDABCBEACCCCBABCECBCCCCCEBCACCACCBBADCCDADEBCCACACCEEEECCDCCBCCCACCBCDECCECEDAEBCCECBDBBDCCCCECEBCAACCCCBBCEDDEDCECEBCBCDDDABCCDDCCDAAABCBCCEBBCEADCCCCAECACCBACDECCECEBBCEDCCCACCCDCCEBECAEECECCBAEECDCBCCAAECDDCEECEDECADCCCCCEECCACBCCCBCCDCEBACDEBCDACCEDCCCCCCEDCCCCBDCCACAACCCEBCCACCCCCD
 </pre></div>
 </div>
 </div>
@@ -881,6 +864,7 @@ Expected code length using Huffman :  2.2
     <span class="k">return</span> <span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">keys</span>
 
 <span class="n">blockRoot</span><span class="p">,</span> <span class="n">blockKeys</span> <span class="o">=</span> <span class="n">CreateBlockTree</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
 <span class="n">print2DUtil</span><span class="p">(</span><span class="n">blockRoot</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -976,7 +960,7 @@ Shannon Entropy : 0.5293608652873644
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11111110001111111111000111100011110001111100011111100011111111100011111100011111111000111111001000111111111111111111111111111111111111111111110001111111100011111111111100100100011111111110010001100011111111110001111111111111110001100011000111000111100011111111111110001111100011110001110001111110001111100011110001110001111100011111111111100011111110001111000111111111111111111000111111111100011000111111111111111111111111111111100011111111111111110001111111111100011110001111111111111111111111111111111111100011
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11111111100011000111111111100011111110001110010001111111111111111111111111111111100011111110001111111000111111001001000111111111111111111111111111111111110001111100011111111100011111110001111111111001000110001111111111000111111000111111111111000111100100011111111111100011111111111111111100011111111100011110001111111001000111111111110001111100011111100011000111111111000111111111111111111111111111111111111000111111111111111100011111110001111111111111111111110001110001110001111100100011001000111000111111000111
 </pre></div>
 </div>
 </div>
