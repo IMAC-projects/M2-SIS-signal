@@ -2,33 +2,6 @@
 
 > Un filtre est un système électronique qui nous permet de sélectionner une ou plusieurs parties d'un signal ou de rejeter la partie qui ne nous intéresse pas, tels que les bruits parasites. 
 
-## Sommaire
- 
-[**Introduction**](#Introduction)
-
-[**Définitions**](#Définitions)
-
-[**Filtre passe-haut**](#Filtre-passe-haut)
-
-[**Filtre passe-bas**](#Filtre-passe-bas)
-
-[**Filtre passe-bande**](#Filtre-passe-bande)
-
-[**Filtre coupe-bande**](#Filtre-coupe-bande)
-
-[**Filtrage analogique**](#Filtrage-analogique)
- - [**Réponse impulsionnelle**](#Réponse-impulsionnelle)
- - [**Causalité**](#Causalité)
- - [**Stabilité**](#Stabilité)
- - [**Gain et phase**](#Gain-et-phase)
- - [**Fonction de transfert**](#Fonction-de-transfert)
- - [**Filtres idéaux**](#Filtres-idéaux)
-
-[**Filtrage numérique**](#Filtrage-numérique)
- - [**Transformée en Z**](#Transformée-en-Z)
- - [**Causalité**](#Causalité)
-
-
 ## Introduction
 
 On parle de filtrage de signal lorsqu'on atténue (la suppression est difficile) ou favorise dans un signal des fréquences par rapport à d'autres. Tous les supports de transmission (c'est-à-dire tous les câbles) se comportent comme des filtres. Le filtrage dépend de leur bande de fréquence. 
