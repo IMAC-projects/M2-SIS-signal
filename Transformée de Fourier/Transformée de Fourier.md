@@ -1,39 +1,6 @@
 ﻿# Transformée de Fourier
 
 > La transformée de Fourier est une opération qui transforme une fonction intégrable sur $\mathbb{R}$ en une autre fonction.
-
-## Sommaire
-
-[**Signaux continus en 1D**](#Signaux-continus-en-1D)
-
-[**Propriétés de la TF**](#Propriétés-de-la-TF)
-
-[**Convolution**](#Convolution)
-
-[**Inverse de la TF**](#Inverse-de-la-TF)
-
-[**TF et dérivation**](#TF-et-dérivation)
-
-[**Égalité de Parseval**](#Égalité-de-Parseval)
-
-[**Transformation de Fourier en 2D**](#Transformation-de-Fourier-en-2D)
-
-[**Calcul de la TF du signal porte**](#Calcul-de-la-TF-du-signal-porte)
-
-[**Introduction aux distributions : masse de Dirac**](#Introduction-aux-distributions-:-masse-de-Dirac)
-
-[**Dirac et convolution**](#Dirac-et-convolution)
-
-[**Échantillonnage et théorème de Shannon**](#Échantillonnage-et-théorème-de-Shannon)
-
-[**Formule sommatoire de Poisson**](#Formule-sommatoire-de-Poisson)
-
-[**Peigne de Dirac**](#Peigne-de-Dirac)
-
-[**Transformée de Fourier discrète**](#Transformée-de-Fourier-discrète)
-
-[**Fast fourier transform**](#Fast-fourier-transform)
-
 ## Signaux continus en 1D
 
 Deux espaces : 

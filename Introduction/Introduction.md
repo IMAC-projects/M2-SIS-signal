@@ -3,14 +3,6 @@
 
 > Introduction au cours de représentation et filtrage numérique 1D/2D du M2 Informatique - Sciences de l'image effectué à l'Université Gustave Eiffel. La retranscription est effectuée majoritairement par [Enguerrand De Smet](https://github.com/dsmtE) et [Laurine Lafontaine](https://github.com/LafLaurine).
 
-## Sommaire
-
-[**Introduction au signal**](#Introduction-au-signal)
-
-[**Décomposition signal dans une base**](#Décomposition-signal-dans-une-base)
-
-[**Projection orthogonale**](#Projection-orthogonale)
-
 ## Introduction au signal
 
 Un signal est une représentation physique d'une information qui se propage le long d'un support entre l'émission et la réception. On se demande à chaque fois quelle est la nature de l'information transportée (audio, sonore, visuelle).

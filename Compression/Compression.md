@@ -4,13 +4,6 @@ La **compression de données** est l'opération consistant à **transformer** un
 
 C'est une opération dite de **codage** qui change la représentation des données visant à en **diminuer** la taille (de stockage) de celles-ci au prix d'un travail de compression (et de décompression pour la restitution des données).
 
-## Sommaire
-
-- [**Types de compression**](#Types-de-compression)
-- [**Taux de compression**](#Taux-de-compression)
-- [**Entropie de Shannon**](#Entropie-de-Shannon)
-- [**Codage de Huffman**](#Codage-de-Huffman)
-
 ## Types de compression
 
  Il existe deux types de compression de données:
