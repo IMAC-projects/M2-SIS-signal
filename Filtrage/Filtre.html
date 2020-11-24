@@ -370,21 +370,9 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#filtres-ideaux">
-     Filtres idéaux
+    <a class="reference internal nav-link" href="#relation-entree-sortie">
+     Relation entrée-sortie
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#filtre-passe-bas-ideal">
-       Filtre passe-bas idéal
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#filtres-passe-haut-ideal">
-       Filtres passe-haut idéal
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -399,11 +387,63 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tz-serie-entieres-et-domaines-de-convergence">
+     TZ, série entières et domaines de convergence
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id1">
+     TZ, série entières et domaines de convergence
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
      Causalité
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtre-recursif-et-non-recursif">
+   Filtre récursif et non-récursif
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtre-ideaux">
+   Filtre idéaux
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtre-passe-bas-ideal">
+     Filtre passe-bas idéal
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtre-passe-haut-ideal">
+     Filtre passe-haut idéal
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtre-passe-bande-ideal">
+     Filtre passe-bande idéal
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtre-derivateur">
+     Filtre dérivateur
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methode-de-la-fenetre">
+   Méthode de la fenêtre
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtre-passe-bas-et-reechantillonnage">
+   Filtre passe-bas et rééchantillonnage
+  </a>
  </li>
 </ul>
 
@@ -537,27 +577,38 @@ Selon la position de cette fréquence par rapport à la courbe de fréquence on 
 <h2>Filtre analogique<a class="headerlink" href="#filtre-analogique" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="reponse-impulsionnelle">
 <h3>Réponse impulsionnelle<a class="headerlink" href="#reponse-impulsionnelle" title="Permalink to this headline">¶</a></h3>
-<p>Si le signal entrant est une impulsion de Dirac <span class="math notranslate nohighlight">\(δ(t)\)</span>, sa réponse impulsionnelle, parfois dite <em>percusionnelle</em>, est <span class="math notranslate nohighlight">\(h(t)\)</span>.</p>
+<p>Avant de définir f, on défini la sortie du filtre lorsque l’entrée est l’impulsion unité.
+Si le signal entrant est une impulsion de Dirac <span class="math notranslate nohighlight">\(δ(t)\)</span>, sa réponse impulsionnelle, parfois dite <em>percusionnelle</em>, est <span class="math notranslate nohighlight">\(h(t)\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[h(t) = S[\delta(t)]\]</div>
 <p>On a en sortie :</p>
 <div class="math notranslate nohighlight">
 \[ H(e(t)) = \int_{}^{}e(u) h(t−u) du = \int_{}^{}h(u) e(t−u) du = h(t) \ast e(t)\]</div>
+<p>La sortie y d’un filtre est <strong><span class="math notranslate nohighlight">\(y = h \ast x\)</span></strong> où h est la R.I.</p>
+<p><font color=red>Propriétés : </font></p>
+<ul class="simple">
+<li><p><strong>Linéarité</strong> : <span class="math notranslate nohighlight">\(S(x_1 + x_2) = S(x_1) + S(x_2)\)</span></p></li>
+<li><p><strong>Invariance dans le temps</strong> : la translation du temps appliquée à l’entrée se retrouve à la sortie</p></li>
+</ul>
 </div>
 <div class="section" id="causalite">
 <h3>Causalité<a class="headerlink" href="#causalite" title="Permalink to this headline">¶</a></h3>
 <p>Un filtre est dit causal si et seulement si à une entrée <span class="math notranslate nohighlight">\(e\)</span> nulle pour <span class="math notranslate nohighlight">\(t &lt; 0\)</span> correspond une sortie <span class="math notranslate nohighlight">\(s = H(e)\)</span> nulle pour <span class="math notranslate nohighlight">\(t &lt; 0\)</span>. Autrement dit, le filtre est causal si :</p>
 <div class="math notranslate nohighlight">
-\[h(t) = 0 \ \text{pour} \ t&lt;0\]</div>
-<p>C’est-à-dire qu’il ne doit pas y avoir de réponse en absence d’action.</p>
+\[h(t) = 0 \ \forall \ t&lt;0\]</div>
+<p>C’est-à-dire qu’il ne doit pas y avoir de réponse en absence d’action. Un filtre est causal si sa réponse à l’instant <strong>t</strong> ne dépend que des valeurs du signal d’entrée pour des instants antérieurs à <strong>t</strong>  (l’effet ne peut ainsi précéder la cause).</p>
 <p>Les systèmes causaux ont une réponse impulsionnelle nulle.</p>
 </div>
 <div class="section" id="stabilite">
 <h3>Stabilité<a class="headerlink" href="#stabilite" title="Permalink to this headline">¶</a></h3>
-<p>Un filtre est stable si et seulement si à toute entrée  <span class="math notranslate nohighlight">\(x(t)\)</span>  bornée <span class="math notranslate nohighlight">\(M\)</span> correspond une sortie <span class="math notranslate nohighlight">\(y(t)\)</span> bornée  <span class="math notranslate nohighlight">\(M′\)</span>.</p>
+<p>Un filtre est stable au sens EBSB (entrée bornée sortie bornée) si et seulement si à toute entrée  <span class="math notranslate nohighlight">\(x(t)\)</span>  bornée <span class="math notranslate nohighlight">\(M\)</span> correspond une sortie <span class="math notranslate nohighlight">\(y(t)\)</span> bornée  <span class="math notranslate nohighlight">\(M′\)</span>.</p>
+<p>Si <span class="math notranslate nohighlight">\(\forall n \ |x[n]| \leq M\)</span> alors <span class="math notranslate nohighlight">\(\forall \ n \ y[n]\)</span> existe et <span class="math notranslate nohighlight">\(|y[n]| \leq M'\)</span></p>
 <p>La condition nécessaire et suffisante pour qu’un filtre linéaire soit stable est que :</p>
 <div class="math notranslate nohighlight">
 \[\int_{-\infty}^{+\infty}|h(t)|  dt &lt; \infty\]</div>
+<p>Un filtre est stable au sens EBSB si et seulement si sa R.I <span class="math notranslate nohighlight">\(h[n]\)</span> est sommable.</p>
+<div class="math notranslate nohighlight">
+\[\sum^{}_{n} |h[n]| &lt; \infty\]</div>
 <p>Première conséquence :</p>
 <div class="math notranslate nohighlight">
 \[h(t) \to 0 \ \text {quand} \ t \to +\infty\]</div>
@@ -574,16 +625,16 @@ Selon la position de cette fréquence par rapport à la courbe de fréquence on 
 </div>
 <div class="section" id="fonction-de-transfert">
 <h3>Fonction de transfert<a class="headerlink" href="#fonction-de-transfert" title="Permalink to this headline">¶</a></h3>
-<p>Un autre moyen de caractériser un filtre est de fournir sa fonction de transfert <span class="math notranslate nohighlight">\(H(\omega)\)</span>, qui peut être obtenue en divisant le spectre fréquentiel du signal de sortie avec celui du signal de l’entrée du filtre. Tout filtre linéaire est entièrement décrit par sa réponse fréquentielle en amplitude <span class="math notranslate nohighlight">\(|H(\omega)|\)</span> (le gain) et sa réponse de phase <span class="math notranslate nohighlight">\(arg H(\omega)\)</span> liée à sa réponse impulsionnelle.</p>
+<p>Un autre moyen de caractériser un filtre est de fournir sa fonction de transfert <span class="math notranslate nohighlight">\(H(\omega)\)</span>, qui peut être obtenue en divisant le spectre fréquentiel du signal de sortie avec celui du signal de l’entrée du filtre. Tout filtre linéaire est entièrement décrit par sa réponse fréquentielle en amplitude <span class="math notranslate nohighlight">\(|H(\omega)|\)</span> (le gain) et sa réponse de phase <span class="math notranslate nohighlight">\(arg \ H(\omega)\)</span> liée à sa réponse impulsionnelle.</p>
+<p>On passe de la R.I <span class="math notranslate nohighlight">\(h[n]\)</span> à la fonction de transfert <span class="math notranslate nohighlight">\(H(\omega)\)</span></p>
+<div class="math notranslate nohighlight">
+\[ H(\omega) = H(\omega) e^{2i \pi \omega}\]</div>
 </div>
-<div class="section" id="filtres-ideaux">
-<h3>Filtres idéaux<a class="headerlink" href="#filtres-ideaux" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="filtre-passe-bas-ideal">
-<h4>Filtre passe-bas idéal<a class="headerlink" href="#filtre-passe-bas-ideal" title="Permalink to this headline">¶</a></h4>
-</div>
-<div class="section" id="filtres-passe-haut-ideal">
-<h4>Filtres passe-haut idéal<a class="headerlink" href="#filtres-passe-haut-ideal" title="Permalink to this headline">¶</a></h4>
-</div>
+<div class="section" id="relation-entree-sortie">
+<h3>Relation entrée-sortie<a class="headerlink" href="#relation-entree-sortie" title="Permalink to this headline">¶</a></h3>
+<p>On se donne un filtre de R.I <span class="math notranslate nohighlight">\((h[n])_n \in \mathbb{Z}\)</span>. On note <span class="math notranslate nohighlight">\(h[n] \leftrightarrow H(\omega)\)</span></p>
+<p>Si le signal d’entrée <span class="math notranslate nohighlight">\((x[n])\)</span> admet <span class="math notranslate nohighlight">\(X(\omega)\)</span> comme TFTD, alors le signal de sortie <span class="math notranslate nohighlight">\(y[n]\)</span> admet une TFTD et
+$<span class="math notranslate nohighlight">\(Y(\omega) = H(\omega)X(\omega)\)</span>$</p>
 </div>
 </div>
 <div class="section" id="filtre-numerique">
@@ -610,28 +661,107 @@ Si F, un filtre linéaire vérifie <span class="math notranslate nohighlight">\(
 <p>Dans le cas de signaux discrets comme les signaux numériques, les transformées de Fourier sont très limitées en particulier pour les signaux possédant une infinité d’échantillons. Pour palier à ce problème, on introduit la transformée en Z, qui est une transformée de signaux discrets. La variable complexe z utilisée est alors discrète.</p>
 <p>Soit <span class="math notranslate nohighlight">\(x(n)\)</span> un signal discret quelconque. Sa transformée en Z s’écrit :</p>
 <div class="math notranslate nohighlight">
-\[X(z) = Z\left\{x(n) \right\} = \sum^{+\infty}_{n=-\infty} x(n)z^{−n},  z \in \left\{z ∈ \mathbb{C} \sum^{+\infty}_{n=-\infty} x(n)z^{−n} \ \text{converge} \ \right\}\]</div>
+\[X(z) = Z\left\{x(n) \right\} = \sum^{+\infty}_{n=-\infty} x[n]z^{−n},  z \in \left\{z ∈ \mathbb{C} \sum^{+\infty}_{n=-\infty} x[n]z^{−n} \ \text{converge} \ \right\}\]</div>
 <p><font color=red>Remarque : </font>
-On retrouve la définition de la transformée de Fourier en posant <span class="math notranslate nohighlight">\(z = e^{\frac{j2\pi f}{fe}}\)</span> avec <span class="math notranslate nohighlight">\(fe\)</span> la fréquence d’échantillonnage.</p>
+On retrouve la définition de la transformée de Fourier en posant <span class="math notranslate nohighlight">\(z = e^{\frac{i2\pi f}{f_e}}\)</span> avec <span class="math notranslate nohighlight">\(f_e\)</span> la fréquence d’échantillonnage.</p>
 <div class="math notranslate nohighlight">
-\[X(f) = Xz(e^{j2 \pi f})\]</div>
+\[X(z) = X(e^{i2 \pi f})\]</div>
 <p><strong><font color=red>Zéro : </font></strong> on définit les zéros de la fonction <span class="math notranslate nohighlight">\(X_z\)</span> tels que <span class="math notranslate nohighlight">\(X_z(z) = 0\)</span>
 <strong><font color=red>Pôles : </font></strong> on définit les pôles de la fonction <span class="math notranslate nohighlight">\(X_z\)</span> tels que <span class="math notranslate nohighlight">\(|X_z(z)| \to +\infty\)</span></p>
+<p><strong><font color=red>Propriétés </font></strong></p>
+<ul class="simple">
+<li><p>Soit un filtre de R.I <span class="math notranslate nohighlight">\((h[n])_n \in \mathbb{Z}\)</span> on appellera fonction de transfert sa TZ : <span class="math notranslate nohighlight">\(H(z) = \sum_n^{} h[n]z^{-n}\)</span></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(H(z) = z^{-l}\)</span> alors <span class="math notranslate nohighlight">\(h[n] = 0 \ \forall \ n\)</span> sauf <span class="math notranslate nohighlight">\(h[l] = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(h[n] = \delta[n-l]\)</span> alors on a en sortie <span class="math notranslate nohighlight">\(y[n] = h[l]x[n-l] = x[n-l]\)</span> le système est retardataire</p></li>
+</ul>
+<p><strong><font color=red>Convolution</font></strong></p>
+<p>Si <span class="math notranslate nohighlight">\(x[n]\)</span> admet <span class="math notranslate nohighlight">\(X[z]\)</span> comme TZ
+Si <span class="math notranslate nohighlight">\(y[n]\)</span> admet <span class="math notranslate nohighlight">\(Y[z]\)</span> comme TZ</p>
+<p>Alors :
+$<span class="math notranslate nohighlight">\((x \ast y)[n] \to X(z)Y(z)\)</span>$</p>
+</div>
+<div class="section" id="tz-serie-entieres-et-domaines-de-convergence">
+<h3>TZ, série entières et domaines de convergence<a class="headerlink" href="#tz-serie-entieres-et-domaines-de-convergence" title="Permalink to this headline">¶</a></h3>
+<p>Soit <span class="math notranslate nohighlight">\(h_1[k] = a^k \Phi[k]\)</span> et <span class="math notranslate nohighlight">\(h_2[k] = -a^k \Phi[-k-1]\)</span>
+On calcule <span class="math notranslate nohighlight">\(H_1(z)\)</span>, <span class="math notranslate nohighlight">\(H_2(z)\)</span></p>
+<div class="math notranslate nohighlight">
+\[H_1(z) = \sum^{\infty}_{h=0}a^kz^-k = \sum^{\infty}_{h=0}(az)^k\]</div>
+<p>une série géométrique</p>
+<p><strong>Cela converge</strong> si <span class="math notranslate nohighlight">\(|az^{-1} &lt; 1|\)</span>, <span class="math notranslate nohighlight">\(|a||z|^{-1} &lt; 1\)</span>, <span class="math notranslate nohighlight">\(|z|&gt;|a|\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[H_1(z) = \frac{1}{1-az^{-1}}*\frac{z}{z} = \frac{z}{z-a}\]</div>
+<p>on obtient une fraction rationnelle.</p>
 <p>Le domaine de convergence est le sous-ensemble de <span class="math notranslate nohighlight">\(\mathbb{C}\)</span> dans lequel la série converge. Autrement dit, le domaine de convergence de la transformée en z de la suite <span class="math notranslate nohighlight">\((x_n)_{n \in Z}\)</span> est l’ensemble :</p>
 <div class="math notranslate nohighlight">
 \[(z \in \mathbb{C} \sum^{+\infty}_{n = -\infty} x_n^{z −n} \ \ \text{existe})\]</div>
-<p>On l’appelle également <strong>couronne de convergence</strong>.</p>
+<p>On l’appelle également <strong>couronne de convergence</strong>. Ci-dessous, en rouge, la <strong>zone de convergence</strong>.</p>
+<p><img src="https://i.ibb.co/7Gn6DCD/cercle-conv.png"  
+alt="cercle de convergence" style="text-align:center;"/></p>
 <p><span class="math notranslate nohighlight">\(X(z)\)</span> existe si <span class="math notranslate nohighlight">\(x(n)\)</span> a une croissance au plus exponentielle, auquel cas le domaine de convergence est compris dans une couronne :</p>
 <ul class="simple">
 <li><p>de petit rayon le majorant de la base du côté des <span class="math notranslate nohighlight">\(n\)</span> négatifs</p></li>
 <li><p>de grand rayon le majorant de la base du côté des <span class="math notranslate nohighlight">\(n\)</span> positifs</p></li>
 <li><p>si la suite <span class="math notranslate nohighlight">\(x(n)\)</span> est de durée finie (ce qui est vrai dans la plupart des cas), le domaine de convergence est le plan tout entier</p></li>
 </ul>
+<p>Quand on donne une TZ, il faut donc toujours donner son <strong>domaine de convergence</strong> associé.</p>
+<p>Ci-dessous la liste des TZ communes :</p>
+<p><img src="https://i.ibb.co/pxBMg0r/transfo-connue.png"  
+alt="cercle de convergence" style="text-align:center;"/></p>
+<p><a class="reference external" href="http://www8.umoncton.ca/umcm-cormier_gabriel/Signaux/GELE2511_Chapitre8.pdf">Cours à écrire</a></p>
 </div>
 <div class="section" id="id1">
-<h3>Causalité<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3>TZ, série entières et domaines de convergence<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(V(z) = \frac{N(z)}{D(z)}\)</span> avec <span class="math notranslate nohighlight">\(N\)</span> et <span class="math notranslate nohighlight">\(D\)</span> des polynômes en <span class="math notranslate nohighlight">\(Z\)</span>.</p>
+<p><strong><font color=red>Définition : </font></strong></p>
+<ul class="simple">
+<li><p>Les racines de <span class="math notranslate nohighlight">\(N\)</span> appelées les zéros de la fraction</p></li>
+<li><p>Les racines de <span class="math notranslate nohighlight">\(D\)</span> appelées les pôles de la fraction</p></li>
+</ul>
+<p><strong>Question :</strong>
+Déterminer <span class="math notranslate nohighlight">\((v[n])_{n \in \mathbb{Z}}\)</span> dont <span class="math notranslate nohighlight">\(V(z)\)</span> est la TZ.
+Il y a 3 domaines de convergence possible</p>
+<ul class="simple">
+<li><p>couronne infinie</p></li>
+<li><p>couronne</p></li>
+<li><p>convergence</p></li>
+</ul>
+<p>On choisi <span class="math notranslate nohighlight">\(D_1\)</span> comme domaine or on sait qu’à priori le signal  <span class="math notranslate nohighlight">\((v[n])_{n \in \mathbb{Z}}\)</span>  est causal et même que <span class="math notranslate nohighlight">\(\sum^{}_{}|v[n]| =\infty\)</span></p>
+<p>Il faut retrouver <strong>l’original</strong>  <span class="math notranslate nohighlight">\((x[n])_{n \in \mathbb{Z}}\)</span> c’est-à-dire, trouver <span class="math notranslate nohighlight">\(x[n]\)</span> tel que <span class="math notranslate nohighlight">\(X(z) = \sum^{}_{}x[n]z^{-n}\)</span></p>
+<p><strong>Méthode décomposition en élément simple (D.E.S)</strong>.</p>
+</div>
+<div class="section" id="id2">
+<h3>Causalité<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>F est causal si pour <span class="math notranslate nohighlight">\((yk) = F((xi))\)</span>. Si la valeur <span class="math notranslate nohighlight">\(y_n\)</span> ne dépend que des <span class="math notranslate nohighlight">\(x_k, k \leq n\)</span></p>
 </div>
+</div>
+<div class="section" id="filtre-recursif-et-non-recursif">
+<h2>Filtre récursif et non-récursif<a class="headerlink" href="#filtre-recursif-et-non-recursif" title="Permalink to this headline">¶</a></h2>
+<p>Récursif : filtre rationnels admettant un pôle au moins.</p>
+<p>Non-récursif :</p>
+<p>ordre filtre, R.I.F</p>
+</div>
+<div class="section" id="filtre-ideaux">
+<h2>Filtre idéaux<a class="headerlink" href="#filtre-ideaux" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="filtre-passe-bas-ideal">
+<h3>Filtre passe-bas idéal<a class="headerlink" href="#filtre-passe-bas-ideal" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(H(\omega) = H(e^{2 i \pi \omega})\)</span></p>
+</div>
+<div class="section" id="filtre-passe-haut-ideal">
+<h3>Filtre passe-haut idéal<a class="headerlink" href="#filtre-passe-haut-ideal" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="filtre-passe-bande-ideal">
+<h3>Filtre passe-bande idéal<a class="headerlink" href="#filtre-passe-bande-ideal" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="filtre-derivateur">
+<h3>Filtre dérivateur<a class="headerlink" href="#filtre-derivateur" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(H(\omega) = \frac{i 2 \pi \omega}{T_e}\)</span></p>
+</div>
+</div>
+<div class="section" id="methode-de-la-fenetre">
+<h2>Méthode de la fenêtre<a class="headerlink" href="#methode-de-la-fenetre" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="filtre-passe-bas-et-reechantillonnage">
+<h2>Filtre passe-bas et rééchantillonnage<a class="headerlink" href="#filtre-passe-bas-et-reechantillonnage" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

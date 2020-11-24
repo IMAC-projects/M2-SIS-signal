@@ -129,6 +129,7 @@ Un filtre coupe-bande aussi appelé filtre réjecteur de bande est un filtre emp
 
 ### Réponse impulsionnelle
 
+Avant de définir f, on défini la sortie du filtre lorsque l'entrée est l'impulsion unité.
 Si le signal entrant est une impulsion de Dirac $δ(t)$, sa réponse impulsionnelle, parfois dite *percusionnelle*, est $h(t)$.
 
 $$h(t) = S[\delta(t)]$$
@@ -137,23 +138,37 @@ On a en sortie :
 
 $$ H(e(t)) = \int_{}^{}e(u) h(t−u) du = \int_{}^{}h(u) e(t−u) du = h(t) \ast e(t)$$
 
+La sortie y d'un filtre est **$y = h \ast x$** où h est la R.I.
+
+<font color=red>Propriétés : </font>
+
+- **Linéarité** : $S(x_1 + x_2) = S(x_1) + S(x_2)$
+- **Invariance dans le temps** : la translation du temps appliquée à l’entrée se retrouve à la sortie
+
 ### Causalité
 
 Un filtre est dit causal si et seulement si à une entrée $e$ nulle pour $t < 0$ correspond une sortie $s = H(e)$ nulle pour $t < 0$. Autrement dit, le filtre est causal si : 
 
-$$h(t) = 0 \ \text{pour} \ t<0$$
+$$h(t) = 0 \ \forall \ t<0$$
 
-C'est-à-dire qu'il ne doit pas y avoir de réponse en absence d’action.
+C'est-à-dire qu'il ne doit pas y avoir de réponse en absence d’action. Un filtre est causal si sa réponse à l'instant **t** ne dépend que des valeurs du signal d'entrée pour des instants antérieurs à **t**  (l'effet ne peut ainsi précéder la cause).
 
 Les systèmes causaux ont une réponse impulsionnelle nulle.
 
+
 ### Stabilité
 
-Un filtre est stable si et seulement si à toute entrée  $x(t)$  bornée $M$ correspond une sortie $y(t)$ bornée  $M′$.
+Un filtre est stable au sens EBSB (entrée bornée sortie bornée) si et seulement si à toute entrée  $x(t)$  bornée $M$ correspond une sortie $y(t)$ bornée  $M′$.
+
+Si $\forall n \ |x[n]| \leq M$ alors $\forall \ n \ y[n]$ existe et $|y[n]| \leq M'$
 
 La condition nécessaire et suffisante pour qu’un filtre linéaire soit stable est que :
 
 $$\int_{-\infty}^{+\infty}|h(t)|  dt < \infty$$
+
+Un filtre est stable au sens EBSB si et seulement si sa R.I $h[n]$ est sommable. 
+
+$$\sum^{}_{n} |h[n]| < \infty$$
 
 Première conséquence :
 
@@ -175,13 +190,18 @@ Le déphasage entre le signal de sortie et celui d'entrée dépend du type de fi
 
 ### Fonction de transfert
 
-Un autre moyen de caractériser un filtre est de fournir sa fonction de transfert $H(\omega)$, qui peut être obtenue en divisant le spectre fréquentiel du signal de sortie avec celui du signal de l’entrée du filtre. Tout filtre linéaire est entièrement décrit par sa réponse fréquentielle en amplitude $|H(\omega)|$ (le gain) et sa réponse de phase $arg H(\omega)$ liée à sa réponse impulsionnelle.
+Un autre moyen de caractériser un filtre est de fournir sa fonction de transfert $H(\omega)$, qui peut être obtenue en divisant le spectre fréquentiel du signal de sortie avec celui du signal de l’entrée du filtre. Tout filtre linéaire est entièrement décrit par sa réponse fréquentielle en amplitude $|H(\omega)|$ (le gain) et sa réponse de phase $arg \ H(\omega)$ liée à sa réponse impulsionnelle.
 
-### Filtres idéaux
+On passe de la R.I $h[n]$ à la fonction de transfert $H(\omega)$  
 
-#### Filtre passe-bas idéal
+$$ H(\omega) = H(\omega) e^{2i \pi \omega}$$
 
-#### Filtres passe-haut idéal
+### Relation entrée-sortie
+
+On se donne un filtre de R.I $(h[n])_n \in \mathbb{Z}$. On note $h[n] \leftrightarrow H(\omega)$
+
+Si le signal d'entrée $(x[n])$ admet $X(\omega)$ comme TFTD, alors le signal de sortie $y[n]$ admet une TFTD et 
+$$Y(\omega) = H(\omega)X(\omega)$$
 
 ## Filtre numérique
 
@@ -211,26 +231,114 @@ Dans le cas de signaux discrets comme les signaux numériques, les transformées
 
 Soit $x(n)$ un signal discret quelconque. Sa transformée en Z s’écrit : 
 
-$$X(z) = Z\left\{x(n) \right\} = \sum^{+\infty}_{n=-\infty} x(n)z^{−n},  z \in \left\{z ∈ \mathbb{C} \sum^{+\infty}_{n=-\infty} x(n)z^{−n} \ \text{converge} \ \right\}$$
+$$X(z) = Z\left\{x(n) \right\} = \sum^{+\infty}_{n=-\infty} x[n]z^{−n},  z \in \left\{z ∈ \mathbb{C} \sum^{+\infty}_{n=-\infty} x[n]z^{−n} \ \text{converge} \ \right\}$$
 
 <font color=red>Remarque : </font> 
-On retrouve la définition de la transformée de Fourier en posant $z = e^{\frac{j2\pi f}{fe}}$ avec $fe$ la fréquence d’échantillonnage. 
+On retrouve la définition de la transformée de Fourier en posant $z = e^{\frac{i2\pi f}{f_e}}$ avec $f_e$ la fréquence d’échantillonnage. 
 
-$$X(f) = Xz(e^{j2 \pi f})$$
+$$X(z) = X(e^{i2 \pi f})$$
 
 **<font color=red>Zéro : </font>** on définit les zéros de la fonction $X_z$ tels que $X_z(z) = 0$
 **<font color=red>Pôles : </font>** on définit les pôles de la fonction $X_z$ tels que $|X_z(z)| \to +\infty$
+
+**<font color=red>Propriétés </font>**
+
+- Soit un filtre de R.I $(h[n])_n \in \mathbb{Z}$ on appellera fonction de transfert sa TZ : $H(z) = \sum_n^{} h[n]z^{-n}$
+- Si $H(z) = z^{-l}$ alors $h[n] = 0 \ \forall \ n$ sauf $h[l] = 1$
+- $h[n] = \delta[n-l]$ alors on a en sortie $y[n] = h[l]x[n-l] = x[n-l]$ le système est retardataire
+
+**<font color=red>Convolution</font>**
+
+Si $x[n]$ admet $X[z]$ comme TZ
+Si $y[n]$ admet $Y[z]$ comme TZ
+
+Alors :
+$$(x \ast y)[n] \to X(z)Y(z)$$
+
+### TZ, série entières et domaines de convergence
+
+Soit $h_1[k] = a^k \Phi[k]$ et $h_2[k] = -a^k \Phi[-k-1]$ 
+On calcule $H_1(z)$, $H_2(z)$
+
+$$H_1(z) = \sum^{\infty}_{h=0}a^kz^-k = \sum^{\infty}_{h=0}(az)^k$$
+une série géométrique
+
+**Cela converge** si $|az^{-1} < 1|$, $|a||z|^{-1} < 1$, $|z|>|a|$.
+
+$$H_1(z) = \frac{1}{1-az^{-1}}*\frac{z}{z} = \frac{z}{z-a}$$
+on obtient une fraction rationnelle.
 
 Le domaine de convergence est le sous-ensemble de $\mathbb{C}$ dans lequel la série converge. Autrement dit, le domaine de convergence de la transformée en z de la suite $(x_n)_{n \in Z}$ est l’ensemble : 
 
 $$(z \in \mathbb{C} \sum^{+\infty}_{n = -\infty} x_n^{z −n} \ \ \text{existe})$$
 
-On l'appelle également **couronne de convergence**. 
+On l'appelle également **couronne de convergence**. Ci-dessous, en rouge, la **zone de convergence**. 
+
+<img src="https://i.ibb.co/7Gn6DCD/cercle-conv.png"  
+alt="cercle de convergence" style="text-align:center;"/>
 
 $X(z)$ existe si $x(n)$ a une croissance au plus exponentielle, auquel cas le domaine de convergence est compris dans une couronne : 
 - de petit rayon le majorant de la base du côté des $n$ négatifs 
 - de grand rayon le majorant de la base du côté des $n$ positifs 
 - si la suite $x(n)$ est de durée finie (ce qui est vrai dans la plupart des cas), le domaine de convergence est le plan tout entier
 
+Quand on donne une TZ, il faut donc toujours donner son **domaine de convergence** associé.
+
+Ci-dessous la liste des TZ communes : 
+
+<img src="https://i.ibb.co/pxBMg0r/transfo-connue.png"  
+alt="cercle de convergence" style="text-align:center;"/>
+
+[Cours à écrire](http://www8.umoncton.ca/umcm-cormier_gabriel/Signaux/GELE2511_Chapitre8.pdf)
+
+### TZ, série entières et domaines de convergence
+
+$V(z) = \frac{N(z)}{D(z)}$ avec $N$ et $D$ des polynômes en $Z$.
+
+**<font color=red>Définition : </font>**
+
+- Les racines de $N$ appelées les zéros de la fraction
+- Les racines de $D$ appelées les pôles de la fraction
+
+**Question :**
+Déterminer $(v[n])_{n \in \mathbb{Z}}$ dont $V(z)$ est la TZ.
+Il y a 3 domaines de convergence possible
+- couronne infinie
+- couronne
+- convergence
+
+On choisi $D_1$ comme domaine or on sait qu'à priori le signal  $(v[n])_{n \in \mathbb{Z}}$  est causal et même que $\sum^{}_{}|v[n]| =\infty$
+
+Il faut retrouver **l'original**  $(x[n])_{n \in \mathbb{Z}}$ c'est-à-dire, trouver $x[n]$ tel que $X(z) = \sum^{}_{}x[n]z^{-n}$
+
+**Méthode décomposition en élément simple (D.E.S)**.
+
+
 ### Causalité
 F est causal si pour $(yk) = F((xi))$. Si la valeur $y_n$ ne dépend que des $x_k, k \leq n$
+
+## Filtre récursif et non-récursif
+
+Récursif : filtre rationnels admettant un pôle au moins.
+
+Non-récursif : 
+
+ordre filtre, R.I.F
+
+## Filtre idéaux
+
+### Filtre passe-bas idéal
+
+$H(\omega) = H(e^{2 i \pi \omega})$
+
+### Filtre passe-haut idéal
+
+### Filtre passe-bande idéal
+
+### Filtre dérivateur
+
+$H(\omega) = \frac{i 2 \pi \omega}{T_e}$
+
+## Méthode de la fenêtre
+
+## Filtre passe-bas et rééchantillonnage
