@@ -402,16 +402,23 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Causalité
+    <a class="reference internal nav-link" href="#filtre-recursif-et-non-recursif">
+     Filtre récursif et non-récursif
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rif">
+       RIF
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rii">
+       RII
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#filtre-recursif-et-non-recursif">
-   Filtre récursif et non-récursif
-  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#filtre-ideaux">
@@ -476,11 +483,15 @@
 <li><p>Le filtre passe-bande qui laisse passer une bande de fréquence</p></li>
 <li><p>Le filtre coupe-bande qui supprime une bande de fréquence</p></li>
 </ul>
-<p><img src="http://www.siloged.fr/cours/html/ssi_filtrage/lib/gabarit.png"  
-alt="schéma filtres" style="text-align:center;"/></p>
+<p align="center">
+<img src="http://www.siloged.fr/cours/html/ssi_filtrage/lib/gabarit.png"  
+alt="schéma filtres"/>
+</p>
 <p>De nombreux systèmes physiques peuvent être schématisés du point de vue de la théorie du signal par le lien entre le signal d’entrée <span class="math notranslate nohighlight">\(e\)</span> et le signal de sortie <span class="math notranslate nohighlight">\(s\)</span>.</p>
-<p><img src="https://i.ibb.co/BzfTXmW/Capture-d-cran-2020-10-26-221553.png"  
-alt="schéma filtres" style="text-align:center;"/></p>
+<p align="center">
+<img src="https://i.ibb.co/BzfTXmW/Capture-d-cran-2020-10-26-221553.png"  
+alt="schéma filtres"/>
+</p>
 <p>Cette correspondance entre l’entrée et la sortie est notée <span class="math notranslate nohighlight">\(s = H(e)\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(H\)</span> est une convolution. On a donc :</p>
 <div class="math notranslate nohighlight">
@@ -607,16 +618,19 @@ Si le signal entrant est une impulsion de Dirac <span class="math notranslate no
 </div>
 <div class="section" id="fonction-de-transfert">
 <h3>Fonction de transfert<a class="headerlink" href="#fonction-de-transfert" title="Permalink to this headline">¶</a></h3>
-<p>Un autre moyen de caractériser un filtre est de fournir sa fonction de transfert <span class="math notranslate nohighlight">\(H(\omega)\)</span>, qui peut être obtenue en divisant le spectre fréquentiel du signal de sortie avec celui du signal de l’entrée du filtre. Tout filtre linéaire est entièrement décrit par sa réponse fréquentielle en amplitude <span class="math notranslate nohighlight">\(|H(\omega)|\)</span> (le gain) et sa réponse de phase <span class="math notranslate nohighlight">\(arg \ H(\omega)\)</span> liée à sa réponse impulsionnelle.</p>
-<p>On passe de la R.I <span class="math notranslate nohighlight">\(h[n]\)</span> à la fonction de transfert <span class="math notranslate nohighlight">\(H(\omega)\)</span></p>
+<p>Un autre moyen de caractériser un filtre est de fournir sa fonction de transfert <span class="math notranslate nohighlight">\(H(z)\)</span>, qui peut être obtenue en divisant le spectre fréquentiel du signal de sortie avec celui du signal de l’entrée du filtre. Tout filtre linéaire est entièrement décrit par sa réponse fréquentielle en amplitude <span class="math notranslate nohighlight">\(|H(z)|\)</span> (le gain) et sa réponse de phase <span class="math notranslate nohighlight">\(arg \ H(z)\)</span> liée à sa réponse impulsionnelle.</p>
+<p>On passe de la R.I <span class="math notranslate nohighlight">\(h[n]\)</span> à la fonction de transfert <span class="math notranslate nohighlight">\(H(z)\)</span></p>
 <div class="math notranslate nohighlight">
-\[ H(\omega) = H(\omega) e^{2i \pi \omega}\]</div>
+\[ H(z) = H(z) e^{2i \pi z}\]</div>
 </div>
 <div class="section" id="relation-entree-sortie">
 <h3>Relation entrée-sortie<a class="headerlink" href="#relation-entree-sortie" title="Permalink to this headline">¶</a></h3>
-<p>On se donne un filtre de R.I <span class="math notranslate nohighlight">\((h[n])_n \in \mathbb{Z}\)</span>. On note <span class="math notranslate nohighlight">\(h[n] \leftrightarrow H(\omega)\)</span></p>
-<p>Si le signal d’entrée <span class="math notranslate nohighlight">\((x[n])\)</span> admet <span class="math notranslate nohighlight">\(X(\omega)\)</span> comme TFTD, alors le signal de sortie <span class="math notranslate nohighlight">\(y[n]\)</span> admet une TFTD et
-$<span class="math notranslate nohighlight">\(Y(\omega) = H(\omega)X(\omega)\)</span>$</p>
+<p>On se donne un filtre de R.I <span class="math notranslate nohighlight">\((h[n])_n \in \mathbb{Z}\)</span>. On note <span class="math notranslate nohighlight">\(h[n] \leftrightarrow H(z)\)</span></p>
+<p>Si le signal d’entrée <span class="math notranslate nohighlight">\((x[n])\)</span> admet <span class="math notranslate nohighlight">\(X(z)\)</span> comme TFTD, alors le signal de sortie <span class="math notranslate nohighlight">\(y[n]\)</span> admet une TFTD et</p>
+<div class="math notranslate nohighlight">
+\[y[n] = x[n] \ast h[n]\]</div>
+<div class="math notranslate nohighlight">
+\[Y(z) = H(z)X(z)\]</div>
 </div>
 </div>
 <div class="section" id="filtre-numerique">
@@ -640,7 +654,8 @@ Si F, un filtre linéaire vérifie <span class="math notranslate nohighlight">\(
 </ul>
 <div class="section" id="transformee-en-z">
 <h3>Transformée en Z<a class="headerlink" href="#transformee-en-z" title="Permalink to this headline">¶</a></h3>
-<p>Dans le cas de signaux discrets comme les signaux numériques, les transformées de Fourier sont très limitées en particulier pour les signaux possédant une infinité d’échantillons. Pour palier à ce problème, on introduit la transformée en Z, qui est une transformée de signaux discrets. La variable complexe z utilisée est alors discrète.</p>
+<p>Dans le cas de signaux discrets comme les signaux numériques, les transformées de Fourier sont très limitées en particulier pour les signaux possédant une infinité d’échantillons. Pour palier à ce problème, on introduit la transformée en Z, qui est une transformée de signaux discrets. La variable complexe z utilisée est alors discrète.
+La transformée en z est l’équivalent dans le domaine discret de la transformée de Laplace dans le domaine continu.</p>
 <p>Soit <span class="math notranslate nohighlight">\(x(n)\)</span> un signal discret quelconque. Sa transformée en Z s’écrit :</p>
 <div class="math notranslate nohighlight">
 \[X(z) = Z\left\{x(n) \right\} = \sum^{+\infty}_{n=-\infty} x[n]z^{−n},  z \in \left\{z ∈ \mathbb{C} \sum^{+\infty}_{n=-\infty} x[n]z^{−n} \ \text{converge} \ \right\}\]</div>
@@ -677,19 +692,36 @@ On calcule <span class="math notranslate nohighlight">\(H_1(z)\)</span>, <span c
 <div class="math notranslate nohighlight">
 \[(z \in \mathbb{C} \sum^{+\infty}_{n = -\infty} x_n^{z −n} \ \ \text{existe})\]</div>
 <p>On l’appelle également <strong>couronne de convergence</strong>. Ci-dessous, en rouge, la <strong>zone de convergence</strong>.</p>
-<p><img src="https://i.ibb.co/7Gn6DCD/cercle-conv.png"  
-alt="cercle de convergence" style="text-align:center;"/></p>
+<p align="center">
+<img src="https://i.ibb.co/7Gn6DCD/cercle-conv.png"  
+alt="cercle de convergence"/>
+</p>
+<p>Pour une séquence finie <span class="math notranslate nohighlight">\(x[n]\)</span>, la transformée <span class="math notranslate nohighlight">\(X(z)\)</span> est un polynôme en <span class="math notranslate nohighlight">\(z\)</span> ou en <span class="math notranslate nohighlight">\(z^{−1}\)</span> et converge pour toutes les valeurs de <span class="math notranslate nohighlight">\(z\)</span>, sauf pour 2 cas :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(z = 0 \$ si \)</span>X(z)<span class="math notranslate nohighlight">\( contient des termes de la forme \)</span>z^{-k}$</p></li>
+<li><p><span class="math notranslate nohighlight">\(z = \infty \$ si \)</span>X(z)<span class="math notranslate nohighlight">\( contient des termes de la forme \)</span>z$</p></li>
+</ul>
 <p><span class="math notranslate nohighlight">\(X(z)\)</span> existe si <span class="math notranslate nohighlight">\(x(n)\)</span> a une croissance au plus exponentielle, auquel cas le domaine de convergence est compris dans une couronne :</p>
 <ul class="simple">
 <li><p>de petit rayon le majorant de la base du côté des <span class="math notranslate nohighlight">\(n\)</span> négatifs</p></li>
 <li><p>de grand rayon le majorant de la base du côté des <span class="math notranslate nohighlight">\(n\)</span> positifs</p></li>
-<li><p>si la suite <span class="math notranslate nohighlight">\(x(n)\)</span> est de durée finie (ce qui est vrai dans la plupart des cas), le domaine de convergence est le plan tout entier</p></li>
+<li><p>si la suite <span class="math notranslate nohighlight">\(x(n)\)</span> est de durée finie (ce qui est vrai dans la plupart des cas), le domaine de convergence est le plan tout entier.</p></li>
 </ul>
-<p>Quand on donne une TZ, il faut donc toujours donner son <strong>domaine de convergence</strong> associé.</p>
+<p>En général, si <span class="math notranslate nohighlight">\(X(z)\)</span> est une fonction rationnelle de <span class="math notranslate nohighlight">\(z\)</span>, la région de convergence dépend de la forme de <span class="math notranslate nohighlight">\(x[n]\)</span>.</p>
+<ul class="simple">
+<li><p><strong>Signal droitier</strong> : <span class="math notranslate nohighlight">\(x[n]\)</span> est droitier si le plus grand pôle est plus grand que zéro et que la région de convergence s’étend à l’infini</p></li>
+<li><p><strong>Signal gaucher</strong> : <span class="math notranslate nohighlight">\(x[n]\)</span> est gaucher si le plus petit pôle est plus grand que zéro et que la région de convergence s’étend vers zéro</p></li>
+<li><p><strong>Signal bilatéral</strong> : <span class="math notranslate nohighlight">\(x[n]\)</span> est bilatéral si le domaine de convergence est un anneau.</p></li>
+</ul>
+<p align="center">
+<img src="https://i.postimg.cc/dt1nCrVm/Capture-d-cran-2020-11-29-215159.png"  
+alt="convergence"/>
+</p>
+<p>Quand on donne une TZ, il faut donc toujours donner son <strong>domaine de convergence</strong> associé (puisque c’est une série de puissance infinie).</p>
 <p>Ci-dessous la liste des TZ communes :</p>
-<p><img src="https://i.ibb.co/pxBMg0r/transfo-connue.png"  
-alt="cercle de convergence" style="text-align:center;"/></p>
-<p><a class="reference external" href="http://www8.umoncton.ca/umcm-cormier_gabriel/Signaux/GELE2511_Chapitre8.pdf">Cours à écrire</a></p>
+<p align="center">
+  <img src="https://i.ibb.co/pxBMg0r/transfo-connue.png" alt="transfo communes"/>
+</p>
 </div>
 <div class="section" id="id1">
 <h3>TZ, série entières et domaines de convergence<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
@@ -700,8 +732,8 @@ alt="cercle de convergence" style="text-align:center;"/></p>
 <li><p>Les racines de <span class="math notranslate nohighlight">\(D\)</span> appelées les pôles de la fraction</p></li>
 </ul>
 <p><strong>Question :</strong>
-Déterminer <span class="math notranslate nohighlight">\((v[n])_{n \in \mathbb{Z}}\)</span> dont <span class="math notranslate nohighlight">\(V(z)\)</span> est la TZ.
-Il y a 3 domaines de convergence possible</p>
+Déterminer <span class="math notranslate nohighlight">\((v[n])_{n \in \mathbb{Z}}\)</span> dont <span class="math notranslate nohighlight">\(V(z)\)</span> est la TZ.</p>
+<p>Il y a 3 domaines de convergence possible</p>
 <ul class="simple">
 <li><p>couronne infinie</p></li>
 <li><p>couronne</p></li>
@@ -711,22 +743,25 @@ Il y a 3 domaines de convergence possible</p>
 <p>Il faut retrouver <strong>l’original</strong>  <span class="math notranslate nohighlight">\((x[n])_{n \in \mathbb{Z}}\)</span> c’est-à-dire, trouver <span class="math notranslate nohighlight">\(x[n]\)</span> tel que <span class="math notranslate nohighlight">\(X(z) = \sum^{}_{}x[n]z^{-n}\)</span></p>
 <p><strong>Méthode décomposition en élément simple (D.E.S)</strong>.</p>
 </div>
-<div class="section" id="id2">
-<h3>Causalité<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<p>F est causal si pour <span class="math notranslate nohighlight">\((yk) = F((xi))\)</span>. Si la valeur <span class="math notranslate nohighlight">\(y_n\)</span> ne dépend que des <span class="math notranslate nohighlight">\(x_k, k \leq n\)</span></p>
-</div>
-</div>
 <div class="section" id="filtre-recursif-et-non-recursif">
-<h2>Filtre récursif et non-récursif<a class="headerlink" href="#filtre-recursif-et-non-recursif" title="Permalink to this headline">¶</a></h2>
-<p>Récursif : filtre rationnels admettant un pôle au moins.</p>
-<p>Non-récursif :</p>
-<p>ordre filtre, R.I.F</p>
+<h3>Filtre récursif et non-récursif<a class="headerlink" href="#filtre-recursif-et-non-recursif" title="Permalink to this headline">¶</a></h3>
+<p>On peut classer les filtres numériques en 2 catégories selon leur réponse impulsionnelle : réponse impulsionnelle finie (RIF), réponse impulsionnelle infinie (RII).</p>
+<div class="section" id="rif">
+<h4>RIF<a class="headerlink" href="#rif" title="Permalink to this headline">¶</a></h4>
+<p>Les échantillons <span class="math notranslate nohighlight">\({h_n}\)</span> de la réponse impulsionnelle deviennent nuls à partir d’un certain rang <span class="math notranslate nohighlight">\(k\)</span>. C’est un filtre non-récursif.</p>
+</div>
+<div class="section" id="rii">
+<h4>RII<a class="headerlink" href="#rii" title="Permalink to this headline">¶</a></h4>
+<p>Filtre rationnels admettant un pôle au moins. Il n’existe pas de rang <span class="math notranslate nohighlight">\(k\)</span> à partir duquel la réponse impulsionnelle devienne nulle.
+Un filtre à RII ne signifie pas que la réponse impulsionnelle ne puisse pas s’annuler par endroits. C’est un filtre récursif.</p>
+</div>
+</div>
 </div>
 <div class="section" id="filtre-ideaux">
 <h2>Filtre idéaux<a class="headerlink" href="#filtre-ideaux" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="filtre-passe-bas-ideal">
 <h3>Filtre passe-bas idéal<a class="headerlink" href="#filtre-passe-bas-ideal" title="Permalink to this headline">¶</a></h3>
-<p><span class="math notranslate nohighlight">\(H(\omega) = H(e^{2 i \pi \omega})\)</span></p>
+<p><span class="math notranslate nohighlight">\(H(z) = H(e^{2 i \pi z})\)</span></p>
 </div>
 <div class="section" id="filtre-passe-haut-ideal">
 <h3>Filtre passe-haut idéal<a class="headerlink" href="#filtre-passe-haut-ideal" title="Permalink to this headline">¶</a></h3>
@@ -736,7 +771,7 @@ Il y a 3 domaines de convergence possible</p>
 </div>
 <div class="section" id="filtre-derivateur">
 <h3>Filtre dérivateur<a class="headerlink" href="#filtre-derivateur" title="Permalink to this headline">¶</a></h3>
-<p><span class="math notranslate nohighlight">\(H(\omega) = \frac{i 2 \pi \omega}{T_e}\)</span></p>
+<p><span class="math notranslate nohighlight">\(H(z) = \frac{i 2 \pi z}{T_e}\)</span></p>
 </div>
 </div>
 <div class="section" id="methode-de-la-fenetre">

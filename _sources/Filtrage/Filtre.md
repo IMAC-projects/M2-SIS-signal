@@ -12,14 +12,17 @@ En général, on recense 4 types de filtres :
 -   Le filtre passe-bande qui laisse passer une bande de fréquence
 -   Le filtre coupe-bande qui supprime une bande de fréquence
 
+<p align="center">
 <img src="http://www.siloged.fr/cours/html/ssi_filtrage/lib/gabarit.png"  
-alt="schéma filtres" style="text-align:center;"/>
-
+alt="schéma filtres"/>
+</p>
 
 De nombreux systèmes physiques peuvent être schématisés du point de vue de la théorie du signal par le lien entre le signal d’entrée $e$ et le signal de sortie $s$.
 
+<p align="center">
 <img src="https://i.ibb.co/BzfTXmW/Capture-d-cran-2020-10-26-221553.png"  
-alt="schéma filtres" style="text-align:center;"/>
+alt="schéma filtres"/>
+</p>
 
 Cette correspondance entre l’entrée et la sortie est notée $s = H(e)$.
 
@@ -163,18 +166,21 @@ Le déphasage entre le signal de sortie et celui d'entrée dépend du type de fi
 
 ### Fonction de transfert
 
-Un autre moyen de caractériser un filtre est de fournir sa fonction de transfert $H(\omega)$, qui peut être obtenue en divisant le spectre fréquentiel du signal de sortie avec celui du signal de l’entrée du filtre. Tout filtre linéaire est entièrement décrit par sa réponse fréquentielle en amplitude $|H(\omega)|$ (le gain) et sa réponse de phase $arg \ H(\omega)$ liée à sa réponse impulsionnelle.
+Un autre moyen de caractériser un filtre est de fournir sa fonction de transfert $H(z)$, qui peut être obtenue en divisant le spectre fréquentiel du signal de sortie avec celui du signal de l’entrée du filtre. Tout filtre linéaire est entièrement décrit par sa réponse fréquentielle en amplitude $|H(z)|$ (le gain) et sa réponse de phase $arg \ H(z)$ liée à sa réponse impulsionnelle.
 
-On passe de la R.I $h[n]$ à la fonction de transfert $H(\omega)$  
+On passe de la R.I $h[n]$ à la fonction de transfert $H(z)$  
 
-$$ H(\omega) = H(\omega) e^{2i \pi \omega}$$
+$$ H(z) = H(z) e^{2i \pi z}$$
 
 ### Relation entrée-sortie
 
-On se donne un filtre de R.I $(h[n])_n \in \mathbb{Z}$. On note $h[n] \leftrightarrow H(\omega)$
+On se donne un filtre de R.I $(h[n])_n \in \mathbb{Z}$. On note $h[n] \leftrightarrow H(z)$
 
-Si le signal d'entrée $(x[n])$ admet $X(\omega)$ comme TFTD, alors le signal de sortie $y[n]$ admet une TFTD et 
-$$Y(\omega) = H(\omega)X(\omega)$$
+Si le signal d'entrée $(x[n])$ admet $X(z)$ comme TFTD, alors le signal de sortie $y[n]$ admet une TFTD et 
+
+$$y[n] = x[n] \ast h[n]$$
+
+$$Y(z) = H(z)X(z)$$
 
 ## Filtre numérique
 
@@ -201,6 +207,7 @@ Si F, un filtre linéaire vérifie $T_{\tau}F = FT_{\tau}((a_n))$ alors F est un
 ### Transformée en Z
 
 Dans le cas de signaux discrets comme les signaux numériques, les transformées de Fourier sont très limitées en particulier pour les signaux possédant une infinité d’échantillons. Pour palier à ce problème, on introduit la transformée en Z, qui est une transformée de signaux discrets. La variable complexe z utilisée est alors discrète.
+La transformée en z est l'équivalent dans le domaine discret de la transformée de Laplace dans le domaine continu.
 
 Soit $x(n)$ un signal discret quelconque. Sa transformée en Z s’écrit : 
 
@@ -247,22 +254,38 @@ $$(z \in \mathbb{C} \sum^{+\infty}_{n = -\infty} x_n^{z −n} \ \ \text{existe})
 
 On l'appelle également **couronne de convergence**. Ci-dessous, en rouge, la **zone de convergence**. 
 
+<p align="center">
 <img src="https://i.ibb.co/7Gn6DCD/cercle-conv.png"  
-alt="cercle de convergence" style="text-align:center;"/>
+alt="cercle de convergence"/>
+</p>
+
+Pour une séquence finie $x[n]$, la transformée $X(z)$ est un polynôme en $z$ ou en $z^{−1}$ et converge pour toutes les valeurs de $z$, sauf pour 2 cas : 
+- $z = 0 \$ si $X(z)$ contient des termes de la forme $z^{-k}$ 
+- $z = \infty \$ si $X(z)$ contient des termes de la forme $z$
 
 $X(z)$ existe si $x(n)$ a une croissance au plus exponentielle, auquel cas le domaine de convergence est compris dans une couronne : 
 - de petit rayon le majorant de la base du côté des $n$ négatifs 
 - de grand rayon le majorant de la base du côté des $n$ positifs 
-- si la suite $x(n)$ est de durée finie (ce qui est vrai dans la plupart des cas), le domaine de convergence est le plan tout entier
+- si la suite $x(n)$ est de durée finie (ce qui est vrai dans la plupart des cas), le domaine de convergence est le plan tout entier.
 
-Quand on donne une TZ, il faut donc toujours donner son **domaine de convergence** associé.
+En général, si $X(z)$ est une fonction rationnelle de $z$, la région de convergence dépend de la forme de $x[n]$. 
+
+- **Signal droitier** : $x[n]$ est droitier si le plus grand pôle est plus grand que zéro et que la région de convergence s’étend à l’infini 
+- **Signal gaucher** : $x[n]$ est gaucher si le plus petit pôle est plus grand que zéro et que la région de convergence s’étend vers zéro
+- **Signal bilatéral** : $x[n]$ est bilatéral si le domaine de convergence est un anneau.
+
+<p align="center">
+<img src="https://i.postimg.cc/dt1nCrVm/Capture-d-cran-2020-11-29-215159.png"  
+alt="convergence"/>
+</p>
+
+Quand on donne une TZ, il faut donc toujours donner son **domaine de convergence** associé (puisque c’est une série de puissance infinie).
 
 Ci-dessous la liste des TZ communes : 
 
-<img src="https://i.ibb.co/pxBMg0r/transfo-connue.png"  
-alt="cercle de convergence" style="text-align:center;"/>
-
-[Cours à écrire](http://www8.umoncton.ca/umcm-cormier_gabriel/Signaux/GELE2511_Chapitre8.pdf)
+<p align="center">
+  <img src="https://i.ibb.co/pxBMg0r/transfo-connue.png" alt="transfo communes"/>
+</p>
 
 ### TZ, série entières et domaines de convergence
 
@@ -275,6 +298,7 @@ $V(z) = \frac{N(z)}{D(z)}$ avec $N$ et $D$ des polynômes en $Z$.
 
 **Question :**
 Déterminer $(v[n])_{n \in \mathbb{Z}}$ dont $V(z)$ est la TZ.
+
 Il y a 3 domaines de convergence possible
 - couronne infinie
 - couronne
@@ -287,22 +311,24 @@ Il faut retrouver **l'original**  $(x[n])_{n \in \mathbb{Z}}$ c'est-à-dire, tro
 **Méthode décomposition en élément simple (D.E.S)**.
 
 
-### Causalité
-F est causal si pour $(yk) = F((xi))$. Si la valeur $y_n$ ne dépend que des $x_k, k \leq n$
+### Filtre récursif et non-récursif
 
-## Filtre récursif et non-récursif
+On peut classer les filtres numériques en 2 catégories selon leur réponse impulsionnelle : réponse impulsionnelle finie (RIF), réponse impulsionnelle infinie (RII).
 
-Récursif : filtre rationnels admettant un pôle au moins.
+#### RIF
 
-Non-récursif : 
+Les échantillons ${h_n}$ de la réponse impulsionnelle deviennent nuls à partir d'un certain rang $k$. C'est un filtre non-récursif.
 
-ordre filtre, R.I.F
+#### RII
+
+Filtre rationnels admettant un pôle au moins. Il n'existe pas de rang $k$ à partir duquel la réponse impulsionnelle devienne nulle.
+Un filtre à RII ne signifie pas que la réponse impulsionnelle ne puisse pas s'annuler par endroits. C'est un filtre récursif.
 
 ## Filtre idéaux
 
 ### Filtre passe-bas idéal
 
-$H(\omega) = H(e^{2 i \pi \omega})$
+$H(z) = H(e^{2 i \pi z})$
 
 ### Filtre passe-haut idéal
 
@@ -310,7 +336,7 @@ $H(\omega) = H(e^{2 i \pi \omega})$
 
 ### Filtre dérivateur
 
-$H(\omega) = \frac{i 2 \pi \omega}{T_e}$
+$H(z) = \frac{i 2 \pi z}{T_e}$
 
 ## Méthode de la fenêtre
 
