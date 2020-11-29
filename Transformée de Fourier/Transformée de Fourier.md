@@ -1,6 +1,7 @@
 ﻿# Transformée de Fourier
 
 > La transformée de Fourier est une opération qui transforme une fonction intégrable sur $\mathbb{R}$ en une autre fonction.
+
 ## Signaux continus en 1D
 
 Deux espaces : 
