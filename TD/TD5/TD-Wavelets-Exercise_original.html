@@ -201,7 +201,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/TD/TD5/TD-Wavelets-Exercise.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/TD/TD5/TD-Wavelets-Exercise_original.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -221,7 +221,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/IMAC-projects/M2-SIS-signal/issues/new?title=Issue%20on%20page%20%2FTD/TD5/TD-Wavelets-Exercise.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/IMAC-projects/M2-SIS-signal/issues/new?title=Issue%20on%20page%20%2FTD/TD5/TD-Wavelets-Exercise_original.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -242,7 +242,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/IMAC-projects/M2-SIS-signal/master?urlpath=tree/TD/TD5/TD-Wavelets-Exercise.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/IMAC-projects/M2-SIS-signal/master?urlpath=tree/TD/TD5/TD-Wavelets-Exercise_original.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -268,41 +268,35 @@
   <a class="reference internal nav-link" href="#">
    In this TD, we study the wavelet decomposition using the Daubechies 4 filters.
   </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-are-the-conditions-on-the-filters-for-being-admissible-wavelet-filters-the-first-condition-on-the-low-pass-filter-h-is-begin-equation-begin-cases-hat-h-omega-2-hat-h-omega-frac-12-2-2-hat-h-0-sqrt-2-end-cases-end-equation">
+   What are the conditions on the filters for being admissible wavelet filters: The first condition on the low-pass filter
+   <span class="math notranslate nohighlight">
+    \(h\)
+   </span>
+   is \begin{equation} \begin{cases}|\hat{h}(\omega)|^2 + |\hat{h}(\omega + \frac 12)|^2 = 2\hat{h}(0) = \sqrt{2},.\end{cases}\end{equation}
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-condition-on-the-high-pass-filter-is-the-following-begin-equation-begin-cases-hat-g-omega-2-hat-g-omega-frac-12-2-2-hat-g-omega-hat-h-omega-hat-g-omega-frac-12-hat-h-omega-frac-12-0-end-cases-end-equation">
+   The condition on the high-pass filter is the following:  \begin{equation} \begin{cases}|\hat{g}(\omega)|^2 + |\hat{g}(\omega + \frac 12)|^2 = 2\hat{g}(\omega) \hat{h}^
+   <em>
+    (\omega)+ \hat{g}(\omega + \frac 12)\hat{h}^
+   </em>
+   (\omega + \frac 12) = 0,.\end{cases}\end{equation}
+  </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-are-the-conditions-on-the-filters-for-being-admissible-wavelet-filters-the-first-condition-on-the-low-pass-filter-h-is">
-     What are the conditions on the filters for being admissible wavelet filters: The first condition on the low-pass filter
-     <span class="math notranslate nohighlight">
-      \(h\)
-     </span>
-     is
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-condition-on-the-high-pass-filter-is-the-following">
-     The condition on the high-pass filter is the following:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#it-is-possible-to-find-this-condition-by-writing-the-orthogonality-condition-of-the-scaling-function-and-the-wavelet-function-at-scale-0-and-scale-1-it-is-similar-to-the-computation-presented-in-the-previous-lecture">
-     It is possible to find this condition by writing the orthogonality condition of the scaling function and the wavelet function at scale 0 and scale 1. It is similar to the computation presented in the previous lecture.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#below-are-given-the-4-daubechies-filters-the-filter-h-corresponds-to-the-low-pass-filter-and-the-filter-g-corresponds-to-the-high-pass-filter-this-filter-is-designed-so-that-the-first-two-moments-of-the-wavelet-function-vanish-thus-it-encodes-more-efficiently-parts-of-the-image-which-have-a-behaviour-close-to-a-polynomial-function-of-degree-2">
-     Below are given the 4-Daubechies filters: the filter h corresponds to the low pass filter and the filter g corresponds to the high-pass filter. This filter is designed so that the first two moments of the wavelet function vanish. Thus, it encodes more efficiently parts of the image which have a behaviour close to a polynomial function of degree 2.
-    </a>
-   </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#we-choose-below-periodic-boundary-condition-for-the-filtering-which-is-the-simplest-condition-one-can-use-more-involved-treatment-of-the-boundaries-have-been-developed">
      We choose below periodic boundary condition for the filtering which is the simplest condition one can use. More involved treatment of the boundaries have been developed.
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#q1-test-that-the-subsampling-and-upsampling-operators-defined-below-are-adjoint-operators-that-is-you-test-on-random-vectors-that-the-following-equality-holds-langle-text-subsampling-x-y-rangle-langle-text-upsampling-y-x-rangle">
-     Q1: Test that the subsampling and upsampling operators defined below are adjoint operators. That is, you test on random vectors that the following equality holds:
+    <a class="reference internal nav-link" href="#q1-test-that-the-subsampling-and-upsampling-operators-defined-below-ared-adjoint-operators-that-is-you-test-on-random-vectors-that-the-following-equality-holds-langle-text-subsampling-x-y-rangle-langle-text-subsampling-y-x-rangle">
+     Q1: Test that the subsampling and upsampling operators defined below ared adjoint operators. That is, you test on random vectors that the following equality holds:
      <span class="math notranslate nohighlight">
-      \(\langle \text{subsampling}(x),y \rangle = \langle \text{upsampling}(y),x \rangle\)
+      \(\langle \text{subsampling}(x),y \rangle = \langle \text{subsampling}(y),x \rangle\)
      </span>
      .
     </a>
@@ -335,24 +329,22 @@
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#q6-test-on-an-image-that-the-implemented-inverse-is-correct-that-is-check-on-an-image-x-that-iwt-text-wavelettransform-x-x-up-to-numerical-errors">
+  <a class="reference internal nav-link" href="#q6-test-on-an-image-that-the-implemented-inverse-is-correct-that-is-check-on-an-image-x-that-iwt-wavelettransform-x-x-up-to-numerical-errors">
    Q6: Test on an image that the implemented inverse is correct. That is, check on an image
    <span class="math notranslate nohighlight">
     \(x\)
    </span>
    that
    <span class="math notranslate nohighlight">
-    \(IWT(\text{WaveletTransform(x)}) = x\)
+    \(IWT(WaveletTransform(x)) = x\)
    </span>
    up to numerical errors.
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#use-of-wavelets-for-compression">
-     Use of wavelets for compression.
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#use-of-wavelets-for-compression">
+   Use of wavelets for compression.
+  </a>
  </li>
 </ul>
 
@@ -399,13 +391,13 @@ which is an isometry which means:</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load an image</span>
 <span class="kn">import</span> <span class="nn">imageio</span> <span class="k">as</span> <span class="nn">imio</span>
-<span class="n">colored_image</span> <span class="o">=</span> <span class="n">imio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;grumpycat.png&#39;</span><span class="p">)</span>
+<span class="n">colored_image</span> <span class="o">=</span> <span class="n">imio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;lena.png&#39;</span><span class="p">)</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">220</span>
 <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">colored_image</span><span class="o">*</span><span class="p">[</span><span class="mf">0.21</span><span class="p">,</span> <span class="mf">0.72</span> <span class="p">,</span><span class="mf">0.07</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gray</span><span class="p">()</span>
-<span class="n">cropped</span> <span class="o">=</span> <span class="n">image</span><span class="p">[</span><span class="n">n</span><span class="p">:</span><span class="n">n</span><span class="o">+</span><span class="mi">1024</span><span class="p">,</span><span class="n">n</span><span class="p">:</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1024</span><span class="p">]</span>
+<span class="n">cropped</span> <span class="o">=</span> <span class="n">image</span><span class="p">[</span><span class="n">n</span><span class="p">:</span><span class="n">n</span><span class="o">+</span><span class="mi">64</span><span class="p">,</span><span class="n">n</span><span class="p">:</span><span class="n">n</span> <span class="o">+</span> <span class="mi">64</span><span class="p">]</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot; Grey Level Image &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">cropped</span><span class="p">)))</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cropped</span><span class="p">)</span>
@@ -416,43 +408,65 @@ which is an isometry which means:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>118.3223597049713 46.019983171402444 28.049999999999997
-(1720, 1720)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">b34487702f6e</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># load an image</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">imageio</span> <span class="k">as</span> <span class="nn">imio</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">colored_image</span> <span class="o">=</span> <span class="n">imio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;lena.png&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">220</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">colored_image</span><span class="o">*</span><span class="p">[</span><span class="mf">0.21</span><span class="p">,</span> <span class="mf">0.72</span> <span class="p">,</span><span class="mf">0.07</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/imageio/core/functions.py</span> in <span class="ni">imread</span><span class="nt">(uri, format, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">263</span> 
+<span class="g g-Whitespace">    </span><span class="mi">264</span>     <span class="c1"># Get reader and read first</span>
+<span class="ne">--&gt; </span><span class="mi">265</span>     <span class="n">reader</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="nb">format</span><span class="p">,</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">266</span>     <span class="k">with</span> <span class="n">reader</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">267</span>         <span class="k">return</span> <span class="n">reader</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/imageio/core/functions.py</span> in <span class="ni">get_reader</span><span class="nt">(uri, format, mode, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">170</span> 
+<span class="g g-Whitespace">    </span><span class="mi">171</span>     <span class="c1"># Create request object</span>
+<span class="ne">--&gt; </span><span class="mi">172</span>     <span class="n">request</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span> <span class="o">+</span> <span class="n">mode</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">173</span> 
+<span class="g g-Whitespace">    </span><span class="mi">174</span>     <span class="c1"># Get format</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/imageio/core/request.py</span> in <span class="ni">__init__</span><span class="nt">(self, uri, mode, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">122</span> 
+<span class="g g-Whitespace">    </span><span class="mi">123</span>         <span class="c1"># Parse what was given</span>
+<span class="ne">--&gt; </span><span class="mi">124</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_parse_uri</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">125</span> 
+<span class="g g-Whitespace">    </span><span class="mi">126</span>         <span class="c1"># Set extension</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/imageio/core/request.py</span> in <span class="ni">_parse_uri</span><span class="nt">(self, uri)</span>
+<span class="g g-Whitespace">    </span><span class="mi">258</span>                 <span class="c1"># Reading: check that the file exists (but is allowed a dir)</span>
+<span class="g g-Whitespace">    </span><span class="mi">259</span>                 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">fn</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">260</span>                     <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s2">&quot;No such file: &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="n">fn</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">261</span>             <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">262</span>                 <span class="c1"># Writing: check that the directory to write to does exist</span>
+
+<span class="ne">FileNotFoundError</span>: No such file: &#39;/home/runner/work/M2-SIS-signal/M2-SIS-signal/TD/TD5/lena.png&#39;
 </pre></div>
 </div>
-<img alt="../../_images/TD-Wavelets-Exercise_2_1.png" src="../../_images/TD-Wavelets-Exercise_2_1.png" />
 </div>
 </div>
-<div class="section" id="what-are-the-conditions-on-the-filters-for-being-admissible-wavelet-filters-the-first-condition-on-the-low-pass-filter-h-is">
-<h2>What are the conditions on the filters for being admissible wavelet filters: The first condition on the low-pass filter <span class="math notranslate nohighlight">\(h\)</span> is<a class="headerlink" href="#what-are-the-conditions-on-the-filters-for-being-admissible-wavelet-filters-the-first-condition-on-the-low-pass-filter-h-is" title="Permalink to this headline">¶</a></h2>
-<p>\begin{equation} \begin{cases}|\hat{h}(\omega)|^2 + |\hat{h}(\omega + \frac 12)|^2 = 2\hat{h}(0) = \sqrt{2},.\end{cases}\end{equation}</p>
 </div>
-<div class="section" id="the-condition-on-the-high-pass-filter-is-the-following">
-<h2>The condition on the high-pass filter is the following:<a class="headerlink" href="#the-condition-on-the-high-pass-filter-is-the-following" title="Permalink to this headline">¶</a></h2>
-<p>\begin{equation} \begin{cases}|\hat{g}(\omega)|^2 + |\hat{g}(\omega + \frac 12)|^2 = 2\hat{g}(\omega) \hat{h}^<em>(\omega)+ \hat{g}(\omega + \frac 12)\hat{h}^</em>(\omega + \frac 12) = 0,.\end{cases}
-\end{equation}</p>
+<div class="section" id="what-are-the-conditions-on-the-filters-for-being-admissible-wavelet-filters-the-first-condition-on-the-low-pass-filter-h-is-begin-equation-begin-cases-hat-h-omega-2-hat-h-omega-frac-12-2-2-hat-h-0-sqrt-2-end-cases-end-equation">
+<h1>What are the conditions on the filters for being admissible wavelet filters: The first condition on the low-pass filter <span class="math notranslate nohighlight">\(h\)</span> is \begin{equation} \begin{cases}|\hat{h}(\omega)|^2 + |\hat{h}(\omega + \frac 12)|^2 = 2\hat{h}(0) = \sqrt{2},.\end{cases}\end{equation}<a class="headerlink" href="#what-are-the-conditions-on-the-filters-for-being-admissible-wavelet-filters-the-first-condition-on-the-low-pass-filter-h-is-begin-equation-begin-cases-hat-h-omega-2-hat-h-omega-frac-12-2-2-hat-h-0-sqrt-2-end-cases-end-equation" title="Permalink to this headline">¶</a></h1>
 </div>
-<div class="section" id="it-is-possible-to-find-this-condition-by-writing-the-orthogonality-condition-of-the-scaling-function-and-the-wavelet-function-at-scale-0-and-scale-1-it-is-similar-to-the-computation-presented-in-the-previous-lecture">
-<h2>It is possible to find this condition by writing the orthogonality condition of the scaling function and the wavelet function at scale 0 and scale 1. It is similar to the computation presented in the previous lecture.<a class="headerlink" href="#it-is-possible-to-find-this-condition-by-writing-the-orthogonality-condition-of-the-scaling-function-and-the-wavelet-function-at-scale-0-and-scale-1-it-is-similar-to-the-computation-presented-in-the-previous-lecture" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="below-are-given-the-4-daubechies-filters-the-filter-h-corresponds-to-the-low-pass-filter-and-the-filter-g-corresponds-to-the-high-pass-filter-this-filter-is-designed-so-that-the-first-two-moments-of-the-wavelet-function-vanish-thus-it-encodes-more-efficiently-parts-of-the-image-which-have-a-behaviour-close-to-a-polynomial-function-of-degree-2">
-<h2>Below are given the 4-Daubechies filters: the filter h corresponds to the low pass filter and the filter g corresponds to the high-pass filter. This filter is designed so that the first two moments of the wavelet function vanish. Thus, it encodes more efficiently parts of the image which have a behaviour close to a polynomial function of degree 2.<a class="headerlink" href="#below-are-given-the-4-daubechies-filters-the-filter-h-corresponds-to-the-low-pass-filter-and-the-filter-g-corresponds-to-the-high-pass-filter-this-filter-is-designed-so-that-the-first-two-moments-of-the-wavelet-function-vanish-thus-it-encodes-more-efficiently-parts-of-the-image-which-have-a-behaviour-close-to-a-polynomial-function-of-degree-2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-condition-on-the-high-pass-filter-is-the-following-begin-equation-begin-cases-hat-g-omega-2-hat-g-omega-frac-12-2-2-hat-g-omega-hat-h-omega-hat-g-omega-frac-12-hat-h-omega-frac-12-0-end-cases-end-equation">
+<h1>The condition on the high-pass filter is the following:  \begin{equation} \begin{cases}|\hat{g}(\omega)|^2 + |\hat{g}(\omega + \frac 12)|^2 = 2\hat{g}(\omega) \hat{h}^<em>(\omega)+ \hat{g}(\omega + \frac 12)\hat{h}^</em>(\omega + \frac 12) = 0,.\end{cases}\end{equation}<a class="headerlink" href="#the-condition-on-the-high-pass-filter-is-the-following-begin-equation-begin-cases-hat-g-omega-2-hat-g-omega-frac-12-2-2-hat-g-omega-hat-h-omega-hat-g-omega-frac-12-hat-h-omega-frac-12-0-end-cases-end-equation" title="Permalink to this headline">¶</a></h1>
+<p>### It is possible to find this condition by writing the orthogonality condition of the scaling function and the wavelet function at scale 0 and scale 1. It is similar to the computation presented in the previous lecture.</p>
+<p>## Below are given the 4-Daubechies filters: the filter h corresponds to the low pass filter and the filter g corresponds to the high-pass filter. This filter is designed so that the first two moments of the wavelet function vanish. Thus, it encodes more efficiently parts of the image which have a behaviour close to a polynomial function of degree 2.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">.</span><span class="mi">482962913145</span><span class="p">,</span> <span class="o">.</span><span class="mi">836516303738</span><span class="p">,</span> <span class="o">.</span><span class="mi">224143868042</span><span class="p">,</span> <span class="o">-.</span><span class="mi">129409522551</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">482962913145</span><span class="p">,</span> <span class="o">.</span><span class="mi">836516303738</span><span class="p">,</span> <span class="o">.</span><span class="mi">224143868042</span><span class="p">,</span> <span class="o">-.</span><span class="mi">129409522551</span><span class="p">]</span>
 <span class="n">h</span> <span class="o">=</span> <span class="n">h</span><span class="o">/</span><span class="n">norm</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="c1">## make sure the filter has norm 1.</span>
 <span class="n">u</span> <span class="o">=</span> <span class="n">power</span><span class="p">(</span><span class="o">-</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">h</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">h</span><span class="p">)))</span> <span class="c1"># alternate +1/-1</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">concatenate</span><span class="p">(([</span><span class="mi">0</span><span class="p">],</span><span class="n">h</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">u</span><span class="p">))</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">concatenate</span><span class="p">(([</span><span class="mi">0</span><span class="p">],</span> <span class="n">h</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">u</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;low-pass filter associated with the scaling function&quot;</span><span class="p">,</span><span class="n">h</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;high-pass filter associated with the wavelet function&quot;</span><span class="p">,</span><span class="n">g</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>low-pass filter associated with the scaling function [ 0.          0.48296291  0.8365163   0.22414387 -0.12940952]
-high-pass filter associated with the wavelet function [ 0.          0.12940952  0.22414387 -0.8365163   0.48296291]
-</pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -466,7 +480,7 @@ high-pass filter associated with the wavelet function [ 0.          0.12940952  
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">cconv</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">h</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
     <span class="n">p</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
-    <span class="n">pc</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">((</span><span class="n">p</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="p">)))</span>
+    <span class="n">pc</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span> <span class="nb">float</span><span class="p">((</span><span class="n">p</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="p">)))</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pc</span><span class="o">-</span><span class="n">i</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">y</span>
@@ -475,8 +489,8 @@ high-pass filter associated with the wavelet function [ 0.          0.12940952  
 </div>
 </div>
 </div>
-<div class="section" id="q1-test-that-the-subsampling-and-upsampling-operators-defined-below-are-adjoint-operators-that-is-you-test-on-random-vectors-that-the-following-equality-holds-langle-text-subsampling-x-y-rangle-langle-text-upsampling-y-x-rangle">
-<h2>Q1: Test that the subsampling and upsampling operators defined below are adjoint operators. That is, you test on random vectors that the following equality holds: <span class="math notranslate nohighlight">\(\langle \text{subsampling}(x),y \rangle = \langle \text{upsampling}(y),x \rangle\)</span>.<a class="headerlink" href="#q1-test-that-the-subsampling-and-upsampling-operators-defined-below-are-adjoint-operators-that-is-you-test-on-random-vectors-that-the-following-equality-holds-langle-text-subsampling-x-y-rangle-langle-text-upsampling-y-x-rangle" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="q1-test-that-the-subsampling-and-upsampling-operators-defined-below-ared-adjoint-operators-that-is-you-test-on-random-vectors-that-the-following-equality-holds-langle-text-subsampling-x-y-rangle-langle-text-subsampling-y-x-rangle">
+<h2>Q1: Test that the subsampling and upsampling operators defined below ared adjoint operators. That is, you test on random vectors that the following equality holds: <span class="math notranslate nohighlight">\(\langle \text{subsampling}(x),y \rangle = \langle \text{subsampling}(y),x \rangle\)</span>.<a class="headerlink" href="#q1-test-that-the-subsampling-and-upsampling-operators-defined-below-ared-adjoint-operators-that-is-you-test-on-random-vectors-that-the-following-equality-holds-langle-text-subsampling-x-y-rangle-langle-text-subsampling-y-x-rangle" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">subsampling</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
@@ -501,23 +515,6 @@ high-pass filter associated with the wavelet function [ 0.          0.12940952  
 
 <span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="n">N</span> <span class="o">=</span> <span class="mi">16</span>
-<span class="n">EPSILON</span> <span class="o">=</span> <span class="mf">1e-12</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="n">N</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="c1">#np.vdot returns the dot product of two vectors.</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vdot</span><span class="p">(</span><span class="n">subsampling</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="p">),</span> <span class="n">y</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vdot</span><span class="p">(</span><span class="n">upsampling</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">d</span><span class="p">),</span> <span class="n">x</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vdot</span><span class="p">(</span><span class="n">subsampling</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="p">),</span> <span class="n">y</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">vdot</span><span class="p">(</span><span class="n">upsampling</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">x</span><span class="p">))</span> <span class="o">&lt;</span> <span class="n">EPSILON</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>31.526280606154074
-31.526280606154074
-True
 </pre></div>
 </div>
 </div>
@@ -532,58 +529,24 @@ True
 <h1>Q2: Implement below the one step of W transform of the lecture. Coarse and Fine scale transforms and test it on your image.<a class="headerlink" href="#q2-implement-below-the-one-step-of-w-transform-of-the-lecture-coarse-and-fine-scale-transforms-and-test-it-on-your-image" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#https://pywavelets.readthedocs.io/en/latest/</span>
-<span class="c1">#http://gwyddion.net/documentation/user-guide-en/wavelet-transform.html</span>
-
-<span class="k">def</span> <span class="nf">coarse</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="n">d</span><span class="p">):</span> <span class="c1">#coarse means &quot;harsh&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">coarse</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="n">d</span><span class="p">):</span>
     <span class="c1"># d is the dimension along which the operation is performed.</span>
     <span class="c1"># the formula to be implemented is the convolution of x by h along the dimension d.</span>
-    <span class="n">coarse</span> <span class="o">=</span> <span class="n">cconv</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
-    <span class="n">coarse</span> <span class="o">=</span> <span class="n">subsampling</span><span class="p">(</span><span class="n">coarse</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">coarse</span>
 
 <span class="k">def</span> <span class="nf">fine</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="n">d</span><span class="p">):</span>
     <span class="c1"># d is the dimension along which the operation is performed.</span>
     <span class="c1"># the formula to be implemented is the convolution of x by g along the dimension d.</span>
-    <span class="n">fine</span> <span class="o">=</span> <span class="n">cconv</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
-    <span class="n">fine</span> <span class="o">=</span> <span class="n">subsampling</span><span class="p">(</span><span class="n">fine</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">fine</span>
 
 <span class="k">def</span> <span class="nf">W_0</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="n">wavelet_coeff</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="c1"># start with the first dimension index 0 to get coarse and fine description along this axis</span>
-    <span class="c1">#lowscale and highscale</span>
-    <span class="n">l0</span> <span class="o">=</span> <span class="n">coarse</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="n">h0</span> <span class="o">=</span> <span class="n">fine</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    
     <span class="c1"># process again the previous results to get coarse and fine description along the axis of index 1.</span>
     <span class="c1"># you thus should have 4 sub-images of the same size which is the initial image size divided by 4 (divide columns and rows by 2).</span>
-    <span class="n">LL</span> <span class="o">=</span> <span class="n">coarse</span><span class="p">(</span><span class="n">l0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">HL</span> <span class="o">=</span> <span class="n">fine</span><span class="p">(</span><span class="n">l0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">LH</span> <span class="o">=</span> <span class="n">coarse</span><span class="p">(</span><span class="n">h0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">HH</span> <span class="o">=</span> <span class="n">fine</span><span class="p">(</span><span class="n">h0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    
     <span class="c1"># concatenate your results in an array called results</span>
-    <span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">LL</span><span class="p">,</span> <span class="n">LH</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">HL</span><span class="p">,</span> <span class="n">HH</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">L</span><span class="p">,</span> <span class="n">H</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">result</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">W_0</span><span class="p">(</span><span class="n">image</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 2.01740000e+02  2.01740000e+02  2.01740000e+02 ...  0.00000000e+00
-   0.00000000e+00  0.00000000e+00]
- [ 2.01740000e+02  2.01740000e+02  2.01740000e+02 ...  0.00000000e+00
-   0.00000000e+00  0.00000000e+00]
- [ 2.01740000e+02  2.01740000e+02  2.01740000e+02 ...  0.00000000e+00
-   0.00000000e+00  0.00000000e+00]
- ...
- [-1.00485917e-14 -1.00485917e-14 -1.00485917e-14 ...  0.00000000e+00
-   0.00000000e+00  0.00000000e+00]
- [-1.00485917e-14 -1.00485917e-14 -1.00485917e-14 ...  0.00000000e+00
-   0.00000000e+00  0.00000000e+00]
- [-1.00485917e-14 -1.00485917e-14 -1.00485917e-14 ...  0.00000000e+00
-   0.00000000e+00  0.00000000e+00]]
 </pre></div>
 </div>
 </div>
@@ -593,16 +556,9 @@ True
 <h1>Q3: Implement the full fast wavelet transform for a given number of scales.<a class="headerlink" href="#q3-implement-the-full-fast-wavelet-transform-for-a-given-number-of-scales" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">WaveletTransform</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="n">iterations</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">WaveletTransform</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="n">iterations</span> <span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="c1">## iterate the 1step wavelet transform implemented above.</span>
-    <span class="c1"># first step is W_0</span>
-    <span class="k">if</span> <span class="n">iterations</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">image</span>
-    <span class="n">waveletTransform</span> <span class="o">=</span> <span class="n">W_0</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-    <span class="n">size</span> <span class="o">=</span> <span class="n">waveletTransform</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">waveletTmp</span> <span class="o">=</span> <span class="n">waveletTransform</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">size</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">size</span><span class="p">]</span>
-    <span class="n">waveletTransform</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">size</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">size</span><span class="p">]</span> <span class="o">=</span> <span class="n">WaveletTransform</span><span class="p">(</span><span class="n">waveletTmp</span><span class="p">,</span><span class="n">iterations</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">waveletTransform</span>
+    <span class="k">return</span> <span class="n">wavelet_transform</span>
 </pre></div>
 </div>
 </div>
@@ -651,29 +607,8 @@ True
         <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)],</span> <span class="p">[</span><span class="mi">2</span> <span class="o">**</span> <span class="n">j</span><span class="p">,</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">j</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">2</span> <span class="o">**</span> <span class="n">j</span><span class="p">,</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">j</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)],</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">U</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">PlotWavelet</span><span class="p">(</span><span class="n">WaveletTransform</span><span class="p">(</span><span class="n">cropped</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.39351842, 0.32848455, 0.32848455, ..., 0.49981076, 0.49954092,
-        0.39466087],
-       [0.32848455, 0.32848455, 0.32848455, ..., 0.5       , 0.5       ,
-        0.5       ],
-       [0.32848455, 0.32848455, 0.32848455, ..., 0.5       , 0.5       ,
-        0.5       ],
-       ...,
-       [0.50051351, 0.5       , 0.5       , ..., 0.50367352, 0.50012416,
-        0.49946431],
-       [0.49859707, 0.5       , 0.5       , ..., 0.50454897, 0.49586309,
-        0.50330812],
-       [0.38217186, 0.5       , 0.5       , ..., 0.49936489, 0.49926823,
-        0.63154009]])
-</pre></div>
-</div>
-<img alt="../../_images/TD-Wavelets-Exercise_16_1.png" src="../../_images/TD-Wavelets-Exercise_16_1.png" />
 </div>
 </div>
 </div>
@@ -696,19 +631,15 @@ True
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hereafter, you just implement the inverse of a one-step wavelet transform.</span>
 <span class="k">def</span> <span class="nf">IW_0</span><span class="p">(</span><span class="n">wavelet</span><span class="p">):</span>
     <span class="c1"># you can use the temporary variables defined below.</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">wavelet</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span>
-    <span class="n">temp_hc_vc</span> <span class="o">=</span> <span class="n">wavelet</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="p">]</span>
-    <span class="n">temp_hc_vf</span> <span class="o">=</span> <span class="n">wavelet</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">:]</span>
-    <span class="n">temp_hf_vc</span> <span class="o">=</span> <span class="n">wavelet</span><span class="p">[</span><span class="n">n</span><span class="p">:,</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="p">]</span>
-    <span class="n">temp_hf_vf</span> <span class="o">=</span> <span class="n">wavelet</span><span class="p">[</span><span class="n">n</span><span class="p">:,</span><span class="n">n</span><span class="p">:]</span>
+    <span class="c1">#n = np.shape(wavelet)[0]//2</span>
+    <span class="c1">#temp_hc_vc = wavelet[0:n,0:n]</span>
+    <span class="c1">#temp_hc_vf = wavelet[0:n,n:]</span>
+    <span class="c1">#temp_hf_vc = wavelet[n:,0:n]</span>
+    <span class="c1">#temp_hf_vf = wavelet[n:,n:]</span>
     
     <span class="c1"># implement here the adjoint on each directions and then on the full vector.</span>
-    <span class="n">LL</span> <span class="o">=</span> <span class="n">AdjointCoarse</span><span class="p">(</span><span class="n">temp_hc_vc</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">LH</span> <span class="o">=</span> <span class="n">AdjointCoarse</span><span class="p">(</span><span class="n">temp_hf_vc</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">HL</span> <span class="o">=</span> <span class="n">AdjointFine</span><span class="p">(</span><span class="n">temp_hc_vf</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">HH</span> <span class="o">=</span> <span class="n">AdjointFine</span><span class="p">(</span><span class="n">temp_hf_vf</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">result_type</span> <span class="o">=</span> <span class="n">AdjointCoarse</span><span class="p">(</span><span class="n">LL</span> <span class="o">+</span> <span class="n">HL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">AdjointFine</span><span class="p">(</span><span class="n">LH</span> <span class="o">+</span> <span class="n">HH</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">result_type</span>
+    
+    <span class="k">return</span> <span class="n">result</span>
 
 <span class="c1"># once the function above is implemented, the full wavelet inversion reads like this:</span>
 <span class="k">def</span> <span class="nf">IWT</span><span class="p">(</span><span class="n">wavelet</span><span class="p">,</span><span class="n">iterations</span> <span class="o">=</span> <span class="mi">3</span><span class="p">):</span>
@@ -717,128 +648,40 @@ True
         <span class="n">cut</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">wavelet</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">//</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">)</span>
         <span class="n">image</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">cut</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="n">cut</span><span class="p">]</span> <span class="o">=</span> <span class="n">IW_0</span><span class="p">(</span><span class="n">image</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">cut</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="n">cut</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">image</span>
+    
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="q6-test-on-an-image-that-the-implemented-inverse-is-correct-that-is-check-on-an-image-x-that-iwt-text-wavelettransform-x-x-up-to-numerical-errors">
-<h1>Q6: Test on an image that the implemented inverse is correct. That is, check on an image <span class="math notranslate nohighlight">\(x\)</span> that <span class="math notranslate nohighlight">\(IWT(\text{WaveletTransform(x)}) = x\)</span> up to numerical errors.<a class="headerlink" href="#q6-test-on-an-image-that-the-implemented-inverse-is-correct-that-is-check-on-an-image-x-that-iwt-text-wavelettransform-x-x-up-to-numerical-errors" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">waveletTransform</span> <span class="o">=</span> <span class="n">WaveletTransform</span><span class="p">(</span><span class="n">cropped</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> 
-<span class="n">iwv</span> <span class="o">=</span> <span class="n">IWT</span><span class="p">(</span><span class="n">waveletTransform</span><span class="p">)</span>
-
-<span class="c1"># Plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-
-<span class="c1"># Original</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Grey Level Image &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">cropped</span><span class="p">)))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cropped</span><span class="p">)</span>
-
-<span class="c1"># Wavelet transform</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Wavelet transform&quot;</span><span class="p">)</span>
-<span class="n">PlotWavelet</span><span class="p">(</span><span class="n">waveletTransform</span><span class="p">)</span>
-
-<span class="c1"># Inverted</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Inverse&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">iwv</span><span class="p">)</span>
-
-<span class="n">waveletTransform</span> <span class="o">=</span> <span class="n">WaveletTransform</span><span class="p">(</span><span class="n">cropped</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> 
-<span class="n">iwv</span> <span class="o">=</span> <span class="n">IWT</span><span class="p">(</span><span class="n">waveletTransform</span><span class="p">)</span>
-
-<span class="c1"># Plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-
-<span class="c1"># Original</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Grey Level Image &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">cropped</span><span class="p">)))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cropped</span><span class="p">)</span>
-
-<span class="c1"># Wavelet transform</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Wavelet transform&quot;</span><span class="p">)</span>
-<span class="n">PlotWavelet</span><span class="p">(</span><span class="n">waveletTransform</span><span class="p">)</span>
-
-<span class="c1"># Inverted</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Inverse&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">iwv</span><span class="p">)</span>
-</pre></div>
+<div class="section" id="q6-test-on-an-image-that-the-implemented-inverse-is-correct-that-is-check-on-an-image-x-that-iwt-wavelettransform-x-x-up-to-numerical-errors">
+<h1>Q6: Test on an image that the implemented inverse is correct. That is, check on an image <span class="math notranslate nohighlight">\(x\)</span> that <span class="math notranslate nohighlight">\(IWT(WaveletTransform(x)) = x\)</span> up to numerical errors.<a class="headerlink" href="#q6-test-on-an-image-that-the-implemented-inverse-is-correct-that-is-check-on-an-image-x-that-iwt-wavelettransform-x-x-up-to-numerical-errors" title="Permalink to this headline">¶</a></h1>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f9dd46eff10&gt;
-</pre></div>
-</div>
-<img alt="../../_images/TD-Wavelets-Exercise_21_1.png" src="../../_images/TD-Wavelets-Exercise_21_1.png" />
-<img alt="../../_images/TD-Wavelets-Exercise_21_2.png" src="../../_images/TD-Wavelets-Exercise_21_2.png" />
-</div>
-</div>
-<p>Funny how it acts with a different number of iterations, the inverse is done and the image of the top-left corner in the wavelet transform disapear.</p>
 <div class="section" id="use-of-wavelets-for-compression">
-<h2>Use of wavelets for compression.<a class="headerlink" href="#use-of-wavelets-for-compression" title="Permalink to this headline">¶</a></h2>
+<h1>Use of wavelets for compression.<a class="headerlink" href="#use-of-wavelets-for-compression" title="Permalink to this headline">¶</a></h1>
 <p>## Q7: Plot the histogram of the wavelet coefficients just to see the repartition between small and large coefficients by modifying the code below. You should see that most of the coefficients are close to <span class="math notranslate nohighlight">\(0\)</span> and few are large coefficients. Thus, the idea is that lossy compression might perform well on this data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="n">waveletTransform</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
-<span class="kn">import</span> <span class="nn">pylab</span> <span class="k">as</span> <span class="nn">pl</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="n">bins</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
-<span class="n">temp</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">temp</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="mi">500</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#temp = result.flatten()</span>
+<span class="c1">#import pylab as pl</span>
+<span class="c1">#pl.hist(temp,bins = linspace(-2,200,100))</span>
+<span class="c1">#temp.sort()</span>
+<span class="c1">#print(len(temp))</span>
+<span class="c1">#print(temp[500])</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1048576
--314.00785718129
-</pre></div>
-</div>
-<img alt="../../_images/TD-Wavelets-Exercise_25_1.png" src="../../_images/TD-Wavelets-Exercise_25_1.png" />
 </div>
 </div>
 <p>## Q8: Consider the 20% largest coefficients of the wavelet transform and put all the remaining coefficients to <span class="math notranslate nohighlight">\(0\)</span> and show the resulting approximating image. Do the same with Fourier transform by calling the <span class="math notranslate nohighlight">\(fft2\)</span> function and compare visually and compare using the function implemented below which is the signal to noise ratio function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.fftpack</span> <span class="k">as</span> <span class="nn">sf</span>
-
-<span class="k">def</span> <span class="nf">snr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">snr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="n">s</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="s2">&quot;Equal inputs&quot;</span>
     <span class="k">return</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span><span class="n">s</span><span class="p">)</span>
-
-<span class="n">iwv</span> <span class="o">=</span> <span class="n">real</span><span class="p">(</span><span class="n">sf</span><span class="o">.</span><span class="n">fft2</span><span class="p">(</span><span class="n">waveletTransform</span><span class="p">))</span>
-
-<span class="c1"># Plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-
-<span class="c1"># Original</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Grey Level Image &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">cropped</span><span class="p">)))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cropped</span><span class="p">)</span>
-
-<span class="c1"># Wavelet transform</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Wavelet transform&quot;</span><span class="p">)</span>
-<span class="n">PlotWavelet</span><span class="p">(</span><span class="n">waveletTransform</span><span class="p">)</span>
-
-<span class="c1"># FFT2</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;FFT2&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">iwv</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f9dda2dced0&gt;
-</pre></div>
-</div>
-<img alt="../../_images/TD-Wavelets-Exercise_27_1.png" src="../../_images/TD-Wavelets-Exercise_27_1.png" />
 </div>
 </div>
 <p>## Last note that one can look at the wavelet function by plotting the image of a Dirac mass. Run and play with the code below.</p>
@@ -850,13 +693,6 @@ True
 <span class="n">ondelette</span> <span class="o">=</span> <span class="n">IW_0</span><span class="p">(</span><span class="n">dirac</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ondelette</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f9dda1ed710&gt;
-</pre></div>
-</div>
-<img alt="../../_images/TD-Wavelets-Exercise_29_1.png" src="../../_images/TD-Wavelets-Exercise_29_1.png" />
 </div>
 </div>
 </div>
