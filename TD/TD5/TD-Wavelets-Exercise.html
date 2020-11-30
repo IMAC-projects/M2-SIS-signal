@@ -515,8 +515,8 @@ high-pass filter associated with the wavelet function [ 0.          0.12940952  
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>31.526280606154074
-31.526280606154074
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>31.838123061123
+31.838123061123
 True
 </pre></div>
 </div>
@@ -727,7 +727,7 @@ True
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">waveletTransform</span> <span class="o">=</span> <span class="n">WaveletTransform</span><span class="p">(</span><span class="n">cropped</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> 
-<span class="n">iwv</span> <span class="o">=</span> <span class="n">IWT</span><span class="p">(</span><span class="n">waveletTransform</span><span class="p">)</span>
+<span class="n">iwv</span> <span class="o">=</span> <span class="n">IWT</span><span class="p">(</span><span class="n">waveletTransform</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
@@ -747,8 +747,8 @@ True
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Inverse&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">iwv</span><span class="p">)</span>
 
-<span class="n">waveletTransform</span> <span class="o">=</span> <span class="n">WaveletTransform</span><span class="p">(</span><span class="n">cropped</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> 
-<span class="n">iwv</span> <span class="o">=</span> <span class="n">IWT</span><span class="p">(</span><span class="n">waveletTransform</span><span class="p">)</span>
+<span class="n">waveletTransform</span> <span class="o">=</span> <span class="n">WaveletTransform</span><span class="p">(</span><span class="n">cropped</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> 
+<span class="n">iwv</span> <span class="o">=</span> <span class="n">IWT</span><span class="p">(</span><span class="n">waveletTransform</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
@@ -767,11 +767,13 @@ True
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Inverse&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">iwv</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;diff between original and recovered:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">cropped</span><span class="o">-</span><span class="n">iwv</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f9dd46eff10&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>diff between original and recovered: 134730229.40767026
 </pre></div>
 </div>
 <img alt="../../_images/TD-Wavelets-Exercise_21_1.png" src="../../_images/TD-Wavelets-Exercise_21_1.png" />
@@ -795,7 +797,7 @@ True
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1048576
--314.00785718129
+-143.2512625397739
 </pre></div>
 </div>
 <img alt="../../_images/TD-Wavelets-Exercise_25_1.png" src="../../_images/TD-Wavelets-Exercise_25_1.png" />
@@ -835,7 +837,7 @@ True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f9dda2dced0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f57fe396c50&gt;
 </pre></div>
 </div>
 <img alt="../../_images/TD-Wavelets-Exercise_27_1.png" src="../../_images/TD-Wavelets-Exercise_27_1.png" />
@@ -853,7 +855,7 @@ True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f9dda1ed710&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f57f87aadd0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/TD-Wavelets-Exercise_29_1.png" src="../../_images/TD-Wavelets-Exercise_29_1.png" />
