@@ -11,6 +11,7 @@
 - part: Compression
   chapters:
   - file: Compression/Compression
+  - file: Compression/Le cas du JPEG
 
 - part: TD
   chapters:
