@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TP 1: Analyse en fréquence de signaux sonores. &#8212; M2 Signal classes</title>
+    <title>TD1 - Analyse en fréquence de signaux sonores. &#8212; M2 Signal classes</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -58,7 +58,7 @@
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="TP2 : FFT" href="../TD2/TP2%20-%20FFT%20-%20Exercices.html" />
+    <link rel="next" title="TD2 - FFT" href="../TD2/TP2%20-%20FFT%20-%20Exercices.html" />
     <link rel="prev" title="Le cas du JPEG" href="../../Compression/Le%20cas%20du%20JPEG.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -145,27 +145,27 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   TP 1: Analyse en fréquence de signaux sonores.
+   TD1 - Analyse en fréquence de signaux sonores.
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../TD2/TP2%20-%20FFT%20-%20Exercices.html">
-   TP2 : FFT
+   TD2 - FFT
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../TD3/TP3%20-%20Compression%20Shannon-Huffman-Exercises.html">
-   TP3 : Compression Shannon-Huffman
+   TD3 - Compression Shannon-Huffman
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../TD4/TP4%20-%20Spectral%20Analysis%20and%20Filtering-Exercise.html">
-   1. STFT  (Short Time Fourier Transform) and source separation.
+   TD4 - Spectral Analysis and Filtering
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../TD4/TP4%20-%20Spectral%20Analysis%20and%20Filtering-Exercise.html#the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir">
-   2. The goal of this part is to explore implementations of a FIR or an IIR.
+  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-%20Exercices.html">
+   TD5 - Wavelets
   </a>
  </li>
 </ul>
@@ -272,19 +272,36 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#on-va-utiliser-la-fft-sur-un-signal-1d-pour-en-regarder-le-contenu-en-frequentiel">
-   On va utiliser la fft sur un signal 1D pour en regarder le contenu en fréquentiel.
+  <a class="reference internal nav-link" href="#introduction-a-la-fft">
+   1. Introduction à la FFT.
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercice-3">
-   Exercice 3:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#on-va-creer-un-signal-de-type-sinusoidal-numerique-qu-on-va-ensuite-ecouter">
-   On va créer un signal de type sinusoidal numérique, qu’on va ensuite écouter.
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercice-1">
+     Exercice 1:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercice-2">
+     Exercice 2:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercice-3">
+     Exercice 3:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercice-4">
+     Exercice 4:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercice-5">
+     Exercice 5:
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#etude-de-signaux-reels">
@@ -292,32 +309,13 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#on-retrouve-bien-dans-ce-cas-la-frequence-du-son-qu-on-a-cree-on-propose-de-faire-la-meme-chose-pour-un-fichier-son-qui-est-l-enregistrement-d-une-note-de-musique-on-importe-un-fichier-son-on-lit-la-frequence-d-echantillonnage-le-signal-etant-stereo-il-y-a-dans-le-meme-vecteur-les-deux-sons-concatenes">
-     On retrouve bien, dans ce cas, la fréquence du son qu’on a créé. On propose de faire la même chose pour un fichier son, qui est l’enregistrement d’une note de musique. On importe un fichier son, on lit la fréquence d’échantillonnage. Le signal étant stéréo, il y a, dans le même vecteur les deux sons concaténés:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exercice-6">
      Exercice 6:
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fft-sur-une-sous-partie-du-signal">
-     FFT sur une sous partie du signal.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exercice-7">
      Exercice 7:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pour-eviter-de-polluer-le-spectre-avec-les-discontinuites-aux-bords-avec-les-conditions-periodiques-de-la-fft-on-multiplie-le-signal-fenetre-avec-une-fonction-qui-decroit-vers-0-aux-bords-de-la-fenetre-voir-ci-dessous">
-     Pour éviter de polluer le spectre avec les discontinuités aux bords avec les conditions périodiques de la FFT, on multiplie le signal fenêtré avec une fonction qui décroit vers
-     <span class="math notranslate nohighlight">
-      \(0\)
-     </span>
-     aux bords de la fenêtre. Voir ci-dessous.
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -355,11 +353,11 @@
         
               <div>
                 
-  <div class="section" id="tp-1-analyse-en-frequence-de-signaux-sonores">
-<h1>TP 1: Analyse en fréquence de signaux sonores.<a class="headerlink" href="#tp-1-analyse-en-frequence-de-signaux-sonores" title="Permalink to this headline">¶</a></h1>
-<p>## 1. Introduction à la FFT.</p>
-<div class="section" id="on-va-utiliser-la-fft-sur-un-signal-1d-pour-en-regarder-le-contenu-en-frequentiel">
-<h2>On va utiliser la fft sur un signal 1D pour en regarder le contenu en fréquentiel.<a class="headerlink" href="#on-va-utiliser-la-fft-sur-un-signal-1d-pour-en-regarder-le-contenu-en-frequentiel" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="td1-analyse-en-frequence-de-signaux-sonores">
+<h1>TD1 - Analyse en fréquence de signaux sonores.<a class="headerlink" href="#td1-analyse-en-frequence-de-signaux-sonores" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction-a-la-fft">
+<h2>1. Introduction à la FFT.<a class="headerlink" href="#introduction-a-la-fft" title="Permalink to this headline">¶</a></h2>
+<p>On va utiliser la fft sur un signal 1D pour en regarder le contenu en fréquentiel.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -405,7 +403,8 @@
 </div>
 </div>
 </div>
-<p>### Exercice 1:</p>
+<div class="section" id="exercice-1">
+<h3>Exercice 1:<a class="headerlink" href="#exercice-1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Calculer la norme <span class="math notranslate nohighlight">\(L^2\)</span> du signal et la norme <span class="math notranslate nohighlight">\(L^2\)</span> de sa transformée de Fourier.</p></li>
 <li><p>On vérifiera que la fft et l’inverse de la ftt sont bien inverses numériques.</p></li>
@@ -454,7 +453,9 @@ fft et l&#39;inverse de la ftt sont bien inverses numériques
 </div>
 </div>
 </div>
-<p>### Exercice 2:</p>
+</div>
+<div class="section" id="exercice-2">
+<h3>Exercice 2:<a class="headerlink" href="#exercice-2" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>lisez le code ci-dessous et expliquez ce qui est obtenu.</p></li>
 </ul>
@@ -469,7 +470,7 @@ fft et l&#39;inverse de la ftt sont bien inverses numériques
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f21174a7390&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f489aa49c10&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/TP1 - EEA - Exercices_10_1.png" src="../../_images/TP1 - EEA - Exercices_10_1.png" />
@@ -478,7 +479,7 @@ fft et l&#39;inverse de la ftt sont bien inverses numériques
 <p>On obtient une réprensentation du signal filtré à l’aide d’un filtre passe-bas. On observe le phénomène de Gibbs.</p>
 </div>
 <div class="section" id="exercice-3">
-<h2>Exercice 3:<a class="headerlink" href="#exercice-3" title="Permalink to this headline">¶</a></h2>
+<h3>Exercice 3:<a class="headerlink" href="#exercice-3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Créer une gaussienne en utilisant la formule <span class="math notranslate nohighlight">\(e^{-x^2/\sigma^2}\)</span> et tracer la transformée de Fourier de cette fonction.</p></li>
 </ul>
@@ -508,9 +509,7 @@ fft et l&#39;inverse de la ftt sont bien inverses numériques
 <img alt="../../_images/TP1 - EEA - Exercices_13_1.png" src="../../_images/TP1 - EEA - Exercices_13_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="on-va-creer-un-signal-de-type-sinusoidal-numerique-qu-on-va-ensuite-ecouter">
-<h2>On va créer un signal de type sinusoidal numérique, qu’on va ensuite écouter.<a class="headerlink" href="#on-va-creer-un-signal-de-type-sinusoidal-numerique-qu-on-va-ensuite-ecouter" title="Permalink to this headline">¶</a></h2>
+<p>On va créer un signal de type sinusoidal numérique, qu’on va ensuite écouter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fs</span> <span class="o">=</span> <span class="mi">44100</span> <span class="c1"># fq d&#39;échantillonage</span>
@@ -532,7 +531,7 @@ fft et l&#39;inverse de la ftt sont bien inverses numériques
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f211735cd50&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f489a5c4bd0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/TP1 - EEA - Exercices_15_1.png" src="../../_images/TP1 - EEA - Exercices_15_1.png" />
@@ -553,7 +552,9 @@ fft et l&#39;inverse de la ftt sont bien inverses numériques
 </audio>
 </div></div>
 </div>
-<p>### Exercice 4:</p>
+</div>
+<div class="section" id="exercice-4">
+<h3>Exercice 4:<a class="headerlink" href="#exercice-4" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Représenter le signal sur 2 dixièmes de seconde et compter le nombre de maximums pour en vérifier approximativement la fréquence du signal.</p></li>
 <li><p>En utilisant la fft, représenter le contenu fréquentiel du signal. On s’attend à avoir un pic localisé en la fréquence utilisée pour la définition du signal.</p></li>
@@ -604,7 +605,9 @@ C&#39;est une bonne approximation de la fréquence réel égale à 440 Hz
 </div>
 </div>
 </div>
-<p>### Exercice 5:</p>
+</div>
+<div class="section" id="exercice-5">
+<h3>Exercice 5:<a class="headerlink" href="#exercice-5" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>En utilisant la fonction np.argmax, détecter la position du maximum de la fft du signal.</p></li>
 <li><p>Traduire cette position en fréquence.</p></li>
@@ -623,10 +626,10 @@ C&#39;est une bonne approximation de la fréquence réel égale à 440 Hz
 </div>
 </div>
 </div>
+</div>
 <div class="section" id="etude-de-signaux-reels">
 <h2>2. Étude de signaux réels:<a class="headerlink" href="#etude-de-signaux-reels" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="on-retrouve-bien-dans-ce-cas-la-frequence-du-son-qu-on-a-cree-on-propose-de-faire-la-meme-chose-pour-un-fichier-son-qui-est-l-enregistrement-d-une-note-de-musique-on-importe-un-fichier-son-on-lit-la-frequence-d-echantillonnage-le-signal-etant-stereo-il-y-a-dans-le-meme-vecteur-les-deux-sons-concatenes">
-<h3>On retrouve bien, dans ce cas, la fréquence du son qu’on a créé. On propose de faire la même chose pour un fichier son, qui est l’enregistrement d’une note de musique. On importe un fichier son, on lit la fréquence d’échantillonnage. Le signal étant stéréo, il y a, dans le même vecteur les deux sons concaténés:<a class="headerlink" href="#on-retrouve-bien-dans-ce-cas-la-frequence-du-son-qu-on-a-cree-on-propose-de-faire-la-meme-chose-pour-un-fichier-son-qui-est-l-enregistrement-d-une-note-de-musique-on-importe-un-fichier-son-on-lit-la-frequence-d-echantillonnage-le-signal-etant-stereo-il-y-a-dans-le-meme-vecteur-les-deux-sons-concatenes" title="Permalink to this headline">¶</a></h3>
+<p>On retrouve bien, dans ce cas, la fréquence du son qu’on a créé. On propose de faire la même chose pour un fichier son, qui est l’enregistrement d’une note de musique. On importe un fichier son, on lit la fréquence d’échantillonnage. Le signal étant stéréo, il y a, dans le même vecteur les deux sons concaténés:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">wavfile</span>
@@ -646,7 +649,6 @@ C&#39;est une bonne approximation de la fréquence réel égale à 440 Hz
 la longueur du signal numerique mono est  460800
 la longueur du signal mono en secondes est  20
 </pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -674,16 +676,14 @@ la longueur du signal mono en secondes est  20
   return array(a, dtype, copy=False, order=order)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f2116918e90&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f4899b7fd50&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/TP1 - EEA - Exercices_25_2.png" src="../../_images/TP1 - EEA - Exercices_25_2.png" />
 </div>
 </div>
 <p>Le signal est composé de plusieurs fréquences : la fréquence fondamentale et les harmoniques.</p>
-</div>
-<div class="section" id="fft-sur-une-sous-partie-du-signal">
-<h3>FFT sur une sous partie du signal.<a class="headerlink" href="#fft-sur-une-sous-partie-du-signal" title="Permalink to this headline">¶</a></h3>
+<p>FFT sur une sous partie du signal.</p>
 </div>
 <div class="section" id="exercice-7">
 <h3>Exercice 7:<a class="headerlink" href="#exercice-7" title="Permalink to this headline">¶</a></h3>
@@ -691,9 +691,7 @@ la longueur du signal mono en secondes est  20
 <li><p>Estimer l’instant où le son apparait.</p></li>
 <li><p>Effectuer le même travail que précédemment pour une sous partie du signal: on prendra le signal fenêtré sur une longueur de <span class="math notranslate nohighlight">\(T\)</span> secondes. Par exemple, <span class="math notranslate nohighlight">\(1.5\)</span> secondes.</p></li>
 </ul>
-</div>
-<div class="section" id="pour-eviter-de-polluer-le-spectre-avec-les-discontinuites-aux-bords-avec-les-conditions-periodiques-de-la-fft-on-multiplie-le-signal-fenetre-avec-une-fonction-qui-decroit-vers-0-aux-bords-de-la-fenetre-voir-ci-dessous">
-<h3>Pour éviter de polluer le spectre avec les discontinuités aux bords avec les conditions périodiques de la FFT, on multiplie le signal fenêtré avec une fonction qui décroit vers <span class="math notranslate nohighlight">\(0\)</span> aux bords de la fenêtre. Voir ci-dessous.<a class="headerlink" href="#pour-eviter-de-polluer-le-spectre-avec-les-discontinuites-aux-bords-avec-les-conditions-periodiques-de-la-fft-on-multiplie-le-signal-fenetre-avec-une-fonction-qui-decroit-vers-0-aux-bords-de-la-fenetre-voir-ci-dessous" title="Permalink to this headline">¶</a></h3>
+<p>Pour éviter de polluer le spectre avec les discontinuités aux bords avec les conditions périodiques de la FFT, on multiplie le signal fenêtré avec une fonction qui décroit vers <span class="math notranslate nohighlight">\(0\)</span> aux bords de la fenêtre. Voir ci-dessous.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## On introduit une fenetre sur laquelle on va calculer la fft.</span>
@@ -785,7 +783,7 @@ la longueur du signal mono en secondes est  1
   return array(a, dtype, copy=False, order=order)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f2113697a90&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f48968fd910&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/TP1 - EEA - Exercices_35_2.png" src="../../_images/TP1 - EEA - Exercices_35_2.png" />
@@ -904,7 +902,7 @@ la longueur du signal mono en secondes est  1
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../../Compression/Le%20cas%20du%20JPEG.html" title="previous page">Le cas du JPEG</a>
-    <a class='right-next' id="next-link" href="../TD2/TP2%20-%20FFT%20-%20Exercices.html" title="next page">TP2 : FFT</a>
+    <a class='right-next' id="next-link" href="../TD2/TP2%20-%20FFT%20-%20Exercices.html" title="next page">TD2 - FFT</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

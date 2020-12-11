@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TP2 : FFT &#8212; M2 Signal classes</title>
+    <title>TD2 - FFT &#8212; M2 Signal classes</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -58,8 +58,8 @@
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="TP3 : Compression Shannon-Huffman" href="../TD3/TP3%20-%20Compression%20Shannon-Huffman-Exercises.html" />
-    <link rel="prev" title="TP 1: Analyse en fréquence de signaux sonores." href="../TD1/TP1%20-%20EEA%20-%20Exercices.html" />
+    <link rel="next" title="TD3 - Compression Shannon-Huffman" href="../TD3/TP3%20-%20Compression%20Shannon-Huffman-Exercises.html" />
+    <link rel="prev" title="TD1 - Analyse en fréquence de signaux sonores." href="../TD1/TP1%20-%20EEA%20-%20Exercices.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -145,27 +145,27 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../TD1/TP1%20-%20EEA%20-%20Exercices.html">
-   TP 1: Analyse en fréquence de signaux sonores.
+   TD1 - Analyse en fréquence de signaux sonores.
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   TP2 : FFT
+   TD2 - FFT
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../TD3/TP3%20-%20Compression%20Shannon-Huffman-Exercises.html">
-   TP3 : Compression Shannon-Huffman
+   TD3 - Compression Shannon-Huffman
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../TD4/TP4%20-%20Spectral%20Analysis%20and%20Filtering-Exercise.html">
-   1. STFT  (Short Time Fourier Transform) and source separation.
+   TD4 - Spectral Analysis and Filtering
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../TD4/TP4%20-%20Spectral%20Analysis%20and%20Filtering-Exercise.html#the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir">
-   2. The goal of this part is to explore implementations of a FIR or an IIR.
+  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-%20Exercices.html">
+   TD5 - Wavelets
   </a>
  </li>
 </ul>
@@ -436,24 +436,10 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#your-answer-here">
-   Your answer here.
-   <span class="math notranslate nohighlight">
-    \(#############\)
-   </span>
-   .
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#stft-short-time-fourier-transform-and-source-separation">
    4. STFT  (Short Time Fourier Transform) and source separation.
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#we-simulate-two-micros-which-are-implemented-by-linear-combinations-of-the-signals">
-     We simulate two micros which are implemented by linear combinations of the signals.
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#q-do-the-same-with-the-stft-signals-what-do-you-observe">
      Q: Do the same with the STFT signals, what do you observe ?
@@ -482,8 +468,8 @@
         
               <div>
                 
-  <div class="section" id="tp2-fft">
-<h1>TP2 : FFT<a class="headerlink" href="#tp2-fft" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="td2-fft">
+<h1>TD2 - FFT<a class="headerlink" href="#td2-fft" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="shannon-s-theorem-in-use">
 <h2>1. Shannon’s theorem in use.<a class="headerlink" href="#shannon-s-theorem-in-use" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
@@ -599,7 +585,7 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(599, 493, 3)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f070d9a9cd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7ff15fe23c10&gt;
 </pre></div>
 </div>
 <img alt="../../_images/TP2 - FFT - Exercices_10_2.png" src="../../_images/TP2 - FFT - Exercices_10_2.png" />
@@ -627,7 +613,7 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(240, 365)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f070d909ad0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7ff15fd81990&gt;
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
@@ -753,7 +739,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f070d6e6d50&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff15fb82990&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/TP2 - FFT - Exercices_22_1.png" src="../../_images/TP2 - FFT - Exercices_22_1.png" />
@@ -776,7 +762,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
   This is separate from the ipykernel package so we can avoid doing imports until
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f070d8ed910&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff15fd61390&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/TP2 - FFT - Exercices_25_2.png" src="../../_images/TP2 - FFT - Exercices_25_2.png" />
@@ -845,7 +831,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f06f8d1b3d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7ff14b19c110&gt;
 </pre></div>
 </div>
 <img alt="../../_images/TP2 - FFT - Exercices_32_1.png" src="../../_images/TP2 - FFT - Exercices_32_1.png" />
@@ -869,7 +855,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f06f8c71450&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7ff14b0f9090&gt;
 </pre></div>
 </div>
 <img alt="../../_images/TP2 - FFT - Exercices_34_1.png" src="../../_images/TP2 - FFT - Exercices_34_1.png" />
@@ -921,7 +907,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f06f8ae2d10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7ff14af68890&gt;
 </pre></div>
 </div>
 <img alt="../../_images/TP2 - FFT - Exercices_36_1.png" src="../../_images/TP2 - FFT - Exercices_36_1.png" />
@@ -963,7 +949,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f06f89a1210&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7ff14ae25050&gt;
 </pre></div>
 </div>
 <img alt="../../_images/TP2 - FFT - Exercices_37_1.png" src="../../_images/TP2 - FFT - Exercices_37_1.png" />
@@ -1000,7 +986,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f06f8851210&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7ff14acd41d0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/TP2 - FFT - Exercices_39_1.png" src="../../_images/TP2 - FFT - Exercices_39_1.png" />
@@ -1036,7 +1022,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f06f86fd890&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7ff14ac02810&gt;
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 720x720 with 0 Axes&gt;
@@ -1079,7 +1065,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f06f863d250&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7ff14aacf610&gt;
 </pre></div>
 </div>
 <img alt="../../_images/TP2 - FFT - Exercices_45_1.png" src="../../_images/TP2 - FFT - Exercices_45_1.png" />
@@ -1206,7 +1192,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1b8a61dd4c8&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f1d15f09d00&gt;
 </pre></div>
 </div>
 <img alt="../../_images/TP2 - FFT - Exercices_52_1.png" src="../../_images/TP2 - FFT - Exercices_52_1.png" />
@@ -1264,7 +1250,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1b8a9039408&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f1d16140df0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/TP2 - FFT - Exercices_56_1.png" src="../../_images/TP2 - FFT - Exercices_56_1.png" />
@@ -1272,12 +1258,9 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 </div>
-<div class="section" id="your-answer-here">
-<h2>Your answer here. <span class="math notranslate nohighlight">\(#############\)</span>.<a class="headerlink" href="#your-answer-here" title="Permalink to this headline">¶</a></h2>
-</div>
 <div class="section" id="stft-short-time-fourier-transform-and-source-separation">
 <h2>4. STFT  (Short Time Fourier Transform) and source separation.<a class="headerlink" href="#stft-short-time-fourier-transform-and-source-separation" title="Permalink to this headline">¶</a></h2>
-<p>#### In this part, we use STFT which is a collection of Fourier transform of a 1D signal on time subintervals. We use it in order to experiment source separation which comes from the idea that the different signals may present very different behaviour in the frequency domain.</p>
+<p>In this part, we use STFT which is a collection of Fourier transform of a 1D signal on time subintervals. We use it in order to experiment source separation which comes from the idea that the different signals may present very different behaviour in the frequency domain.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># utils to load the sounds.</span>
@@ -1306,7 +1289,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 </div>
-<p>#### Hereafter, we load the <span class="math notranslate nohighlight">\(3\)</span> sounds and plot the second one.</p>
+<p>Hereafter, we load the <span class="math notranslate nohighlight">\(3\)</span> sounds and plot the second one.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1024</span><span class="o">*</span><span class="mi">16</span>
@@ -1326,14 +1309,13 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 [-112. -229. -292. ... -713. -679. -676.]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1b8a91d2fc8&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f1d15e67dc0&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/TP2 - FFT - Exercices_62_2.png" src="../../_images/TP2 - FFT - Exercices_62_2.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_61_2.png" src="../../_images/TP2 - FFT - Exercices_61_2.png" />
 </div>
 </div>
-<div class="section" id="we-simulate-two-micros-which-are-implemented-by-linear-combinations-of-the-signals">
-<h3>We simulate two micros which are implemented by linear combinations of the signals.<a class="headerlink" href="#we-simulate-two-micros-which-are-implemented-by-linear-combinations-of-the-signals" title="Permalink to this headline">¶</a></h3>
+<p>We simulate two micros which are implemented by linear combinations of the signals.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -1345,7 +1327,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 </div>
-<p>#### We use the STFT function from the python package signal and plot it.</p>
+<p>We use the STFT function from the python package signal and plot it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.signal</span> <span class="k">as</span> <span class="nn">sig</span>
@@ -1362,13 +1344,13 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1b8a90ad088&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f1d1575e640&gt;
 </pre></div>
 </div>
-<img alt="../../_images/TP2 - FFT - Exercices_66_1.png" src="../../_images/TP2 - FFT - Exercices_66_1.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_65_1.png" src="../../_images/TP2 - FFT - Exercices_65_1.png" />
 </div>
 </div>
-<p>#### We numerically check that the STFT and ISTFT are indeed inverse from each others.</p>
+<p>We numerically check that the STFT and ISTFT are indeed inverse from each others.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">micro1</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
@@ -1383,12 +1365,12 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8.309413176987725e-29
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.663305028034717e-29
 </pre></div>
 </div>
 </div>
 </div>
-<p>#### By selecting randomly a group of points in time, we plot in the plane the coordinates of the points, being the measured signals by the micros.</p>
+<p>By selecting randomly a group of points in time, we plot in the plane the coordinates of the points, being the measured signals by the micros.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nbre_selec</span> <span class="o">=</span> <span class="mi">600</span>
@@ -1404,11 +1386,10 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16384
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1b8a9620b88&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f1d156769a0&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/TP2 - FFT - Exercices_70_2.png" src="../../_images/TP2 - FFT - Exercices_70_2.png" />
-</div>
+<img alt="../../_images/TP2 - FFT - Exercices_69_2.png" src="../../_images/TP2 - FFT - Exercices_69_2.png" />
 </div>
 </div>
 <div class="section" id="q-do-the-same-with-the-stft-signals-what-do-you-observe">
@@ -1425,10 +1406,10 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1b8a9755c48&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f1d155d4520&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/TP2 - FFT - Exercices_72_1.png" src="../../_images/TP2 - FFT - Exercices_72_1.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_71_1.png" src="../../_images/TP2 - FFT - Exercices_71_1.png" />
 </div>
 </div>
 <p>Les points ont l’air d’être réparti le long de deux “droites”.</p>
@@ -1468,7 +1449,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/TP2 - FFT - Exercices_76_0.png" src="../../_images/TP2 - FFT - Exercices_76_0.png" />
+<img alt="../../_images/TP2 - FFT - Exercices_75_0.png" src="../../_images/TP2 - FFT - Exercices_75_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1507,7 +1488,7 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">50</span><span class="o">-</span><span class="mi">7469</span><span class="n">da7aea16</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">40</span><span class="o">-</span><span class="mi">7469</span><span class="n">da7aea16</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">projections</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Estimated</span><span class="p">,</span><span class="n">W</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">projections</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
@@ -1530,20 +1511,6 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">51</span><span class="o">-</span><span class="mi">90</span><span class="n">d630f114fd</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">masque</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">projections</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">masque</span><span class="p">)[</span><span class="mi">0</span><span class="p">]):</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">masque</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="n">I</span><span class="o">==</span><span class="n">i</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">source_stft</span> <span class="o">=</span> <span class="n">projections</span> <span class="o">*</span> <span class="n">masque</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">source_stft</span><span class="p">))</span>
-
-<span class="ne">NameError</span>: name &#39;projections&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1556,35 +1523,10 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(65, 257)
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">52</span><span class="o">-</span><span class="mf">1e024761</span><span class="n">c802</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">MaListe</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
-<span class="ne">----&gt; </span><span class="mi">6</span>     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">snr</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">flatten</span><span class="p">()),</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">source_stft</span><span class="p">[</span><span class="n">i</span><span class="p">,:])))</span>
-
-<span class="ne">NameError</span>: name &#39;source_stft&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">MaListe</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">53</span><span class="o">-</span><span class="mi">857</span><span class="n">f342fbf63</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">MaListe</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
-
-<span class="ne">IndexError</span>: list index out of range
 </pre></div>
 </div>
 </div>
@@ -1602,21 +1544,6 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">342</span><span class="o">-</span><span class="n">a6393c115ff1</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;stft of source&quot;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">MaListe</span><span class="p">[</span><span class="n">i</span><span class="p">])))</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;stft of recovered signal&quot;</span><span class="p">)</span>
-
-<span class="ne">IndexError</span>: list index out of range
-</pre></div>
-</div>
-<img alt="../../_images/TP2 - FFT - Exercices_84_1.png" src="../../_images/TP2 - FFT - Exercices_84_1.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1626,20 +1553,6 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
     <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">istft</span><span class="p">(</span><span class="n">temp</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">h</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">54</span><span class="o">-</span><span class="mi">31</span><span class="n">a2605cc931</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">X</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="n">temp</span> <span class="o">=</span> <span class="n">source_stft</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">MaListe</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">istft</span><span class="p">(</span><span class="n">temp</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">h</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;source_stft&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1661,21 +1574,6 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
 <span class="nb">print</span><span class="p">(</span><span class="n">snr</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">x</span><span class="p">[:,</span><span class="n">i</span><span class="p">]))</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">55</span><span class="o">-</span><span class="n">e3c83eabc755</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;recovered&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;source&quot;</span><span class="p">)</span>
-
-<span class="ne">IndexError</span>: list index out of range
-</pre></div>
-</div>
-<img alt="../../_images/TP2 - FFT - Exercices_86_1.png" src="../../_images/TP2 - FFT - Exercices_86_1.png" />
 </div>
 </div>
 </div>
@@ -1710,8 +1608,8 @@ In general, always use <span class="math notranslate nohighlight">\(fftshift\)</
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../TD1/TP1%20-%20EEA%20-%20Exercices.html" title="previous page">TP 1: Analyse en fréquence de signaux sonores.</a>
-    <a class='right-next' id="next-link" href="../TD3/TP3%20-%20Compression%20Shannon-Huffman-Exercises.html" title="next page">TP3 : Compression Shannon-Huffman</a>
+    <a class='left-prev' id="prev-link" href="../TD1/TP1%20-%20EEA%20-%20Exercices.html" title="previous page">TD1 - Analyse en fréquence de signaux sonores.</a>
+    <a class='right-next' id="next-link" href="../TD3/TP3%20-%20Compression%20Shannon-Huffman-Exercises.html" title="next page">TD3 - Compression Shannon-Huffman</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
