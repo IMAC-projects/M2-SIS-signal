@@ -276,3 +276,164 @@ on moyenne notre debruitage sur un espace de translation :
 $$
 L(I) = \frac{1}{|\Delta|}\sum_{t\in\Delta} \Tau_{-t} L(\Tau_{t}(I))
 $$
+
+
+
+---
+
+En pratique (estimation de la variance):
+
+on considère $\Phi(I_{obs})  \rightarrow (P_{8\times8})_{i \in I}$
+
+$\Phi$ est la fonction d'"extraction" des patches
+
+un pixel appartient à en théorie $64=8.8$ patches $P$
+
+Estimation de la variance: 
+
+Soit $P$ un patch : 
+
+$var(P) = \frac{1}{m}\sum_{k=1}^m(p_k-moy(P))^2$
+
+$moy(P) = \frac{1}{m}\sum_{k=1}^m p_k$
+
+Idée : le bruit et sa variance vont être facilement estimée sur des patches de petit variance.
+
+L'idée est de sélectionner les patches de variance minimal pour en faire la moyenne (car ils presente peu de discontinué (variance élevée))
+
+on map l'image sur ses patches, on calcul leurs variances, on regarde la distribution de la variance des patches pour en sélectionner ceux donc la variance est faible.
+-> on fait la moyenne des patches donc la variance est petites.
+
+---
+
+<u>Les méthodes à l'état de l'art:</u>
+
+- Les ondelettes sont plus efficaces en terme de localisation des discontinuités que par fourrier
+
+- Les premières méthode utilisaient la DCT
+
+  $I \rightarrow P_{8\times8} \rightarrow^{DCT} \text{Hard thersholding} \rightarrow^{DCT^{-1}}$
+
+  Soit $L$ le débruteur défini par :
+
+  $L(I)(x) = \frac{1}{\#P}\sum_{x\in P} FT^{-1}(S(FT(P)))(x)$
+
+  où $\#P$ est le nombre de patches auxquels $x$ appartient et $P$ les patches auquel $x$ appartient et $S$ me soft ou hard thresholding
+
+  > on peut améliorer la moyenne en excluant les valeurs extrêmes
+
+$ \rightarrow$ LE "meilleur" débruitage en utilisant cette méthode + du multi-échelle est à -8.5dB par rapport à l'état de l'art (autrement dit, elle performe moins bien que la meilleurs des méthodes existantes)
+
+- Pousser la non linéarité plus loin:
+
+  Idée: on observe des échantillons/réalisations pour en faire la moyenne (mais on ne dispose pas de ces multiple réalisation)
+
+  mais comment avoir accès à ces réalisations aléatoires ?
+
+  ​	$\int\frac{1}{Z}e^{\frac{||x-u||^2}{2\sigma^2}}I(y)d_y$
+
+  - considérer les pixels voisins n'est pas toujours les meilleurs candidats à être un modèle proche d'un nouvelle réalisation considérée, il faut donc aller les chercher ailleurs .
+
+  - filtre bilatéral (première utilisation de cette technique):
+
+    ​	I(x) est remplacé par une moyenne des pixels de $I(y_i) $avec $y_i \in \text{Voissinage}(x)$ ou $\text{Voissinage}(x) = \{ y_i, |y_i-x|^2+|I(y_i)-I(x)|^2 \leq \mathbb{R}\}$
+
+  Finalement, comment étendre la notion de proximité des pixels ? 
+
+  ![image-20201210162559841](images/debruitage03.png)
+
+Plutôt que de prendre un filtre gaussien dans l'espace des patches plutôt que dans l'espace spatial des pixels 
+
+méthode NLmeans (non local means)
+
+
+
+
+
+---
+
+<u>soft-hard threshlding:</u>
+
+on considère un signal dans une basse adéquat (comme ondelette ou fourrier)
+
+Soit $S_T(x) = \sum_{i=1}^N s_T(<x,e_i>)e_i$
+
+avec $s_T(y) = 1_{(y\geq T)}\times y$ pour le hard thresholding
+
+On agit de manière non linéaire sur les coefficients du signal
+
+![image-20201215141613690](images\debruitage04.png)
+
+<u>Non locals means :</u>
+
+$I_{\text{obs}} \rightarrow (p_i)_{i\in I}$
+
+filtre gaussien sur les patch $P_i$ en ayant connaissance du bruit d'input 
+$$
+\frac{\sum_j P_je^\frac{-||P_j-P_i||^2}{2\sigma^2}}{\sum_j e^\frac{-||P_j-P_i||^2}{2\sigma^2}}
+$$
+$\forall x \in \text{grille de pixel}$
+
+$I(\text{estimé}) = \text{Moyenne}_{x \in P_i}(\hat P_i(x))$
+
+l'enjeu est d'optimiser le temps de calcul dans la sélection des patchs de l'image
+
+---
+
+<u>NLM (approche bayésienne):</u>
+
+On considère sur les patches un modèle de bruits (le plus proche possible de ce que l'on observe)
+
+Soit $P,Q$ deux patches ($8\times8$), de $\sigma > 0$ connu
+
+$Q$ étant notre image idéale et $P$ l'image bruité observé avec un bruit $n$ gaussien
+
+$P = Q +n$ ou $p(n) = \frac{1}{Z}e^\frac{-||P-Q||^2}{2\sigma^2}$
+$$
+\mathbb{P}(I_\text{idéal}|I_\text{obs}) = \mathbb{P}(P|Q) = \frac{1}{Z}e^\frac{-||P-Q||^2}{2\sigma^2} = g_\sigma(P-Q)
+$$
+
+
+ou $Z$ est un coefficient de normalisation 
+
+
+
+Si on a $\mathbb{P}(I_\text{idéal}|I_\text{obs})$:
+$$
+MSE  : \mathbb{E}[I_\text{idéal}|I_\text{obs}] = \int I_\text{idéal}e^{-d^2(I_\text{idéal}-I_\text{obs})} p(I_\text{idéal})dI_\text{idéal} \\
+= \mathbb{E}[I|I_\text{obs}] = \int I_\text{idéal}e^{\frac{-||I_\text{obs}-I||^2}{2\sigma^2}} p(I)dI
+$$
+
+
+Approche du type : maximum à posteriori (MAP)
+
+on cherche à maximiser le $log\quad\mathbb{P}(I_\text{idéal}|I_\text{obs})$
+$$
+max\quad log[I_\text{idéal}e^{\frac{-||I_\text{obs}-I_\text{idéal}||^2}{2\sigma^2}} -log\mathbb{P}(I_\text{obs})]\\
+<=> \\
+min\quad log\mathbb{P}(I_\text{obs}) + \frac{1}{2\sigma^2}||I_\text{obs}-I_\text{idéal}||^2
+$$
+On peut en pratique postuler un modèle pour $log\mathbb{P}(I_\text{obs})$ par régularisation (proposé dans les années 90's 2000's) (régularisation de sobolev):
+$$
+E(I) = ... log\mathbb{P}(I_\text{obs}) = \int||\nabla I||^2dxdy
+$$
+ ou $\nabla I(x, y) = (\frac{\partial}{\partial x}I,\frac{\partial}{\partial y}I )$
+
+il existe aussi la régularisation Total...
+
+Le problème est de savoir minimiser une fonction dans un espace de grande dimension $\mathbb{R}^d$ ou $d >>1$ d: le nombre de pixels
+
+
+
+![image-20201215151452682](images\debruitage05.png)
+
+Hypothèse de modélisation: 
+
+MAP : 	$\frac{Min}{I} \quad \int||\nabla I||^2dxdy \quad+\quad \frac{1}{2\sigma^2}||I_\text{obs}-I_\text{idéal}||^2$
+
+$\frac{Min}{I}$ = (a priori) + (attache aux données)
+
+$\frac{Min}{I}$ = (Reg($I$) + attache($I$, $I\text{obs}$)
+
+---
+
