@@ -60,6 +60,10 @@ $G$ est une matrice symétrique réelle positive.
 Cette matrice est diagonalisable.
 l'idée de l'analyse en composant principal est de chercher à représenter les données par une ellipsoïde (fiting par une ellipsoïde )
 
+![](images/ACP1.png)
+![](images/ACP2.png)
+
+
 > Rappel: $M \in \mathbb{R}^{n^2}$
 >
 > diagonaliser M c'est trouver une base adaptée à $M$, c'est à dire une base dans laquelle M est facile à représenter/calculer.
