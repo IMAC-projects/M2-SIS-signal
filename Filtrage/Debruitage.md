@@ -114,7 +114,7 @@ $I_\text{observation} \in \mathbb{R}^d = I_\text{idéal} + N$ ($N$ noise ou brui
 
 <u>Hyp:</u> on connait le modèle du bruit (il est possible de l'estimer expérimentalement parfois )
 
-#### Bruit gaussien:
+### Bruit gaussien:
 
 $n[i]$ est une variable aléatoire 
 
@@ -337,7 +337,7 @@ $l(x)$ est remplacé par une moyenne des pixels de $I(y_i) $avec $y_i \in \text{
 
 Finalement, comment étendre la notion de proximité des pixels ?
 
-![image-20201210162559841](images/debruitage03.png)
+![](images/debruitage03.png)
 
 Plutôt que de prendre un filtre gaussien dans l'espace des patches plutôt que dans l'espace spatial des pixels
 
@@ -355,7 +355,7 @@ avec $s_T(y) = 1_{(y\geq T)}\times y$ pour le hard thresholding
 
 On agit de manière non linéaire sur les coefficients du signal
 
-![image-20201215141613690](images\debruitage04.png)
+![](images/debruitage04.png)
 
 <u>Non locals means :</u>
 
@@ -422,7 +422,7 @@ il existe aussi la régularisation totale...
 
 Le problème est de savoir minimiser une fonction dans un espace de grande dimension $\mathbb{R}^d$ ou $d >>1$ d: le nombre de pixels
 
-![image-20201215151452682](images\debruitage05.png)
+![](images/debruitage05.png)
 
   
 
