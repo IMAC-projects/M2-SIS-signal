@@ -116,7 +116,7 @@ $$ H(e(t)) = \int_{}^{}e(u) h(t−u) du = \int_{}^{}h(u) e(t−u) du = h(t) \ast
 
 La sortie y d'un filtre est **$y = h \ast x$** où h est la R.I.
 
-<font color=red>Propriétés : </font>
+**<font color=red>Propriétés : </font>**
 
 - **Linéarité** : $S(x_1 + x_2) = S(x_1) + S(x_2)$
 - **Invariance dans le temps** : la translation du temps appliquée à l’entrée se retrouve à la sortie
@@ -172,6 +172,9 @@ On passe de la R.I $h[n]$ à la fonction de transfert $H(z)$
 
 $$ H(z) = H(z) e^{2i \pi z}$$
 
+La fonction de transfert du filtre correspond à la transformée en z de la réponse impulsionnelle. On peut donc retrouver $h_n$ en effectuant la transformée en z inverse de $H(z)$. 
+Une autre façon d'obtenir $h_n$ est de calculer directement à partir de l'équation de récurrence du filtre.
+
 ### Relation entrée-sortie
 
 On se donne un filtre de R.I $(h[n])_n \in \mathbb{Z}$. On note $h[n] \leftrightarrow H(z)$
@@ -186,7 +189,7 @@ $$Y(z) = H(z)X(z)$$
 
 Un filtre numérique est une application $F : L^2 (\mathbb{Z}) \to  L^2 (\mathbb{Z})$. On parle de filtre linéaire si $F$ est linéaire. La sortie à l’instant $n$ d’un filtre numérique dépend de la sortie aux instants précédents $(m \leq n − 1)$ et de l’entrée à tout instant ($m \leq n$ : filtre causal). Nous nous limiterons aux filtres linéaires invariants, ce qui impose que le signal filtré $y(n)$ s’écrive alors comme une combinaison linéaire des échantillons passés de $x(n)$ et $y(n-1)$ dont les coefficients $a_k$ et $b_k$ fixeront le type de filtre.
 
-<font color=red>Translation en temps : </font>
+**<font color=red>Translation en temps : </font>**
 
 $$
 \begin{align}
@@ -195,8 +198,8 @@ T_{\tau}  : L^2 (\mathbb{Z}) \to  L^2 (\mathbb{Z})
 \end{align}
 $$
 
-<font color=red>Théorème : </font>
-Si F, un filtre linéaire vérifie $T_{\tau}F = FT_{\tau}((a_n))$ alors F est une convolution. 
+**<font color=red>Théorème : </font>**
+Si $F$, un filtre linéaire vérifie $T_{\tau}F = FT_{\tau}((a_n))$ alors F est une convolution. 
 
 **Exemples :**
 
@@ -213,12 +216,14 @@ Soit $x(n)$ un signal discret quelconque. Sa transformée en Z s’écrit :
 
 $$X(z) = Z\left\{x(n) \right\} = \sum^{+\infty}_{n=-\infty} x[n]z^{−n},  z \in \left\{z ∈ \mathbb{C} \sum^{+\infty}_{n=-\infty} x[n]z^{−n} \ \text{converge} \ \right\}$$
 
-<font color=red>Remarque : </font> 
+**<font color=red>Remarque : </font>**
+
 On retrouve la définition de la transformée de Fourier en posant $z = e^{\frac{i2\pi f}{f_e}}$ avec $f_e$ la fréquence d’échantillonnage. 
 
 $$X(z) = X(e^{i2 \pi f})$$
 
-**<font color=red>Zéro : </font>** on définit les zéros de la fonction $X_z$ tels que $X_z(z) = 0$
+**<font color=red>Zéro : </font>** on définit les zéros de la fonction $X_z$ tels que $X_z(z) = 0$ 
+
 **<font color=red>Pôles : </font>** on définit les pôles de la fonction $X_z$ tels que $|X_z(z)| \to +\infty$
 
 **<font color=red>Propriétés </font>**
@@ -229,8 +234,7 @@ $$X(z) = X(e^{i2 \pi f})$$
 
 **<font color=red>Convolution</font>**
 
-Si $x[n]$ admet $X[z]$ comme TZ
-Si $y[n]$ admet $Y[z]$ comme TZ
+Si $x[n]$ admet $X[z]$ comme TZ et si $y[n]$ admet $Y[z]$ comme TZ
 
 Alors :
 $$(x \ast y)[n] \to X(z)Y(z)$$
@@ -255,13 +259,17 @@ $$(z \in \mathbb{C} \sum^{+\infty}_{n = -\infty} x_n^{z −n} \ \ \text{existe})
 On l'appelle également **couronne de convergence**. Ci-dessous, en rouge, la **zone de convergence**. 
 
 <p align="center">
-<img src="https://i.ibb.co/7Gn6DCD/cercle-conv.png"  
-alt="cercle de convergence"/>
+![](images/cercle_convergence.png)
 </p>
 
+<p align="center">
+![](images/convergence_a.png)
+</p>
+
+
 Pour une séquence finie $x[n]$, la transformée $X(z)$ est un polynôme en $z$ ou en $z^{−1}$ et converge pour toutes les valeurs de $z$, sauf pour 2 cas : 
-- $z = 0 \$ si $X(z)$ contient des termes de la forme $z^{-k}$ 
-- $z = \infty \$ si $X(z)$ contient des termes de la forme $z$
+- $z = 0$ si $X(z)$ contient des termes de la forme $z^{-k}$ 
+- $z = \infty$ si $X(z)$ contient des termes de la forme $z$
 
 $X(z)$ existe si $x(n)$ a une croissance au plus exponentielle, auquel cas le domaine de convergence est compris dans une couronne : 
 - de petit rayon le majorant de la base du côté des $n$ négatifs 
@@ -281,11 +289,12 @@ alt="convergence"/>
 
 Quand on donne une TZ, il faut donc toujours donner son **domaine de convergence** associé (puisque c’est une série de puissance infinie).
 
-Ci-dessous la liste des TZ communes : 
+Ci-dessous la liste des TZ usuelles: 
 
 <p align="center">
-  <img src="https://i.ibb.co/pxBMg0r/transfo-connue.png" alt="transfo communes"/>
+![](images/TZ_usuelles.png)
 </p>
+
 
 ### TZ, série entières et domaines de convergence
 
@@ -293,10 +302,11 @@ $V(z) = \frac{N(z)}{D(z)}$ avec $N$ et $D$ des polynômes en $Z$.
 
 **<font color=red>Définition : </font>**
 
-- Les racines de $N$ appelées les zéros de la fraction
-- Les racines de $D$ appelées les pôles de la fraction
+- Les racines de $N$ appelées les **zéros** de la fraction
+- Les racines de $D$ appelées les **pôles** de la fraction
 
 **Question :**
+
 Déterminer $(v[n])_{n \in \mathbb{Z}}$ dont $V(z)$ est la TZ.
 
 Il y a 3 domaines de convergence possible
@@ -310,19 +320,29 @@ Il faut retrouver **l'original**  $(x[n])_{n \in \mathbb{Z}}$ c'est-à-dire, tro
 
 **Méthode décomposition en élément simple (D.E.S)**.
 
+Par ailleurs, un **filtre stable** a ses pôles complexes $z_1, z_2, …, z_k$ situés à l'intérieur du cercle unité dans le plan complexe.
 
-### Filtre récursif et non-récursif
 
-On peut classer les filtres numériques en 2 catégories selon leur réponse impulsionnelle : réponse impulsionnelle finie (RIF), réponse impulsionnelle infinie (RII).
+## Filtre récursif et non-récursif
+
+On peut classer les filtres numériques en 2 catégories selon leur réponse impulsionnelle : **réponse impulsionnelle finie (RIF)** et **réponse impulsionnelle infinie (RII)**.
 
 #### RIF
 
-Les échantillons ${h_n}$ de la réponse impulsionnelle deviennent nuls à partir d'un certain rang $k$. C'est un filtre non-récursif.
+Les échantillons ${h_n}$ de la réponse impulsionnelle deviennent nuls à partir d'un certain rang $k$. C'est un filtre non-récursif. Un système à réponse impulsionnelle finie est toujours **stable**.
+
+**Exemple :** 
+
+R.I du filtre moyenneur défini par $y_n = \frac{x_n + x_{n-1}}{2}$ pour $x_n = \delta(n), y_n = h_n \rightarrow h_n = \left\{\frac{1}{2};\frac{1}{2};0;0;…\right\}$
 
 #### RII
 
 Filtre rationnels admettant un pôle au moins. Il n'existe pas de rang $k$ à partir duquel la réponse impulsionnelle devienne nulle.
 Un filtre à RII ne signifie pas que la réponse impulsionnelle ne puisse pas s'annuler par endroits. C'est un filtre récursif.
+
+**Exemple :**
+
+$y_n = x_n  - 0,4 x_{n-1} + 0,6 y_{n-1} \rightarrow h_n = \frac{2}{3 \delta(n)} + \frac{1}{3}(0,6)^n$
 
 ## Filtre idéaux
 
