@@ -1,4 +1,4 @@
-﻿# Compression
+# Compression
 
 La **compression de données** est l'opération consistant à **transformer** une donnée A en une autre B pouvant **restituer** les mêmes informations, ou des informations *"proches"*, en utilisant un algorithme de *décompression*.
 
@@ -98,7 +98,7 @@ Si les couleurs sont codées respectivement $0$ pour le rouge, $10$ pour le bleu
 
 Le **codage de Huffman** est un algorithme de compression de données **sans perte**. Il consiste à utiliser un code à longueur variable pour représenter un symbole d'une source de données en ayant une connaissance préalable (ou une estimation) des probabilités d'apparition des symboles de cette source. Un code court étant associé aux symboles les plus fréquents.
 
-Un code de Huffman est optimal au sens de la plus courte longueur pour un codage par symbole et une distribution de probabilité connue. Des méthodes plus complexes réalisant une modélisation probabiliste de la source permettent d'obtenir de meilleurs ratios de compression.
+Le code de Huffman est un code de longueur variable **optimal**, c'est-à-dire tel que la **longueur moyenne d'un texte codé soit minimale**. I.e : la plus courte longueur pour un codage par symbole et une distribution de probabilité connue. Des méthodes plus complexes réalisant une modélisation probabiliste de la source permettent d'obtenir de meilleurs ratios de compression.
 
 ### Code Préfixe
 
@@ -153,11 +153,13 @@ $$
 \sum_{x \in X} 2^{-l(C(x))} = \sum_{i=1}^n 2^{-l_i} \leq 1
 $$
 
-**<font color=red>Demonstration : </font>** ( $\tau = 2$ pour plus de clarté)
+**<font color=red>Démonstration : </font>** ( $\tau = 2$ pour plus de clarté)
 
 >  La démonstration est faite en considérant $\tau = 2$ par simplicité mais peut se généraliser facilement.
 
 ![image-20201031141224315](ArbrePrefixe.png)
+
+
 
 Si le code préfixe, on peut faire une démonstration simple par analogie avec son graphe.
 Notons la taille maximum d'un mot dans notre codage $C$ :  $l_{max} = Max(l_i)_{i \in [\hspace{-0.1em}[ 1, n ]\hspace{-0.1em}]}$  
@@ -224,8 +226,7 @@ $$
 
 ----
 
-**<font color=red>Demonstration $H_\tau(X) \leq \mathbb{L}(C)$: </font>** ( $\tau = 2$ pour plus de clarté)
-
+**<font color=red>Démonstration $H_\tau(X) \leq \mathbb{L}(C)$: </font>** ( $\tau = 2$ pour plus de clarté)
 $$
 \begin{align}
 \mathbb{L}(C) - H(X) =& \sum_{i=1}^n p_i.l_i + \sum_{i=1}^n p_i.log_2(p_i) \\
@@ -264,7 +265,7 @@ $$
 
 Il est possible de montrer que l'entropie relative est une grandeur positive.
 
-> Inégalité de Jensen
+> **Inégalité de Jensen**
 >
 > Soit $f$ une fonction convexe, f $\mathbb{R}^n \to \mathbb{R}$  et $X$ un vecteur aléatoire $X \in \mathbb{R}^n$ avec une loi de probabilité $p$ alors :
 > $$
@@ -308,7 +309,7 @@ Il est possible de montrer que l'entropie relative est une grandeur positive.
 
 **<font color=red>Démonstration $\mathbb{L}(C) \leq H_\tau(X) +1$: </font>** ( $\tau = 2$ pour plus de clarté)
 
-Soient $X = \{x_0, x_1, \dots, x_n \}$ une source, $p_i = \mathbb{P}(X = x_i)$ la probabilité d'apparition du caractère $x_i$ .
+Soit $X = \{x_0, x_1, \dots, x_n \}$ une source et $p_i = \mathbb{P}(X = x_i)$ la probabilité d'apparition du caractère $x_i$ .
 
 Commençons par démontrer qu'il existe un code dont les longueurs $l_i$ sont égales à :
 
@@ -359,7 +360,7 @@ L'idée général est de considérer, pour une source de données $X$, les rép�
 
 > A C F X X X X C C U U U D C C C C C
 
-Le codage **RLE** deviens : 
+Le codage **RLE** devient : 
 
 > 1 A 1 C 1 F 4 X 2 C 3 U 1 D 4 C
 

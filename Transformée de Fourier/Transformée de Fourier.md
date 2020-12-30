@@ -1,4 +1,4 @@
-﻿# Transformée de Fourier
+# Transformée de Fourier
 
 > La transformée de Fourier est une opération qui transforme une fonction intégrable sur $\mathbb{R}$ en une autre fonction.
 
@@ -73,7 +73,7 @@ Soit $a,b \in \mathbb{R}$  et  $f,g \in L^1(\mathbb{R})$
 $$
 TF(af+bg) = \widehat{af+bg} = a\hat{f}+b\hat{g} 
 $$
-  
+
 
 * **Démonstration** :
 
@@ -85,7 +85,7 @@ $$
   =& a\hat{f}+b\hat{g} \quad \\
   \end{align}
 $$
-  
+
 * **<font color=red>Théorème du retard (translation temporelle) </font>** 
 
   Soit $t_0 \in \mathbb{R}$ et $f : \mathbb{R} \to \mathbb{C}$. On définit la translation de $f$ par $t_0$ :  $\tau_a(f)(t) \mapsto f(t-t_0)$
@@ -302,14 +302,21 @@ On a les propriétés suivantes :
 ### Propriétés  
 
 - Commutativité : $h \ast s = s \ast h$
+
 - Bilinéarité :  $(af+bg)*h = a.f*h+ b.g*h$
+
 - Impulsion unitaire comme élément neutre :  $\mathbb{1}(t) = \left\{
   \begin{array}{ll}
   1 & \text{si } t = 0 \\ 
   0 & \text{sinon}
   \end{array}
   \right.$
+  
 - $\int_{\mathbb{R}}^{}| f \ast g(t)| \ dt \leq \int_{\mathbb{R}}^{}| f| \ dt \ \int_{\mathbb{R}}^{}|g| \ dt$
+
+- La convolution d'un signal $f$ par le signal porte s'obtient en faisant glisser $f$ sur l'intervalle $[a,b]$. On obtient alors un élargissement de $f$.
+
+  ![](./produit_convolution.png)
 
 
 **<font color=red>Transformée de Fourier d’un produit de convolution</font>**:
@@ -652,9 +659,9 @@ Le produit de convolution de deux images est équivalent à la multiplication de
 $$\hat{X}_{k_1,k_2} = \sum_{n_1,n_2}^{N-1}X_{n_1,n_2}e^{\frac{-2i\pi k_1 n_1}{N_1}} e^{\frac{-2i\pi k_2 n_2}{N_2}}$$
 
 
-## Fast fourier transform
+## Fast Fourier Transform
 
-> On introduit l'algorithme de la FFT pour calculer la TFD car sa compléxité varie en $O(nlog(n))$ contrairement à l'algorithme naïf en $O(n^2)$
+> On introduit l'algorithme de la FFT pour calculer la TFD car sa complexité varie en $O(nlog(n))$ contrairement à l'algorithme naïf en $O(n^2)$
 
 L'algorithme de la FFT est un algorithme qui permet d'effectuer la TF de manière plus optimale.
 
@@ -704,3 +711,24 @@ $Y[k] = X(\frac{k}{N+M})$
 On a $\frac{1}{N+M} < \frac{1}{N}$
 
 donc le pas d'échantillonnage de la fonction $X(\nu)$ est plus fin. On mets autant de 0 que le nombre d'échantillon.
+
+
+
+## Short Time Fourier Transform
+
+> Les transformées de Fourier n'indiquent pas clairement comment le contenu en fréquence d'un signal change dans le temps. Cette information est cachée dans la phase. Pour voir comment le contenu en fréquence d'un signal change au fil du temps, nous pouvons découper le signal en blocs et calculer le spectre de chaque bloc.
+>
+
+Elle peut être utilisée pour isoler différentes sources dans un signal. Elle est aussi utilisée pour calculer le changement de phase et de fréquence d'un signal non-stationnaire en fonction du temps.
+
+Le carré de son module donne le **spectrogramme**.
+$$
+STFT\left\{x[n]\right\} = X(m, \omega) = \sum^{\infty}_{n = -\infty}x[n]w(n-m)e^{(-i \omega n)}
+$$
+où $w$ est la fenêtre. Lorsque la fonction de fenêtrage est une **fonction gaussienne**, la transformée de Fourier à court terme est également appelée **transformée de Gabor**.
+
+La STFT d'un signal $x(n)$ est une fonction de deux variables : le temps et la fréquence. La longueur du bloc est déterminée par le support de la fonction de fenêtre $w(n)$.
+
+La STFT d'un signal est **inversible**.
+On peut choisir la **longueur du bloc**. Plus le bloc est **long**, plus la **résolution de fréquence sera élevée** (parce que le lobe principal de la fonction de fenêtre sera étroit). Plus le bloc est **court**, plus **la résolution temporelle sera élevée** parce que la moyenne des échantillons est moins élevée pour chaque valeur de la STFT.
+

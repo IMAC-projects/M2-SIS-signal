@@ -1,4 +1,4 @@
-﻿# Débruitage
+# Débruitage
 
 ## Introduction
 
@@ -183,7 +183,7 @@ L'idée du débruitage est donc par changement de base de mettre en évidence le
 
 ![](images/debruitage02.png)
 
---- 
+---
 En général un débruiteur invariant par translation est meilleur
 
 $L(x) = \sum_{i=1}^M l_i<x, e_i>e_i$
@@ -302,7 +302,7 @@ on map l'image sur ses patches, on calcule leurs variances, on regarde la distri
 
 -> on fait la moyenne des patches donc la variance est petite.
 
---- 
+---
 
 <u>Les méthodes à l'état de l'art:</u>
 

@@ -1,4 +1,4 @@
-﻿# Filtre
+# Filtre
 
 > Un filtre est un système électronique qui nous permet de sélectionner une ou plusieurs parties d'un signal ou de rejeter la partie qui ne nous intéresse pas, tels que les bruits parasites. 
 
@@ -28,7 +28,9 @@ Cette correspondance entre l’entrée et la sortie est notée $s = H(e)$.
 
 $H$ est une convolution. On a donc : 
 
-$$s = H \ast e = e \ast H$$
+$$
+s = H \ast e = e \ast H
+$$
 
 ## Définitions 
 
@@ -49,22 +51,22 @@ Si théoriquement ils doivent restituer plus, la tension de sortie ne dépassera
 
 ### **<font color=red>Octave</font>**
 Une octave est un rapport de deux entre deux fréquences.
-Par exemple un LA2 de fréquence 440Hz est une octave en dessous d'un LA3 de 880Hz.
-Pour changer de son à l'octave, on double par exemple la longueur d'une flûte
+Par exemple un LA2 de fréquence 440Hz est **une octave en dessous** d'un LA3 de 880Hz.
+Pour changer de son à l'octave, on double par exemple la longueur d'une flûte.
 
 ### **<font color=red>Décade</font>**
-Une décade est un rapport de 10 entre deux fréquences. Généralement, pour des grandeurs évoluant par décade, on utilise une échelle logarithmique (logarithme décimal) de sorte que les phénomènes soient plus visibles.
+Une décade est un **rapport de 10** entre deux fréquences. Généralement, pour des grandeurs évoluant par décade, on utilise une échelle logarithmique (logarithme décimal) de sorte que les phénomènes soient plus visibles.
 
 ### **<font color=red>Gain</font>**
 
 Plutôt que de parler de coefficient d'amplification, on préfère parler de gain.
 Le gain désigne la capacité d'une structure à augmenter ou diminuer la puissance ou l'amplitude d'un signal. Si le gain est positif, la structure amplifie le signal, si le gain est négatif, la structure atténue le signal.
 
-L'unité du gain est le décibel noté $dB$.
+L'unité du gain est le **décibel** noté $dB$.
 
 ### **<font color=red>Fréquence de coupure</font>**
 
-La fréquence de coupure spécifie une fréquence particulière à laquelle le signal est atténué de $-3dB$ (ou subit une atténuation de $\frac{1}{\sqrt{2}}$ par rapport à l'amplitude maximale.
+La fréquence de coupure spécifie une fréquence particulière à laquelle le **signal est atténué de $-3dB$ ** (ou subit une atténuation de $\frac{1}{\sqrt{2}}$ par rapport à l'amplitude maximale.
 Selon la position de cette fréquence par rapport à la courbe de fréquence on parle de fréquence de coupure basse ou de fréquence de coupure haute.
 
 ### **<font color=red>Bande passante</font>**
@@ -89,7 +91,10 @@ $TF^-1(\hat{s} * \Pi_{[-Bc,Bc]^2})$ est le signal filtré passe-bas.
 
 En fait, pour calculer la convolution, on peut utiliser la **FFT**.
 
-$$s \ast h = FFT^{-1}(FFT(s) .FFT(h))$$
+$$
+s \ast h = FFT^{-1}(FFT(s) .FFT(h))
+$$
+
 
 On fait passer une convolution sur le signal pour sélectionner un contenu fréquentiel.
 
@@ -105,14 +110,19 @@ Un filtre coupe-bande aussi appelé filtre réjecteur de bande est un filtre emp
 
 ### Réponse impulsionnelle
 
-Avant de définir f, on défini la sortie du filtre lorsque l'entrée est l'impulsion unité.
+Avant de définir $f$, on défini la sortie du filtre lorsque l'entrée est l'impulsion unité.
 Si le signal entrant est une impulsion de Dirac $δ(t)$, sa réponse impulsionnelle, parfois dite *percusionnelle*, est $h(t)$.
+$$
+h(t) = S[\delta(t)]
+$$
 
-$$h(t) = S[\delta(t)]$$
 
 On a en sortie : 
 
-$$ H(e(t)) = \int_{}^{}e(u) h(t−u) du = \int_{}^{}h(u) e(t−u) du = h(t) \ast e(t)$$
+$$
+H(e(t)) = \int_{}^{}e(u) h(t−u) du = \int_{}^{}h(u) e(t−u) du = h(t) \ast e(t)
+$$
+
 
 La sortie y d'un filtre est **$y = h \ast x$** où h est la R.I.
 
@@ -123,7 +133,7 @@ La sortie y d'un filtre est **$y = h \ast x$** où h est la R.I.
 
 ### Causalité
 
-Un filtre est dit causal si et seulement si à une entrée $e$ nulle pour $t < 0$ correspond une sortie $s = H(e)$ nulle pour $t < 0$. Autrement dit, le filtre est causal si : 
+Un filtre est dit **causal** si et seulement si à une entrée $e$ nulle pour $t < 0$ correspond une sortie $s = H(e)$ nulle pour $t < 0$. Autrement dit, le filtre est causal si : 
 
 $$h(t) = 0 \ \forall \ t<0$$
 
@@ -224,6 +234,8 @@ $$X(z) = X(e^{i2 \pi f})$$
 
 **<font color=red>Zéro : </font>** on définit les zéros de la fonction $X_z$ tels que $X_z(z) = 0$ 
 
+
+
 **<font color=red>Pôles : </font>** on définit les pôles de la fonction $X_z$ tels que $|X_z(z)| \to +\infty$
 
 **<font color=red>Propriétés </font>**
@@ -258,9 +270,12 @@ $$(z \in \mathbb{C} \sum^{+\infty}_{n = -\infty} x_n^{z −n} \ \ \text{existe})
 
 On l'appelle également **couronne de convergence**. Ci-dessous, en rouge, la **zone de convergence**. 
 
+
+
 <p align="center">
 ![](images/cercle_convergence.png)
 </p>
+
 
 <p align="center">
 ![](images/convergence_a.png)
