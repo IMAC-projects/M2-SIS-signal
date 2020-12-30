@@ -40,7 +40,6 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -58,7 +57,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Compression" href="../Compression/Compression.html" />
+    <link rel="next" title="Débruitage" href="D%C3%A9bruitage.html" />
     <link rel="prev" title="Transformée de Fourier" href="../Transform%C3%A9e%20de%20Fourier/Transform%C3%A9e%20de%20Fourier.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -119,6 +118,11 @@
    Filtre
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="D%C3%A9bruitage.html">
+   Débruitage
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -134,6 +138,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../Compression/Le%20cas%20du%20JPEG.html">
    Le cas du JPEG
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Compression/Ondelettes.html">
+   Ondelettes
   </a>
  </li>
 </ul>
@@ -159,13 +168,172 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD4/TP4%20-%20Spectral%20Analysis%20and%20Filtering-Exercise%20-%20Original.html">
+   1. STFT  (Short Time Fourier Transform) and source separation.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD4/TP4%20-%20Spectral%20Analysis%20and%20Filtering-Exercise%20-%20Original.html#the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir">
+   2. The goal of this part is to explore implementations of a FIR or an IIR.
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../TD/TD4/TP4%20-%20Spectral%20Analysis%20and%20Filtering-Exercise.html">
    TD4 - Spectral Analysis and Filtering
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html">
+   In this TD, we study the wavelet decomposition using the Daubechies 4 filters.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#what-are-the-conditions-on-the-filters-for-being-admissible-wavelet-filters-the-first-condition-on-the-low-pass-filter-h-is-begin-equation-begin-cases-hat-h-omega-2-hat-h-omega-frac-12-2-2-hat-h-0-sqrt-2-end-cases-end-equation">
+   What are the conditions on the filters for being admissible wavelet filters: The first condition on the low-pass filter
+   <span class="math notranslate nohighlight">
+    \(h\)
+   </span>
+   is \begin{equation} \begin{cases}|\hat{h}(\omega)|^2 + |\hat{h}(\omega + \frac 12)|^2 = 2\hat{h}(0) = \sqrt{2},.\end{cases}\end{equation}
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#the-condition-on-the-high-pass-filter-is-the-following-begin-equation-begin-cases-hat-g-omega-2-hat-g-omega-frac-12-2-2-hat-g-omega-hat-h-omega-hat-g-omega-frac-12-hat-h-omega-frac-12-0-end-cases-end-equation">
+   The condition on the high-pass filter is the following:  \begin{equation} \begin{cases}|\hat{g}(\omega)|^2 + |\hat{g}(\omega + \frac 12)|^2 = 2\hat{g}(\omega) \hat{h}^
+   <em>
+    (\omega)+ \hat{g}(\omega + \frac 12)\hat{h}^
+   </em>
+   (\omega + \frac 12) = 0,.\end{cases}\end{equation}
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q2-implement-below-the-one-step-of-w-transform-of-the-lecture-coarse-and-fine-scale-transforms-and-test-it-on-your-image">
+   Q2: Implement below the one step of W transform of the lecture. Coarse and Fine scale transforms and test it on your image.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q3-implement-the-full-fast-wavelet-transform-for-a-given-number-of-scales">
+   Q3: Implement the full fast wavelet transform for a given number of scales.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q4-below-are-functions-to-obtain-a-better-plot-of-the-results-using-the-functions-below-plot-the-wavelet-transform">
+   Q4: Below are functions to obtain a better plot of the results. Using the functions below, plot the wavelet transform.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q5-the-wavelet-transform-is-an-orthogonal-transformation-so-its-inverse-is-given-by-its-transpose-also-called-adjoint-use-the-two-operators-defined-below-to-implement-the-inverse-of-the-wavelet-transform">
+   Q5: The wavelet transform is an orthogonal transformation so its inverse is given by its transpose (also called adjoint). Use the two operators defined below to implement the inverse of the wavelet transform.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q6-test-on-an-image-that-the-implemented-inverse-is-correct-that-is-check-on-an-image-x-that-iwt-wavelettransform-x-x-up-to-numerical-errors">
+   Q6: Test on an image that the implemented inverse is correct. That is, check on an image
+   <span class="math notranslate nohighlight">
+    \(x\)
+   </span>
+   that
+   <span class="math notranslate nohighlight">
+    \(IWT(WaveletTransform(x)) = x\)
+   </span>
+   up to numerical errors.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#use-of-wavelets-for-compression">
+   Use of wavelets for compression.
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-%20Exercices.html">
    TD5 - Wavelets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD6/Inverse-Problem.html">
+   In this notebook, I give a simple example of an inverse problem which necessitates regularization.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD6/Inverse-Problem.html#remark-noise-in-fourier-is-also-a-noise-you-can-guess-that-the-distribution-of-the-energy-of-the-noise-in-fourier-is-similar-to-its-distribution-in-space">
+   Remark: Noise in Fourier is also a noise. You can guess that the distribution of the energy of the noise in Fourier is similar to its distribution in space.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD6/TP6%20-%20Denoising-Exercices_original.html">
+   TD6 - Denoising
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD6/TP6%20-%20Denoising-Exercices.html">
+   In this TD, we consider simple denoising algorithms, such as the ones considered in the lectures.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization_original.html">
+   In this TD, we aim at exploring the gradient descent method for optimizing smooth functions.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization_original.html#a-gradient-descent-in-2d">
+   A. Gradient descent in 2D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization_original.html#b-example-on-a-physical-system">
+   B. Example on a physical system
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization_original.html#we-propose-to-reconstruct-a-candidate-for-our-initial-image-as-the-minimizer-of-an-energy-functional-e-i-sum-i-1-text-nbre-lignes-f-i-i-under-the-constraint-that-i-1-text-mask-text-data">
+   We propose to reconstruct a candidate for our initial image as the minimizer of an energy functional
+   <span class="math notranslate nohighlight">
+    \(E(I) = \sum_{i = 1}^{\text{nbre lignes}} f(I[i,:])\)
+   </span>
+   under the constraint that
+   <span class="math notranslate nohighlight">
+    \(I (1-\text{mask}) = \text{data}\)
+   </span>
+   .
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization.html">
+   In this TD, we aim at exploring the gradient descent method for optimizing smooth functions.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization.html#a-gradient-descent-in-2d">
+   A. Gradient descent in 2D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization.html#b-example-on-a-physical-system">
+   B. Example on a physical system
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD8/TP8%20-%20Non-local%20means-exercises_original.html">
+   In this TD, we explore a well-known method for inpainting.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD8/TP8%20-%20Non-local%20means-exercises_original.html#dimensionality-reduction-using-pca-principal-component-analysis">
+   2. Dimensionality reduction using PCA: Principal Component Analysis.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD8/TP8%20-%20Non-local%20means-exercises.html">
+   In this TD, we explore a well-known method for inpainting.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD8/TP8%20-%20Non-local%20means-exercises.html#dimensionality-reduction-using-pca-principal-component-analysis">
+   2. Dimensionality reduction using PCA: Principal Component Analysis.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD8/TP8%20-%20Non-local%20means-exercises.html#question-3-explain-what-is-shown-below">
+   Question 3: Explain what is shown below ?
   </a>
  </li>
 </ul>
@@ -406,22 +574,22 @@
      TZ, série entières et domaines de convergence
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtre-recursif-et-non-recursif">
+   Filtre récursif et non-récursif
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#filtre-recursif-et-non-recursif">
-     Filtre récursif et non-récursif
+    <a class="reference internal nav-link" href="#rif">
+     RIF
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#rif">
-       RIF
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#rii">
-       RII
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rii">
+     RII
+    </a>
    </li>
   </ul>
  </li>
@@ -500,7 +668,9 @@ alt="schéma filtres"/>
 <p>Cette correspondance entre l’entrée et la sortie est notée <span class="math notranslate nohighlight">\(s = H(e)\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(H\)</span> est une convolution. On a donc :</p>
 <div class="math notranslate nohighlight">
-\[s = H \ast e = e \ast H\]</div>
+\[
+s = H \ast e = e \ast H
+\]</div>
 </div>
 <div class="section" id="definitions">
 <h2>Définitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h2>
@@ -523,22 +693,22 @@ Si théoriquement ils doivent restituer plus, la tension de sortie ne dépassera
 <div class="section" id="font-color-red-octave-font">
 <h3><strong><font color=red>Octave</font></strong><a class="headerlink" href="#font-color-red-octave-font" title="Permalink to this headline">¶</a></h3>
 <p>Une octave est un rapport de deux entre deux fréquences.
-Par exemple un LA2 de fréquence 440Hz est une octave en dessous d’un LA3 de 880Hz.
-Pour changer de son à l’octave, on double par exemple la longueur d’une flûte</p>
+Par exemple un LA2 de fréquence 440Hz est <strong>une octave en dessous</strong> d’un LA3 de 880Hz.
+Pour changer de son à l’octave, on double par exemple la longueur d’une flûte.</p>
 </div>
 <div class="section" id="font-color-red-decade-font">
 <h3><strong><font color=red>Décade</font></strong><a class="headerlink" href="#font-color-red-decade-font" title="Permalink to this headline">¶</a></h3>
-<p>Une décade est un rapport de 10 entre deux fréquences. Généralement, pour des grandeurs évoluant par décade, on utilise une échelle logarithmique (logarithme décimal) de sorte que les phénomènes soient plus visibles.</p>
+<p>Une décade est un <strong>rapport de 10</strong> entre deux fréquences. Généralement, pour des grandeurs évoluant par décade, on utilise une échelle logarithmique (logarithme décimal) de sorte que les phénomènes soient plus visibles.</p>
 </div>
 <div class="section" id="font-color-red-gain-font">
 <h3><strong><font color=red>Gain</font></strong><a class="headerlink" href="#font-color-red-gain-font" title="Permalink to this headline">¶</a></h3>
 <p>Plutôt que de parler de coefficient d’amplification, on préfère parler de gain.
 Le gain désigne la capacité d’une structure à augmenter ou diminuer la puissance ou l’amplitude d’un signal. Si le gain est positif, la structure amplifie le signal, si le gain est négatif, la structure atténue le signal.</p>
-<p>L’unité du gain est le décibel noté <span class="math notranslate nohighlight">\(dB\)</span>.</p>
+<p>L’unité du gain est le <strong>décibel</strong> noté <span class="math notranslate nohighlight">\(dB\)</span>.</p>
 </div>
 <div class="section" id="font-color-red-frequence-de-coupure-font">
 <h3><strong><font color=red>Fréquence de coupure</font></strong><a class="headerlink" href="#font-color-red-frequence-de-coupure-font" title="Permalink to this headline">¶</a></h3>
-<p>La fréquence de coupure spécifie une fréquence particulière à laquelle le signal est atténué de <span class="math notranslate nohighlight">\(-3dB\)</span> (ou subit une atténuation de <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}}\)</span> par rapport à l’amplitude maximale.
+<p>La fréquence de coupure spécifie une fréquence particulière à laquelle le **signal est atténué de <span class="math notranslate nohighlight">\(-3dB\)</span> ** (ou subit une atténuation de <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}}\)</span> par rapport à l’amplitude maximale.
 Selon la position de cette fréquence par rapport à la courbe de fréquence on parle de fréquence de coupure basse ou de fréquence de coupure haute.</p>
 </div>
 <div class="section" id="font-color-red-bande-passante-font">
@@ -560,7 +730,9 @@ Selon la position de cette fréquence par rapport à la courbe de fréquence on 
 <p><strong><font color="red">Remarque</font> :</strong>  Quel est le coût de la convolution discrète ? <span class="math notranslate nohighlight">\(\to\)</span> à priori, <span class="math notranslate nohighlight">\(N^2\)</span></p>
 <p>En fait, pour calculer la convolution, on peut utiliser la <strong>FFT</strong>.</p>
 <div class="math notranslate nohighlight">
-\[s \ast h = FFT^{-1}(FFT(s) .FFT(h))\]</div>
+\[
+s \ast h = FFT^{-1}(FFT(s) .FFT(h))
+\]</div>
 <p>On fait passer une convolution sur le signal pour sélectionner un contenu fréquentiel.</p>
 </div>
 <div class="section" id="filtre-passe-bande">
@@ -575,15 +747,18 @@ Selon la position de cette fréquence par rapport à la courbe de fréquence on 
 <h2>Filtre analogique<a class="headerlink" href="#filtre-analogique" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="reponse-impulsionnelle">
 <h3>Réponse impulsionnelle<a class="headerlink" href="#reponse-impulsionnelle" title="Permalink to this headline">¶</a></h3>
-<p>Avant de définir f, on défini la sortie du filtre lorsque l’entrée est l’impulsion unité.
-Si le signal entrant est une impulsion de Dirac <span class="math notranslate nohighlight">\(δ(t)\)</span>, sa réponse impulsionnelle, parfois dite <em>percusionnelle</em>, est <span class="math notranslate nohighlight">\(h(t)\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[h(t) = S[\delta(t)]\]</div>
+<p>Avant de définir <span class="math notranslate nohighlight">\(f\)</span>, on défini la sortie du filtre lorsque l’entrée est l’impulsion unité.
+Si le signal entrant est une impulsion de Dirac <span class="math notranslate nohighlight">\(δ(t)\)</span>, sa réponse impulsionnelle, parfois dite <em>percusionnelle</em>, est <span class="math notranslate nohighlight">\(h(t)\)</span>.
+$<span class="math notranslate nohighlight">\(
+h(t) = S[\delta(t)]
+\)</span>$</p>
 <p>On a en sortie :</p>
 <div class="math notranslate nohighlight">
-\[ H(e(t)) = \int_{}^{}e(u) h(t−u) du = \int_{}^{}h(u) e(t−u) du = h(t) \ast e(t)\]</div>
+\[
+H(e(t)) = \int_{}^{}e(u) h(t−u) du = \int_{}^{}h(u) e(t−u) du = h(t) \ast e(t)
+\]</div>
 <p>La sortie y d’un filtre est <strong><span class="math notranslate nohighlight">\(y = h \ast x\)</span></strong> où h est la R.I.</p>
-<p><font color=red>Propriétés : </font></p>
+<p><strong><font color=red>Propriétés : </font></strong></p>
 <ul class="simple">
 <li><p><strong>Linéarité</strong> : <span class="math notranslate nohighlight">\(S(x_1 + x_2) = S(x_1) + S(x_2)\)</span></p></li>
 <li><p><strong>Invariance dans le temps</strong> : la translation du temps appliquée à l’entrée se retrouve à la sortie</p></li>
@@ -591,7 +766,7 @@ Si le signal entrant est une impulsion de Dirac <span class="math notranslate no
 </div>
 <div class="section" id="causalite">
 <h3>Causalité<a class="headerlink" href="#causalite" title="Permalink to this headline">¶</a></h3>
-<p>Un filtre est dit causal si et seulement si à une entrée <span class="math notranslate nohighlight">\(e\)</span> nulle pour <span class="math notranslate nohighlight">\(t &lt; 0\)</span> correspond une sortie <span class="math notranslate nohighlight">\(s = H(e)\)</span> nulle pour <span class="math notranslate nohighlight">\(t &lt; 0\)</span>. Autrement dit, le filtre est causal si :</p>
+<p>Un filtre est dit <strong>causal</strong> si et seulement si à une entrée <span class="math notranslate nohighlight">\(e\)</span> nulle pour <span class="math notranslate nohighlight">\(t &lt; 0\)</span> correspond une sortie <span class="math notranslate nohighlight">\(s = H(e)\)</span> nulle pour <span class="math notranslate nohighlight">\(t &lt; 0\)</span>. Autrement dit, le filtre est causal si :</p>
 <div class="math notranslate nohighlight">
 \[h(t) = 0 \ \forall \ t&lt;0\]</div>
 <p>C’est-à-dire qu’il ne doit pas y avoir de réponse en absence d’action. Un filtre est causal si sa réponse à l’instant <strong>t</strong> ne dépend que des valeurs du signal d’entrée pour des instants antérieurs à <strong>t</strong>  (l’effet ne peut ainsi précéder la cause).</p>
@@ -627,6 +802,8 @@ Si le signal entrant est une impulsion de Dirac <span class="math notranslate no
 <p>On passe de la R.I <span class="math notranslate nohighlight">\(h[n]\)</span> à la fonction de transfert <span class="math notranslate nohighlight">\(H(z)\)</span></p>
 <div class="math notranslate nohighlight">
 \[ H(z) = H(z) e^{2i \pi z}\]</div>
+<p>La fonction de transfert du filtre correspond à la transformée en z de la réponse impulsionnelle. On peut donc retrouver <span class="math notranslate nohighlight">\(h_n\)</span> en effectuant la transformée en z inverse de <span class="math notranslate nohighlight">\(H(z)\)</span>.
+Une autre façon d’obtenir <span class="math notranslate nohighlight">\(h_n\)</span> est de calculer directement à partir de l’équation de récurrence du filtre.</p>
 </div>
 <div class="section" id="relation-entree-sortie">
 <h3>Relation entrée-sortie<a class="headerlink" href="#relation-entree-sortie" title="Permalink to this headline">¶</a></h3>
@@ -641,7 +818,7 @@ Si le signal entrant est une impulsion de Dirac <span class="math notranslate no
 <div class="section" id="filtre-numerique">
 <h2>Filtre numérique<a class="headerlink" href="#filtre-numerique" title="Permalink to this headline">¶</a></h2>
 <p>Un filtre numérique est une application <span class="math notranslate nohighlight">\(F : L^2 (\mathbb{Z}) \to  L^2 (\mathbb{Z})\)</span>. On parle de filtre linéaire si <span class="math notranslate nohighlight">\(F\)</span> est linéaire. La sortie à l’instant <span class="math notranslate nohighlight">\(n\)</span> d’un filtre numérique dépend de la sortie aux instants précédents <span class="math notranslate nohighlight">\((m \leq n − 1)\)</span> et de l’entrée à tout instant (<span class="math notranslate nohighlight">\(m \leq n\)</span> : filtre causal). Nous nous limiterons aux filtres linéaires invariants, ce qui impose que le signal filtré <span class="math notranslate nohighlight">\(y(n)\)</span> s’écrive alors comme une combinaison linéaire des échantillons passés de <span class="math notranslate nohighlight">\(x(n)\)</span> et <span class="math notranslate nohighlight">\(y(n-1)\)</span> dont les coefficients <span class="math notranslate nohighlight">\(a_k\)</span> et <span class="math notranslate nohighlight">\(b_k\)</span> fixeront le type de filtre.</p>
-<p><font color=red>Translation en temps : </font></p>
+<p><strong><font color=red>Translation en temps : </font></strong></p>
 <div class="math notranslate nohighlight">
 \[
 \begin{align}
@@ -649,8 +826,8 @@ T_{\tau}  : L^2 (\mathbb{Z}) \to  L^2 (\mathbb{Z})
 =&amp; (a_n)_{n \in \mathbb{Z}} \to (a_n - \tau)_{n \in \mathbb{Z}} 
 \end{align}
 \]</div>
-<p><font color=red>Théorème : </font>
-Si F, un filtre linéaire vérifie <span class="math notranslate nohighlight">\(T_{\tau}F = FT_{\tau}((a_n))\)</span> alors F est une convolution.</p>
+<p><strong><font color=red>Théorème : </font></strong>
+Si <span class="math notranslate nohighlight">\(F\)</span>, un filtre linéaire vérifie <span class="math notranslate nohighlight">\(T_{\tau}F = FT_{\tau}((a_n))\)</span> alors F est une convolution.</p>
 <p><strong>Exemples :</strong></p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\((a_n)_{n \in \mathbb{Z}} \to (\frac{a_n+a_{n+1}}{2})_{n \to \mathbb{Z}}\)</span> <span class="math notranslate nohighlight">\(\to\)</span> linéaire et commute avec translation</p></li>
@@ -664,12 +841,12 @@ La transformée en z est l’équivalent dans le domaine discret de la transform
 <p>Soit <span class="math notranslate nohighlight">\(x(n)\)</span> un signal discret quelconque. Sa transformée en Z s’écrit :</p>
 <div class="math notranslate nohighlight">
 \[X(z) = Z\left\{x(n) \right\} = \sum^{+\infty}_{n=-\infty} x[n]z^{−n},  z \in \left\{z ∈ \mathbb{C} \sum^{+\infty}_{n=-\infty} x[n]z^{−n} \ \text{converge} \ \right\}\]</div>
-<p><font color=red>Remarque : </font>
-On retrouve la définition de la transformée de Fourier en posant <span class="math notranslate nohighlight">\(z = e^{\frac{i2\pi f}{f_e}}\)</span> avec <span class="math notranslate nohighlight">\(f_e\)</span> la fréquence d’échantillonnage.</p>
+<p><strong><font color=red>Remarque : </font></strong></p>
+<p>On retrouve la définition de la transformée de Fourier en posant <span class="math notranslate nohighlight">\(z = e^{\frac{i2\pi f}{f_e}}\)</span> avec <span class="math notranslate nohighlight">\(f_e\)</span> la fréquence d’échantillonnage.</p>
 <div class="math notranslate nohighlight">
 \[X(z) = X(e^{i2 \pi f})\]</div>
-<p><strong><font color=red>Zéro : </font></strong> on définit les zéros de la fonction <span class="math notranslate nohighlight">\(X_z\)</span> tels que <span class="math notranslate nohighlight">\(X_z(z) = 0\)</span>
-<strong><font color=red>Pôles : </font></strong> on définit les pôles de la fonction <span class="math notranslate nohighlight">\(X_z\)</span> tels que <span class="math notranslate nohighlight">\(|X_z(z)| \to +\infty\)</span></p>
+<p><strong><font color=red>Zéro : </font></strong> on définit les zéros de la fonction <span class="math notranslate nohighlight">\(X_z\)</span> tels que <span class="math notranslate nohighlight">\(X_z(z) = 0\)</span></p>
+<p><strong><font color=red>Pôles : </font></strong> on définit les pôles de la fonction <span class="math notranslate nohighlight">\(X_z\)</span> tels que <span class="math notranslate nohighlight">\(|X_z(z)| \to +\infty\)</span></p>
 <p><strong><font color=red>Propriétés </font></strong></p>
 <ul class="simple">
 <li><p>Soit un filtre de R.I <span class="math notranslate nohighlight">\((h[n])_n \in \mathbb{Z}\)</span> on appellera fonction de transfert sa TZ : <span class="math notranslate nohighlight">\(H(z) = \sum_n^{} h[n]z^{-n}\)</span></p></li>
@@ -677,8 +854,7 @@ On retrouve la définition de la transformée de Fourier en posant <span class="
 <li><p><span class="math notranslate nohighlight">\(h[n] = \delta[n-l]\)</span> alors on a en sortie <span class="math notranslate nohighlight">\(y[n] = h[l]x[n-l] = x[n-l]\)</span> le système est retardataire</p></li>
 </ul>
 <p><strong><font color=red>Convolution</font></strong></p>
-<p>Si <span class="math notranslate nohighlight">\(x[n]\)</span> admet <span class="math notranslate nohighlight">\(X[z]\)</span> comme TZ
-Si <span class="math notranslate nohighlight">\(y[n]\)</span> admet <span class="math notranslate nohighlight">\(Y[z]\)</span> comme TZ</p>
+<p>Si <span class="math notranslate nohighlight">\(x[n]\)</span> admet <span class="math notranslate nohighlight">\(X[z]\)</span> comme TZ et si <span class="math notranslate nohighlight">\(y[n]\)</span> admet <span class="math notranslate nohighlight">\(Y[z]\)</span> comme TZ</p>
 <p>Alors :
 $<span class="math notranslate nohighlight">\((x \ast y)[n] \to X(z)Y(z)\)</span>$</p>
 </div>
@@ -698,13 +874,15 @@ On calcule <span class="math notranslate nohighlight">\(H_1(z)\)</span>, <span c
 \[(z \in \mathbb{C} \sum^{+\infty}_{n = -\infty} x_n^{z −n} \ \ \text{existe})\]</div>
 <p>On l’appelle également <strong>couronne de convergence</strong>. Ci-dessous, en rouge, la <strong>zone de convergence</strong>.</p>
 <p align="center">
-<img src="https://i.ibb.co/7Gn6DCD/cercle-conv.png"  
-alt="cercle de convergence"/>
+![](images/cercle_convergence.png)
+</p>
+<p align="center">
+![](images/convergence_a.png)
 </p>
 <p>Pour une séquence finie <span class="math notranslate nohighlight">\(x[n]\)</span>, la transformée <span class="math notranslate nohighlight">\(X(z)\)</span> est un polynôme en <span class="math notranslate nohighlight">\(z\)</span> ou en <span class="math notranslate nohighlight">\(z^{−1}\)</span> et converge pour toutes les valeurs de <span class="math notranslate nohighlight">\(z\)</span>, sauf pour 2 cas :</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(z = 0 \$ si \)</span>X(z)<span class="math notranslate nohighlight">\( contient des termes de la forme \)</span>z^{-k}$</p></li>
-<li><p><span class="math notranslate nohighlight">\(z = \infty \$ si \)</span>X(z)<span class="math notranslate nohighlight">\( contient des termes de la forme \)</span>z$</p></li>
+<li><p><span class="math notranslate nohighlight">\(z = 0\)</span> si <span class="math notranslate nohighlight">\(X(z)\)</span> contient des termes de la forme <span class="math notranslate nohighlight">\(z^{-k}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(z = \infty\)</span> si <span class="math notranslate nohighlight">\(X(z)\)</span> contient des termes de la forme <span class="math notranslate nohighlight">\(z\)</span></p></li>
 </ul>
 <p><span class="math notranslate nohighlight">\(X(z)\)</span> existe si <span class="math notranslate nohighlight">\(x(n)\)</span> a une croissance au plus exponentielle, auquel cas le domaine de convergence est compris dans une couronne :</p>
 <ul class="simple">
@@ -723,9 +901,9 @@ alt="cercle de convergence"/>
 alt="convergence"/>
 </p>
 <p>Quand on donne une TZ, il faut donc toujours donner son <strong>domaine de convergence</strong> associé (puisque c’est une série de puissance infinie).</p>
-<p>Ci-dessous la liste des TZ communes :</p>
+<p>Ci-dessous la liste des TZ usuelles:</p>
 <p align="center">
-  <img src="https://i.ibb.co/pxBMg0r/transfo-connue.png" alt="transfo communes"/>
+![](images/TZ_usuelles.png)
 </p>
 </div>
 <div class="section" id="id1">
@@ -733,11 +911,11 @@ alt="convergence"/>
 <p><span class="math notranslate nohighlight">\(V(z) = \frac{N(z)}{D(z)}\)</span> avec <span class="math notranslate nohighlight">\(N\)</span> et <span class="math notranslate nohighlight">\(D\)</span> des polynômes en <span class="math notranslate nohighlight">\(Z\)</span>.</p>
 <p><strong><font color=red>Définition : </font></strong></p>
 <ul class="simple">
-<li><p>Les racines de <span class="math notranslate nohighlight">\(N\)</span> appelées les zéros de la fraction</p></li>
-<li><p>Les racines de <span class="math notranslate nohighlight">\(D\)</span> appelées les pôles de la fraction</p></li>
+<li><p>Les racines de <span class="math notranslate nohighlight">\(N\)</span> appelées les <strong>zéros</strong> de la fraction</p></li>
+<li><p>Les racines de <span class="math notranslate nohighlight">\(D\)</span> appelées les <strong>pôles</strong> de la fraction</p></li>
 </ul>
-<p><strong>Question :</strong>
-Déterminer <span class="math notranslate nohighlight">\((v[n])_{n \in \mathbb{Z}}\)</span> dont <span class="math notranslate nohighlight">\(V(z)\)</span> est la TZ.</p>
+<p><strong>Question :</strong></p>
+<p>Déterminer <span class="math notranslate nohighlight">\((v[n])_{n \in \mathbb{Z}}\)</span> dont <span class="math notranslate nohighlight">\(V(z)\)</span> est la TZ.</p>
 <p>Il y a 3 domaines de convergence possible</p>
 <ul class="simple">
 <li><p>couronne infinie</p></li>
@@ -747,19 +925,24 @@ Déterminer <span class="math notranslate nohighlight">\((v[n])_{n \in \mathbb{Z
 <p>On choisi <span class="math notranslate nohighlight">\(D_1\)</span> comme domaine or on sait qu’à priori le signal  <span class="math notranslate nohighlight">\((v[n])_{n \in \mathbb{Z}}\)</span>  est causal et même que <span class="math notranslate nohighlight">\(\sum^{}_{}|v[n]| =\infty\)</span></p>
 <p>Il faut retrouver <strong>l’original</strong>  <span class="math notranslate nohighlight">\((x[n])_{n \in \mathbb{Z}}\)</span> c’est-à-dire, trouver <span class="math notranslate nohighlight">\(x[n]\)</span> tel que <span class="math notranslate nohighlight">\(X(z) = \sum^{}_{}x[n]z^{-n}\)</span></p>
 <p><strong>Méthode décomposition en élément simple (D.E.S)</strong>.</p>
+<p>Par ailleurs, un <strong>filtre stable</strong> a ses pôles complexes <span class="math notranslate nohighlight">\(z_1, z_2, …, z_k\)</span> situés à l’intérieur du cercle unité dans le plan complexe.</p>
+</div>
 </div>
 <div class="section" id="filtre-recursif-et-non-recursif">
-<h3>Filtre récursif et non-récursif<a class="headerlink" href="#filtre-recursif-et-non-recursif" title="Permalink to this headline">¶</a></h3>
-<p>On peut classer les filtres numériques en 2 catégories selon leur réponse impulsionnelle : réponse impulsionnelle finie (RIF), réponse impulsionnelle infinie (RII).</p>
+<h2>Filtre récursif et non-récursif<a class="headerlink" href="#filtre-recursif-et-non-recursif" title="Permalink to this headline">¶</a></h2>
+<p>On peut classer les filtres numériques en 2 catégories selon leur réponse impulsionnelle : <strong>réponse impulsionnelle finie (RIF)</strong> et <strong>réponse impulsionnelle infinie (RII)</strong>.</p>
 <div class="section" id="rif">
-<h4>RIF<a class="headerlink" href="#rif" title="Permalink to this headline">¶</a></h4>
-<p>Les échantillons <span class="math notranslate nohighlight">\({h_n}\)</span> de la réponse impulsionnelle deviennent nuls à partir d’un certain rang <span class="math notranslate nohighlight">\(k\)</span>. C’est un filtre non-récursif.</p>
+<h3>RIF<a class="headerlink" href="#rif" title="Permalink to this headline">¶</a></h3>
+<p>Les échantillons <span class="math notranslate nohighlight">\({h_n}\)</span> de la réponse impulsionnelle deviennent nuls à partir d’un certain rang <span class="math notranslate nohighlight">\(k\)</span>. C’est un filtre non-récursif. Un système à réponse impulsionnelle finie est toujours <strong>stable</strong>.</p>
+<p><strong>Exemple :</strong></p>
+<p>R.I du filtre moyenneur défini par <span class="math notranslate nohighlight">\(y_n = \frac{x_n + x_{n-1}}{2}\)</span> pour <span class="math notranslate nohighlight">\(x_n = \delta(n), y_n = h_n \rightarrow h_n = \left\{\frac{1}{2};\frac{1}{2};0;0;…\right\}\)</span></p>
 </div>
 <div class="section" id="rii">
-<h4>RII<a class="headerlink" href="#rii" title="Permalink to this headline">¶</a></h4>
+<h3>RII<a class="headerlink" href="#rii" title="Permalink to this headline">¶</a></h3>
 <p>Filtre rationnels admettant un pôle au moins. Il n’existe pas de rang <span class="math notranslate nohighlight">\(k\)</span> à partir duquel la réponse impulsionnelle devienne nulle.
 Un filtre à RII ne signifie pas que la réponse impulsionnelle ne puisse pas s’annuler par endroits. C’est un filtre récursif.</p>
-</div>
+<p><strong>Exemple :</strong></p>
+<p><span class="math notranslate nohighlight">\(y_n = x_n  - 0,4 x_{n-1} + 0,6 y_{n-1} \rightarrow h_n = \frac{2}{3 \delta(n)} + \frac{1}{3}(0,6)^n\)</span></p>
 </div>
 </div>
 <div class="section" id="filtre-ideaux">
@@ -816,7 +999,7 @@ Un filtre à RII ne signifie pas que la réponse impulsionnelle ne puisse pas s�
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../Transform%C3%A9e%20de%20Fourier/Transform%C3%A9e%20de%20Fourier.html" title="previous page">Transformée de Fourier</a>
-    <a class='right-next' id="next-link" href="../Compression/Compression.html" title="next page">Compression</a>
+    <a class='right-next' id="next-link" href="D%C3%A9bruitage.html" title="next page">Débruitage</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

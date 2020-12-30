@@ -40,7 +40,6 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -59,7 +58,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Le cas du JPEG" href="Le%20cas%20du%20JPEG.html" />
-    <link rel="prev" title="Filtre" href="../Filtrage/Filtre.html" />
+    <link rel="prev" title="Débruitage" href="../Filtrage/D%C3%A9bruitage.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -119,6 +118,11 @@
    Filtre
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Filtrage/D%C3%A9bruitage.html">
+   Débruitage
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -134,6 +138,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="Le%20cas%20du%20JPEG.html">
    Le cas du JPEG
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Ondelettes.html">
+   Ondelettes
   </a>
  </li>
 </ul>
@@ -159,13 +168,172 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD4/TP4%20-%20Spectral%20Analysis%20and%20Filtering-Exercise%20-%20Original.html">
+   1. STFT  (Short Time Fourier Transform) and source separation.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD4/TP4%20-%20Spectral%20Analysis%20and%20Filtering-Exercise%20-%20Original.html#the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir">
+   2. The goal of this part is to explore implementations of a FIR or an IIR.
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../TD/TD4/TP4%20-%20Spectral%20Analysis%20and%20Filtering-Exercise.html">
    TD4 - Spectral Analysis and Filtering
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html">
+   In this TD, we study the wavelet decomposition using the Daubechies 4 filters.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#what-are-the-conditions-on-the-filters-for-being-admissible-wavelet-filters-the-first-condition-on-the-low-pass-filter-h-is-begin-equation-begin-cases-hat-h-omega-2-hat-h-omega-frac-12-2-2-hat-h-0-sqrt-2-end-cases-end-equation">
+   What are the conditions on the filters for being admissible wavelet filters: The first condition on the low-pass filter
+   <span class="math notranslate nohighlight">
+    \(h\)
+   </span>
+   is \begin{equation} \begin{cases}|\hat{h}(\omega)|^2 + |\hat{h}(\omega + \frac 12)|^2 = 2\hat{h}(0) = \sqrt{2},.\end{cases}\end{equation}
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#the-condition-on-the-high-pass-filter-is-the-following-begin-equation-begin-cases-hat-g-omega-2-hat-g-omega-frac-12-2-2-hat-g-omega-hat-h-omega-hat-g-omega-frac-12-hat-h-omega-frac-12-0-end-cases-end-equation">
+   The condition on the high-pass filter is the following:  \begin{equation} \begin{cases}|\hat{g}(\omega)|^2 + |\hat{g}(\omega + \frac 12)|^2 = 2\hat{g}(\omega) \hat{h}^
+   <em>
+    (\omega)+ \hat{g}(\omega + \frac 12)\hat{h}^
+   </em>
+   (\omega + \frac 12) = 0,.\end{cases}\end{equation}
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q2-implement-below-the-one-step-of-w-transform-of-the-lecture-coarse-and-fine-scale-transforms-and-test-it-on-your-image">
+   Q2: Implement below the one step of W transform of the lecture. Coarse and Fine scale transforms and test it on your image.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q3-implement-the-full-fast-wavelet-transform-for-a-given-number-of-scales">
+   Q3: Implement the full fast wavelet transform for a given number of scales.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q4-below-are-functions-to-obtain-a-better-plot-of-the-results-using-the-functions-below-plot-the-wavelet-transform">
+   Q4: Below are functions to obtain a better plot of the results. Using the functions below, plot the wavelet transform.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q5-the-wavelet-transform-is-an-orthogonal-transformation-so-its-inverse-is-given-by-its-transpose-also-called-adjoint-use-the-two-operators-defined-below-to-implement-the-inverse-of-the-wavelet-transform">
+   Q5: The wavelet transform is an orthogonal transformation so its inverse is given by its transpose (also called adjoint). Use the two operators defined below to implement the inverse of the wavelet transform.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q6-test-on-an-image-that-the-implemented-inverse-is-correct-that-is-check-on-an-image-x-that-iwt-wavelettransform-x-x-up-to-numerical-errors">
+   Q6: Test on an image that the implemented inverse is correct. That is, check on an image
+   <span class="math notranslate nohighlight">
+    \(x\)
+   </span>
+   that
+   <span class="math notranslate nohighlight">
+    \(IWT(WaveletTransform(x)) = x\)
+   </span>
+   up to numerical errors.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#use-of-wavelets-for-compression">
+   Use of wavelets for compression.
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-%20Exercices.html">
    TD5 - Wavelets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD6/Inverse-Problem.html">
+   In this notebook, I give a simple example of an inverse problem which necessitates regularization.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD6/Inverse-Problem.html#remark-noise-in-fourier-is-also-a-noise-you-can-guess-that-the-distribution-of-the-energy-of-the-noise-in-fourier-is-similar-to-its-distribution-in-space">
+   Remark: Noise in Fourier is also a noise. You can guess that the distribution of the energy of the noise in Fourier is similar to its distribution in space.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD6/TP6%20-%20Denoising-Exercices_original.html">
+   TD6 - Denoising
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD6/TP6%20-%20Denoising-Exercices.html">
+   In this TD, we consider simple denoising algorithms, such as the ones considered in the lectures.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization_original.html">
+   In this TD, we aim at exploring the gradient descent method for optimizing smooth functions.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization_original.html#a-gradient-descent-in-2d">
+   A. Gradient descent in 2D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization_original.html#b-example-on-a-physical-system">
+   B. Example on a physical system
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization_original.html#we-propose-to-reconstruct-a-candidate-for-our-initial-image-as-the-minimizer-of-an-energy-functional-e-i-sum-i-1-text-nbre-lignes-f-i-i-under-the-constraint-that-i-1-text-mask-text-data">
+   We propose to reconstruct a candidate for our initial image as the minimizer of an energy functional
+   <span class="math notranslate nohighlight">
+    \(E(I) = \sum_{i = 1}^{\text{nbre lignes}} f(I[i,:])\)
+   </span>
+   under the constraint that
+   <span class="math notranslate nohighlight">
+    \(I (1-\text{mask}) = \text{data}\)
+   </span>
+   .
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization.html">
+   In this TD, we aim at exploring the gradient descent method for optimizing smooth functions.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization.html#a-gradient-descent-in-2d">
+   A. Gradient descent in 2D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization.html#b-example-on-a-physical-system">
+   B. Example on a physical system
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD8/TP8%20-%20Non-local%20means-exercises_original.html">
+   In this TD, we explore a well-known method for inpainting.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD8/TP8%20-%20Non-local%20means-exercises_original.html#dimensionality-reduction-using-pca-principal-component-analysis">
+   2. Dimensionality reduction using PCA: Principal Component Analysis.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD8/TP8%20-%20Non-local%20means-exercises.html">
+   In this TD, we explore a well-known method for inpainting.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD8/TP8%20-%20Non-local%20means-exercises.html#dimensionality-reduction-using-pca-principal-component-analysis">
+   2. Dimensionality reduction using PCA: Principal Component Analysis.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD8/TP8%20-%20Non-local%20means-exercises.html#question-3-explain-what-is-shown-below">
+   Question 3: Explain what is shown below ?
   </a>
  </li>
 </ul>
@@ -433,7 +601,7 @@ H(X) =&amp; -\sum_{i=1}^N P_i.log_2(P_i) \\
 <div class="section" id="codage-de-huffman">
 <h2>Codage de Huffman<a class="headerlink" href="#codage-de-huffman" title="Permalink to this headline">¶</a></h2>
 <p>Le <strong>codage de Huffman</strong> est un algorithme de compression de données <strong>sans perte</strong>. Il consiste à utiliser un code à longueur variable pour représenter un symbole d’une source de données en ayant une connaissance préalable (ou une estimation) des probabilités d’apparition des symboles de cette source. Un code court étant associé aux symboles les plus fréquents.</p>
-<p>Un code de Huffman est optimal au sens de la plus courte longueur pour un codage par symbole et une distribution de probabilité connue. Des méthodes plus complexes réalisant une modélisation probabiliste de la source permettent d’obtenir de meilleurs ratios de compression.</p>
+<p>Le code de Huffman est un code de longueur variable <strong>optimal</strong>, c’est-à-dire tel que la <strong>longueur moyenne d’un texte codé soit minimale</strong>. I.e : la plus courte longueur pour un codage par symbole et une distribution de probabilité connue. Des méthodes plus complexes réalisant une modélisation probabiliste de la source permettent d’obtenir de meilleurs ratios de compression.</p>
 <div class="section" id="code-prefixe">
 <h3>Code Préfixe<a class="headerlink" href="#code-prefixe" title="Permalink to this headline">¶</a></h3>
 <p>Soit <span class="math notranslate nohighlight">\(C\)</span> un code.
@@ -482,7 +650,7 @@ Ce code <strong>possède plusieurs interprétations</strong>, il n’est pas pr�
 \[
 \sum_{x \in X} 2^{-l(C(x))} = \sum_{i=1}^n 2^{-l_i} \leq 1
 \]</div>
-<p><strong><font color=red>Demonstration : </font></strong> ( <span class="math notranslate nohighlight">\(\tau = 2\)</span> pour plus de clarté)</p>
+<p><strong><font color=red>Démonstration : </font></strong> ( <span class="math notranslate nohighlight">\(\tau = 2\)</span> pour plus de clarté)</p>
 <blockquote>
 <div><p>La démonstration est faite en considérant <span class="math notranslate nohighlight">\(\tau = 2\)</span> par simplicité mais peut se généraliser facilement.</p>
 </div></blockquote>
@@ -545,15 +713,14 @@ H_\tau(X) \leq \mathbb{L}(C)
 H(X) \leq \mathbb{L}(C) \leq H(X) +1
 \]</div>
 <hr class="docutils" />
-<p><strong><font color=red>Demonstration <span class="math notranslate nohighlight">\(H_\tau(X) \leq \mathbb{L}(C)\)</span>: </font></strong> ( <span class="math notranslate nohighlight">\(\tau = 2\)</span> pour plus de clarté)</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
+<p><strong><font color=red>Démonstration <span class="math notranslate nohighlight">\(H_\tau(X) \leq \mathbb{L}(C)\)</span>: </font></strong> ( <span class="math notranslate nohighlight">\(\tau = 2\)</span> pour plus de clarté)
+$<span class="math notranslate nohighlight">\(
 \begin{align}
 \mathbb{L}(C) - H(X) =&amp; \sum_{i=1}^n p_i.l_i + \sum_{i=1}^n p_i.log_2(p_i) \\
 =&amp; \sum_{i=1}^n p_i.-1.(-l_i) + \sum_{i=1}^n p_i.log_2(p_i) \\
 =&amp; -\sum_{i=1}^n p_i.log_2(2^{-l_i}) + \sum_{i=1}^n p_i.log_2(p_i) \\
 \end{align}
-\end{split}\]</div>
+\)</span>$</p>
 <p>Posons une nouvelle distribution de probabilité normée (de somme égale à 1) de <span class="math notranslate nohighlight">\(X\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -579,7 +746,7 @@ D(p||q) = \sum_{i=1}^n p_i.log_2(\frac{p_i}{q_i})
 \]</div>
 <p>Il est possible de montrer que l’entropie relative est une grandeur positive.</p>
 <blockquote>
-<div><p>Inégalité de Jensen</p>
+<div><p><strong>Inégalité de Jensen</strong></p>
 <p>Soit <span class="math notranslate nohighlight">\(f\)</span> une fonction convexe, f <span class="math notranslate nohighlight">\(\mathbb{R}^n \to \mathbb{R}\)</span>  et <span class="math notranslate nohighlight">\(X\)</span> un vecteur aléatoire <span class="math notranslate nohighlight">\(X \in \mathbb{R}^n\)</span> avec une loi de probabilité <span class="math notranslate nohighlight">\(p\)</span> alors :
 $<span class="math notranslate nohighlight">\(
 \mathbb{E}_p[f(x)] \geq f(\mathbb{E}_p[x])
@@ -613,7 +780,7 @@ $<span class="math notranslate nohighlight">\(
 </div></blockquote>
 <hr class="docutils" />
 <p><strong><font color=red>Démonstration <span class="math notranslate nohighlight">\(\mathbb{L}(C) \leq H_\tau(X) +1\)</span>: </font></strong> ( <span class="math notranslate nohighlight">\(\tau = 2\)</span> pour plus de clarté)</p>
-<p>Soient <span class="math notranslate nohighlight">\(X = \{x_0, x_1, \dots, x_n \}\)</span> une source, <span class="math notranslate nohighlight">\(p_i = \mathbb{P}(X = x_i)\)</span> la probabilité d’apparition du caractère <span class="math notranslate nohighlight">\(x_i\)</span> .</p>
+<p>Soit <span class="math notranslate nohighlight">\(X = \{x_0, x_1, \dots, x_n \}\)</span> une source et <span class="math notranslate nohighlight">\(p_i = \mathbb{P}(X = x_i)\)</span> la probabilité d’apparition du caractère <span class="math notranslate nohighlight">\(x_i\)</span> .</p>
 <p>Commençons par démontrer qu’il existe un code dont les longueurs <span class="math notranslate nohighlight">\(l_i\)</span> sont égales à :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -659,7 +826,7 @@ x &amp;\leq&amp; \lceil x\rceil \\
 <blockquote>
 <div><p>A C F X X X X C C U U U D C C C C C</p>
 </div></blockquote>
-<p>Le codage <strong>RLE</strong> deviens :</p>
+<p>Le codage <strong>RLE</strong> devient :</p>
 <blockquote>
 <div><p>1 A 1 C 1 F 4 X 2 C 3 U 1 D 4 C</p>
 </div></blockquote>
@@ -706,7 +873,7 @@ x &amp;\leq&amp; \lceil x\rceil \\
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../Filtrage/Filtre.html" title="previous page">Filtre</a>
+    <a class='left-prev' id="prev-link" href="../Filtrage/D%C3%A9bruitage.html" title="previous page">Débruitage</a>
     <a class='right-next' id="next-link" href="Le%20cas%20du%20JPEG.html" title="next page">Le cas du JPEG</a>
 
     </div>

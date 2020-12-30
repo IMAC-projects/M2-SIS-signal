@@ -1,0 +1,911 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>In this TD, we explore a well-known method for inpainting. &#8212; M2 Signal classes</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="In this TD, we explore a well-known method for inpainting." href="TP8%20-%20Non-local%20means-exercises_original.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">M2 Signal classes</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduction/Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Fourier
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Transform%C3%A9e%20de%20Fourier/Transform%C3%A9e%20de%20Fourier.html">
+   Transformée de Fourier
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Filtrage
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Filtrage/Filtre.html">
+   Filtre
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Filtrage/D%C3%A9bruitage.html">
+   Débruitage
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Compression
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Compression/Compression.html">
+   Compression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Compression/Le%20cas%20du%20JPEG.html">
+   Le cas du JPEG
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Compression/Ondelettes.html">
+   Ondelettes
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  TD
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD1/TP1%20-%20EEA%20-%20Exercices.html">
+   TD1 - Analyse en fréquence de signaux sonores.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD2/TP2%20-%20FFT%20-%20Exercices.html">
+   TD2 - FFT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD3/TP3%20-%20Compression%20Shannon-Huffman-Exercises.html">
+   TD3 - Compression Shannon-Huffman
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD4/TP4%20-%20Spectral%20Analysis%20and%20Filtering-Exercise%20-%20Original.html">
+   1. STFT  (Short Time Fourier Transform) and source separation.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD4/TP4%20-%20Spectral%20Analysis%20and%20Filtering-Exercise%20-%20Original.html#the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir">
+   2. The goal of this part is to explore implementations of a FIR or an IIR.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD4/TP4%20-%20Spectral%20Analysis%20and%20Filtering-Exercise.html">
+   TD4 - Spectral Analysis and Filtering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html">
+   In this TD, we study the wavelet decomposition using the Daubechies 4 filters.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#what-are-the-conditions-on-the-filters-for-being-admissible-wavelet-filters-the-first-condition-on-the-low-pass-filter-h-is-begin-equation-begin-cases-hat-h-omega-2-hat-h-omega-frac-12-2-2-hat-h-0-sqrt-2-end-cases-end-equation">
+   What are the conditions on the filters for being admissible wavelet filters: The first condition on the low-pass filter
+   <span class="math notranslate nohighlight">
+    \(h\)
+   </span>
+   is \begin{equation} \begin{cases}|\hat{h}(\omega)|^2 + |\hat{h}(\omega + \frac 12)|^2 = 2\hat{h}(0) = \sqrt{2},.\end{cases}\end{equation}
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#the-condition-on-the-high-pass-filter-is-the-following-begin-equation-begin-cases-hat-g-omega-2-hat-g-omega-frac-12-2-2-hat-g-omega-hat-h-omega-hat-g-omega-frac-12-hat-h-omega-frac-12-0-end-cases-end-equation">
+   The condition on the high-pass filter is the following:  \begin{equation} \begin{cases}|\hat{g}(\omega)|^2 + |\hat{g}(\omega + \frac 12)|^2 = 2\hat{g}(\omega) \hat{h}^
+   <em>
+    (\omega)+ \hat{g}(\omega + \frac 12)\hat{h}^
+   </em>
+   (\omega + \frac 12) = 0,.\end{cases}\end{equation}
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q2-implement-below-the-one-step-of-w-transform-of-the-lecture-coarse-and-fine-scale-transforms-and-test-it-on-your-image">
+   Q2: Implement below the one step of W transform of the lecture. Coarse and Fine scale transforms and test it on your image.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q3-implement-the-full-fast-wavelet-transform-for-a-given-number-of-scales">
+   Q3: Implement the full fast wavelet transform for a given number of scales.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q4-below-are-functions-to-obtain-a-better-plot-of-the-results-using-the-functions-below-plot-the-wavelet-transform">
+   Q4: Below are functions to obtain a better plot of the results. Using the functions below, plot the wavelet transform.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q5-the-wavelet-transform-is-an-orthogonal-transformation-so-its-inverse-is-given-by-its-transpose-also-called-adjoint-use-the-two-operators-defined-below-to-implement-the-inverse-of-the-wavelet-transform">
+   Q5: The wavelet transform is an orthogonal transformation so its inverse is given by its transpose (also called adjoint). Use the two operators defined below to implement the inverse of the wavelet transform.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q6-test-on-an-image-that-the-implemented-inverse-is-correct-that-is-check-on-an-image-x-that-iwt-wavelettransform-x-x-up-to-numerical-errors">
+   Q6: Test on an image that the implemented inverse is correct. That is, check on an image
+   <span class="math notranslate nohighlight">
+    \(x\)
+   </span>
+   that
+   <span class="math notranslate nohighlight">
+    \(IWT(WaveletTransform(x)) = x\)
+   </span>
+   up to numerical errors.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#use-of-wavelets-for-compression">
+   Use of wavelets for compression.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-%20Exercices.html">
+   TD5 - Wavelets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD6/Inverse-Problem.html">
+   In this notebook, I give a simple example of an inverse problem which necessitates regularization.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD6/Inverse-Problem.html#remark-noise-in-fourier-is-also-a-noise-you-can-guess-that-the-distribution-of-the-energy-of-the-noise-in-fourier-is-similar-to-its-distribution-in-space">
+   Remark: Noise in Fourier is also a noise. You can guess that the distribution of the energy of the noise in Fourier is similar to its distribution in space.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD6/TP6%20-%20Denoising-Exercices_original.html">
+   TD6 - Denoising
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD6/TP6%20-%20Denoising-Exercices.html">
+   In this TD, we consider simple denoising algorithms, such as the ones considered in the lectures.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD7/TP7%20-%20Optimization_original.html">
+   In this TD, we aim at exploring the gradient descent method for optimizing smooth functions.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD7/TP7%20-%20Optimization_original.html#a-gradient-descent-in-2d">
+   A. Gradient descent in 2D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD7/TP7%20-%20Optimization_original.html#b-example-on-a-physical-system">
+   B. Example on a physical system
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD7/TP7%20-%20Optimization_original.html#we-propose-to-reconstruct-a-candidate-for-our-initial-image-as-the-minimizer-of-an-energy-functional-e-i-sum-i-1-text-nbre-lignes-f-i-i-under-the-constraint-that-i-1-text-mask-text-data">
+   We propose to reconstruct a candidate for our initial image as the minimizer of an energy functional
+   <span class="math notranslate nohighlight">
+    \(E(I) = \sum_{i = 1}^{\text{nbre lignes}} f(I[i,:])\)
+   </span>
+   under the constraint that
+   <span class="math notranslate nohighlight">
+    \(I (1-\text{mask}) = \text{data}\)
+   </span>
+   .
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD7/TP7%20-%20Optimization.html">
+   In this TD, we aim at exploring the gradient descent method for optimizing smooth functions.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD7/TP7%20-%20Optimization.html#a-gradient-descent-in-2d">
+   A. Gradient descent in 2D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD7/TP7%20-%20Optimization.html#b-example-on-a-physical-system">
+   B. Example on a physical system
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP8%20-%20Non-local%20means-exercises_original.html">
+   In this TD, we explore a well-known method for inpainting.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP8%20-%20Non-local%20means-exercises_original.html#dimensionality-reduction-using-pca-principal-component-analysis">
+   2. Dimensionality reduction using PCA: Principal Component Analysis.
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   In this TD, we explore a well-known method for inpainting.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#dimensionality-reduction-using-pca-principal-component-analysis">
+   2. Dimensionality reduction using PCA: Principal Component Analysis.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#question-3-explain-what-is-shown-below">
+   Question 3: Explain what is shown below ?
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/TD/TD8/TP8 - Non-local means-exercises.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/IMAC-projects/M2-SIS-signal"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/IMAC-projects/M2-SIS-signal/issues/new?title=Issue%20on%20page%20%2FTD/TD8/TP8 - Non-local means-exercises.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/IMAC-projects/M2-SIS-signal/master?urlpath=tree/TD/TD8/TP8 - Non-local means-exercises.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   In this TD, we explore a well-known method for inpainting.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-collect-the-patches-below-using-i-which-collects-the-coordinates-defining-the-patches">
+     We collect the patches below using
+     <span class="math notranslate nohighlight">
+      \(I\)
+     </span>
+     which collects the coordinates defining the patches.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#question-1-what-happens-for-the-patches-on-the-boundary-of-the-image-for-the-patches">
+     Question 1: what happens for the patches on the boundary of the image for the patches ?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dimensionality-reduction-using-pca-principal-component-analysis">
+   2. Dimensionality reduction using PCA: Principal Component Analysis.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-used-below-is-a-method-in-linear-algebra-called-singular-value-decomposition-svd-and-gives-the-subspaces-being-spanned-by-the-first-k-eigenvectors-corresponding-to-the-k-largest-eigenvalues-of-the-decomposition">
+     What is used below is a method in linear algebra called Singular Value Decomposition «SVD», and gives the subspaces being spanned by the first
+     <span class="math notranslate nohighlight">
+      \(k\)
+     </span>
+     eigenvectors corresponding to the
+     <span class="math notranslate nohighlight">
+      \(k\)
+     </span>
+     largest eigenvalues of the decomposition.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#question-2">
+     Question 2:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#check-the-l2-norm-of-the-eigenvectors">
+       2. Check the L2 norm of the eigenvectors.
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#question-3-explain-what-is-shown-below">
+   Question 3: Explain what is shown below ?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#question-4-understand-the-code-below">
+     Question 4: Understand the code below.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#question-5-find-the-optimal-parameters-for-denoising-the-image-to-obtain-the-highest-possible-snr">
+     Question 5: Find the optimal parameters for denoising the image to obtain the highest possible SNR.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#question-6-compare-with-cycle-spinning-wavelet-denoiser">
+     Question 6: Compare with cycle spinning wavelet denoiser.
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="in-this-td-we-explore-a-well-known-method-for-inpainting">
+<h1>In this TD, we explore a well-known method for inpainting.<a class="headerlink" href="#in-this-td-we-explore-a-well-known-method-for-inpainting" title="Permalink to this headline">¶</a></h1>
+<p>This method is called non-local means and use the redundant information to denoise or perform the inpainting. The proposed implementation is however far from being state of the art.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<span class="kn">import</span> <span class="nn">imageio</span>
+<span class="o">%</span><span class="k">pylab</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">scipy.fftpack</span> <span class="k">as</span> <span class="nn">ft</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Populating the interactive namespace from numpy and matplotlib
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load an image</span>
+<span class="kn">import</span> <span class="nn">imageio</span> <span class="k">as</span> <span class="nn">imio</span>
+<span class="n">colored_image</span> <span class="o">=</span> <span class="n">imio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;toits.jpg&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">colored_image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">colored_image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">colored_image</span><span class="o">*</span><span class="p">[</span><span class="mf">0.21</span><span class="p">,</span> <span class="mf">0.72</span> <span class="p">,</span><span class="mf">0.07</span><span class="p">],</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)[</span><span class="n">n</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">,</span><span class="mi">100</span><span class="p">:</span><span class="mi">100</span><span class="o">+</span><span class="n">n</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gray</span><span class="p">()</span>
+<span class="c1">#cropped = image[n:n+64,n:n + 64]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot; Grey Level Image &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">image</span><span class="p">)))</span>
+<span class="n">cropped</span> <span class="o">=</span> <span class="n">image</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cropped</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">cropped</span><span class="p">),(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">cropped</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">image0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(633, 950, 3)
+136.38214111328125 56.72638572832264 0.0
+(128, 128)
+</pre></div>
+</div>
+<img alt="../../_images/TP8 - Non-local means-exercises_2_1.png" src="../../_images/TP8 - Non-local means-exercises_2_1.png" />
+</div>
+</div>
+<p>### We define the snr and several types of noise.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">snr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Equal inputs&quot;</span>
+    <span class="k">return</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span><span class="n">s</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">clamp0</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">temp</span> <span class="o">=</span>  <span class="mi">255</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">255</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">255</span><span class="p">)</span> 
+    <span class="k">return</span> <span class="n">temp</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">clamp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">b</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">&gt;</span><span class="n">b</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="n">b</span><span class="p">)</span>  
+    <span class="n">result</span> <span class="o">=</span> <span class="n">temp</span><span class="o">*</span><span class="p">(</span><span class="n">temp</span><span class="o">&gt;</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+<span class="k">def</span> <span class="nf">GaussianNoise</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="n">sigma</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">clamp0</span><span class="p">(</span><span class="n">image</span> <span class="o">+</span> <span class="n">sigma</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+<span class="k">def</span> <span class="nf">SaltNoise</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="n">sigma</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">clamp0</span><span class="p">(</span><span class="n">image</span> <span class="o">+</span> <span class="n">sigma</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">))</span>
+
+<span class="n">sigma</span> <span class="o">=</span> <span class="mf">20.0</span>
+<span class="n">noisy_image</span>  <span class="o">=</span> <span class="n">clamp0</span><span class="p">(</span><span class="n">image</span> <span class="o">+</span> <span class="n">sigma</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="c1">#noisy_image = denoised1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">noisy_image</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">noisy_image</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.0
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fc37579ac90&gt;
+</pre></div>
+</div>
+<img alt="../../_images/TP8 - Non-local means-exercises_4_2.png" src="../../_images/TP8 - Non-local means-exercises_4_2.png" />
+</div>
+</div>
+<p>### In the cell below, we construct an array that codes for the coordinates of the patches.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">half_taille_patch</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">taille_patch</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">half_taille_patch</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="p">[</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">dX</span><span class="p">,</span><span class="n">dY</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">half_taille_patch</span><span class="p">,</span><span class="n">half_taille_patch</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">half_taille_patch</span><span class="p">,</span><span class="n">half_taille_patch</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span> <span class="o">+</span> <span class="n">dX</span> <span class="c1"># x coordinate</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">Y</span> <span class="o">+</span> <span class="n">dY</span> <span class="c1"># y coordinate</span>
+<span class="c1"># hereafter we deal with the boundaries.</span>
+<span class="n">X</span><span class="p">[</span><span class="n">X</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">-</span><span class="n">X</span><span class="p">[</span><span class="n">X</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">]</span> 
+<span class="n">Y</span><span class="p">[</span><span class="n">Y</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">-</span><span class="n">Y</span><span class="p">[</span><span class="n">Y</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">X</span><span class="p">[</span><span class="n">X</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">-</span><span class="n">X</span><span class="p">[</span><span class="n">X</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">]</span>
+<span class="n">Y</span><span class="p">[</span><span class="n">Y</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">-</span><span class="n">Y</span><span class="p">[</span><span class="n">Y</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="we-collect-the-patches-below-using-i-which-collects-the-coordinates-defining-the-patches">
+<h2>We collect the patches below using <span class="math notranslate nohighlight">\(I\)</span> which collects the coordinates defining the patches.<a class="headerlink" href="#we-collect-the-patches-below-using-i-which-collects-the-coordinates-defining-the-patches" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">Y</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">n</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;size of the array I &quot;</span><span class="p">,</span><span class="n">I</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">//</span><span class="n">half_taille_patch</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">//</span><span class="n">half_taille_patch</span><span class="p">):</span>
+        <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">])</span>
+<span class="n">patch</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="n">I</span><span class="p">]</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">patch</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>size of the array I  (128, 128, 7, 7)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="question-1-what-happens-for-the-patches-on-the-boundary-of-the-image-for-the-patches">
+<h2>Question 1: what happens for the patches on the boundary of the image for the patches ?<a class="headerlink" href="#question-1-what-happens-for-the-patches-on-the-boundary-of-the-image-for-the-patches" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### some random patches.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/TP8 - Non-local means-exercises_10_0.png" src="../../_images/TP8 - Non-local means-exercises_10_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="dimensionality-reduction-using-pca-principal-component-analysis">
+<h1>2. Dimensionality reduction using PCA: Principal Component Analysis.<a class="headerlink" href="#dimensionality-reduction-using-pca-principal-component-analysis" title="Permalink to this headline">¶</a></h1>
+<p>We have collected a large number of patches and we would like to represent this collection of patches by a simple known distribution that approximates it. The PCA method uses a gaussian approximation. Note that the size of a patch is <span class="math notranslate nohighlight">\(6^2\)</span> or <span class="math notranslate nohighlight">\(8^2\)</span>, so that we want to reduce the dimension to <span class="math notranslate nohighlight">\(15\)</span> or a bit more.
+The PCA algorithm finds a linear subspace of dimension <span class="math notranslate nohighlight">\(k\)</span>, which is chosen by the user, that minimizes the distances of data with respect to this subspace.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dimension</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="c1"># a reshape function</span>
+<span class="n">resh</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">P</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">,</span><span class="n">taille_patch</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;F&quot;</span><span class="p">)))</span>
+<span class="c1"># remove mean is a preparation for PCA.</span>
+<span class="n">remove_mean</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">Q</span><span class="p">:</span> <span class="n">Q</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="mi">0</span><span class="p">),(</span><span class="n">taille_patch</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">P1</span> <span class="o">=</span> <span class="n">remove_mean</span><span class="p">(</span><span class="n">resh</span><span class="p">(</span><span class="n">P</span><span class="p">))</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P1</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">P1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="what-is-used-below-is-a-method-in-linear-algebra-called-singular-value-decomposition-svd-and-gives-the-subspaces-being-spanned-by-the-first-k-eigenvectors-corresponding-to-the-k-largest-eigenvalues-of-the-decomposition">
+<h2>What is used below is a method in linear algebra called Singular Value Decomposition «SVD», and gives the subspaces being spanned by the first <span class="math notranslate nohighlight">\(k\)</span> eigenvectors corresponding to the <span class="math notranslate nohighlight">\(k\)</span> largest eigenvalues of the decomposition.<a class="headerlink" href="#what-is-used-below-is-a-method-in-linear-algebra-called-singular-value-decomposition-svd-and-gives-the-subspaces-being-spanned-by-the-first-k-eigenvectors-corresponding-to-the-k-largest-eigenvalues-of-the-decomposition" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">D</span><span class="p">,</span><span class="n">V</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="c1"># the array D is the list of eigenvalues and the arry V is the corresponding eigenvectors.</span>
+<span class="c1"># We then sort the values in decreasing order and reindex the corresponding eigenvectors.</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">D</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">D</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">V</span><span class="p">[</span><span class="n">I</span><span class="p">,:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="question-2">
+<h2>Question 2:<a class="headerlink" href="#question-2" title="Permalink to this headline">¶</a></h2>
+<p>#### 1. Plot the decreasing eigenvalues and decide how many eigenvectors are representative of the distribution of the patches under this gaussian assumption.</p>
+<div class="section" id="check-the-l2-norm-of-the-eigenvectors">
+<h3>2. Check the L2 norm of the eigenvectors.<a class="headerlink" href="#check-the-l2-norm-of-the-eigenvectors" title="Permalink to this headline">¶</a></h3>
+<p>#### 3. Plot the corresponding eigenvectors which represent the main modes of variation of the patches.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iresh</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">Q</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">Q</span><span class="p">),(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">dimension</span><span class="p">),</span><span class="n">order</span><span class="o">=</span><span class="s2">&quot;F&quot;</span><span class="p">)</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">iresh</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">V</span><span class="p">[:</span> <span class="p">,:</span><span class="n">dimension</span><span class="p">]),</span><span class="n">remove_mean</span><span class="p">(</span><span class="n">resh</span><span class="p">(</span><span class="n">P</span><span class="p">))))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">V</span><span class="p">[:</span> <span class="p">,:</span><span class="n">dimension</span><span class="p">])</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">remove_mean</span><span class="p">(</span><span class="n">resh</span><span class="p">(</span><span class="n">P</span><span class="p">))</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">H</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(25, 49) (49, 16384)
+(128, 128, 25)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the gaussian kernel on patches</span>
+<span class="n">distance</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">H</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">H</span><span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">],:],</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">taille_patch</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">normalize</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">K</span><span class="p">:</span> <span class="n">K</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
+<span class="n">kernel</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">,</span><span class="n">tau</span><span class="p">:</span> <span class="n">normalize</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">distance</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">tau</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Some parameters and an example</span>
+<span class="n">tau</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="n">i</span> <span class="o">=</span> <span class="p">[</span><span class="mi">60</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">distance</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">kernel</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">tau</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="question-3-explain-what-is-shown-below">
+<h1>Question 3: Explain what is shown below ?<a class="headerlink" href="#question-3-explain-what-is-shown-below" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/TP8 - Non-local means-exercises_20_0.png" src="../../_images/TP8 - Non-local means-exercises_20_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Selection of the parameter that select a range of patches in order to fasten the computations so in fact </span>
+<span class="c1"># the algorithm is a bit more local...</span>
+<span class="n">q</span> <span class="o">=</span> <span class="mi">14</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selection</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">clamp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">q</span><span class="p">,</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">q</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">clamp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">q</span><span class="p">,</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">q</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">distance_0</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">sel</span><span class="p">):</span> 
+    <span class="n">H1</span> <span class="o">=</span> <span class="p">(</span><span class="n">H</span><span class="p">[</span><span class="n">sel</span><span class="p">[</span><span class="mi">0</span><span class="p">],:,:])</span>
+    <span class="n">H2</span> <span class="o">=</span> <span class="p">(</span><span class="n">H1</span><span class="p">[:,</span><span class="n">sel</span><span class="p">[</span><span class="mi">1</span><span class="p">],:])</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">H2</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">H</span><span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">],:],(</span><span class="nb">len</span><span class="p">(</span><span class="n">sel</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="nb">len</span><span class="p">(</span><span class="n">sel</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span><span class="mi">1</span><span class="p">)))</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">taille_patch</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">distance</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">distance_0</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">selection</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="n">kernel</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">,</span> <span class="n">tau</span><span class="p">:</span> <span class="n">normalize</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">distance</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">tau</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">distance</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">kernel</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">tau</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/TP8 - Non-local means-exercises_24_0.png" src="../../_images/TP8 - Non-local means-exercises_24_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">NLval_0</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">sel</span><span class="p">):</span> 
+    <span class="n">f_temp</span> <span class="o">=</span> <span class="n">noisy_image</span><span class="p">[</span><span class="n">sel</span><span class="p">[</span><span class="mi">0</span><span class="p">],:]</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">K</span><span class="o">*</span><span class="n">f_temp</span><span class="p">[:,</span> <span class="n">sel</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+
+<span class="n">NLval</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">,</span> <span class="n">tau</span><span class="p">:</span> <span class="n">NLval_0</span><span class="p">(</span><span class="n">kernel</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">tau</span><span class="p">),</span> <span class="n">selection</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="question-4-understand-the-code-below">
+<h2>Question 4: Understand the code below.<a class="headerlink" href="#question-4-understand-the-code-below" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Y</span><span class="p">,</span> <span class="n">X</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">arrayfun</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+            <span class="n">R</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="n">img</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">l</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">R</span>
+
+<span class="n">NLmeans</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">tau</span><span class="p">:</span> <span class="n">arrayfun</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">:</span> <span class="n">NLval</span><span class="p">([</span><span class="n">i1</span><span class="p">,</span><span class="n">i2</span><span class="p">],</span> <span class="n">tau</span><span class="p">),</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="question-5-find-the-optimal-parameters-for-denoising-the-image-to-obtain-the-highest-possible-snr">
+<h2>Question 5: Find the optimal parameters for denoising the image to obtain the highest possible SNR.<a class="headerlink" href="#question-5-find-the-optimal-parameters-for-denoising-the-image-to-obtain-the-highest-possible-snr" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="question-6-compare-with-cycle-spinning-wavelet-denoiser">
+<h2>Question 6: Compare with cycle spinning wavelet denoiser.<a class="headerlink" href="#question-6-compare-with-cycle-spinning-wavelet-denoiser" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./TD/TD8"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="TP8%20-%20Non-local%20means-exercises_original.html" title="previous page">In this TD, we explore a well-known method for inpainting.</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By IMAC Students<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

@@ -40,7 +40,6 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -119,6 +118,11 @@
    Filtre
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Filtrage/D%C3%A9bruitage.html">
+   Débruitage
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -134,6 +138,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../Compression/Le%20cas%20du%20JPEG.html">
    Le cas du JPEG
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Compression/Ondelettes.html">
+   Ondelettes
   </a>
  </li>
 </ul>
@@ -159,13 +168,172 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD4/TP4%20-%20Spectral%20Analysis%20and%20Filtering-Exercise%20-%20Original.html">
+   1. STFT  (Short Time Fourier Transform) and source separation.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD4/TP4%20-%20Spectral%20Analysis%20and%20Filtering-Exercise%20-%20Original.html#the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir">
+   2. The goal of this part is to explore implementations of a FIR or an IIR.
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../TD/TD4/TP4%20-%20Spectral%20Analysis%20and%20Filtering-Exercise.html">
    TD4 - Spectral Analysis and Filtering
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html">
+   In this TD, we study the wavelet decomposition using the Daubechies 4 filters.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#what-are-the-conditions-on-the-filters-for-being-admissible-wavelet-filters-the-first-condition-on-the-low-pass-filter-h-is-begin-equation-begin-cases-hat-h-omega-2-hat-h-omega-frac-12-2-2-hat-h-0-sqrt-2-end-cases-end-equation">
+   What are the conditions on the filters for being admissible wavelet filters: The first condition on the low-pass filter
+   <span class="math notranslate nohighlight">
+    \(h\)
+   </span>
+   is \begin{equation} \begin{cases}|\hat{h}(\omega)|^2 + |\hat{h}(\omega + \frac 12)|^2 = 2\hat{h}(0) = \sqrt{2},.\end{cases}\end{equation}
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#the-condition-on-the-high-pass-filter-is-the-following-begin-equation-begin-cases-hat-g-omega-2-hat-g-omega-frac-12-2-2-hat-g-omega-hat-h-omega-hat-g-omega-frac-12-hat-h-omega-frac-12-0-end-cases-end-equation">
+   The condition on the high-pass filter is the following:  \begin{equation} \begin{cases}|\hat{g}(\omega)|^2 + |\hat{g}(\omega + \frac 12)|^2 = 2\hat{g}(\omega) \hat{h}^
+   <em>
+    (\omega)+ \hat{g}(\omega + \frac 12)\hat{h}^
+   </em>
+   (\omega + \frac 12) = 0,.\end{cases}\end{equation}
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q2-implement-below-the-one-step-of-w-transform-of-the-lecture-coarse-and-fine-scale-transforms-and-test-it-on-your-image">
+   Q2: Implement below the one step of W transform of the lecture. Coarse and Fine scale transforms and test it on your image.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q3-implement-the-full-fast-wavelet-transform-for-a-given-number-of-scales">
+   Q3: Implement the full fast wavelet transform for a given number of scales.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q4-below-are-functions-to-obtain-a-better-plot-of-the-results-using-the-functions-below-plot-the-wavelet-transform">
+   Q4: Below are functions to obtain a better plot of the results. Using the functions below, plot the wavelet transform.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q5-the-wavelet-transform-is-an-orthogonal-transformation-so-its-inverse-is-given-by-its-transpose-also-called-adjoint-use-the-two-operators-defined-below-to-implement-the-inverse-of-the-wavelet-transform">
+   Q5: The wavelet transform is an orthogonal transformation so its inverse is given by its transpose (also called adjoint). Use the two operators defined below to implement the inverse of the wavelet transform.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q6-test-on-an-image-that-the-implemented-inverse-is-correct-that-is-check-on-an-image-x-that-iwt-wavelettransform-x-x-up-to-numerical-errors">
+   Q6: Test on an image that the implemented inverse is correct. That is, check on an image
+   <span class="math notranslate nohighlight">
+    \(x\)
+   </span>
+   that
+   <span class="math notranslate nohighlight">
+    \(IWT(WaveletTransform(x)) = x\)
+   </span>
+   up to numerical errors.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#use-of-wavelets-for-compression">
+   Use of wavelets for compression.
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-%20Exercices.html">
    TD5 - Wavelets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD6/Inverse-Problem.html">
+   In this notebook, I give a simple example of an inverse problem which necessitates regularization.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD6/Inverse-Problem.html#remark-noise-in-fourier-is-also-a-noise-you-can-guess-that-the-distribution-of-the-energy-of-the-noise-in-fourier-is-similar-to-its-distribution-in-space">
+   Remark: Noise in Fourier is also a noise. You can guess that the distribution of the energy of the noise in Fourier is similar to its distribution in space.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD6/TP6%20-%20Denoising-Exercices_original.html">
+   TD6 - Denoising
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD6/TP6%20-%20Denoising-Exercices.html">
+   In this TD, we consider simple denoising algorithms, such as the ones considered in the lectures.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization_original.html">
+   In this TD, we aim at exploring the gradient descent method for optimizing smooth functions.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization_original.html#a-gradient-descent-in-2d">
+   A. Gradient descent in 2D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization_original.html#b-example-on-a-physical-system">
+   B. Example on a physical system
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization_original.html#we-propose-to-reconstruct-a-candidate-for-our-initial-image-as-the-minimizer-of-an-energy-functional-e-i-sum-i-1-text-nbre-lignes-f-i-i-under-the-constraint-that-i-1-text-mask-text-data">
+   We propose to reconstruct a candidate for our initial image as the minimizer of an energy functional
+   <span class="math notranslate nohighlight">
+    \(E(I) = \sum_{i = 1}^{\text{nbre lignes}} f(I[i,:])\)
+   </span>
+   under the constraint that
+   <span class="math notranslate nohighlight">
+    \(I (1-\text{mask}) = \text{data}\)
+   </span>
+   .
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization.html">
+   In this TD, we aim at exploring the gradient descent method for optimizing smooth functions.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization.html#a-gradient-descent-in-2d">
+   A. Gradient descent in 2D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization.html#b-example-on-a-physical-system">
+   B. Example on a physical system
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD8/TP8%20-%20Non-local%20means-exercises_original.html">
+   In this TD, we explore a well-known method for inpainting.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD8/TP8%20-%20Non-local%20means-exercises_original.html#dimensionality-reduction-using-pca-principal-component-analysis">
+   2. Dimensionality reduction using PCA: Principal Component Analysis.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD8/TP8%20-%20Non-local%20means-exercises.html">
+   In this TD, we explore a well-known method for inpainting.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD8/TP8%20-%20Non-local%20means-exercises.html#dimensionality-reduction-using-pca-principal-component-analysis">
+   2. Dimensionality reduction using PCA: Principal Component Analysis.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD8/TP8%20-%20Non-local%20means-exercises.html#question-3-explain-what-is-shown-below">
+   Question 3: Explain what is shown below ?
   </a>
  </li>
 </ul>
@@ -342,7 +510,12 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#fast-fourier-transform">
-   Fast fourier transform
+   Fast Fourier Transform
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#short-time-fourier-transform">
+   Short Time Fourier Transform
   </a>
  </li>
 </ul>
@@ -632,7 +805,7 @@ g_{\sigma}(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{x^2}{2\sigma^2}}
 </ul>
 <div class="section" id="proprietes">
 <h3>Propriétés<a class="headerlink" href="#proprietes" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
+<ul>
 <li><p>Commutativité : <span class="math notranslate nohighlight">\(h \ast s = s \ast h\)</span></p></li>
 <li><p>Bilinéarité :  <span class="math notranslate nohighlight">\((af+bg)*h = a.f*h+ b.g*h\)</span></p></li>
 <li><p>Impulsion unitaire comme élément neutre :  <span class="math notranslate nohighlight">\(\mathbb{1}(t) = \left\{
@@ -642,6 +815,9 @@ g_{\sigma}(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{x^2}{2\sigma^2}}
 \end{array}
 \right.\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\int_{\mathbb{R}}^{}| f \ast g(t)| \ dt \leq \int_{\mathbb{R}}^{}| f| \ dt \ \int_{\mathbb{R}}^{}|g| \ dt\)</span></p></li>
+<li><p>La convolution d’un signal <span class="math notranslate nohighlight">\(f\)</span> par le signal porte s’obtient en faisant glisser <span class="math notranslate nohighlight">\(f\)</span> sur l’intervalle <span class="math notranslate nohighlight">\([a,b]\)</span>. On obtient alors un élargissement de <span class="math notranslate nohighlight">\(f\)</span>.</p>
+<p><img alt="" src="../_images/produit_convolution.png" /></p>
+</li>
 </ul>
 <p><strong><font color=red>Transformée de Fourier d’un produit de convolution</font></strong>:</p>
 <p>Soit <span class="math notranslate nohighlight">\(f,g \in L^2(\mathbb{R})\)</span>, on a :</p>
@@ -925,9 +1101,9 @@ $<span class="math notranslate nohighlight">\(\sum _{m=-\infty }^{\infty }|{\hat
 </div>
 </div>
 <div class="section" id="fast-fourier-transform">
-<h2>Fast fourier transform<a class="headerlink" href="#fast-fourier-transform" title="Permalink to this headline">¶</a></h2>
+<h2>Fast Fourier Transform<a class="headerlink" href="#fast-fourier-transform" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><p>On introduit l’algorithme de la FFT pour calculer la TFD car sa compléxité varie en <span class="math notranslate nohighlight">\(O(nlog(n))\)</span> contrairement à l’algorithme naïf en <span class="math notranslate nohighlight">\(O(n^2)\)</span></p>
+<div><p>On introduit l’algorithme de la FFT pour calculer la TFD car sa complexité varie en <span class="math notranslate nohighlight">\(O(nlog(n))\)</span> contrairement à l’algorithme naïf en <span class="math notranslate nohighlight">\(O(n^2)\)</span></p>
 </div></blockquote>
 <p>L’algorithme de la FFT est un algorithme qui permet d’effectuer la TF de manière plus optimale.</p>
 <p>Lorsqu’on désire calculer la transformée de Fourier d’une fonction <span class="math notranslate nohighlight">\(x(t)\)</span>  à l’aide d’un ordinateur, ce dernier ne travaille que sur des valeurs discrètes, on est amené à :</p>
@@ -967,6 +1143,21 @@ Y(\nu) = \sum^{\tilde{N}-1}_{n=0} y[n]e^{-i2\pi n \nu}
 <p><span class="math notranslate nohighlight">\(Y[k] = X(\frac{k}{N+M})\)</span></p>
 <p>On a <span class="math notranslate nohighlight">\(\frac{1}{N+M} &lt; \frac{1}{N}\)</span></p>
 <p>donc le pas d’échantillonnage de la fonction <span class="math notranslate nohighlight">\(X(\nu)\)</span> est plus fin. On mets autant de 0 que le nombre d’échantillon.</p>
+</div>
+<div class="section" id="short-time-fourier-transform">
+<h2>Short Time Fourier Transform<a class="headerlink" href="#short-time-fourier-transform" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Les transformées de Fourier n’indiquent pas clairement comment le contenu en fréquence d’un signal change dans le temps. Cette information est cachée dans la phase. Pour voir comment le contenu en fréquence d’un signal change au fil du temps, nous pouvons découper le signal en blocs et calculer le spectre de chaque bloc.</p>
+</div></blockquote>
+<p>Elle peut être utilisée pour isoler différentes sources dans un signal. Elle est aussi utilisée pour calculer le changement de phase et de fréquence d’un signal non-stationnaire en fonction du temps.</p>
+<p>Le carré de son module donne le <strong>spectrogramme</strong>.
+$<span class="math notranslate nohighlight">\(
+STFT\left\{x[n]\right\} = X(m, \omega) = \sum^{\infty}_{n = -\infty}x[n]w(n-m)e^{(-i \omega n)}
+\)</span><span class="math notranslate nohighlight">\(
+où \)</span>w$ est la fenêtre. Lorsque la fonction de fenêtrage est une <strong>fonction gaussienne</strong>, la transformée de Fourier à court terme est également appelée <strong>transformée de Gabor</strong>.</p>
+<p>La STFT d’un signal <span class="math notranslate nohighlight">\(x(n)\)</span> est une fonction de deux variables : le temps et la fréquence. La longueur du bloc est déterminée par le support de la fonction de fenêtre <span class="math notranslate nohighlight">\(w(n)\)</span>.</p>
+<p>La STFT d’un signal est <strong>inversible</strong>.
+On peut choisir la <strong>longueur du bloc</strong>. Plus le bloc est <strong>long</strong>, plus la <strong>résolution de fréquence sera élevée</strong> (parce que le lobe principal de la fonction de fenêtre sera étroit). Plus le bloc est <strong>court</strong>, plus <strong>la résolution temporelle sera élevée</strong> parce que la moyenne des échantillons est moins élevée pour chaque valeur de la STFT.</p>
 </div>
 </div>
 

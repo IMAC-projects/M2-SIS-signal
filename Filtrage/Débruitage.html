@@ -1,0 +1,808 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Débruitage &#8212; M2 Signal classes</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Compression" href="../Compression/Compression.html" />
+    <link rel="prev" title="Filtre" href="Filtre.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">M2 Signal classes</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction/Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Fourier
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Transform%C3%A9e%20de%20Fourier/Transform%C3%A9e%20de%20Fourier.html">
+   Transformée de Fourier
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Filtrage
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Filtre.html">
+   Filtre
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Débruitage
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Compression
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Compression/Compression.html">
+   Compression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Compression/Le%20cas%20du%20JPEG.html">
+   Le cas du JPEG
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Compression/Ondelettes.html">
+   Ondelettes
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  TD
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD1/TP1%20-%20EEA%20-%20Exercices.html">
+   TD1 - Analyse en fréquence de signaux sonores.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD2/TP2%20-%20FFT%20-%20Exercices.html">
+   TD2 - FFT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD3/TP3%20-%20Compression%20Shannon-Huffman-Exercises.html">
+   TD3 - Compression Shannon-Huffman
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD4/TP4%20-%20Spectral%20Analysis%20and%20Filtering-Exercise%20-%20Original.html">
+   1. STFT  (Short Time Fourier Transform) and source separation.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD4/TP4%20-%20Spectral%20Analysis%20and%20Filtering-Exercise%20-%20Original.html#the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir">
+   2. The goal of this part is to explore implementations of a FIR or an IIR.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD4/TP4%20-%20Spectral%20Analysis%20and%20Filtering-Exercise.html">
+   TD4 - Spectral Analysis and Filtering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html">
+   In this TD, we study the wavelet decomposition using the Daubechies 4 filters.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#what-are-the-conditions-on-the-filters-for-being-admissible-wavelet-filters-the-first-condition-on-the-low-pass-filter-h-is-begin-equation-begin-cases-hat-h-omega-2-hat-h-omega-frac-12-2-2-hat-h-0-sqrt-2-end-cases-end-equation">
+   What are the conditions on the filters for being admissible wavelet filters: The first condition on the low-pass filter
+   <span class="math notranslate nohighlight">
+    \(h\)
+   </span>
+   is \begin{equation} \begin{cases}|\hat{h}(\omega)|^2 + |\hat{h}(\omega + \frac 12)|^2 = 2\hat{h}(0) = \sqrt{2},.\end{cases}\end{equation}
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#the-condition-on-the-high-pass-filter-is-the-following-begin-equation-begin-cases-hat-g-omega-2-hat-g-omega-frac-12-2-2-hat-g-omega-hat-h-omega-hat-g-omega-frac-12-hat-h-omega-frac-12-0-end-cases-end-equation">
+   The condition on the high-pass filter is the following:  \begin{equation} \begin{cases}|\hat{g}(\omega)|^2 + |\hat{g}(\omega + \frac 12)|^2 = 2\hat{g}(\omega) \hat{h}^
+   <em>
+    (\omega)+ \hat{g}(\omega + \frac 12)\hat{h}^
+   </em>
+   (\omega + \frac 12) = 0,.\end{cases}\end{equation}
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q2-implement-below-the-one-step-of-w-transform-of-the-lecture-coarse-and-fine-scale-transforms-and-test-it-on-your-image">
+   Q2: Implement below the one step of W transform of the lecture. Coarse and Fine scale transforms and test it on your image.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q3-implement-the-full-fast-wavelet-transform-for-a-given-number-of-scales">
+   Q3: Implement the full fast wavelet transform for a given number of scales.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q4-below-are-functions-to-obtain-a-better-plot-of-the-results-using-the-functions-below-plot-the-wavelet-transform">
+   Q4: Below are functions to obtain a better plot of the results. Using the functions below, plot the wavelet transform.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q5-the-wavelet-transform-is-an-orthogonal-transformation-so-its-inverse-is-given-by-its-transpose-also-called-adjoint-use-the-two-operators-defined-below-to-implement-the-inverse-of-the-wavelet-transform">
+   Q5: The wavelet transform is an orthogonal transformation so its inverse is given by its transpose (also called adjoint). Use the two operators defined below to implement the inverse of the wavelet transform.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q6-test-on-an-image-that-the-implemented-inverse-is-correct-that-is-check-on-an-image-x-that-iwt-wavelettransform-x-x-up-to-numerical-errors">
+   Q6: Test on an image that the implemented inverse is correct. That is, check on an image
+   <span class="math notranslate nohighlight">
+    \(x\)
+   </span>
+   that
+   <span class="math notranslate nohighlight">
+    \(IWT(WaveletTransform(x)) = x\)
+   </span>
+   up to numerical errors.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-Exercises_original.html#use-of-wavelets-for-compression">
+   Use of wavelets for compression.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD5/TP5%20-%20Wavelets%20-%20Exercices.html">
+   TD5 - Wavelets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD6/Inverse-Problem.html">
+   In this notebook, I give a simple example of an inverse problem which necessitates regularization.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD6/Inverse-Problem.html#remark-noise-in-fourier-is-also-a-noise-you-can-guess-that-the-distribution-of-the-energy-of-the-noise-in-fourier-is-similar-to-its-distribution-in-space">
+   Remark: Noise in Fourier is also a noise. You can guess that the distribution of the energy of the noise in Fourier is similar to its distribution in space.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD6/TP6%20-%20Denoising-Exercices_original.html">
+   TD6 - Denoising
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD6/TP6%20-%20Denoising-Exercices.html">
+   In this TD, we consider simple denoising algorithms, such as the ones considered in the lectures.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization_original.html">
+   In this TD, we aim at exploring the gradient descent method for optimizing smooth functions.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization_original.html#a-gradient-descent-in-2d">
+   A. Gradient descent in 2D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization_original.html#b-example-on-a-physical-system">
+   B. Example on a physical system
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization_original.html#we-propose-to-reconstruct-a-candidate-for-our-initial-image-as-the-minimizer-of-an-energy-functional-e-i-sum-i-1-text-nbre-lignes-f-i-i-under-the-constraint-that-i-1-text-mask-text-data">
+   We propose to reconstruct a candidate for our initial image as the minimizer of an energy functional
+   <span class="math notranslate nohighlight">
+    \(E(I) = \sum_{i = 1}^{\text{nbre lignes}} f(I[i,:])\)
+   </span>
+   under the constraint that
+   <span class="math notranslate nohighlight">
+    \(I (1-\text{mask}) = \text{data}\)
+   </span>
+   .
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization.html">
+   In this TD, we aim at exploring the gradient descent method for optimizing smooth functions.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization.html#a-gradient-descent-in-2d">
+   A. Gradient descent in 2D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD7/TP7%20-%20Optimization.html#b-example-on-a-physical-system">
+   B. Example on a physical system
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD8/TP8%20-%20Non-local%20means-exercises_original.html">
+   In this TD, we explore a well-known method for inpainting.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD8/TP8%20-%20Non-local%20means-exercises_original.html#dimensionality-reduction-using-pca-principal-component-analysis">
+   2. Dimensionality reduction using PCA: Principal Component Analysis.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD8/TP8%20-%20Non-local%20means-exercises.html">
+   In this TD, we explore a well-known method for inpainting.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD8/TP8%20-%20Non-local%20means-exercises.html#dimensionality-reduction-using-pca-principal-component-analysis">
+   2. Dimensionality reduction using PCA: Principal Component Analysis.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD/TD8/TP8%20-%20Non-local%20means-exercises.html#question-3-explain-what-is-shown-below">
+   Question 3: Explain what is shown below ?
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Filtrage/Débruitage.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/IMAC-projects/M2-SIS-signal"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/IMAC-projects/M2-SIS-signal/issues/new?title=Issue%20on%20page%20%2FFiltrage/Débruitage.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definition-du-bruit">
+   Définition du Bruit
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bruit-gaussien">
+     Bruit gaussien:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="debruitage">
+<h1>Débruitage<a class="headerlink" href="#debruitage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Problème vieux de plus de 30 ans</p>
+<ul class="simple">
+<li><p>difficultés à améliorer l’état de l’art, les recherches stagnes (possiblement résolu)</p></li>
+</ul>
+<p>On a vu qu’il était possible de créer une décomposition d’un signal (image, son) dans une base de Fourier ou d’ondelettes.</p>
+<p>Le choix de la base dans laquelle exprimer le signal est important en fonction du problème abordé (compression, …)</p>
+<p><u>Le problème:</u></p>
+<p>on dispose d’un signal et d’une observation qui est la composition de ce signal plus du bruit.</p>
+<p>On a accès à l’observation mais pas au vrai signal (on ne le connait pas). On ne connait pas non plus le bruit mais on en connait un modèle en général.</p>
+<p>opération entre le signal et le plus peut être une simple addition ou une combinaison plus complexe des deux.</p>
+<p><u>Les différentes stratégies:</u></p>
+<p>Il y a deux points communs entre compression et débruitage :</p>
+<ul class="simple">
+<li><p>pour la compression le but est de résumer le signal avec un nombre de valeurs plus petites que l’original (<span class="math notranslate nohighlight">\(p &lt; n\)</span> ou <span class="math notranslate nohighlight">\(n\)</span> est la taille d’origine)</p></li>
+<li><p>pour le débruitage le but est de déduire le signal à partir de l’observation (signal plus bruit)</p></li>
+<li><p>le but commun, jeter de la <em>non information</em>.</p></li>
+</ul>
+<p>Une base orthonormé du signal (Fourier ou ondelettes)  est une bonne description et va être utile dans ce cadre là.</p>
+<p>Soit <span class="math notranslate nohighlight">\(e_i\)</span> une autre base (que la base d’acquisition du signal) (ex : ondelettes)</p>
+<div class="math notranslate nohighlight">
+\[
+x = \sum_{i=0}^d &lt;x, e_i&gt; e_i
+\]</div>
+<p>En compression, on prend les premiers vecteurs de la base  <span class="math notranslate nohighlight">\(k &lt; d\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+x \approx \sum_{i=0}^k &lt;x, e_i&gt; e_i
+\]</div>
+<p>Si x est régulier, <span class="math notranslate nohighlight">\(|&lt;x, e_i&gt;| \leq i^{-\alpha}\)</span> (erreur décroissante)</p>
+<p><span class="math notranslate nohighlight">\(||x - \sum_{i=0}^k &lt;x, e_i&gt; e_i ||^2 = \sum_{i=k+1}^\infty |&lt;x, e_i&gt;|^2 \leq \sum_{i=k+1}^\infty \frac{1}{i^{2\alpha}} \approx \frac{\text{cste}}{k^{2\alpha-1}}\)</span></p>
+<p>L’idée est de trouver une base dans laquelle la décroissance de l’erreur du signal est rapide ( cela dépend évidemment du signal et le type de donnée)</p>
+<p><u>Plusieurs situations</u></p>
+<ol class="simple">
+<li><p>Pas d’information à priori sur les données ou leur structure, mais on a accès à des échantillons et exemples (base de données)</p></li>
+</ol>
+<p><u>Analyse en composante principale:</u> (A.C.P.)</p>
+<p>Soit  <span class="math notranslate nohighlight">\((d_1, \dots d_M) d_i \in \mathbb{R}\)</span> des vecteurs représentant nos données</p>
+<p>Calculer la matrice de gramm <span class="math notranslate nohighlight">\((&lt;d_i, d_j&gt;)_{M^2} = G\)</span></p>
+<p><span class="math notranslate nohighlight">\(G\)</span> est une matrice symétrique réelle positive.
+Cette matrice est diagonalisable.
+l’idée de l’analyse en composant principal est de chercher à représenter les données par une ellipsoïde (fiting par une ellipsoïde )</p>
+<p><img alt="" src="../_images/ACP1.png" />
+<img alt="" src="../_images/ACP2.png" /></p>
+<blockquote>
+<div><p>Rappel: <span class="math notranslate nohighlight">\(M \in \mathbb{R}^{n^2}\)</span></p>
+<p>diagonaliser M c’est trouver une base adaptée à <span class="math notranslate nohighlight">\(M\)</span>, c’est à dire une base dans laquelle M est facile à représenter/calculer.
+$<span class="math notranslate nohighlight">\(
+M = \begin{bmatrix}
+    \lambda_{1} &amp; &amp; 0\\
+    &amp; \ddots &amp; \\
+    0 &amp; &amp; \lambda_{n}
+  \end{bmatrix}
+\)</span><span class="math notranslate nohighlight">\(
+les \)</span>\lambda_i<span class="math notranslate nohighlight">\( sont les valeurs propres de \)</span>M$</p>
+<p>Toutes mat n’est pas tout le temps diagonalisable</p>
+<p>C’est le cas pour les mat symétrique réelle</p>
+</div></blockquote>
+<p>Il est possible de classer par ordre de décroissance les valeurs propres de la matrice de graam ainsi calculée</p>
+<p>On peut alors décider de réduire la dimension de représentation sur <span class="math notranslate nohighlight">\(d'\)</span> vecteurs en considérant que les axes que l’on décide d’<em>oublier</em> sont des axes <em>bruités</em>.</p>
+<p><span class="math notranslate nohighlight">\(d_i = \sum_{k=1}^{d'} &lt;d_i, e_k&gt; e_k\)</span> avec <span class="math notranslate nohighlight">\((e_k)\)</span> base donnée par le  S.V.D.</p>
+<p>Fondamentalement, cela va sélectionner les directions principales qui encode la plus grande variabilité de nos données pour réduire la dimension de la base qui représente ces données.</p>
+<ol class="simple">
+<li><p>On dispose d’informations à priori :</p></li>
+</ol>
+<p>Proba d’observer une image = proba de l’observer translatée</p>
+<p><u>Fourier est une base naturellement adaptée à ce genre de données <em>invariantes</em> par translation.</u></p>
+<p>Si on se donne une approximation linaire dans la base de Fourier, c’est équivalent à échantillonner le signal régulièrement (on garde les <span class="math notranslate nohighlight">\(k\)</span> premières harmoniques)</p>
+<p>En fixant des points d’interpolation/échantillonnage constant on obtient une mauvaise reconstruction à cause des discontinuités potentielles du signal (il peut être régulier par morceaux comme une image en général).</p>
+<p>On aimerait une information plus fine au niveau des discontinuités du signal pour avoir une meilleure reconstruction globale de celui-ci.</p>
+<p><img alt="" src="../_images/debruitage01.png" /></p>
+<p><u>Idée:</u> avoir une approximation non linaire du signal (adaptive)</p>
+<p>► Ex garder les plus grands coefficients et tronquer les autres (considéré comme ayant une faible importance) dans une base adaptée (exemple une base de Fourier)</p>
+</div>
+<div class="section" id="definition-du-bruit">
+<h2>Définition du Bruit<a class="headerlink" href="#definition-du-bruit" title="Permalink to this headline">¶</a></h2>
+<p>modèle de formation de nos données :</p>
+<p><span class="math notranslate nohighlight">\(I_\text{observation} \in \mathbb{R}^d = I_\text{idéal} + N\)</span> (<span class="math notranslate nohighlight">\(N\)</span> noise ou bruit)</p>
+<p><u>Hyp:</u> on connait le modèle du bruit (il est possible de l’estimer expérimentalement parfois )</p>
+<div class="section" id="bruit-gaussien">
+<h3>Bruit gaussien:<a class="headerlink" href="#bruit-gaussien" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(n[i]\)</span> est une variable aléatoire</p>
+<p><span class="math notranslate nohighlight">\(n[i]: \in \Omega \rightarrow \mathbb{R}\)</span></p>
+<p>On appelle <span class="math notranslate nohighlight">\(p(x)= \mathbb{P}(n[i] \in [x, x +dx])\)</span> la densité de probabilité du bruit</p>
+<p><span class="math notranslate nohighlight">\(p(x):= \mathbb{P}(\{\omega; n[i](\omega) \in [x, x +dx]\})\)</span></p>
+<p>Exemple de variables aléatoires définissant du bruit:</p>
+<ul>
+<li><p>Bernoulli : <span class="math notranslate nohighlight">\(\mathbb{P}(u[i]=1) = \frac{1}{2} = \mathbb{P}(u[i]=-1)\)</span></p></li>
+<li><p>Variable gaussienne : <span class="math notranslate nohighlight">\(p(x) = \frac{1}{\sigma\sqrt{2r}} e^{ -\frac{(x-\mu)^2}{\sigma^2}}\)</span></p>
+<p>En général <span class="math notranslate nohighlight">\(\mu = 0\)</span>  car centré autour de <span class="math notranslate nohighlight">\(0\)</span></p>
+<p>de variance <span class="math notranslate nohighlight">\(\sigma^2\)</span></p>
+</li>
+</ul>
+<p>En général le bruit qui est défini pour chaque pixels (<span class="math notranslate nohighlight">\(n[i]\)</span>) mais il est possible d’observer comment varie le bruit par changement de pixels.</p>
+<blockquote>
+<div><p>Rappel:  pour x une variable aléatoire</p>
+<p><span class="math notranslate nohighlight">\(\mathbb{E}[x] = moyenne = \int_\mathbb{R} xp(x)dx\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mathbb{V}ar[x] = \mathbb{E}[x^2] - \mathbb{E}[x]^2 = \mathbb{E}[(x- \mathbb{E}[x])^2]\)</span></p>
+</div></blockquote>
+<p>Estimer l’espérance d’une variable aléatoire peut se faire assez facilement à partir des données (méthodes non précisée ici)</p>
+<p>Pour une photo, moyenner plusieurs échantillons pour moyenner le bruit et réduire la variance (longue exposition)</p>
+<p>pour un modèle gaussien <span class="math notranslate nohighlight">\(I = a \in \mathbb{R} +n\)</span> ou <span class="math notranslate nohighlight">\(n\)</span> est gaussien de variance <span class="math notranslate nohighlight">\(\sigma^2\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{N} \sum_{i=1}^N I(\omega_i) \rightarrow a
+\]</div>
+<p>Modèle de bruit:</p>
+<p><span class="math notranslate nohighlight">\(I = I_{\text{Idéal}} \in \mathbb{R} + \sigma n\)</span></p>
+<p><span class="math notranslate nohighlight">\(n\)</span> est un bruit blanc <span class="math notranslate nohighlight">\(\in \mathbb{R}^d\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mathbb{E}[n(i)n(j)] = \mathbb{E}[n(i)]\mathbb{E}[n(j)]\)</span> (non corrélation)</p>
+<p><span class="math notranslate nohighlight">\(\mathbb{V}ar[n(i)] = 1\)</span> et <span class="math notranslate nohighlight">\(\mathbb{E}[n(i)] = 0\)</span></p>
+<p>Comment se transforme le bruit blanc lorsque l’on change de base ?</p>
+<p>il reste un bruit blanc également de même intensité.</p>
+<p><span class="math notranslate nohighlight">\(e_i = \sum_{k=1}^d \alpha_{ik} f_k\)</span> avec <span class="math notranslate nohighlight">\(f_k\)</span> la base d’acquisition</p>
+<div class="math notranslate nohighlight">
+\[
+E[ &lt;e_i, n&gt;&lt;e_i, n&gt;] 
+&amp;= E[ (\sum_{k=1}^d \alpha_{ik} &lt; f_k,n&gt;) (\sum_{k'=1}^d \alpha_{ik'} &lt; f_{k'},n&gt;)] 
+&amp;= \sum_{k, k'}  \alpha_{ik}  \alpha_{jk'} E[&lt;f_k, n&gt;&lt;f_{k'}, n&gt;] 
+&amp;= \sum_k \alpha_{ik} \alpha_{jk} = &lt;ei, ej&gt; = \delta_{i=j} 
+\]</div>
+<p>Conclusion: le bruit est présent à toutes les fréquences (de la même manière)</p>
+<p>non corrélation avec la base de représentation</p>
+<p>L’idée du débruitage est donc par changement de base de mettre en évidence le bruit pour pouvoir ensuite le supprimer (hard thresholding des fréquences par exemple)</p>
+<p><img alt="" src="../_images/debruitage02.png" /></p>
+<hr class="docutils" />
+<p>En général un débruiteur invariant par translation est meilleur</p>
+<p><span class="math notranslate nohighlight">\(L(x) = \sum_{i=1}^M l_i&lt;x, e_i&gt;e_i\)</span></p>
+<p>oui <span class="math notranslate nohighlight">\(e_i\)</span> est une base de fourrier</p>
+<p>minimiser AMS (average means square )</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+AMS = \frac{\mathbb{E}[||L(x_0+n)-x_0||^2]}{||x_0||^2}\\ 
+&amp;= \frac{\mathbb{E}[||\sum_{i=1}^M (l_i&lt;x_0, e_i&gt;-&lt;x_0,e_i)e_i||^2}{\sum_{i=1}^M l_i&lt;x_0, e_i&gt;e_i} \\\frac{\mathbb{E}[\sum_{i=1}^M ((l_i-1)&lt;x_0, e_i&gt;+&lt;x_0,e_i)l_i)^2}{\sum_{i=1}^M &lt;x_0, e_i&gt;^2}
+\end{split}\]</div>
+<p>Discussion sur les <span class="math notranslate nohighlight">\(l_i\)</span>:</p>
+<p>On suppose que le signal <span class="math notranslate nohighlight">\(x_0\)</span> est bien décrit pour ses <span class="math notranslate nohighlight">\(N\)</span> premiers coefficients:</p>
+<p><span class="math notranslate nohighlight">\(L(x)= P(x):= \sum_{i=1}^N &lt;x, e_i&gt;e_i\)</span></p>
+<p>donc  <span class="math notranslate nohighlight">\(l_i = 0 \quad \forall i \geq N +1\)</span></p>
+<p><span class="math notranslate nohighlight">\(l_i = 1 \quad\forall i \leq N\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+AMS = \frac{\mathbb{E}}{||x_0||^2} \left[\sum_{i=1}^N (&lt;n, e_i&gt;)^2 + \sum_{i=N+1}^M (&lt;n, e_i&gt;)^2 \right]
+\]</div>
+<p>-&gt;variance :</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{E}\left[ \sum_{i=1}^N (&lt;n, e_i&gt;)^2 \right] = N\sigma^2
+\]</div>
+<p>biais de modèle : <span class="math notranslate nohighlight">\(||p(x_0)-x_0||^2\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+AMS = (||p(x_0)-x_0||^2 + N\sigma^2)\frac{1}{||x_0||^2}
+\]</div>
+<p>problème : si on tue les hautes fréquences (pour enlever le bruit), on floute les discontinuités et détails de l’image.</p>
+<p>conclusion : une méthode non linéaire n’est pas assez satisfaisante du point de vue visuel</p>
+<p><u>méthode non linéaire</u>: hard/soft thersholding</p>
+<p>​	<span class="math notranslate nohighlight">\(L_x = \sum_{i=i}^M S_T(&lt;x, e_i&gt;)e_i\)</span></p>
+<p>ou <span class="math notranslate nohighlight">\(S_T\)</span> est une fonction de <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> dans <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> avec:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+S_T(x) = \left\{
+\begin{array}{rl}
+x &amp;:\; x &gt; |T|  \\ 
+0 &amp;:\; \text{sinon} \\
+\end{array}
+\right.
+\end{split}\]</div>
+<blockquote>
+<div><p>le soft qui lisse la courbure de coupure .</p>
+</div></blockquote>
+<hr class="docutils" />
+<p>Les débruiteurs “doivent”</p>
+<ul class="simple">
+<li><p>être invariants par translation pour être performants.</p></li>
+<li><p>Convolution (débruiteur linéaire) c’est esquivaient</p></li>
+<li><p>Est-ce que le soft/hard thersholding dans la base de fourrier est equivalant ?</p></li>
+</ul>
+<p>Oui c’est bien invariant:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+L(I) = \sum_{i=i}^M S_T(&lt;I, e_i&gt;)e_i \\
+L_°\Tau_a(I) =  \sum_{i=i}^M S_T(&lt;\Tau_a(I), e_i&gt;)e_i \\
+&lt;\Tau(I), e_i&gt; = \int e^{-2i\pi ku}\Tau_a(I(u))d_u = e^{-2i\pi ku}&lt;I, e_k&gt; \\
+\end{split}\]</div>
+<p>ça a le même module que</p>
+<div class="math notranslate nohighlight">
+\[
+S_T(&lt;I, e_i&gt;)e_i = S_T(&lt;\Tau_a(I), e_i&gt;)e_i
+\]</div>
+<p>Les ondelettes ne sont pas invariants par translation:</p>
+<p><u>Cycle-spinning :</u></p>
+<p>on moyenne notre debruitage sur un espace de translation :</p>
+<div class="math notranslate nohighlight">
+\[
+L(I) = \frac{1}{|\Delta|}\sum_{t\in\Delta} \Tau_{-t} L(\Tau_{t}(I))
+\]</div>
+<hr class="docutils" />
+<p>En pratique (estimation de la variance):</p>
+<p>on considère <span class="math notranslate nohighlight">\(\Phi(I_{obs}) \rightarrow (P_{8\times8})_{i \in I}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\Phi\)</span> est la fonction d‘“extraction” des patches
+un pixel appartient à en théorie <span class="math notranslate nohighlight">\(64=8.8\)</span> patches <span class="math notranslate nohighlight">\(P\)</span></p>
+<p>Estimation de la variance:</p>
+<p>Soit <span class="math notranslate nohighlight">\(P\)</span> un patch :</p>
+<p><span class="math notranslate nohighlight">\(var(P) = \frac{1}{m}\sum_{k=1}^m(p_k-moy(P))^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(moy(P) = \frac{1}{m}\sum_{k=1}^m p_k\)</span></p>
+<p>Idée : le bruit et sa variance vont être facilement estimés sur des patches de petite variance.</p>
+<p>L’idée est de sélectionner les patches de variance minimale pour en faire la moyenne (car ils présente,t peu de discontinué (variance élevée))</p>
+<p>on map l’image sur ses patches, on calcule leurs variances, on regarde la distribution de la variance des patches pour en sélectionner ceux donc la variance est faible.</p>
+<p>-&gt; on fait la moyenne des patches donc la variance est petite.</p>
+<hr class="docutils" />
+<p><u>Les méthodes à l’état de l’art:</u></p>
+<ul class="simple">
+<li><p>Les ondelettes sont plus efficaces en terme de localisation des discontinuités que par Fourier</p></li>
+<li><p>Les premières méthodes utilisaient la DCT</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(I \rightarrow P_{8\times8} \rightarrow^{DCT} \text{Hard thersholding} \rightarrow^{DCT^{-1}}\)</span></p>
+<p>Soit <span class="math notranslate nohighlight">\(L\)</span> le débruiteur défini par :</p>
+<p><span class="math notranslate nohighlight">\(L(I)(x) = \frac{1}{\#P}\sum_{x\in P} FT^{-1}(S(FT(P)))(x)\)</span></p>
+<p>où <span class="math notranslate nohighlight">\(\#P\)</span> est le nombre de patches auxquels <span class="math notranslate nohighlight">\(x\)</span> appartient et <span class="math notranslate nohighlight">\(P\)</span> les patches auquel <span class="math notranslate nohighlight">\(x\)</span> appartient et <span class="math notranslate nohighlight">\(S\)</span> me soft ou hard thresholding</p>
+<blockquote>
+<div><p>on peut améliorer la moyenne en excluant les valeurs extrêmes</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\rightarrow\)</span> LE “meilleur” débruitage en utilisant cette méthode + du multi-échelle est à -8.5dB par rapport à l’état de l’art (autrement dit, elle performe moins bien que la meilleurs des méthodes existantes)</p>
+<ul class="simple">
+<li><p>Pousser la non linéarité plus loin</p></li>
+</ul>
+<p>Idée: on observe des échantillons/réalisations pour en faire la moyenne (mais on ne dispose pas de ces multiples réalisations)</p>
+<p>mais comment avoir accès à ces réalisations aléatoires ?</p>
+<p><span class="math notranslate nohighlight">\(\int\frac{1}{Z}e^{\frac{||x-u||^2}{2\sigma^2}}I(y)d_y\)</span></p>
+<ul class="simple">
+<li><p>considérer les pixels voisins n’est pas toujours les meilleurs candidats à être un modèle proche d’un nouvelle réalisation considérée, il faut donc aller les chercher ailleurs .</p></li>
+<li><p>filtre bilatéral (première utilisation de cette technique):</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(l(x)\)</span> est remplacé par une moyenne des pixels de <span class="math notranslate nohighlight">\(I(y_i) \)</span>avec <span class="math notranslate nohighlight">\(y_i \in \text{Voisinage}(x)\)</span> ou <span class="math notranslate nohighlight">\(\text{Voisinage}(x) = \{ y_i, |y_i-x|^2+|I(y_i)-I(x)|^2 \leq \mathbb{R}\}\)</span></p>
+<p>Finalement, comment étendre la notion de proximité des pixels ?</p>
+<p><img alt="" src="../_images/debruitage03.png" /></p>
+<p>Plutôt que de prendre un filtre gaussien dans l’espace des patches plutôt que dans l’espace spatial des pixels</p>
+<p>méthode NLmeans (non local means)</p>
+<hr class="docutils" />
+<p><u>soft-hard threshlding:</u></p>
+<p>on considère un signal dans une base adéquate (comme ondelette ou Fourier)</p>
+<p>Soit <span class="math notranslate nohighlight">\(S_T(x) = \sum_{i=1}^N s_T(&lt;x,e_i&gt;)e_i\)</span></p>
+<p>avec <span class="math notranslate nohighlight">\(s_T(y) = 1_{(y\geq T)}\times y\)</span> pour le hard thresholding</p>
+<p>On agit de manière non linéaire sur les coefficients du signal</p>
+<p><img alt="" src="../_images/debruitage04.png" /></p>
+<p><u>Non locals means :</u></p>
+<p><span class="math notranslate nohighlight">\(I_{\text{obs}} \rightarrow (p_i)_{i\in I}\)</span></p>
+<p>filtre gaussien sur les patch <span class="math notranslate nohighlight">\(P_i\)</span> en ayant connaissance du bruit d’input</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\sum_j P_je^\frac{-||P_j-P_i||^2}{2\sigma^2}}{\sum_j e^\frac{-||P_j-P_i||^2}{2\sigma^2}}
+\]</div>
+<p><span class="math notranslate nohighlight">\(\forall x \in \text{grille de pixel}\)</span></p>
+<p><span class="math notranslate nohighlight">\(I(\text{estimé}) = \text{Moyenne}_{x \in P_i}(\hat P_i(x))\)</span></p>
+<p>l’enjeu est d’optimiser le temps de calcul dans la sélection des patchs de l’image</p>
+<hr class="docutils" />
+<p><u>NLM (approche bayésienne):</u></p>
+<p>On considère sur les patches un modèle de bruits (le plus proche possible de ce que l’on observe)</p>
+<p>Soit <span class="math notranslate nohighlight">\(P,Q\)</span> deux patches (<span class="math notranslate nohighlight">\(8\times8\)</span>), de <span class="math notranslate nohighlight">\(\sigma &gt; 0\)</span> connus</p>
+<p><span class="math notranslate nohighlight">\(Q\)</span> étant notre image idéale et <span class="math notranslate nohighlight">\(P\)</span> l’image bruité observée avec un bruit <span class="math notranslate nohighlight">\(n\)</span> gaussien</p>
+<p><span class="math notranslate nohighlight">\(P = Q +n\)</span> ou <span class="math notranslate nohighlight">\(p(n) = \frac{1}{Z}e^\frac{-||P-Q||^2}{2\sigma^2}\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(I_\text{idéal}|I_\text{obs}) = \mathbb{P}(P|Q) = \frac{1}{Z}e^\frac{-||P-Q||^2}{2\sigma^2} = g_\sigma(P-Q)
+\]</div>
+<p>ou <span class="math notranslate nohighlight">\(Z\)</span> est un coefficient de normalisation</p>
+<p>Si on a <span class="math notranslate nohighlight">\(\mathbb{P}(I_\text{idéal}|I_\text{obs})\)</span>:</p>
+<p>MSE :
+$<span class="math notranslate nohighlight">\(
+\mathbb{E}[I_\text{idéal}|I_\text{obs}] = \int I_\text{idéal}e^{-d^2(I_\text{idéal}-I_\text{obs})} p(I_\text{idéal})dI_\text{idéal}
+&amp;= \mathbb{E}[I|I_\text{obs}] = \int I_\text{idéal}e^{\frac{-||I_\text{obs}-I||^2}{2\sigma^2}} p(I)dI
+\)</span>$</p>
+<p>Approche du type : maximum à posteriori (MAP)</p>
+<p>on cherche à maximiser le <span class="math notranslate nohighlight">\(log\quad\mathbb{P}(I_\text{idéal}|I_\text{obs})\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+max\quad log[I_\text{idéal}e^{\frac{-||I_\text{obs}-I_\text{idéal}||^2}{2\sigma^2}} -log\mathbb{P}(I_\text{obs})]\\
+&lt;=&gt; \\
+min\quad log\mathbb{P}(I_\text{obs}) + \frac{1}{2\sigma^2}||I_\text{obs}-I_\text{idéal}||^2
+\end{split}\]</div>
+<p>On peut en pratique postuler un modèle pour <span class="math notranslate nohighlight">\(log\mathbb{P}(I_\text{obs})\)</span> par régularisation (proposé dans les années 90’s 2000’s) (régularisation de sobolev):</p>
+<div class="math notranslate nohighlight">
+\[
+E(I) = ... log\mathbb{P}(I_\text{obs}) = \int||\nabla I||^2dxdy
+\]</div>
+<p>ou <span class="math notranslate nohighlight">\(\nabla I(x, y) = (\frac{\partial}{\partial x}I,\frac{\partial}{\partial y}I )\)</span></p>
+<p>il existe aussi la régularisation totale…</p>
+<p>Le problème est de savoir minimiser une fonction dans un espace de grande dimension <span class="math notranslate nohighlight">\(\mathbb{R}^d\)</span> ou <span class="math notranslate nohighlight">\(d &gt;&gt;1\)</span> d: le nombre de pixels</p>
+<p><img alt="" src="../_images/debruitage05.png" /></p>
+<p>Hypothèse de modélisation:</p>
+<p>MAP : <span class="math notranslate nohighlight">\(\frac{Min}{I} \quad \int||\nabla I||^2dxdy \quad+\quad \frac{1}{2\sigma^2}||I_\text{obs}-I_\text{idéal}||^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(\frac{Min}{I}\)</span> = (a priori) + (attache aux données)</p>
+<p><span class="math notranslate nohighlight">\(\frac{Min}{I}\)</span> = (Reg(<span class="math notranslate nohighlight">\(I\)</span>) + attache(<span class="math notranslate nohighlight">\(I\)</span>, <span class="math notranslate nohighlight">\(I\text{obs}\)</span>)</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Filtrage"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Filtre.html" title="previous page">Filtre</a>
+    <a class='right-next' id="next-link" href="../Compression/Compression.html" title="next page">Compression</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By IMAC Students<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

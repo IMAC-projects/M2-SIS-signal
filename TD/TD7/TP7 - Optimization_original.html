@@ -1,0 +1,952 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>In this TD, we aim at exploring the gradient descent method for optimizing smooth functions. &#8212; M2 Signal classes</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="In this TD, we aim at exploring the gradient descent method for optimizing smooth functions." href="TP7%20-%20Optimization.html" />
+    <link rel="prev" title="In this TD, we consider simple denoising algorithms, such as the ones considered in the lectures." href="../TD6/TP6%20-%20Denoising-Exercices.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">M2 Signal classes</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduction/Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Fourier
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Transform%C3%A9e%20de%20Fourier/Transform%C3%A9e%20de%20Fourier.html">
+   Transformée de Fourier
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Filtrage
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Filtrage/Filtre.html">
+   Filtre
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Filtrage/D%C3%A9bruitage.html">
+   Débruitage
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Compression
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Compression/Compression.html">
+   Compression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Compression/Le%20cas%20du%20JPEG.html">
+   Le cas du JPEG
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Compression/Ondelettes.html">
+   Ondelettes
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  TD
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD1/TP1%20-%20EEA%20-%20Exercices.html">
+   TD1 - Analyse en fréquence de signaux sonores.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD2/TP2%20-%20FFT%20-%20Exercices.html">
+   TD2 - FFT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD3/TP3%20-%20Compression%20Shannon-Huffman-Exercises.html">
+   TD3 - Compression Shannon-Huffman
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD4/TP4%20-%20Spectral%20Analysis%20and%20Filtering-Exercise%20-%20Original.html">
+   1. STFT  (Short Time Fourier Transform) and source separation.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD4/TP4%20-%20Spectral%20Analysis%20and%20Filtering-Exercise%20-%20Original.html#the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir">
+   2. The goal of this part is to explore implementations of a FIR or an IIR.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD4/TP4%20-%20Spectral%20Analysis%20and%20Filtering-Exercise.html">
+   TD4 - Spectral Analysis and Filtering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html">
+   In this TD, we study the wavelet decomposition using the Daubechies 4 filters.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#what-are-the-conditions-on-the-filters-for-being-admissible-wavelet-filters-the-first-condition-on-the-low-pass-filter-h-is-begin-equation-begin-cases-hat-h-omega-2-hat-h-omega-frac-12-2-2-hat-h-0-sqrt-2-end-cases-end-equation">
+   What are the conditions on the filters for being admissible wavelet filters: The first condition on the low-pass filter
+   <span class="math notranslate nohighlight">
+    \(h\)
+   </span>
+   is \begin{equation} \begin{cases}|\hat{h}(\omega)|^2 + |\hat{h}(\omega + \frac 12)|^2 = 2\hat{h}(0) = \sqrt{2},.\end{cases}\end{equation}
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#the-condition-on-the-high-pass-filter-is-the-following-begin-equation-begin-cases-hat-g-omega-2-hat-g-omega-frac-12-2-2-hat-g-omega-hat-h-omega-hat-g-omega-frac-12-hat-h-omega-frac-12-0-end-cases-end-equation">
+   The condition on the high-pass filter is the following:  \begin{equation} \begin{cases}|\hat{g}(\omega)|^2 + |\hat{g}(\omega + \frac 12)|^2 = 2\hat{g}(\omega) \hat{h}^
+   <em>
+    (\omega)+ \hat{g}(\omega + \frac 12)\hat{h}^
+   </em>
+   (\omega + \frac 12) = 0,.\end{cases}\end{equation}
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q2-implement-below-the-one-step-of-w-transform-of-the-lecture-coarse-and-fine-scale-transforms-and-test-it-on-your-image">
+   Q2: Implement below the one step of W transform of the lecture. Coarse and Fine scale transforms and test it on your image.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q3-implement-the-full-fast-wavelet-transform-for-a-given-number-of-scales">
+   Q3: Implement the full fast wavelet transform for a given number of scales.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q4-below-are-functions-to-obtain-a-better-plot-of-the-results-using-the-functions-below-plot-the-wavelet-transform">
+   Q4: Below are functions to obtain a better plot of the results. Using the functions below, plot the wavelet transform.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q5-the-wavelet-transform-is-an-orthogonal-transformation-so-its-inverse-is-given-by-its-transpose-also-called-adjoint-use-the-two-operators-defined-below-to-implement-the-inverse-of-the-wavelet-transform">
+   Q5: The wavelet transform is an orthogonal transformation so its inverse is given by its transpose (also called adjoint). Use the two operators defined below to implement the inverse of the wavelet transform.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q6-test-on-an-image-that-the-implemented-inverse-is-correct-that-is-check-on-an-image-x-that-iwt-wavelettransform-x-x-up-to-numerical-errors">
+   Q6: Test on an image that the implemented inverse is correct. That is, check on an image
+   <span class="math notranslate nohighlight">
+    \(x\)
+   </span>
+   that
+   <span class="math notranslate nohighlight">
+    \(IWT(WaveletTransform(x)) = x\)
+   </span>
+   up to numerical errors.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#use-of-wavelets-for-compression">
+   Use of wavelets for compression.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-%20Exercices.html">
+   TD5 - Wavelets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD6/Inverse-Problem.html">
+   In this notebook, I give a simple example of an inverse problem which necessitates regularization.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD6/Inverse-Problem.html#remark-noise-in-fourier-is-also-a-noise-you-can-guess-that-the-distribution-of-the-energy-of-the-noise-in-fourier-is-similar-to-its-distribution-in-space">
+   Remark: Noise in Fourier is also a noise. You can guess that the distribution of the energy of the noise in Fourier is similar to its distribution in space.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD6/TP6%20-%20Denoising-Exercices_original.html">
+   TD6 - Denoising
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD6/TP6%20-%20Denoising-Exercices.html">
+   In this TD, we consider simple denoising algorithms, such as the ones considered in the lectures.
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   In this TD, we aim at exploring the gradient descent method for optimizing smooth functions.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#a-gradient-descent-in-2d">
+   A. Gradient descent in 2D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#b-example-on-a-physical-system">
+   B. Example on a physical system
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#we-propose-to-reconstruct-a-candidate-for-our-initial-image-as-the-minimizer-of-an-energy-functional-e-i-sum-i-1-text-nbre-lignes-f-i-i-under-the-constraint-that-i-1-text-mask-text-data">
+   We propose to reconstruct a candidate for our initial image as the minimizer of an energy functional
+   <span class="math notranslate nohighlight">
+    \(E(I) = \sum_{i = 1}^{\text{nbre lignes}} f(I[i,:])\)
+   </span>
+   under the constraint that
+   <span class="math notranslate nohighlight">
+    \(I (1-\text{mask}) = \text{data}\)
+   </span>
+   .
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP7%20-%20Optimization.html">
+   In this TD, we aim at exploring the gradient descent method for optimizing smooth functions.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP7%20-%20Optimization.html#a-gradient-descent-in-2d">
+   A. Gradient descent in 2D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP7%20-%20Optimization.html#b-example-on-a-physical-system">
+   B. Example on a physical system
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD8/TP8%20-%20Non-local%20means-exercises_original.html">
+   In this TD, we explore a well-known method for inpainting.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD8/TP8%20-%20Non-local%20means-exercises_original.html#dimensionality-reduction-using-pca-principal-component-analysis">
+   2. Dimensionality reduction using PCA: Principal Component Analysis.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD8/TP8%20-%20Non-local%20means-exercises.html">
+   In this TD, we explore a well-known method for inpainting.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD8/TP8%20-%20Non-local%20means-exercises.html#dimensionality-reduction-using-pca-principal-component-analysis">
+   2. Dimensionality reduction using PCA: Principal Component Analysis.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TD8/TP8%20-%20Non-local%20means-exercises.html#question-3-explain-what-is-shown-below">
+   Question 3: Explain what is shown below ?
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/TD/TD7/TP7 - Optimization_original.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/IMAC-projects/M2-SIS-signal"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/IMAC-projects/M2-SIS-signal/issues/new?title=Issue%20on%20page%20%2FTD/TD7/TP7 - Optimization_original.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/IMAC-projects/M2-SIS-signal/master?urlpath=tree/TD/TD7/TP7 - Optimization_original.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   In this TD, we aim at exploring the gradient descent method for optimizing smooth functions.
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-gradient-descent-in-2d">
+   A. Gradient descent in 2D
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ex-implement-a-generic-gradient-descent-algorithm-taking-an-initial-point-the-gradient-of-the-function-a-number-of-steps-and-a-stepsize-varepsilon-compute-by-hand-the-lipschitz-constant-of-the-gradient">
+     Ex: Implement a generic gradient descent algorithm taking an initial point, the gradient of the function, a number of steps and a stepsize
+     <span class="math notranslate nohighlight">
+      \(\varepsilon\)
+     </span>
+     .   Compute by hand  the Lipschitz constant of the gradient.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ex-plot-the-gradient-descent-for-different-initializations-and-different-step-size-of-the-gradient-descent-try-to-show-that-the-convergence-can-be-really-slow-when-the-ratio-between-the-two-weights-is-very-large-or-very-small-this-ratio-is-often-called-the-condition-number-other-optimization-algorithms-have-to-be-used-in-order-to-avoid-this-slow-convergence-such-as-quasi-newton-methods">
+     Ex:  Plot the gradient descent for different initializations and different step size of the gradient descent. Try to show that the convergence can be really slow when the ratio between the two weights is very large or very small. This ratio is often called the condition number. Other optimization algorithms have to be used in order to avoid this slow convergence such as quasi-Newton methods.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#b-example-on-a-physical-system">
+   B. Example on a physical system
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-consider-a-massive-ball-of-mass-m-subject-to-gravity-and-the-force-of-the-wind-the-ball-is-at-rest-at-time-0-in-position-x-0-in-mathbb-r-3-we-want-to-find-the-initial-v0-such-that-the-ball-will-land-at-a-given-final-point-x-1-at-time-1">
+     We consider a massive ball of mass
+     <span class="math notranslate nohighlight">
+      \(m\)
+     </span>
+     , subject to gravity and the force of the wind. The ball is at rest at time
+     <span class="math notranslate nohighlight">
+      \(0\)
+     </span>
+     in position
+     <span class="math notranslate nohighlight">
+      \(x_0 \in \mathbb{R}^3\)
+     </span>
+     . We want to find the initial
+     <span class="math notranslate nohighlight">
+      \(v0\)
+     </span>
+     such that the ball will land at a given final point
+     <span class="math notranslate nohighlight">
+      \(x_1\)
+     </span>
+     at time
+     <span class="math notranslate nohighlight">
+      \(1\)
+     </span>
+     .
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ex-implement-the-following-approximation-of-the-gradient-partial-i-f-x-simeq-frac-f-x-varepsilon-e-i-f-x-varepsilon-with-e-i-is-the-vector-0-ldots-1-ldots-0-where-the-1-is-at-the-i-text-th-position-then-recall-that-the-gradient-at-point-x-of-the-function-f-is-the-vector-partial-i-f-x-i-in-1-ldots-n">
+     Ex: Implement the following approximation of the gradient:
+     <span class="math notranslate nohighlight">
+      \(\partial_i f(x) \simeq \frac{f(x + \varepsilon e_i) - f(x)}{\varepsilon}\)
+     </span>
+     with
+     <span class="math notranslate nohighlight">
+      \(e_i\)
+     </span>
+     is the vector
+     <span class="math notranslate nohighlight">
+      \((0,\ldots,1, \ldots , 0)\)
+     </span>
+     where the
+     <span class="math notranslate nohighlight">
+      \(1\)
+     </span>
+     is at the
+     <span class="math notranslate nohighlight">
+      \(i^{\text{th}}\)
+     </span>
+     position. Then, recall that the gradient at point
+     <span class="math notranslate nohighlight">
+      \(x\)
+     </span>
+     of the function
+     <span class="math notranslate nohighlight">
+      \(f\)
+     </span>
+     is the vector
+     <span class="math notranslate nohighlight">
+      \((\partial_i f(x))_{i \in 1,\ldots,n}\)
+     </span>
+     .
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ex-using-the-previous-approximation-of-the-gradient-use-a-gradient-descent-with-constant-step-size-to-solve-the-problem-for-that-we-define-the-l-2-penalty-function-between-the-target-and-the-point-position-at-time-1-and-we-compute-the-gradient-use-it-to-solve-the-problem-and-plot-the-trajectory">
+     Ex: Using the previous approximation of the gradient, use a gradient descent with constant step size to solve the problem. For that, we define the
+     <span class="math notranslate nohighlight">
+      \(L^2\)
+     </span>
+     penalty function between the target and the point position at time
+     <span class="math notranslate nohighlight">
+      \(1\)
+     </span>
+     and we compute the gradient. Use it to solve the problem and plot the trajectory.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compute-the-lipschitz-constant-of-the-gradient-remark-that-it-is-a-linear-function">
+     Compute the Lipschitz constant of the gradient (remark that it is a linear function).
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#we-propose-to-reconstruct-a-candidate-for-our-initial-image-as-the-minimizer-of-an-energy-functional-e-i-sum-i-1-text-nbre-lignes-f-i-i-under-the-constraint-that-i-1-text-mask-text-data">
+   We propose to reconstruct a candidate for our initial image as the minimizer of an energy functional
+   <span class="math notranslate nohighlight">
+    \(E(I) = \sum_{i = 1}^{\text{nbre lignes}} f(I[i,:])\)
+   </span>
+   under the constraint that
+   <span class="math notranslate nohighlight">
+    \(I (1-\text{mask}) = \text{data}\)
+   </span>
+   .
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apply-the-algorithm-to-the-data-and-comment-how-do-you-suggest-to-modify-the-energy-functional-in-order-to-improve-the-results">
+     Apply the algorithm to the data and comment. How do you suggest to modify the energy functional in order to improve the results ?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="in-this-td-we-aim-at-exploring-the-gradient-descent-method-for-optimizing-smooth-functions">
+<h1>In this TD, we aim at exploring the gradient descent method for optimizing smooth functions.<a class="headerlink" href="#in-this-td-we-aim-at-exploring-the-gradient-descent-method-for-optimizing-smooth-functions" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.signal</span> <span class="k">as</span> <span class="nn">sig</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="a-gradient-descent-in-2d">
+<h1>A. Gradient descent in 2D<a class="headerlink" href="#a-gradient-descent-in-2d" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weights</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">101</span><span class="p">)</span>
+<span class="n">ty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-.</span><span class="mi">6</span><span class="p">,</span><span class="o">.</span><span class="mi">6</span><span class="p">,</span><span class="mi">101</span><span class="p">)</span>
+<span class="p">[</span><span class="n">v</span><span class="p">,</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">ty</span><span class="p">,</span><span class="n">tx</span><span class="p">)</span>
+<span class="n">F</span> <span class="o">=</span> <span class="p">(</span><span class="n">weights</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span> <span class="n">u</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">weights</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">v</span> <span class="o">**</span> <span class="mi">2</span> <span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">tx</span><span class="p">,</span><span class="n">ty</span><span class="p">,</span><span class="n">F</span><span class="o">.</span><span class="n">transpose</span><span class="p">(),</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 720x720 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../../_images/TP7 - Optimization_original_5_1.png" src="../../_images/TP7 - Optimization_original_5_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 720x720 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ex-implement-a-generic-gradient-descent-algorithm-taking-an-initial-point-the-gradient-of-the-function-a-number-of-steps-and-a-stepsize-varepsilon-compute-by-hand-the-lipschitz-constant-of-the-gradient">
+<h2>Ex: Implement a generic gradient descent algorithm taking an initial point, the gradient of the function, a number of steps and a stepsize <span class="math notranslate nohighlight">\(\varepsilon\)</span>.   Compute by hand  the Lipschitz constant of the gradient.<a class="headerlink" href="#ex-implement-a-generic-gradient-descent-algorithm-taking-an-initial-point-the-gradient-of-the-function-a-number-of-steps-and-a-stepsize-varepsilon-compute-by-hand-the-lipschitz-constant-of-the-gradient" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here.</span>
+<span class="k">def</span> <span class="nf">GradientDescent</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">gradient</span><span class="p">,</span><span class="n">iterationsNumber</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">eps</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">currentEstimate</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ex-plot-the-gradient-descent-for-different-initializations-and-different-step-size-of-the-gradient-descent-try-to-show-that-the-convergence-can-be-really-slow-when-the-ratio-between-the-two-weights-is-very-large-or-very-small-this-ratio-is-often-called-the-condition-number-other-optimization-algorithms-have-to-be-used-in-order-to-avoid-this-slow-convergence-such-as-quasi-newton-methods">
+<h2>Ex:  Plot the gradient descent for different initializations and different step size of the gradient descent. Try to show that the convergence can be really slow when the ratio between the two weights is very large or very small. This ratio is often called the condition number. Other optimization algorithms have to be used in order to avoid this slow convergence such as quasi-Newton methods.<a class="headerlink" href="#ex-plot-the-gradient-descent-for-different-initializations-and-different-step-size-of-the-gradient-descent-try-to-show-that-the-convergence-can-be-really-slow-when-the-ratio-between-the-two-weights-is-very-large-or-very-small-this-ratio-is-often-called-the-condition-number-other-optimization-algorithms-have-to-be-used-in-order-to-avoid-this-slow-convergence-such-as-quasi-newton-methods" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="b-example-on-a-physical-system">
+<h1>B. Example on a physical system<a class="headerlink" href="#b-example-on-a-physical-system" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="we-consider-a-massive-ball-of-mass-m-subject-to-gravity-and-the-force-of-the-wind-the-ball-is-at-rest-at-time-0-in-position-x-0-in-mathbb-r-3-we-want-to-find-the-initial-v0-such-that-the-ball-will-land-at-a-given-final-point-x-1-at-time-1">
+<h2>We consider a massive ball of mass <span class="math notranslate nohighlight">\(m\)</span>, subject to gravity and the force of the wind. The ball is at rest at time <span class="math notranslate nohighlight">\(0\)</span> in position <span class="math notranslate nohighlight">\(x_0 \in \mathbb{R}^3\)</span>. We want to find the initial <span class="math notranslate nohighlight">\(v0\)</span> such that the ball will land at a given final point <span class="math notranslate nohighlight">\(x_1\)</span> at time <span class="math notranslate nohighlight">\(1\)</span>.<a class="headerlink" href="#we-consider-a-massive-ball-of-mass-m-subject-to-gravity-and-the-force-of-the-wind-the-ball-is-at-rest-at-time-0-in-position-x-0-in-mathbb-r-3-we-want-to-find-the-initial-v0-such-that-the-ball-will-land-at-a-given-final-point-x-1-at-time-1" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We implement the equations of the motion of the ball.</span>
+<span class="k">def</span> <span class="nf">Wind</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mf">0.2</span><span class="p">])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> 
+
+<span class="k">def</span> <span class="nf">GetPositionAtTime1</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">v0</span><span class="p">,</span><span class="n">wind</span><span class="p">):</span>
+    <span class="n">number_of_timesteps</span> <span class="o">=</span> <span class="mi">1000</span>
+    <span class="n">timestep</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">number_of_timesteps</span>
+    <span class="n">temp_x</span> <span class="o">=</span> <span class="n">x0</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">temp_v</span> <span class="o">=</span> <span class="n">v0</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">trajectory</span> <span class="o">=</span> <span class="p">[</span><span class="n">x0</span><span class="p">]</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1">## note that we use here a naive integrator: forward Euler.</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number_of_timesteps</span><span class="p">):</span>
+        <span class="n">temp_x</span> <span class="o">+=</span> <span class="n">timestep</span> <span class="o">*</span> <span class="p">(</span><span class="n">temp_v</span><span class="p">)</span>
+        <span class="n">temp_v</span> <span class="o">+=</span> <span class="n">timestep</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="n">wind</span><span class="p">(</span><span class="n">time</span><span class="p">))</span> <span class="c1">#2 is a chosen value representing the gravity times the mass</span>
+        <span class="n">time</span> <span class="o">+=</span> <span class="n">timestep</span>
+        <span class="n">trajectory</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_x</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+        <span class="n">times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">temp_x</span><span class="p">,</span><span class="n">trajectory</span><span class="p">,</span><span class="n">times</span>     
+</pre></div>
+</div>
+</div>
+</div>
+<p>### We test the computation of the function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test </span>
+<span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.</span><span class="p">])</span> <span class="c1"># intial position</span>
+<span class="n">v0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">])</span> <span class="c1"># initial speed</span>
+<span class="n">x1</span><span class="p">,</span><span class="n">trajectory</span><span class="p">,</span><span class="n">times</span> <span class="o">=</span> <span class="n">GetPositionAtTime1</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">v0</span><span class="p">,</span><span class="n">Wind</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;position at time 1&quot;</span><span class="p">,</span><span class="n">x1</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">trajectory</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>position at time 1 [1.44312482 0.33531278 0.04531248]
+</pre></div>
+</div>
+</div>
+</div>
+<p>### We plot the trajectory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## prepare the trajectory</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">trajectory</span><span class="p">)</span>
+<span class="c1">## Plot of the trajectory</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;legend.fontsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;trajectory&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">x0</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">x0</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="s2">&quot;bo&quot;</span><span class="p">,</span><span class="n">linewidths</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">x1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">x1</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="s2">&quot;ro&quot;</span><span class="p">,</span><span class="n">linewidths</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">x1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/TP7 - Optimization_original_15_0.png" src="../../_images/TP7 - Optimization_original_15_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0. 0. 0.] [1.44312482 0.33531278 0.04531248]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ex-implement-the-following-approximation-of-the-gradient-partial-i-f-x-simeq-frac-f-x-varepsilon-e-i-f-x-varepsilon-with-e-i-is-the-vector-0-ldots-1-ldots-0-where-the-1-is-at-the-i-text-th-position-then-recall-that-the-gradient-at-point-x-of-the-function-f-is-the-vector-partial-i-f-x-i-in-1-ldots-n">
+<h2>Ex: Implement the following approximation of the gradient: <span class="math notranslate nohighlight">\(\partial_i f(x) \simeq \frac{f(x + \varepsilon e_i) - f(x)}{\varepsilon}\)</span> with <span class="math notranslate nohighlight">\(e_i\)</span> is the vector <span class="math notranslate nohighlight">\((0,\ldots,1, \ldots , 0)\)</span> where the <span class="math notranslate nohighlight">\(1\)</span> is at the <span class="math notranslate nohighlight">\(i^{\text{th}}\)</span> position. Then, recall that the gradient at point <span class="math notranslate nohighlight">\(x\)</span> of the function <span class="math notranslate nohighlight">\(f\)</span> is the vector <span class="math notranslate nohighlight">\((\partial_i f(x))_{i \in 1,\ldots,n}\)</span>.<a class="headerlink" href="#ex-implement-the-following-approximation-of-the-gradient-partial-i-f-x-simeq-frac-f-x-varepsilon-e-i-f-x-varepsilon-with-e-i-is-the-vector-0-ldots-1-ldots-0-where-the-1-is-at-the-i-text-th-position-then-recall-that-the-gradient-at-point-x-of-the-function-f-is-the-vector-partial-i-f-x-i-in-1-ldots-n" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here.</span>
+<span class="k">def</span> <span class="nf">ApproximatedGradient</span><span class="p">(</span><span class="n">myFunction</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">gradientAtx</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ex-using-the-previous-approximation-of-the-gradient-use-a-gradient-descent-with-constant-step-size-to-solve-the-problem-for-that-we-define-the-l-2-penalty-function-between-the-target-and-the-point-position-at-time-1-and-we-compute-the-gradient-use-it-to-solve-the-problem-and-plot-the-trajectory">
+<h2>Ex: Using the previous approximation of the gradient, use a gradient descent with constant step size to solve the problem. For that, we define the <span class="math notranslate nohighlight">\(L^2\)</span> penalty function between the target and the point position at time <span class="math notranslate nohighlight">\(1\)</span> and we compute the gradient. Use it to solve the problem and plot the trajectory.<a class="headerlink" href="#ex-using-the-previous-approximation-of-the-gradient-use-a-gradient-descent-with-constant-step-size-to-solve-the-problem-for-that-we-define-the-l-2-penalty-function-between-the-target-and-the-point-position-at-time-1-and-we-compute-the-gradient-use-it-to-solve-the-problem-and-plot-the-trajectory" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">L2Penalty</span><span class="p">(</span><span class="n">finalPosition</span><span class="p">,</span><span class="n">target</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">finalPosition</span> <span class="o">-</span> <span class="n">target</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">ComposedGradient</span><span class="p">(</span><span class="n">finalPosition</span><span class="p">,</span><span class="n">gradientFinalPosition</span><span class="p">,</span><span class="n">target</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">finalPosition</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">gradientFinalPosition</span>
+
+<span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>## C. Example on a 2D image.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">imageio</span> <span class="k">as</span> <span class="nn">imio</span>
+<span class="n">colored_image</span> <span class="o">=</span> <span class="n">imio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;lena.png&#39;</span><span class="p">)</span>
+<span class="n">lena</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">colored_image</span><span class="o">*</span><span class="p">[</span> <span class="mf">0.21</span><span class="p">,</span> <span class="mf">0.72</span> <span class="p">,</span><span class="mf">0.07</span><span class="p">,</span><span class="mf">0.0</span><span class="p">],</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sub_defense</span> <span class="o">=</span> <span class="n">defense</span><span class="p">[::</span><span class="mi">2</span><span class="p">,::</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gray</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;lena&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">defense</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;lena sub-sampled&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">sub_defense</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">67234</span><span class="n">ebf3f8a</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">imageio</span> <span class="k">as</span> <span class="nn">imio</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">colored_image</span> <span class="o">=</span> <span class="n">imio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;lena.png&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">lena</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">colored_image</span><span class="o">*</span><span class="p">[</span> <span class="mf">0.21</span><span class="p">,</span> <span class="mf">0.72</span> <span class="p">,</span><span class="mf">0.07</span><span class="p">,</span><span class="mf">0.0</span><span class="p">],</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">sub_defense</span> <span class="o">=</span> <span class="n">defense</span><span class="p">[::</span><span class="mi">2</span><span class="p">,::</span><span class="mi">2</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">plt</span><span class="o">.</span><span class="n">gray</span><span class="p">()</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/imageio/core/functions.py</span> in <span class="ni">imread</span><span class="nt">(uri, format, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">263</span> 
+<span class="g g-Whitespace">    </span><span class="mi">264</span>     <span class="c1"># Get reader and read first</span>
+<span class="ne">--&gt; </span><span class="mi">265</span>     <span class="n">reader</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="nb">format</span><span class="p">,</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">266</span>     <span class="k">with</span> <span class="n">reader</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">267</span>         <span class="k">return</span> <span class="n">reader</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/imageio/core/functions.py</span> in <span class="ni">get_reader</span><span class="nt">(uri, format, mode, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">170</span> 
+<span class="g g-Whitespace">    </span><span class="mi">171</span>     <span class="c1"># Create request object</span>
+<span class="ne">--&gt; </span><span class="mi">172</span>     <span class="n">request</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span> <span class="o">+</span> <span class="n">mode</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">173</span> 
+<span class="g g-Whitespace">    </span><span class="mi">174</span>     <span class="c1"># Get format</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/imageio/core/request.py</span> in <span class="ni">__init__</span><span class="nt">(self, uri, mode, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">122</span> 
+<span class="g g-Whitespace">    </span><span class="mi">123</span>         <span class="c1"># Parse what was given</span>
+<span class="ne">--&gt; </span><span class="mi">124</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_parse_uri</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">125</span> 
+<span class="g g-Whitespace">    </span><span class="mi">126</span>         <span class="c1"># Set extension</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/imageio/core/request.py</span> in <span class="ni">_parse_uri</span><span class="nt">(self, uri)</span>
+<span class="g g-Whitespace">    </span><span class="mi">258</span>                 <span class="c1"># Reading: check that the file exists (but is allowed a dir)</span>
+<span class="g g-Whitespace">    </span><span class="mi">259</span>                 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">fn</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">260</span>                     <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s2">&quot;No such file: &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="n">fn</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">261</span>             <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">262</span>                 <span class="c1"># Writing: check that the directory to write to does exist</span>
+
+<span class="ne">FileNotFoundError</span>: No such file: &#39;/home/runner/work/M2-SIS-signal/M2-SIS-signal/TD/TD7/lena.png&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">GenerateMask</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span><span class="n">threshold</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">):</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">&lt;</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="mf">1.0</span>
+    <span class="n">filtering</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+    <span class="n">temp</span><span class="o">=</span>  <span class="p">(</span><span class="n">sig</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">filtering</span><span class="p">,</span><span class="n">temp</span><span class="p">)</span><span class="o">&lt;</span><span class="n">threshold</span><span class="p">)</span><span class="o">*</span><span class="mf">1.0</span>
+    <span class="k">return</span> <span class="n">temp</span><span class="p">[:</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],:</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">GenerateMask</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">sub_defense</span><span class="p">),</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;averaged pixel value on the remaining pixels&quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">sub_defense</span><span class="o">*</span><span class="n">mask</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">mask</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;percentage of remaining pixels&quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">mask</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">gray</span><span class="p">()</span>
+<span class="n">taille</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="n">taille</span><span class="p">,</span><span class="n">taille</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;lena&quot;</span><span class="p">,</span><span class="n">size</span> <span class="o">=</span> <span class="n">taille</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mask</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;lena masked&quot;</span><span class="p">,</span><span class="n">size</span> <span class="o">=</span> <span class="n">taille</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">sub_defense</span><span class="o">*</span><span class="n">mask</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;averaged pixel value on the remaining pixels&#39;, 140.44670866951685)
+(&#39;percentage of remaining pixels&#39;, 0.4746856689453125)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1440x1440 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../../_images/TP7 - Optimization_original_23_2.png" src="../../_images/TP7 - Optimization_original_23_2.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>### Compute on a sheet of paper the gradient of the function <span class="math notranslate nohighlight">\(f: \mathbb{R}^d \mapsto \mathbb{R}\)</span> defined by <span class="math notranslate nohighlight">\(f(x_1,\ldots,x_n) = \sum_{i = 1}^{n-1} \frac12| x_i - x_{i+1}|^2\)</span>.</p></li>
+<li></li>
+</ul>
+</div>
+<div class="section" id="compute-the-lipschitz-constant-of-the-gradient-remark-that-it-is-a-linear-function">
+<h2>Compute the Lipschitz constant of the gradient (remark that it is a linear function).<a class="headerlink" href="#compute-the-lipschitz-constant-of-the-gradient-remark-that-it-is-a-linear-function" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="we-propose-to-reconstruct-a-candidate-for-our-initial-image-as-the-minimizer-of-an-energy-functional-e-i-sum-i-1-text-nbre-lignes-f-i-i-under-the-constraint-that-i-1-text-mask-text-data">
+<h1>We propose to reconstruct a candidate for our initial image as the minimizer of an energy functional <span class="math notranslate nohighlight">\(E(I) = \sum_{i = 1}^{\text{nbre lignes}} f(I[i,:])\)</span> under the constraint that <span class="math notranslate nohighlight">\(I (1-\text{mask}) = \text{data}\)</span>.<a class="headerlink" href="#we-propose-to-reconstruct-a-candidate-for-our-initial-image-as-the-minimizer-of-an-energy-functional-e-i-sum-i-1-text-nbre-lignes-f-i-i-under-the-constraint-that-i-1-text-mask-text-data" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>### Copy your gradient descent code and modify it to implement the projected gradient descent algorithm.</p></li>
+<li></li>
+</ul>
+<div class="section" id="apply-the-algorithm-to-the-data-and-comment-how-do-you-suggest-to-modify-the-energy-functional-in-order-to-improve-the-results">
+<h2>Apply the algorithm to the data and comment. How do you suggest to modify the energy functional in order to improve the results ?<a class="headerlink" href="#apply-the-algorithm-to-the-data-and-comment-how-do-you-suggest-to-modify-the-energy-functional-in-order-to-improve-the-results" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>### Answer: your answer here. <span class="math notranslate nohighlight">\(##############\)</span></p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./TD/TD7"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../TD6/TP6%20-%20Denoising-Exercices.html" title="previous page">In this TD, we consider simple denoising algorithms, such as the ones considered in the lectures.</a>
+    <a class='right-next' id="next-link" href="TP7%20-%20Optimization.html" title="next page">In this TD, we aim at exploring the gradient descent method for optimizing smooth functions.</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By IMAC Students<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
