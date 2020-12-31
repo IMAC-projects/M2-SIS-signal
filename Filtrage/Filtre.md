@@ -333,7 +333,12 @@ On choisi $D_1$ comme domaine or on sait qu'à priori le signal  $(v[n])_{n \in 
 
 Il faut retrouver **l'original**  $(x[n])_{n \in \mathbb{Z}}$ c'est-à-dire, trouver $x[n]$ tel que $X(z) = \sum^{}_{}x[n]z^{-n}$
 
-**Méthode décomposition en élément simple (D.E.S)**.
+**Méthode décomposition en élément simple (D.E.S)** : utilisée pour les fractions rationnelles.
+
+- $F(z) = \frac{\text{polynôme en z}}{\text{polynôme en z}} = \frac{N(z)}{D(z)}$
+- Les racines de $N(z)$ sont celles de $F(z)$
+- Les racines de $D(z)$ sont les pôles de $F(z)$
+- Un polynôme de degré $K$ admet $K$ racines
 
 Par ailleurs, un **filtre stable** a ses pôles complexes $z_1, z_2, …, z_k$ situés à l'intérieur du cercle unité dans le plan complexe.
 
@@ -342,7 +347,7 @@ Par ailleurs, un **filtre stable** a ses pôles complexes $z_1, z_2, …, z_k$ s
 
 On peut classer les filtres numériques en 2 catégories selon leur réponse impulsionnelle : **réponse impulsionnelle finie (RIF)** et **réponse impulsionnelle infinie (RII)**.
 
-#### RIF
+#### RIF (FIR)
 
 Les échantillons ${h_n}$ de la réponse impulsionnelle deviennent nuls à partir d'un certain rang $k$. C'est un filtre non-récursif. Un système à réponse impulsionnelle finie est toujours **stable**.
 
@@ -350,7 +355,7 @@ Les échantillons ${h_n}$ de la réponse impulsionnelle deviennent nuls à parti
 
 R.I du filtre moyenneur défini par $y_n = \frac{x_n + x_{n-1}}{2}$ pour $x_n = \delta(n), y_n = h_n \rightarrow h_n = \left\{\frac{1}{2};\frac{1}{2};0;0;…\right\}$
 
-#### RII
+#### RII (IIR)
 
 Filtre rationnels admettant un pôle au moins. Il n'existe pas de rang $k$ à partir duquel la réponse impulsionnelle devienne nulle.
 Un filtre à RII ne signifie pas que la réponse impulsionnelle ne puisse pas s'annuler par endroits. C'est un filtre récursif.
@@ -359,20 +364,33 @@ Un filtre à RII ne signifie pas que la réponse impulsionnelle ne puisse pas s'
 
 $y_n = x_n  - 0,4 x_{n-1} + 0,6 y_{n-1} \rightarrow h_n = \frac{2}{3 \delta(n)} + \frac{1}{3}(0,6)^n$
 
-## Filtre idéaux
-
-### Filtre passe-bas idéal
-
-$H(z) = H(e^{2 i \pi z})$
-
-### Filtre passe-haut idéal
-
-### Filtre passe-bande idéal
-
-### Filtre dérivateur
-
-$H(z) = \frac{i 2 \pi z}{T_e}$
+Un filtre récursif est **stable** seulement si **tous ses pôles sont à intérieur du cercle unité**.
 
 ## Méthode de la fenêtre
 
-## Filtre passe-bas et rééchantillonnage
+La méthode de la fenêtre sert à calculer les coefficients de $h[n]$. 
+
+Comme $b_k=h[k]$, le calcul des coefficients revient à trouver la réponse impulsionnelle du filtre. On part de l’amplitude de la réponse en fréquence d’un filtre idéal et on prend sa transformée de Fourier inverse.
+$$
+h[n] = \int^{\frac{1}{2}}_{-\frac{1}{2}}H(t)e^{2i\pi \omega t}dt
+$$
+
+
+**Exemple avec la fenêtre rectangulaire $w(n)$ : **
+
+En fréquence, on a donc : 
+$$
+H_N(t) = H(t)\ast W(t) \ \text{avec} \ W(t) = \frac{sin(N\pi t)}{sin(\pi t)}
+$$
+
+$$
+\begin{align}
+h(n) &= \int^{\frac{Fe}{2}}_{-\frac{Fe}{2}}H(t)e^{2i\pi \omega t} dt \\
+&= \int^{\frac{B}{2}}_{-\frac{B}{2}}H(t)e^{2i\pi \omega t}dt \\
+&= \frac{sin(\pi B \omega)}{\pi \omega}
+\end{align}
+$$
+
+
+
+On a trouvé la réponse $h_N(n)$, mais celle ci est centrée sur 0, donc elle n'est pas causale ! La solution est de la retarder de $\frac{N}{2}$ échantillons. 
