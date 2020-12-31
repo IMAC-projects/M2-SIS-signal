@@ -443,40 +443,13 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rif">
-     RIF
+    <a class="reference internal nav-link" href="#rif-fir">
+     RIF (FIR)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rii">
-     RII
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#filtre-ideaux">
-   Filtre idéaux
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#filtre-passe-bas-ideal">
-     Filtre passe-bas idéal
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#filtre-passe-haut-ideal">
-     Filtre passe-haut idéal
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#filtre-passe-bande-ideal">
-     Filtre passe-bande idéal
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#filtre-derivateur">
-     Filtre dérivateur
+    <a class="reference internal nav-link" href="#rii-iir">
+     RII (IIR)
     </a>
    </li>
   </ul>
@@ -484,11 +457,6 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#methode-de-la-fenetre">
    Méthode de la fenêtre
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#filtre-passe-bas-et-reechantillonnage">
-   Filtre passe-bas et rééchantillonnage
   </a>
  </li>
 </ul>
@@ -785,49 +753,55 @@ alt="convergence"/>
 </ul>
 <p>On choisi <span class="math notranslate nohighlight">\(D_1\)</span> comme domaine or on sait qu’à priori le signal  <span class="math notranslate nohighlight">\((v[n])_{n \in \mathbb{Z}}\)</span>  est causal et même que <span class="math notranslate nohighlight">\(\sum^{}_{}|v[n]| =\infty\)</span></p>
 <p>Il faut retrouver <strong>l’original</strong>  <span class="math notranslate nohighlight">\((x[n])_{n \in \mathbb{Z}}\)</span> c’est-à-dire, trouver <span class="math notranslate nohighlight">\(x[n]\)</span> tel que <span class="math notranslate nohighlight">\(X(z) = \sum^{}_{}x[n]z^{-n}\)</span></p>
-<p><strong>Méthode décomposition en élément simple (D.E.S)</strong>.</p>
+<p><strong>Méthode décomposition en élément simple (D.E.S)</strong> : utilisée pour les fractions rationnelles.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(F(z) = \frac{\text{polynôme en z}}{\text{polynôme en z}} = \frac{N(z)}{D(z)}\)</span></p></li>
+<li><p>Les racines de <span class="math notranslate nohighlight">\(N(z)\)</span> sont celles de <span class="math notranslate nohighlight">\(F(z)\)</span></p></li>
+<li><p>Les racines de <span class="math notranslate nohighlight">\(D(z)\)</span> sont les pôles de <span class="math notranslate nohighlight">\(F(z)\)</span></p></li>
+<li><p>Un polynôme de degré <span class="math notranslate nohighlight">\(K\)</span> admet <span class="math notranslate nohighlight">\(K\)</span> racines</p></li>
+</ul>
 <p>Par ailleurs, un <strong>filtre stable</strong> a ses pôles complexes <span class="math notranslate nohighlight">\(z_1, z_2, …, z_k\)</span> situés à l’intérieur du cercle unité dans le plan complexe.</p>
 </div>
 </div>
 <div class="section" id="filtre-recursif-et-non-recursif">
 <h2>Filtre récursif et non-récursif<a class="headerlink" href="#filtre-recursif-et-non-recursif" title="Permalink to this headline">¶</a></h2>
 <p>On peut classer les filtres numériques en 2 catégories selon leur réponse impulsionnelle : <strong>réponse impulsionnelle finie (RIF)</strong> et <strong>réponse impulsionnelle infinie (RII)</strong>.</p>
-<div class="section" id="rif">
-<h3>RIF<a class="headerlink" href="#rif" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="rif-fir">
+<h3>RIF (FIR)<a class="headerlink" href="#rif-fir" title="Permalink to this headline">¶</a></h3>
 <p>Les échantillons <span class="math notranslate nohighlight">\({h_n}\)</span> de la réponse impulsionnelle deviennent nuls à partir d’un certain rang <span class="math notranslate nohighlight">\(k\)</span>. C’est un filtre non-récursif. Un système à réponse impulsionnelle finie est toujours <strong>stable</strong>.</p>
 <p><strong>Exemple :</strong></p>
 <p>R.I du filtre moyenneur défini par <span class="math notranslate nohighlight">\(y_n = \frac{x_n + x_{n-1}}{2}\)</span> pour <span class="math notranslate nohighlight">\(x_n = \delta(n), y_n = h_n \rightarrow h_n = \left\{\frac{1}{2};\frac{1}{2};0;0;…\right\}\)</span></p>
 </div>
-<div class="section" id="rii">
-<h3>RII<a class="headerlink" href="#rii" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="rii-iir">
+<h3>RII (IIR)<a class="headerlink" href="#rii-iir" title="Permalink to this headline">¶</a></h3>
 <p>Filtre rationnels admettant un pôle au moins. Il n’existe pas de rang <span class="math notranslate nohighlight">\(k\)</span> à partir duquel la réponse impulsionnelle devienne nulle.
 Un filtre à RII ne signifie pas que la réponse impulsionnelle ne puisse pas s’annuler par endroits. C’est un filtre récursif.</p>
 <p><strong>Exemple :</strong></p>
 <p><span class="math notranslate nohighlight">\(y_n = x_n  - 0,4 x_{n-1} + 0,6 y_{n-1} \rightarrow h_n = \frac{2}{3 \delta(n)} + \frac{1}{3}(0,6)^n\)</span></p>
-</div>
-</div>
-<div class="section" id="filtre-ideaux">
-<h2>Filtre idéaux<a class="headerlink" href="#filtre-ideaux" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="filtre-passe-bas-ideal">
-<h3>Filtre passe-bas idéal<a class="headerlink" href="#filtre-passe-bas-ideal" title="Permalink to this headline">¶</a></h3>
-<p><span class="math notranslate nohighlight">\(H(z) = H(e^{2 i \pi z})\)</span></p>
-</div>
-<div class="section" id="filtre-passe-haut-ideal">
-<h3>Filtre passe-haut idéal<a class="headerlink" href="#filtre-passe-haut-ideal" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="filtre-passe-bande-ideal">
-<h3>Filtre passe-bande idéal<a class="headerlink" href="#filtre-passe-bande-ideal" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="filtre-derivateur">
-<h3>Filtre dérivateur<a class="headerlink" href="#filtre-derivateur" title="Permalink to this headline">¶</a></h3>
-<p><span class="math notranslate nohighlight">\(H(z) = \frac{i 2 \pi z}{T_e}\)</span></p>
+<p>Un filtre récursif est <strong>stable</strong> seulement si <strong>tous ses pôles sont à intérieur du cercle unité</strong>.</p>
 </div>
 </div>
 <div class="section" id="methode-de-la-fenetre">
 <h2>Méthode de la fenêtre<a class="headerlink" href="#methode-de-la-fenetre" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="filtre-passe-bas-et-reechantillonnage">
-<h2>Filtre passe-bas et rééchantillonnage<a class="headerlink" href="#filtre-passe-bas-et-reechantillonnage" title="Permalink to this headline">¶</a></h2>
+<p>La méthode de la fenêtre sert à calculer les coefficients de <span class="math notranslate nohighlight">\(h[n]\)</span>.</p>
+<p>Comme <span class="math notranslate nohighlight">\(b_k=h[k]\)</span>, le calcul des coefficients revient à trouver la réponse impulsionnelle du filtre. On part de l’amplitude de la réponse en fréquence d’un filtre idéal et on prend sa transformée de Fourier inverse.
+$<span class="math notranslate nohighlight">\(
+h[n] = \int^{\frac{1}{2}}_{-\frac{1}{2}}H(t)e^{2i\pi \omega t}dt
+\)</span>$</p>
+<p>**Exemple avec la fenêtre rectangulaire <span class="math notranslate nohighlight">\(w(n)\)</span> : **</p>
+<p>En fréquence, on a donc :
+$<span class="math notranslate nohighlight">\(
+H_N(t) = H(t)\ast W(t) \ \text{avec} \ W(t) = \frac{sin(N\pi t)}{sin(\pi t)}
+\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+h(n) &amp;= \int^{\frac{Fe}{2}}_{-\frac{Fe}{2}}H(t)e^{2i\pi \omega t} dt \\
+&amp;= \int^{\frac{B}{2}}_{-\frac{B}{2}}H(t)e^{2i\pi \omega t}dt \\
+&amp;= \frac{sin(\pi B \omega)}{\pi \omega}
+\end{align}
+\end{split}\]</div>
+<p>On a trouvé la réponse <span class="math notranslate nohighlight">\(h_N(n)\)</span>, mais celle ci est centrée sur 0, donc elle n’est pas causale ! La solution est de la retarder de <span class="math notranslate nohighlight">\(\frac{N}{2}\)</span> échantillons.</p>
 </div>
 </div>
 
