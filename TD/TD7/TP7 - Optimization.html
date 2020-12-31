@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>In this TD, we aim at exploring the gradient descent method for optimizing smooth functions. &#8212; M2 Signal classes</title>
+    <title>TD7 - Optimization &#8212; M2 Signal classes</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -57,8 +57,8 @@
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="In this TD, we explore a well-known method for inpainting." href="../TD8/TP8%20-%20Non-local%20means-exercises_original.html" />
-    <link rel="prev" title="In this TD, we aim at exploring the gradient descent method for optimizing smooth functions." href="TP7%20-%20Optimization_original.html" />
+    <link rel="next" title="TD8 - Non-local means" href="../TD8/TP8%20-%20Non-local%20means-exercises_original.html" />
+    <link rel="prev" title="TD7 - Optimization" href="TP7%20-%20Optimization_original.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -169,12 +169,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../TD4/TP4%20-%20Spectral%20Analysis%20and%20Filtering-Exercise%20-%20Original.html">
-   1. STFT  (Short Time Fourier Transform) and source separation.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD4/TP4%20-%20Spectral%20Analysis%20and%20Filtering-Exercise%20-%20Original.html#the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir">
-   2. The goal of this part is to explore implementations of a FIR or an IIR.
+   TD4 - Spectral Analysis and Filtering
   </a>
  </li>
  <li class="toctree-l1">
@@ -184,63 +179,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html">
-   In this TD, we study the wavelet decomposition using the Daubechies 4 filters.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#what-are-the-conditions-on-the-filters-for-being-admissible-wavelet-filters-the-first-condition-on-the-low-pass-filter-h-is-begin-equation-begin-cases-hat-h-omega-2-hat-h-omega-frac-12-2-2-hat-h-0-sqrt-2-end-cases-end-equation">
-   What are the conditions on the filters for being admissible wavelet filters: The first condition on the low-pass filter
-   <span class="math notranslate nohighlight">
-    \(h\)
-   </span>
-   is \begin{equation} \begin{cases}|\hat{h}(\omega)|^2 + |\hat{h}(\omega + \frac 12)|^2 = 2\hat{h}(0) = \sqrt{2},.\end{cases}\end{equation}
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#the-condition-on-the-high-pass-filter-is-the-following-begin-equation-begin-cases-hat-g-omega-2-hat-g-omega-frac-12-2-2-hat-g-omega-hat-h-omega-hat-g-omega-frac-12-hat-h-omega-frac-12-0-end-cases-end-equation">
-   The condition on the high-pass filter is the following:  \begin{equation} \begin{cases}|\hat{g}(\omega)|^2 + |\hat{g}(\omega + \frac 12)|^2 = 2\hat{g}(\omega) \hat{h}^
-   <em>
-    (\omega)+ \hat{g}(\omega + \frac 12)\hat{h}^
-   </em>
-   (\omega + \frac 12) = 0,.\end{cases}\end{equation}
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q2-implement-below-the-one-step-of-w-transform-of-the-lecture-coarse-and-fine-scale-transforms-and-test-it-on-your-image">
-   Q2: Implement below the one step of W transform of the lecture. Coarse and Fine scale transforms and test it on your image.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q3-implement-the-full-fast-wavelet-transform-for-a-given-number-of-scales">
-   Q3: Implement the full fast wavelet transform for a given number of scales.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q4-below-are-functions-to-obtain-a-better-plot-of-the-results-using-the-functions-below-plot-the-wavelet-transform">
-   Q4: Below are functions to obtain a better plot of the results. Using the functions below, plot the wavelet transform.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q5-the-wavelet-transform-is-an-orthogonal-transformation-so-its-inverse-is-given-by-its-transpose-also-called-adjoint-use-the-two-operators-defined-below-to-implement-the-inverse-of-the-wavelet-transform">
-   Q5: The wavelet transform is an orthogonal transformation so its inverse is given by its transpose (also called adjoint). Use the two operators defined below to implement the inverse of the wavelet transform.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q6-test-on-an-image-that-the-implemented-inverse-is-correct-that-is-check-on-an-image-x-that-iwt-wavelettransform-x-x-up-to-numerical-errors">
-   Q6: Test on an image that the implemented inverse is correct. That is, check on an image
-   <span class="math notranslate nohighlight">
-    \(x\)
-   </span>
-   that
-   <span class="math notranslate nohighlight">
-    \(IWT(WaveletTransform(x)) = x\)
-   </span>
-   up to numerical errors.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#use-of-wavelets-for-compression">
-   Use of wavelets for compression.
+   TD5 - Wavelets
   </a>
  </li>
  <li class="toctree-l1">
@@ -250,12 +189,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../TD6/Inverse-Problem.html">
-   In this notebook, I give a simple example of an inverse problem which necessitates regularization.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD6/Inverse-Problem.html#remark-noise-in-fourier-is-also-a-noise-you-can-guess-that-the-distribution-of-the-energy-of-the-noise-in-fourier-is-similar-to-its-distribution-in-space">
-   Remark: Noise in Fourier is also a noise. You can guess that the distribution of the energy of the noise in Fourier is similar to its distribution in space.
+   Inverse Problem
   </a>
  </li>
  <li class="toctree-l1">
@@ -265,75 +199,27 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../TD6/TP6%20-%20Denoising-Exercices.html">
-   In this TD, we consider simple denoising algorithms, such as the ones considered in the lectures.
+   TD6 - Denoising
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="TP7%20-%20Optimization_original.html">
-   In this TD, we aim at exploring the gradient descent method for optimizing smooth functions.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP7%20-%20Optimization_original.html#a-gradient-descent-in-2d">
-   A. Gradient descent in 2D
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP7%20-%20Optimization_original.html#b-example-on-a-physical-system">
-   B. Example on a physical system
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP7%20-%20Optimization_original.html#we-propose-to-reconstruct-a-candidate-for-our-initial-image-as-the-minimizer-of-an-energy-functional-e-i-sum-i-1-text-nbre-lignes-f-i-i-under-the-constraint-that-i-1-text-mask-text-data">
-   We propose to reconstruct a candidate for our initial image as the minimizer of an energy functional
-   <span class="math notranslate nohighlight">
-    \(E(I) = \sum_{i = 1}^{\text{nbre lignes}} f(I[i,:])\)
-   </span>
-   under the constraint that
-   <span class="math notranslate nohighlight">
-    \(I (1-\text{mask}) = \text{data}\)
-   </span>
-   .
+   TD7 - Optimization
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   In this TD, we aim at exploring the gradient descent method for optimizing smooth functions.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#a-gradient-descent-in-2d">
-   A. Gradient descent in 2D
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#b-example-on-a-physical-system">
-   B. Example on a physical system
+   TD7 - Optimization
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../TD8/TP8%20-%20Non-local%20means-exercises_original.html">
-   In this TD, we explore a well-known method for inpainting.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD8/TP8%20-%20Non-local%20means-exercises_original.html#dimensionality-reduction-using-pca-principal-component-analysis">
-   2. Dimensionality reduction using PCA: Principal Component Analysis.
+   TD8 - Non-local means
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../TD8/TP8%20-%20Non-local%20means-exercises.html">
-   In this TD, we explore a well-known method for inpainting.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD8/TP8%20-%20Non-local%20means-exercises.html#dimensionality-reduction-using-pca-principal-component-analysis">
-   2. Dimensionality reduction using PCA: Principal Component Analysis.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD8/TP8%20-%20Non-local%20means-exercises.html#question-3-explain-what-is-shown-below">
-   Question 3: Explain what is shown below ?
+   TD8 - Non-local means
   </a>
  </li>
 </ul>
@@ -439,69 +325,35 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   In this TD, we aim at exploring the gradient descent method for optimizing smooth functions.
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#a-gradient-descent-in-2d">
    A. Gradient descent in 2D
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ex-implement-a-generic-gradient-descent-algorithm-taking-an-initial-point-the-gradient-of-the-function-a-number-of-steps-and-a-stepsize-varepsilon-compute-by-hand-the-lipschitz-constant-of-the-gradient">
-     Ex: Implement a generic gradient descent algorithm taking an initial point, the gradient of the function, a number of steps and a stepsize
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q1-implement-a-generic-gradient-descent-algorithm-taking-an-initial-point-the-gradient-of-the-function-a-number-of-steps-and-a-stepsize-varepsilon-compute-by-hand-the-lipschitz-constant-of-the-gradient">
+     Q1. Implement a generic gradient descent algorithm taking an initial point, the gradient of the function, a number of steps and a stepsize
      <span class="math notranslate nohighlight">
       \(\varepsilon\)
      </span>
      .   Compute by hand  the Lipschitz constant of the gradient.
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ex-plot-the-gradient-descent-for-different-initializations-and-different-step-size-of-the-gradient-descent-try-to-show-that-the-convergence-can-be-really-slow-when-the-ratio-between-the-two-weights-is-very-large-or-very-small-this-ratio-is-often-called-the-condition-number-other-optimization-algorithms-have-to-be-used-in-order-to-avoid-this-slow-convergence-such-as-quasi-newton-methods">
-     Ex:  Plot the gradient descent for different initializations and different step size of the gradient descent. Try to show that the convergence can be really slow when the ratio between the two weights is very large or very small. This ratio is often called the condition number. Other optimization algorithms have to be used in order to avoid this slow convergence such as quasi-Newton methods.
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q2-plot-the-gradient-descent-for-different-initializations-and-different-step-size-of-the-gradient-descent-try-to-show-that-the-convergence-can-be-really-slow-when-the-ratio-between-the-two-weights-is-very-large-or-very-small-this-ratio-is-often-called-the-condition-number-other-optimization-algorithms-have-to-be-used-in-order-to-avoid-this-slow-convergence-such-as-quasi-newton-methods">
+     Q2. Plot the gradient descent for different initializations and different step size of the gradient descent. Try to show that the convergence can be really slow when the ratio between the two weights is very large or very small. This ratio is often called the condition number. Other optimization algorithms have to be used in order to avoid this slow convergence such as quasi-Newton methods.
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#b-example-on-a-physical-system">
    B. Example on a physical system
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#we-consider-a-massive-ball-of-mass-m-subject-to-gravity-and-the-force-of-the-wind-the-ball-is-at-rest-at-time-0-in-position-x-0-in-mathbb-r-3-we-want-to-find-the-initial-v0-such-that-the-ball-will-land-at-a-given-final-point-x-1-at-time-1">
-     We consider a massive ball of mass
-     <span class="math notranslate nohighlight">
-      \(m\)
-     </span>
-     , subject to gravity and the force of the wind. The ball is at rest at time
-     <span class="math notranslate nohighlight">
-      \(0\)
-     </span>
-     in position
-     <span class="math notranslate nohighlight">
-      \(x_0 \in \mathbb{R}^3\)
-     </span>
-     . We want to find the initial
-     <span class="math notranslate nohighlight">
-      \(v0\)
-     </span>
-     such that the ball will land at a given final point
-     <span class="math notranslate nohighlight">
-      \(x_1\)
-     </span>
-     at time
-     <span class="math notranslate nohighlight">
-      \(1\)
-     </span>
-     .
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ex-implement-the-following-approximation-of-the-gradient-partial-i-f-x-simeq-frac-f-x-varepsilon-e-i-f-x-varepsilon-with-e-i-is-the-vector-0-ldots-1-ldots-0-where-the-1-is-at-the-i-text-th-position-then-recall-that-the-gradient-at-point-x-of-the-function-f-is-the-vector-partial-i-f-x-i-in-1-ldots-n">
-     Ex: Implement the following approximation of the gradient:
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q1-implement-the-following-approximation-of-the-gradient-partial-i-f-x-simeq-frac-f-x-varepsilon-e-i-f-x-varepsilon-with-e-i-is-the-vector-0-ldots-1-ldots-0-where-the-1-is-at-the-i-text-th-position-then-recall-that-the-gradient-at-point-x-of-the-function-f-is-the-vector-partial-i-f-x-i-in-1-ldots-n">
+     Q1. Implement the following approximation of the gradient:
      <span class="math notranslate nohighlight">
       \(\partial_i f(x) \simeq \frac{f(x + \varepsilon e_i) - f(x)}{\varepsilon}\)
      </span>
@@ -536,9 +388,9 @@
      .
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ex-using-the-previous-approximation-of-the-gradient-use-a-gradient-descent-with-constant-step-size-to-solve-the-problem-for-that-we-define-the-l-2-penalty-function-between-the-target-and-the-point-position-at-time-1-and-we-compute-the-gradient-use-it-to-solve-the-problem-and-plot-the-trajectory">
-     Ex: Using the previous approximation of the gradient, use a gradient descent with constant step size to solve the problem. For that, we define the
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q2-using-the-previous-approximation-of-the-gradient-use-a-gradient-descent-with-constant-step-size-to-solve-the-problem-for-that-we-define-the-l-2-penalty-function-between-the-target-and-the-point-position-at-time-1-and-we-compute-the-gradient-use-it-to-solve-the-problem-and-plot-the-trajectory">
+     Q2. Using the previous approximation of the gradient, use a gradient descent with constant step size to solve the problem. For that, we define the
      <span class="math notranslate nohighlight">
       \(L^2\)
      </span>
@@ -549,9 +401,16 @@
      and we compute the gradient. Use it to solve the problem and plot the trajectory.
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#compute-on-a-sheet-of-paper-the-gradient-of-the-function-f-mathbb-r-d-mapsto-mathbb-r-defined-by-f-x-1-ldots-x-n-sum-i-1-n-1-frac12-x-i-x-i-1-2">
-     Compute on a sheet of paper the gradient of the function
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#c-example-on-a-2d-image">
+   C. Example on a 2D image.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q1-compute-on-a-sheet-of-paper-the-gradient-of-the-function-f-mathbb-r-d-mapsto-mathbb-r-defined-by-f-x-1-ldots-x-n-sum-i-1-n-1-frac12-x-i-x-i-1-2">
+     Q1. Compute on a sheet of paper the gradient of the function
      <span class="math notranslate nohighlight">
       \(f: \mathbb{R}^d \mapsto \mathbb{R}\)
      </span>
@@ -562,14 +421,14 @@
      .
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#compute-the-lipschitz-constant-of-the-gradient-remark-that-it-is-a-linear-function">
-     Compute the Lipschitz constant of the gradient (remark that it is a linear function).
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q2-compute-the-lipschitz-constant-of-the-gradient-remark-that-it-is-a-linear-function">
+     Q2. Compute the Lipschitz constant of the gradient (remark that it is a linear function).
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#we-propose-to-reconstruct-a-candidate-for-our-initial-image-as-the-minimizer-of-an-energy-functional-e-i-sum-i-1-text-nbre-lignes-f-i-i-under-the-constraint-that-i-1-text-mask-text-data">
-     We propose to reconstruct a candidate for our initial image as the minimizer of an energy functional
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q3-we-propose-to-reconstruct-a-candidate-for-our-initial-image-as-the-minimizer-of-an-energy-functional-e-i-sum-i-1-text-nbre-lignes-f-i-i-under-the-constraint-that-i-1-text-mask-text-data">
+     Q3. We propose to reconstruct a candidate for our initial image as the minimizer of an energy functional
      <span class="math notranslate nohighlight">
       \(E(I) = \sum_{i = 1}^{\text{nbre lignes}} f(I[i,:])\)
      </span>
@@ -580,14 +439,14 @@
      .
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#copy-your-gradient-descent-code-and-modify-it-to-implement-the-projected-gradient-descent-algorithm">
-     Copy your gradient descent code and modify it to implement the projected gradient descent algorithm.
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q4-copy-your-gradient-descent-code-and-modify-it-to-implement-the-projected-gradient-descent-algorithm">
+     Q4. Copy your gradient descent code and modify it to implement the projected gradient descent algorithm.
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#apply-the-algorithm-to-the-data-and-comment-how-do-you-suggest-to-modify-the-energy-functional-in-order-to-improve-the-results">
-     Apply the algorithm to the data and comment. How do you suggest to modify the energy functional in order to improve the results ?
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q5-apply-the-algorithm-to-the-data-and-comment-how-do-you-suggest-to-modify-the-energy-functional-in-order-to-improve-the-results">
+     Q5. Apply the algorithm to the data and comment. How do you suggest to modify the energy functional in order to improve the results ?
     </a>
    </li>
   </ul>
@@ -603,8 +462,9 @@
         
               <div>
                 
-  <div class="section" id="in-this-td-we-aim-at-exploring-the-gradient-descent-method-for-optimizing-smooth-functions">
-<h1>In this TD, we aim at exploring the gradient descent method for optimizing smooth functions.<a class="headerlink" href="#in-this-td-we-aim-at-exploring-the-gradient-descent-method-for-optimizing-smooth-functions" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="td7-optimization">
+<h1>TD7 - Optimization<a class="headerlink" href="#td7-optimization" title="Permalink to this headline">¶</a></h1>
+<p>In this TD, we aim at exploring the gradient descent method for optimizing smooth functions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -615,9 +475,8 @@
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="a-gradient-descent-in-2d">
-<h1>A. Gradient descent in 2D<a class="headerlink" href="#a-gradient-descent-in-2d" title="Permalink to this headline">¶</a></h1>
+<h2>A. Gradient descent in 2D<a class="headerlink" href="#a-gradient-descent-in-2d" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
@@ -647,14 +506,14 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 720x720 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../../_images/TP7 - Optimization_5_1.png" src="../../_images/TP7 - Optimization_5_1.png" />
+<img alt="../../_images/TP7 - Optimization_6_1.png" src="../../_images/TP7 - Optimization_6_1.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 720x720 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="ex-implement-a-generic-gradient-descent-algorithm-taking-an-initial-point-the-gradient-of-the-function-a-number-of-steps-and-a-stepsize-varepsilon-compute-by-hand-the-lipschitz-constant-of-the-gradient">
-<h2>Ex: Implement a generic gradient descent algorithm taking an initial point, the gradient of the function, a number of steps and a stepsize <span class="math notranslate nohighlight">\(\varepsilon\)</span>.   Compute by hand  the Lipschitz constant of the gradient.<a class="headerlink" href="#ex-implement-a-generic-gradient-descent-algorithm-taking-an-initial-point-the-gradient-of-the-function-a-number-of-steps-and-a-stepsize-varepsilon-compute-by-hand-the-lipschitz-constant-of-the-gradient" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="q1-implement-a-generic-gradient-descent-algorithm-taking-an-initial-point-the-gradient-of-the-function-a-number-of-steps-and-a-stepsize-varepsilon-compute-by-hand-the-lipschitz-constant-of-the-gradient">
+<h3>Q1. Implement a generic gradient descent algorithm taking an initial point, the gradient of the function, a number of steps and a stepsize <span class="math notranslate nohighlight">\(\varepsilon\)</span>.   Compute by hand  the Lipschitz constant of the gradient.<a class="headerlink" href="#q1-implement-a-generic-gradient-descent-algorithm-taking-an-initial-point-the-gradient-of-the-function-a-number-of-steps-and-a-stepsize-varepsilon-compute-by-hand-the-lipschitz-constant-of-the-gradient" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ref : https://encyclopediaofmath.org/wiki/Lipschitz_constant</span>
@@ -673,8 +532,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="ex-plot-the-gradient-descent-for-different-initializations-and-different-step-size-of-the-gradient-descent-try-to-show-that-the-convergence-can-be-really-slow-when-the-ratio-between-the-two-weights-is-very-large-or-very-small-this-ratio-is-often-called-the-condition-number-other-optimization-algorithms-have-to-be-used-in-order-to-avoid-this-slow-convergence-such-as-quasi-newton-methods">
-<h2>Ex:  Plot the gradient descent for different initializations and different step size of the gradient descent. Try to show that the convergence can be really slow when the ratio between the two weights is very large or very small. This ratio is often called the condition number. Other optimization algorithms have to be used in order to avoid this slow convergence such as quasi-Newton methods.<a class="headerlink" href="#ex-plot-the-gradient-descent-for-different-initializations-and-different-step-size-of-the-gradient-descent-try-to-show-that-the-convergence-can-be-really-slow-when-the-ratio-between-the-two-weights-is-very-large-or-very-small-this-ratio-is-often-called-the-condition-number-other-optimization-algorithms-have-to-be-used-in-order-to-avoid-this-slow-convergence-such-as-quasi-newton-methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="q2-plot-the-gradient-descent-for-different-initializations-and-different-step-size-of-the-gradient-descent-try-to-show-that-the-convergence-can-be-really-slow-when-the-ratio-between-the-two-weights-is-very-large-or-very-small-this-ratio-is-often-called-the-condition-number-other-optimization-algorithms-have-to-be-used-in-order-to-avoid-this-slow-convergence-such-as-quasi-newton-methods">
+<h3>Q2. Plot the gradient descent for different initializations and different step size of the gradient descent. Try to show that the convergence can be really slow when the ratio between the two weights is very large or very small. This ratio is often called the condition number. Other optimization algorithms have to be used in order to avoid this slow convergence such as quasi-Newton methods.<a class="headerlink" href="#q2-plot-the-gradient-descent-for-different-initializations-and-different-step-size-of-the-gradient-descent-try-to-show-that-the-convergence-can-be-really-slow-when-the-ratio-between-the-two-weights-is-very-large-or-very-small-this-ratio-is-often-called-the-condition-number-other-optimization-algorithms-have-to-be-used-in-order-to-avoid-this-slow-convergence-such-as-quasi-newton-methods" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">getGradient</span><span class="p">():</span>
@@ -695,7 +554,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/TP7 - Optimization_9_0.png" src="../../_images/TP7 - Optimization_9_0.png" />
+<img alt="../../_images/TP7 - Optimization_10_0.png" src="../../_images/TP7 - Optimization_10_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -710,15 +569,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/TP7 - Optimization_10_0.png" src="../../_images/TP7 - Optimization_10_0.png" />
+<img alt="../../_images/TP7 - Optimization_11_0.png" src="../../_images/TP7 - Optimization_11_0.png" />
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="b-example-on-a-physical-system">
-<h1>B. Example on a physical system<a class="headerlink" href="#b-example-on-a-physical-system" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="we-consider-a-massive-ball-of-mass-m-subject-to-gravity-and-the-force-of-the-wind-the-ball-is-at-rest-at-time-0-in-position-x-0-in-mathbb-r-3-we-want-to-find-the-initial-v0-such-that-the-ball-will-land-at-a-given-final-point-x-1-at-time-1">
-<h2>We consider a massive ball of mass <span class="math notranslate nohighlight">\(m\)</span>, subject to gravity and the force of the wind. The ball is at rest at time <span class="math notranslate nohighlight">\(0\)</span> in position <span class="math notranslate nohighlight">\(x_0 \in \mathbb{R}^3\)</span>. We want to find the initial <span class="math notranslate nohighlight">\(v0\)</span> such that the ball will land at a given final point <span class="math notranslate nohighlight">\(x_1\)</span> at time <span class="math notranslate nohighlight">\(1\)</span>.<a class="headerlink" href="#we-consider-a-massive-ball-of-mass-m-subject-to-gravity-and-the-force-of-the-wind-the-ball-is-at-rest-at-time-0-in-position-x-0-in-mathbb-r-3-we-want-to-find-the-initial-v0-such-that-the-ball-will-land-at-a-given-final-point-x-1-at-time-1" title="Permalink to this headline">¶</a></h2>
+<h2>B. Example on a physical system<a class="headerlink" href="#b-example-on-a-physical-system" title="Permalink to this headline">¶</a></h2>
+<p>We consider a massive ball of mass <span class="math notranslate nohighlight">\(m\)</span>, subject to gravity and the force of the wind. The ball is at rest at time <span class="math notranslate nohighlight">\(0\)</span> in position <span class="math notranslate nohighlight">\(x_0 \in \mathbb{R}^3\)</span>. We want to find the initial <span class="math notranslate nohighlight">\(v0\)</span> such that the ball will land at a given final point <span class="math notranslate nohighlight">\(x_1\)</span> at time <span class="math notranslate nohighlight">\(1\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We implement the equations of the motion of the ball.</span>
@@ -745,7 +603,7 @@
 </div>
 </div>
 </div>
-<p>### We test the computation of the function</p>
+<p>We test the computation of the function</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test </span>
@@ -763,7 +621,7 @@
 </div>
 </div>
 </div>
-<p>### We plot the trajectory.</p>
+<p>We plot the trajectory.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## prepare the trajectory</span>
@@ -787,15 +645,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/TP7 - Optimization_16_0.png" src="../../_images/TP7 - Optimization_16_0.png" />
+<img alt="../../_images/TP7 - Optimization_17_0.png" src="../../_images/TP7 - Optimization_17_0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0. 0. 0.] [1.44312482 0.33531278 0.04531248]
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="ex-implement-the-following-approximation-of-the-gradient-partial-i-f-x-simeq-frac-f-x-varepsilon-e-i-f-x-varepsilon-with-e-i-is-the-vector-0-ldots-1-ldots-0-where-the-1-is-at-the-i-text-th-position-then-recall-that-the-gradient-at-point-x-of-the-function-f-is-the-vector-partial-i-f-x-i-in-1-ldots-n">
-<h2>Ex: Implement the following approximation of the gradient: <span class="math notranslate nohighlight">\(\partial_i f(x) \simeq \frac{f(x + \varepsilon e_i) - f(x)}{\varepsilon}\)</span> with <span class="math notranslate nohighlight">\(e_i\)</span> is the vector <span class="math notranslate nohighlight">\((0,\ldots,1, \ldots , 0)\)</span> where the <span class="math notranslate nohighlight">\(1\)</span> is at the <span class="math notranslate nohighlight">\(i^{\text{th}}\)</span> position. Then, recall that the gradient at point <span class="math notranslate nohighlight">\(x\)</span> of the function <span class="math notranslate nohighlight">\(f\)</span> is the vector <span class="math notranslate nohighlight">\((\partial_i f(x))_{i \in 1,\ldots,n}\)</span>.<a class="headerlink" href="#ex-implement-the-following-approximation-of-the-gradient-partial-i-f-x-simeq-frac-f-x-varepsilon-e-i-f-x-varepsilon-with-e-i-is-the-vector-0-ldots-1-ldots-0-where-the-1-is-at-the-i-text-th-position-then-recall-that-the-gradient-at-point-x-of-the-function-f-is-the-vector-partial-i-f-x-i-in-1-ldots-n" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="q1-implement-the-following-approximation-of-the-gradient-partial-i-f-x-simeq-frac-f-x-varepsilon-e-i-f-x-varepsilon-with-e-i-is-the-vector-0-ldots-1-ldots-0-where-the-1-is-at-the-i-text-th-position-then-recall-that-the-gradient-at-point-x-of-the-function-f-is-the-vector-partial-i-f-x-i-in-1-ldots-n">
+<h3>Q1. Implement the following approximation of the gradient: <span class="math notranslate nohighlight">\(\partial_i f(x) \simeq \frac{f(x + \varepsilon e_i) - f(x)}{\varepsilon}\)</span> with <span class="math notranslate nohighlight">\(e_i\)</span> is the vector <span class="math notranslate nohighlight">\((0,\ldots,1, \ldots , 0)\)</span> where the <span class="math notranslate nohighlight">\(1\)</span> is at the <span class="math notranslate nohighlight">\(i^{\text{th}}\)</span> position. Then, recall that the gradient at point <span class="math notranslate nohighlight">\(x\)</span> of the function <span class="math notranslate nohighlight">\(f\)</span> is the vector <span class="math notranslate nohighlight">\((\partial_i f(x))_{i \in 1,\ldots,n}\)</span>.<a class="headerlink" href="#q1-implement-the-following-approximation-of-the-gradient-partial-i-f-x-simeq-frac-f-x-varepsilon-e-i-f-x-varepsilon-with-e-i-is-the-vector-0-ldots-1-ldots-0-where-the-1-is-at-the-i-text-th-position-then-recall-that-the-gradient-at-point-x-of-the-function-f-is-the-vector-partial-i-f-x-i-in-1-ldots-n" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">epsilon</span> <span class="o">=</span> <span class="mf">0.0001</span>
@@ -815,8 +672,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="ex-using-the-previous-approximation-of-the-gradient-use-a-gradient-descent-with-constant-step-size-to-solve-the-problem-for-that-we-define-the-l-2-penalty-function-between-the-target-and-the-point-position-at-time-1-and-we-compute-the-gradient-use-it-to-solve-the-problem-and-plot-the-trajectory">
-<h2>Ex: Using the previous approximation of the gradient, use a gradient descent with constant step size to solve the problem. For that, we define the <span class="math notranslate nohighlight">\(L^2\)</span> penalty function between the target and the point position at time <span class="math notranslate nohighlight">\(1\)</span> and we compute the gradient. Use it to solve the problem and plot the trajectory.<a class="headerlink" href="#ex-using-the-previous-approximation-of-the-gradient-use-a-gradient-descent-with-constant-step-size-to-solve-the-problem-for-that-we-define-the-l-2-penalty-function-between-the-target-and-the-point-position-at-time-1-and-we-compute-the-gradient-use-it-to-solve-the-problem-and-plot-the-trajectory" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="q2-using-the-previous-approximation-of-the-gradient-use-a-gradient-descent-with-constant-step-size-to-solve-the-problem-for-that-we-define-the-l-2-penalty-function-between-the-target-and-the-point-position-at-time-1-and-we-compute-the-gradient-use-it-to-solve-the-problem-and-plot-the-trajectory">
+<h3>Q2. Using the previous approximation of the gradient, use a gradient descent with constant step size to solve the problem. For that, we define the <span class="math notranslate nohighlight">\(L^2\)</span> penalty function between the target and the point position at time <span class="math notranslate nohighlight">\(1\)</span> and we compute the gradient. Use it to solve the problem and plot the trajectory.<a class="headerlink" href="#q2-using-the-previous-approximation-of-the-gradient-use-a-gradient-descent-with-constant-step-size-to-solve-the-problem-for-that-we-define-the-l-2-penalty-function-between-the-target-and-the-point-position-at-time-1-and-we-compute-the-gradient-use-it-to-solve-the-problem-and-plot-the-trajectory" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">L2Penalty</span><span class="p">(</span><span class="n">finalPosition</span><span class="p">,</span><span class="n">target</span><span class="p">):</span>
@@ -832,7 +689,10 @@
 </div>
 </div>
 </div>
-<p>## C. Example on a 2D image.</p>
+</div>
+</div>
+<div class="section" id="c-example-on-a-2d-image">
+<h2>C. Example on a 2D image.<a class="headerlink" href="#c-example-on-a-2d-image" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">imageio</span> <span class="k">as</span> <span class="nn">imio</span>
@@ -851,13 +711,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7ff5e6d49850&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f1b3d2dfb50&gt;
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 2160x2160 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../../_images/TP7 - Optimization_22_2.png" src="../../_images/TP7 - Optimization_22_2.png" />
+<img alt="../../_images/TP7 - Optimization_23_2.png" src="../../_images/TP7 - Optimization_23_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -890,35 +750,35 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>averaged pixel value on the remaining pixels 124.35935233474834
-percentage of remaining pixels 0.3121416982152515
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>averaged pixel value on the remaining pixels 124.64353607337397
+percentage of remaining pixels 0.31400081124932394
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 2160x2160 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../../_images/TP7 - Optimization_24_2.png" src="../../_images/TP7 - Optimization_24_2.png" />
+<img alt="../../_images/TP7 - Optimization_25_2.png" src="../../_images/TP7 - Optimization_25_2.png" />
 </div>
 </div>
+<div class="section" id="q1-compute-on-a-sheet-of-paper-the-gradient-of-the-function-f-mathbb-r-d-mapsto-mathbb-r-defined-by-f-x-1-ldots-x-n-sum-i-1-n-1-frac12-x-i-x-i-1-2">
+<h3>Q1. Compute on a sheet of paper the gradient of the function <span class="math notranslate nohighlight">\(f: \mathbb{R}^d \mapsto \mathbb{R}\)</span> defined by <span class="math notranslate nohighlight">\(f(x_1,\ldots,x_n) = \sum_{i = 1}^{n-1} \frac12| x_i - x_{i+1}|^2\)</span>.<a class="headerlink" href="#q1-compute-on-a-sheet-of-paper-the-gradient-of-the-function-f-mathbb-r-d-mapsto-mathbb-r-defined-by-f-x-1-ldots-x-n-sum-i-1-n-1-frac12-x-i-x-i-1-2" title="Permalink to this headline">¶</a></h3>
 </div>
-<div class="section" id="compute-on-a-sheet-of-paper-the-gradient-of-the-function-f-mathbb-r-d-mapsto-mathbb-r-defined-by-f-x-1-ldots-x-n-sum-i-1-n-1-frac12-x-i-x-i-1-2">
-<h2>Compute on a sheet of paper the gradient of the function <span class="math notranslate nohighlight">\(f: \mathbb{R}^d \mapsto \mathbb{R}\)</span> defined by <span class="math notranslate nohighlight">\(f(x_1,\ldots,x_n) = \sum_{i = 1}^{n-1} \frac12| x_i - x_{i+1}|^2\)</span>.<a class="headerlink" href="#compute-on-a-sheet-of-paper-the-gradient-of-the-function-f-mathbb-r-d-mapsto-mathbb-r-defined-by-f-x-1-ldots-x-n-sum-i-1-n-1-frac12-x-i-x-i-1-2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="q2-compute-the-lipschitz-constant-of-the-gradient-remark-that-it-is-a-linear-function">
+<h3>Q2. Compute the Lipschitz constant of the gradient (remark that it is a linear function).<a class="headerlink" href="#q2-compute-the-lipschitz-constant-of-the-gradient-remark-that-it-is-a-linear-function" title="Permalink to this headline">¶</a></h3>
 </div>
-<div class="section" id="compute-the-lipschitz-constant-of-the-gradient-remark-that-it-is-a-linear-function">
-<h2>Compute the Lipschitz constant of the gradient (remark that it is a linear function).<a class="headerlink" href="#compute-the-lipschitz-constant-of-the-gradient-remark-that-it-is-a-linear-function" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="q3-we-propose-to-reconstruct-a-candidate-for-our-initial-image-as-the-minimizer-of-an-energy-functional-e-i-sum-i-1-text-nbre-lignes-f-i-i-under-the-constraint-that-i-1-text-mask-text-data">
+<h3>Q3. We propose to reconstruct a candidate for our initial image as the minimizer of an energy functional <span class="math notranslate nohighlight">\(E(I) = \sum_{i = 1}^{\text{nbre lignes}} f(I[i,:])\)</span> under the constraint that <span class="math notranslate nohighlight">\(I (1-\text{mask}) = \text{data}\)</span>.<a class="headerlink" href="#q3-we-propose-to-reconstruct-a-candidate-for-our-initial-image-as-the-minimizer-of-an-energy-functional-e-i-sum-i-1-text-nbre-lignes-f-i-i-under-the-constraint-that-i-1-text-mask-text-data" title="Permalink to this headline">¶</a></h3>
 </div>
-<div class="section" id="we-propose-to-reconstruct-a-candidate-for-our-initial-image-as-the-minimizer-of-an-energy-functional-e-i-sum-i-1-text-nbre-lignes-f-i-i-under-the-constraint-that-i-1-text-mask-text-data">
-<h2>We propose to reconstruct a candidate for our initial image as the minimizer of an energy functional <span class="math notranslate nohighlight">\(E(I) = \sum_{i = 1}^{\text{nbre lignes}} f(I[i,:])\)</span> under the constraint that <span class="math notranslate nohighlight">\(I (1-\text{mask}) = \text{data}\)</span>.<a class="headerlink" href="#we-propose-to-reconstruct-a-candidate-for-our-initial-image-as-the-minimizer-of-an-energy-functional-e-i-sum-i-1-text-nbre-lignes-f-i-i-under-the-constraint-that-i-1-text-mask-text-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="q4-copy-your-gradient-descent-code-and-modify-it-to-implement-the-projected-gradient-descent-algorithm">
+<h3>Q4. Copy your gradient descent code and modify it to implement the projected gradient descent algorithm.<a class="headerlink" href="#q4-copy-your-gradient-descent-code-and-modify-it-to-implement-the-projected-gradient-descent-algorithm" title="Permalink to this headline">¶</a></h3>
 </div>
-<div class="section" id="copy-your-gradient-descent-code-and-modify-it-to-implement-the-projected-gradient-descent-algorithm">
-<h2>Copy your gradient descent code and modify it to implement the projected gradient descent algorithm.<a class="headerlink" href="#copy-your-gradient-descent-code-and-modify-it-to-implement-the-projected-gradient-descent-algorithm" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="apply-the-algorithm-to-the-data-and-comment-how-do-you-suggest-to-modify-the-energy-functional-in-order-to-improve-the-results">
-<h2>Apply the algorithm to the data and comment. How do you suggest to modify the energy functional in order to improve the results ?<a class="headerlink" href="#apply-the-algorithm-to-the-data-and-comment-how-do-you-suggest-to-modify-the-energy-functional-in-order-to-improve-the-results" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="q5-apply-the-algorithm-to-the-data-and-comment-how-do-you-suggest-to-modify-the-energy-functional-in-order-to-improve-the-results">
+<h3>Q5. Apply the algorithm to the data and comment. How do you suggest to modify the energy functional in order to improve the results ?<a class="headerlink" href="#q5-apply-the-algorithm-to-the-data-and-comment-how-do-you-suggest-to-modify-the-energy-functional-in-order-to-improve-the-results" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here.</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -953,8 +813,8 @@ percentage of remaining pixels 0.3121416982152515
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="TP7%20-%20Optimization_original.html" title="previous page">In this TD, we aim at exploring the gradient descent method for optimizing smooth functions.</a>
-    <a class='right-next' id="next-link" href="../TD8/TP8%20-%20Non-local%20means-exercises_original.html" title="next page">In this TD, we explore a well-known method for inpainting.</a>
+    <a class='left-prev' id="prev-link" href="TP7%20-%20Optimization_original.html" title="previous page">TD7 - Optimization</a>
+    <a class='right-next' id="next-link" href="../TD8/TP8%20-%20Non-local%20means-exercises_original.html" title="next page">TD8 - Non-local means</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

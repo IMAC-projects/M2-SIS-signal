@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1. STFT (Short Time Fourier Transform) and source separation. &#8212; M2 Signal classes</title>
+    <title>TD4 - Spectral Analysis and Filtering &#8212; M2 Signal classes</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -169,12 +169,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   1. STFT  (Short Time Fourier Transform) and source separation.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir">
-   2. The goal of this part is to explore implementations of a FIR or an IIR.
+   TD4 - Spectral Analysis and Filtering
   </a>
  </li>
  <li class="toctree-l1">
@@ -184,63 +179,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html">
-   In this TD, we study the wavelet decomposition using the Daubechies 4 filters.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#what-are-the-conditions-on-the-filters-for-being-admissible-wavelet-filters-the-first-condition-on-the-low-pass-filter-h-is-begin-equation-begin-cases-hat-h-omega-2-hat-h-omega-frac-12-2-2-hat-h-0-sqrt-2-end-cases-end-equation">
-   What are the conditions on the filters for being admissible wavelet filters: The first condition on the low-pass filter
-   <span class="math notranslate nohighlight">
-    \(h\)
-   </span>
-   is \begin{equation} \begin{cases}|\hat{h}(\omega)|^2 + |\hat{h}(\omega + \frac 12)|^2 = 2\hat{h}(0) = \sqrt{2},.\end{cases}\end{equation}
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#the-condition-on-the-high-pass-filter-is-the-following-begin-equation-begin-cases-hat-g-omega-2-hat-g-omega-frac-12-2-2-hat-g-omega-hat-h-omega-hat-g-omega-frac-12-hat-h-omega-frac-12-0-end-cases-end-equation">
-   The condition on the high-pass filter is the following:  \begin{equation} \begin{cases}|\hat{g}(\omega)|^2 + |\hat{g}(\omega + \frac 12)|^2 = 2\hat{g}(\omega) \hat{h}^
-   <em>
-    (\omega)+ \hat{g}(\omega + \frac 12)\hat{h}^
-   </em>
-   (\omega + \frac 12) = 0,.\end{cases}\end{equation}
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q2-implement-below-the-one-step-of-w-transform-of-the-lecture-coarse-and-fine-scale-transforms-and-test-it-on-your-image">
-   Q2: Implement below the one step of W transform of the lecture. Coarse and Fine scale transforms and test it on your image.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q3-implement-the-full-fast-wavelet-transform-for-a-given-number-of-scales">
-   Q3: Implement the full fast wavelet transform for a given number of scales.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q4-below-are-functions-to-obtain-a-better-plot-of-the-results-using-the-functions-below-plot-the-wavelet-transform">
-   Q4: Below are functions to obtain a better plot of the results. Using the functions below, plot the wavelet transform.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q5-the-wavelet-transform-is-an-orthogonal-transformation-so-its-inverse-is-given-by-its-transpose-also-called-adjoint-use-the-two-operators-defined-below-to-implement-the-inverse-of-the-wavelet-transform">
-   Q5: The wavelet transform is an orthogonal transformation so its inverse is given by its transpose (also called adjoint). Use the two operators defined below to implement the inverse of the wavelet transform.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#q6-test-on-an-image-that-the-implemented-inverse-is-correct-that-is-check-on-an-image-x-that-iwt-wavelettransform-x-x-up-to-numerical-errors">
-   Q6: Test on an image that the implemented inverse is correct. That is, check on an image
-   <span class="math notranslate nohighlight">
-    \(x\)
-   </span>
-   that
-   <span class="math notranslate nohighlight">
-    \(IWT(WaveletTransform(x)) = x\)
-   </span>
-   up to numerical errors.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD5/TP5%20-%20Wavelets%20-Exercises_original.html#use-of-wavelets-for-compression">
-   Use of wavelets for compression.
+   TD5 - Wavelets
   </a>
  </li>
  <li class="toctree-l1">
@@ -250,12 +189,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../TD6/Inverse-Problem.html">
-   In this notebook, I give a simple example of an inverse problem which necessitates regularization.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD6/Inverse-Problem.html#remark-noise-in-fourier-is-also-a-noise-you-can-guess-that-the-distribution-of-the-energy-of-the-noise-in-fourier-is-similar-to-its-distribution-in-space">
-   Remark: Noise in Fourier is also a noise. You can guess that the distribution of the energy of the noise in Fourier is similar to its distribution in space.
+   Inverse Problem
   </a>
  </li>
  <li class="toctree-l1">
@@ -265,75 +199,27 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../TD6/TP6%20-%20Denoising-Exercices.html">
-   In this TD, we consider simple denoising algorithms, such as the ones considered in the lectures.
+   TD6 - Denoising
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../TD7/TP7%20-%20Optimization_original.html">
-   In this TD, we aim at exploring the gradient descent method for optimizing smooth functions.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD7/TP7%20-%20Optimization_original.html#a-gradient-descent-in-2d">
-   A. Gradient descent in 2D
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD7/TP7%20-%20Optimization_original.html#b-example-on-a-physical-system">
-   B. Example on a physical system
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD7/TP7%20-%20Optimization_original.html#we-propose-to-reconstruct-a-candidate-for-our-initial-image-as-the-minimizer-of-an-energy-functional-e-i-sum-i-1-text-nbre-lignes-f-i-i-under-the-constraint-that-i-1-text-mask-text-data">
-   We propose to reconstruct a candidate for our initial image as the minimizer of an energy functional
-   <span class="math notranslate nohighlight">
-    \(E(I) = \sum_{i = 1}^{\text{nbre lignes}} f(I[i,:])\)
-   </span>
-   under the constraint that
-   <span class="math notranslate nohighlight">
-    \(I (1-\text{mask}) = \text{data}\)
-   </span>
-   .
+   TD7 - Optimization
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../TD7/TP7%20-%20Optimization.html">
-   In this TD, we aim at exploring the gradient descent method for optimizing smooth functions.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD7/TP7%20-%20Optimization.html#a-gradient-descent-in-2d">
-   A. Gradient descent in 2D
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD7/TP7%20-%20Optimization.html#b-example-on-a-physical-system">
-   B. Example on a physical system
+   TD7 - Optimization
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../TD8/TP8%20-%20Non-local%20means-exercises_original.html">
-   In this TD, we explore a well-known method for inpainting.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD8/TP8%20-%20Non-local%20means-exercises_original.html#dimensionality-reduction-using-pca-principal-component-analysis">
-   2. Dimensionality reduction using PCA: Principal Component Analysis.
+   TD8 - Non-local means
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../TD8/TP8%20-%20Non-local%20means-exercises.html">
-   In this TD, we explore a well-known method for inpainting.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD8/TP8%20-%20Non-local%20means-exercises.html#dimensionality-reduction-using-pca-principal-component-analysis">
-   2. Dimensionality reduction using PCA: Principal Component Analysis.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TD8/TP8%20-%20Non-local%20means-exercises.html#question-3-explain-what-is-shown-below">
-   Question 3: Explain what is shown below ?
+   TD8 - Non-local means
   </a>
  </li>
 </ul>
@@ -439,81 +325,103 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stft-short-time-fourier-transform-and-source-separation">
    1. STFT  (Short Time Fourier Transform) and source separation.
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#in-this-part-we-use-stft-which-is-a-collection-of-fourier-transform-of-a-1d-signal-on-time-subintervals-why-using-stft">
+     In this part, we use STFT which is a collection of Fourier transform of a 1D signal on time subintervals. Why using STFT ?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#conclusion-do-not-use-fft-on-the-whole-signal-but-on-short-segments-of-it">
      Conclusion: do not use FFT on the whole signal but on short segments of it.
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#we-use-it-in-order-to-experiment-source-separation-which-comes-from-the-idea-that-the-different-signals-may-present-very-different-behaviour-in-the-frequency-domain">
      We use it in order to experiment source separation which comes from the idea that the different signals may present very different behaviour in the frequency domain.
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hereafter-we-load-the-3-sounds-and-plot-the-second-one">
+     Hereafter, we load the
+     <span class="math notranslate nohighlight">
+      \(3\)
+     </span>
+     sounds and plot the second one.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#we-simulate-two-micros-which-are-implemented-by-linear-combinations-of-the-signals">
      We simulate two micros which are implemented by linear combinations of the signals.
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-use-the-stft-function-from-the-python-package-signal-and-plot-it">
+     We use the STFT function from the python package signal and plot it.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-numerically-check-that-the-stft-and-istft-are-indeed-inverse-from-each-others">
+     We numerically check that the STFT and ISTFT are indeed inverse from each others.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#q-do-the-same-with-the-stft-signals-what-do-you-observe">
      Q: Do the same with the STFT signals, what do you observe ?
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#q-for-each-point-in-the-plot-above-compute-its-angle-and-plot-the-distribution-of-the-angles-use-the-function-np-histogram-and-plot-it">
      Q: For each point in the plot above, compute its angle and plot the distribution of the angles (use the function np.histogram) and plot it.
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#q-by-selecting-the-highest-peaks-of-the-distribution-estimate-the-angles-of-the-mixing">
      Q: By selecting the highest peaks of the distribution, estimate the angles of the mixing.
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#q-using-the-stft-recorded-signals-take-each-point-in-the-plane-and-compute-its-projection-on-each-recovered-directions-it-gives-a-vector-of-3-estimated-projections">
      Q: Using the STFT recorded signals, take each point in the plane and compute its projection on each recovered directions. It gives a vector of 3 estimated projections.
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#q-for-each-frequency-point-in-the-signal-stft-select-the-direction-on-which-it-has-the-largest-projection-and-threshold-using-the-code-below">
      Q: For each frequency point in the signal STFT, select the direction on which it has the largest projection. And threshold using the code below.
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#q-listen-to-the-reconstructed-signals-and-the-original-signals">
      Q: Listen to the reconstructed signals and the original signals.
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir">
    2. The goal of this part is to explore implementations of a FIR or an IIR.
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#we-plot-below-a-signal-with-a-mix-of-low-and-high-frequencies">
      We plot below a signal with a mix of low and high frequencies.
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#q1-implement-an-ideal-low-pass-filter-using-fourier-transform-in-1d">
      Q1. Implement an ideal low pass filter using Fourier transform in 1D:
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#compute-the-inverse-fft-of-a-low-pass-filter-and-cut-it-with-a-window-that-will-be-passed-in-argument-and-apply-it-to-the-signal-above-by-convolution-or-using-fft">
-       Compute the inverse FFT of a low pass filter and cut it with a window that will be passed in argument and apply it to the signal above by convolution or using FFT.
-      </a>
-     </li>
-    </ul>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compute-the-inverse-fft-of-a-low-pass-filter-and-cut-it-with-a-window-that-will-be-passed-in-argument-and-apply-it-to-the-signal-above-by-convolution-or-using-fft">
+     Compute the inverse FFT of a low pass filter and cut it with a window that will be passed in argument and apply it to the signal above by convolution or using FFT.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#q2-using-the-code-below-implement-an-iir-filter-defined-by-its-numerator-which-will-be-set-to-a-constant-b-and-its-denominator-which-will-be-set-to-1-az-1">
      Q2. Using the code below, implement an IIR filter defined by its numerator which will be set to a  constant
      <span class="math notranslate nohighlight">
@@ -524,6 +432,34 @@
       \(1-az^{-1}\)
      </span>
      .
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-can-you-say-about-the-range-of-the-parameter-a-in-order-to-obtain-a-stable-filter">
+     What can you say about the range of the parameter
+     <span class="math notranslate nohighlight">
+      \(a\)
+     </span>
+     in order to obtain a stable filter.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#experimentally-determine-the-ranges-of-a-to-get-respectively-a-low-pass-filter-and-a-high-pass-filter-give-a-theoretical-explanation">
+     Experimentally, determine the ranges of
+     <span class="math notranslate nohighlight">
+      \(a\)
+     </span>
+     to get respectively a low-pass filter and a high-pass filter. Give a theoretical explanation.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#in-the-following-we-are-given-an-electrocardiogram-we-plot-it-as-a-function-of-time">
+     In the following, we are given an electrocardiogram. We plot it as a function of time.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q3-estimate-the-number-of-heartbeats-in-the-following-electrocardiogram-and-estimate-the-mean-value-of-the-interval-between-two-heartbeats-you-can-use-the-method-of-your-choice-a-possible-method-consists-in-using-a-band-pass-filter-and-then-extract-the-maximum-values-of-the-filtered-signal">
+     Q3. Estimate the number of heartbeats in the following electrocardiogram and estimate the mean value of the interval between two heartbeats. You can use the method of your choice. A possible method consists in using a band pass filter and then extract the maximum values of the filtered signal.
     </a>
    </li>
   </ul>
@@ -539,7 +475,9 @@
         
               <div>
                 
-  <div class="cell docutils container">
+  <div class="section" id="td4-spectral-analysis-and-filtering">
+<h1>TD4 - Spectral Analysis and Filtering<a class="headerlink" href="#td4-spectral-analysis-and-filtering" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -553,17 +491,19 @@
 </div>
 </div>
 <div class="section" id="stft-short-time-fourier-transform-and-source-separation">
-<h1>1. STFT  (Short Time Fourier Transform) and source separation.<a class="headerlink" href="#stft-short-time-fourier-transform-and-source-separation" title="Permalink to this headline">¶</a></h1>
-<p>## In this part, we use STFT which is a collection of Fourier transform of a 1D signal on time subintervals. Why using STFT ?</p>
+<h2>1. STFT  (Short Time Fourier Transform) and source separation.<a class="headerlink" href="#stft-short-time-fourier-transform-and-source-separation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="in-this-part-we-use-stft-which-is-a-collection-of-fourier-transform-of-a-1d-signal-on-time-subintervals-why-using-stft">
+<h3>In this part, we use STFT which is a collection of Fourier transform of a 1D signal on time subintervals. Why using STFT ?<a class="headerlink" href="#in-this-part-we-use-stft-which-is-a-collection-of-fourier-transform-of-a-1d-signal-on-time-subintervals-why-using-stft" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>The length of a music signal for 4 minutes sampled at a rate of 44kHz is roughly <span class="math notranslate nohighlight">\(2500*44000 \simeq 1.1 \times 10^7\)</span>.</p></li>
 <li><p>The length of a music note is of the order of a tenth of a second.</p></li>
 </ul>
+</div>
 <div class="section" id="conclusion-do-not-use-fft-on-the-whole-signal-but-on-short-segments-of-it">
-<h2>Conclusion: do not use FFT on the whole signal but on short segments of it.<a class="headerlink" href="#conclusion-do-not-use-fft-on-the-whole-signal-but-on-short-segments-of-it" title="Permalink to this headline">¶</a></h2>
+<h3>Conclusion: do not use FFT on the whole signal but on short segments of it.<a class="headerlink" href="#conclusion-do-not-use-fft-on-the-whole-signal-but-on-short-segments-of-it" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="we-use-it-in-order-to-experiment-source-separation-which-comes-from-the-idea-that-the-different-signals-may-present-very-different-behaviour-in-the-frequency-domain">
-<h2>We use it in order to experiment source separation which comes from the idea that the different signals may present very different behaviour in the frequency domain.<a class="headerlink" href="#we-use-it-in-order-to-experiment-source-separation-which-comes-from-the-idea-that-the-different-signals-may-present-very-different-behaviour-in-the-frequency-domain" title="Permalink to this headline">¶</a></h2>
+<h3>We use it in order to experiment source separation which comes from the idea that the different signals may present very different behaviour in the frequency domain.<a class="headerlink" href="#we-use-it-in-order-to-experiment-source-separation-which-comes-from-the-idea-that-the-different-signals-may-present-very-different-behaviour-in-the-frequency-domain" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># utils to load the sounds.</span>
@@ -588,7 +528,9 @@
 </div>
 </div>
 </div>
-<p>## Hereafter, we load the <span class="math notranslate nohighlight">\(3\)</span> sounds and plot the second one.</p>
+</div>
+<div class="section" id="hereafter-we-load-the-3-sounds-and-plot-the-second-one">
+<h3>Hereafter, we load the <span class="math notranslate nohighlight">\(3\)</span> sounds and plot the second one.<a class="headerlink" href="#hereafter-we-load-the-3-sounds-and-plot-the-second-one" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1024</span><span class="o">*</span><span class="mi">16</span>
@@ -630,12 +572,12 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/TP4 - Spectral Analysis and Filtering-Exercise - Original_6_0.png" src="../../_images/TP4 - Spectral Analysis and Filtering-Exercise - Original_6_0.png" />
+<img alt="../../_images/TP4 - Spectral Analysis and Filtering-Exercise - Original_7_0.png" src="../../_images/TP4 - Spectral Analysis and Filtering-Exercise - Original_7_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="we-simulate-two-micros-which-are-implemented-by-linear-combinations-of-the-signals">
-<h2>We simulate two micros which are implemented by linear combinations of the signals.<a class="headerlink" href="#we-simulate-two-micros-which-are-implemented-by-linear-combinations-of-the-signals" title="Permalink to this headline">¶</a></h2>
+<h3>We simulate two micros which are implemented by linear combinations of the signals.<a class="headerlink" href="#we-simulate-two-micros-which-are-implemented-by-linear-combinations-of-the-signals" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -661,7 +603,9 @@
 </audio>
 </div></div>
 </div>
-<p>### We use the STFT function from the python package signal and plot it.</p>
+</div>
+<div class="section" id="we-use-the-stft-function-from-the-python-package-signal-and-plot-it">
+<h3>We use the STFT function from the python package signal and plot it.<a class="headerlink" href="#we-use-the-stft-function-from-the-python-package-signal-and-plot-it" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.signal</span> <span class="k">as</span> <span class="nn">sig</span>
@@ -682,13 +626,15 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16641
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f39621d0790&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fe1f6ff0c50&gt;
 </pre></div>
 </div>
-<img alt="../../_images/TP4 - Spectral Analysis and Filtering-Exercise - Original_10_2.png" src="../../_images/TP4 - Spectral Analysis and Filtering-Exercise - Original_10_2.png" />
+<img alt="../../_images/TP4 - Spectral Analysis and Filtering-Exercise - Original_11_2.png" src="../../_images/TP4 - Spectral Analysis and Filtering-Exercise - Original_11_2.png" />
 </div>
 </div>
-<p>### We numerically check that the STFT and ISTFT are indeed inverse from each others.</p>
+</div>
+<div class="section" id="we-numerically-check-that-the-stft-and-istft-are-indeed-inverse-from-each-others">
+<h3>We numerically check that the STFT and ISTFT are indeed inverse from each others.<a class="headerlink" href="#we-numerically-check-that-the-stft-and-istft-are-indeed-inverse-from-each-others" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">micro1</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
@@ -730,12 +676,12 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16384
 </pre></div>
 </div>
-<img alt="../../_images/TP4 - Spectral Analysis and Filtering-Exercise - Original_14_1.png" src="../../_images/TP4 - Spectral Analysis and Filtering-Exercise - Original_14_1.png" />
+<img alt="../../_images/TP4 - Spectral Analysis and Filtering-Exercise - Original_15_1.png" src="../../_images/TP4 - Spectral Analysis and Filtering-Exercise - Original_15_1.png" />
 </div>
 </div>
 </div>
 <div class="section" id="q-do-the-same-with-the-stft-signals-what-do-you-observe">
-<h2>Q: Do the same with the STFT signals, what do you observe ?<a class="headerlink" href="#q-do-the-same-with-the-stft-signals-what-do-you-observe" title="Permalink to this headline">¶</a></h2>
+<h3>Q: Do the same with the STFT signals, what do you observe ?<a class="headerlink" href="#q-do-the-same-with-the-stft-signals-what-do-you-observe" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here.</span>
@@ -745,10 +691,10 @@
 </div>
 </div>
 <div class="section" id="q-for-each-point-in-the-plot-above-compute-its-angle-and-plot-the-distribution-of-the-angles-use-the-function-np-histogram-and-plot-it">
-<h2>Q: For each point in the plot above, compute its angle and plot the distribution of the angles (use the function np.histogram) and plot it.<a class="headerlink" href="#q-for-each-point-in-the-plot-above-compute-its-angle-and-plot-the-distribution-of-the-angles-use-the-function-np-histogram-and-plot-it" title="Permalink to this headline">¶</a></h2>
+<h3>Q: For each point in the plot above, compute its angle and plot the distribution of the angles (use the function np.histogram) and plot it.<a class="headerlink" href="#q-for-each-point-in-the-plot-above-compute-its-angle-and-plot-the-distribution-of-the-angles-use-the-function-np-histogram-and-plot-it" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="q-by-selecting-the-highest-peaks-of-the-distribution-estimate-the-angles-of-the-mixing">
-<h2>Q: By selecting the highest peaks of the distribution, estimate the angles of the mixing.<a class="headerlink" href="#q-by-selecting-the-highest-peaks-of-the-distribution-estimate-the-angles-of-the-mixing" title="Permalink to this headline">¶</a></h2>
+<h3>Q: By selecting the highest peaks of the distribution, estimate the angles of the mixing.<a class="headerlink" href="#q-by-selecting-the-highest-peaks-of-the-distribution-estimate-the-angles-of-the-mixing" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## insert your code here.</span>
@@ -758,7 +704,7 @@
 </div>
 </div>
 <div class="section" id="q-using-the-stft-recorded-signals-take-each-point-in-the-plane-and-compute-its-projection-on-each-recovered-directions-it-gives-a-vector-of-3-estimated-projections">
-<h2>Q: Using the STFT recorded signals, take each point in the plane and compute its projection on each recovered directions. It gives a vector of 3 estimated projections.<a class="headerlink" href="#q-using-the-stft-recorded-signals-take-each-point-in-the-plane-and-compute-its-projection-on-each-recovered-directions-it-gives-a-vector-of-3-estimated-projections" title="Permalink to this headline">¶</a></h2>
+<h3>Q: Using the STFT recorded signals, take each point in the plane and compute its projection on each recovered directions. It gives a vector of 3 estimated projections.<a class="headerlink" href="#q-using-the-stft-recorded-signals-take-each-point-in-the-plane-and-compute-its-projection-on-each-recovered-directions-it-gives-a-vector-of-3-estimated-projections" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## insert your code here.</span>
@@ -768,7 +714,7 @@
 </div>
 </div>
 <div class="section" id="q-for-each-frequency-point-in-the-signal-stft-select-the-direction-on-which-it-has-the-largest-projection-and-threshold-using-the-code-below">
-<h2>Q: For each frequency point in the signal STFT, select the direction on which it has the largest projection. And threshold using the code below.<a class="headerlink" href="#q-for-each-frequency-point-in-the-signal-stft-select-the-direction-on-which-it-has-the-largest-projection-and-threshold-using-the-code-below" title="Permalink to this headline">¶</a></h2>
+<h3>Q: For each frequency point in the signal STFT, select the direction on which it has the largest projection. And threshold using the code below.<a class="headerlink" href="#q-for-each-frequency-point-in-the-signal-stft-select-the-direction-on-which-it-has-the-largest-projection-and-threshold-using-the-code-below" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### insert your code here.</span>
@@ -793,7 +739,7 @@
 </div>
 </div>
 <div class="section" id="q-listen-to-the-reconstructed-signals-and-the-original-signals">
-<h2>Q: Listen to the reconstructed signals and the original signals.<a class="headerlink" href="#q-listen-to-the-reconstructed-signals-and-the-original-signals" title="Permalink to this headline">¶</a></h2>
+<h3>Q: Listen to the reconstructed signals and the original signals.<a class="headerlink" href="#q-listen-to-the-reconstructed-signals-and-the-original-signals" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
@@ -815,9 +761,9 @@
 </div>
 </div>
 <div class="section" id="the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir">
-<h1>2. The goal of this part is to explore implementations of a FIR or an IIR.<a class="headerlink" href="#the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir" title="Permalink to this headline">¶</a></h1>
+<h2>2. The goal of this part is to explore implementations of a FIR or an IIR.<a class="headerlink" href="#the-goal-of-this-part-is-to-explore-implementations-of-a-fir-or-an-iir" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="we-plot-below-a-signal-with-a-mix-of-low-and-high-frequencies">
-<h2>We plot below a signal with a mix of low and high frequencies.<a class="headerlink" href="#we-plot-below-a-signal-with-a-mix-of-low-and-high-frequencies" title="Permalink to this headline">¶</a></h2>
+<h3>We plot below a signal with a mix of low and high frequencies.<a class="headerlink" href="#we-plot-below-a-signal-with-a-mix-of-low-and-high-frequencies" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">30</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>  <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">32</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">47</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="mf">0.8</span><span class="p">)</span>
@@ -831,23 +777,27 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1000,) (1000,)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f39620ad6d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe1f6e784d0&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/TP4 - Spectral Analysis and Filtering-Exercise - Original_31_2.png" src="../../_images/TP4 - Spectral Analysis and Filtering-Exercise - Original_31_2.png" />
+<img alt="../../_images/TP4 - Spectral Analysis and Filtering-Exercise - Original_32_2.png" src="../../_images/TP4 - Spectral Analysis and Filtering-Exercise - Original_32_2.png" />
 </div>
 </div>
 </div>
 <div class="section" id="q1-implement-an-ideal-low-pass-filter-using-fourier-transform-in-1d">
-<h2>Q1. Implement an ideal low pass filter using Fourier transform in 1D:<a class="headerlink" href="#q1-implement-an-ideal-low-pass-filter-using-fourier-transform-in-1d" title="Permalink to this headline">¶</a></h2>
+<h3>Q1. Implement an ideal low pass filter using Fourier transform in 1D:<a class="headerlink" href="#q1-implement-an-ideal-low-pass-filter-using-fourier-transform-in-1d" title="Permalink to this headline">¶</a></h3>
+</div>
 <div class="section" id="compute-the-inverse-fft-of-a-low-pass-filter-and-cut-it-with-a-window-that-will-be-passed-in-argument-and-apply-it-to-the-signal-above-by-convolution-or-using-fft">
 <h3>Compute the inverse FFT of a low pass filter and cut it with a window that will be passed in argument and apply it to the signal above by convolution or using FFT.<a class="headerlink" href="#compute-the-inverse-fft-of-a-low-pass-filter-and-cut-it-with-a-window-that-will-be-passed-in-argument-and-apply-it-to-the-signal-above-by-convolution-or-using-fft" title="Permalink to this headline">¶</a></h3>
 </div>
-</div>
 <div class="section" id="q2-using-the-code-below-implement-an-iir-filter-defined-by-its-numerator-which-will-be-set-to-a-constant-b-and-its-denominator-which-will-be-set-to-1-az-1">
-<h2>Q2. Using the code below, implement an IIR filter defined by its numerator which will be set to a  constant <span class="math notranslate nohighlight">\(b\)</span> and its denominator which will be set to <span class="math notranslate nohighlight">\(1-az^{-1}\)</span>.<a class="headerlink" href="#q2-using-the-code-below-implement-an-iir-filter-defined-by-its-numerator-which-will-be-set-to-a-constant-b-and-its-denominator-which-will-be-set-to-1-az-1" title="Permalink to this headline">¶</a></h2>
-<p>### What can you say about the range of the parameter <span class="math notranslate nohighlight">\(a\)</span> in order to obtain a stable filter.
-### Experimentally, determine the ranges of <span class="math notranslate nohighlight">\(a\)</span> to get respectively a low-pass filter and a high-pass filter. Give a theoretical explanation.</p>
+<h3>Q2. Using the code below, implement an IIR filter defined by its numerator which will be set to a  constant <span class="math notranslate nohighlight">\(b\)</span> and its denominator which will be set to <span class="math notranslate nohighlight">\(1-az^{-1}\)</span>.<a class="headerlink" href="#q2-using-the-code-below-implement-an-iir-filter-defined-by-its-numerator-which-will-be-set-to-a-constant-b-and-its-denominator-which-will-be-set-to-1-az-1" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="what-can-you-say-about-the-range-of-the-parameter-a-in-order-to-obtain-a-stable-filter">
+<h3>What can you say about the range of the parameter <span class="math notranslate nohighlight">\(a\)</span> in order to obtain a stable filter.<a class="headerlink" href="#what-can-you-say-about-the-range-of-the-parameter-a-in-order-to-obtain-a-stable-filter" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="experimentally-determine-the-ranges-of-a-to-get-respectively-a-low-pass-filter-and-a-high-pass-filter-give-a-theoretical-explanation">
+<h3>Experimentally, determine the ranges of <span class="math notranslate nohighlight">\(a\)</span> to get respectively a low-pass filter and a high-pass filter. Give a theoretical explanation.<a class="headerlink" href="#experimentally-determine-the-ranges-of-a-to-get-respectively-a-low-pass-filter-and-a-high-pass-filter-give-a-theoretical-explanation" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myIIR</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
@@ -863,7 +813,9 @@
 </div>
 </div>
 </div>
-<p>## In the following, we are given an electrocardiogram. We plot it as a function of time.</p>
+</div>
+<div class="section" id="in-the-following-we-are-given-an-electrocardiogram-we-plot-it-as-a-function-of-time">
+<h3>In the following, we are given an electrocardiogram. We plot it as a function of time.<a class="headerlink" href="#in-the-following-we-are-given-an-electrocardiogram-we-plot-it-as-a-function-of-time" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### load the data which is an electrocardiogram which is sampled at 360Hz</span>
@@ -886,7 +838,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/TP4 - Spectral Analysis and Filtering-Exercise - Original_36_0.png" src="../../_images/TP4 - Spectral Analysis and Filtering-Exercise - Original_36_0.png" />
+<img alt="../../_images/TP4 - Spectral Analysis and Filtering-Exercise - Original_37_0.png" src="../../_images/TP4 - Spectral Analysis and Filtering-Exercise - Original_37_0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>time min 0.0
 time max 299.9972222222222
 </pre></div>
@@ -906,10 +858,13 @@ time max 299.9972222222222
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/TP4 - Spectral Analysis and Filtering-Exercise - Original_37_0.png" src="../../_images/TP4 - Spectral Analysis and Filtering-Exercise - Original_37_0.png" />
+<img alt="../../_images/TP4 - Spectral Analysis and Filtering-Exercise - Original_38_0.png" src="../../_images/TP4 - Spectral Analysis and Filtering-Exercise - Original_38_0.png" />
 </div>
 </div>
-<p>## Q3. Estimate the number of heartbeats in the following electrocardiogram and estimate the mean value of the interval between two heartbeats. You can use the method of your choice. A possible method consists in using a band pass filter and then extract the maximum values of the filtered signal.</p>
+</div>
+<div class="section" id="q3-estimate-the-number-of-heartbeats-in-the-following-electrocardiogram-and-estimate-the-mean-value-of-the-interval-between-two-heartbeats-you-can-use-the-method-of-your-choice-a-possible-method-consists-in-using-a-band-pass-filter-and-then-extract-the-maximum-values-of-the-filtered-signal">
+<h3>Q3. Estimate the number of heartbeats in the following electrocardiogram and estimate the mean value of the interval between two heartbeats. You can use the method of your choice. A possible method consists in using a band pass filter and then extract the maximum values of the filtered signal.<a class="headerlink" href="#q3-estimate-the-number-of-heartbeats-in-the-following-electrocardiogram-and-estimate-the-mean-value-of-the-interval-between-two-heartbeats-you-can-use-the-method-of-your-choice-a-possible-method-consists-in-using-a-band-pass-filter-and-then-extract-the-maximum-values-of-the-filtered-signal" title="Permalink to this headline">¶</a></h3>
+</div>
 </div>
 </div>
 
