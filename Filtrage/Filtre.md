@@ -273,14 +273,15 @@ On l'appelle également **couronne de convergence**. Ci-dessous, en rouge, la **
 
 
 <p align="center">
-<img src="./images/cercle_convergence.png"/>
+<img src="images/cercle_convergence.png"/>
 </p>
 
 
 
 <p align="center">
-<img src="./images/convergence_a.png"/>
+<img src="images/convergence_a.png"/>
 </p>
+
 
 
 

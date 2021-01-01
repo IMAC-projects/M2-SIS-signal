@@ -365,11 +365,11 @@ La TF préserve l'énergie des signaux. Isométrie de $L^2(\mathbb{R})$
 Cela signifie, pour $f : \mathbb{R} \to \mathbb{R}$
 
 $$
-\int_{\mathbb{R}}^{}|f(t)|^2  \ dt = \int_{\mathbb{R}}^{} | \hat{f}(\omega)|^2  \ d\omega 
+\int_{\mathbb{R}}^{}|f(t)|^2  \ dt = \int_{\mathbb{R}}^{} | \hat{f}(t)|^2  \ dt
 $$
 
 
-> L'énergie  totale s'obtient en sommant les contributions des différents harmoniques
+> L'énergie totale s'obtient en sommant les contributions des différents harmoniques
 
 ## Transformation de Fourier en 2D
 
@@ -416,7 +416,7 @@ Soit $s(t) = \Pi_{[-\frac{T}{2}, \frac{T}{2}]}(t)$ avec $T \in \mathbb{R}^+$
 
 $$
 \begin{align}
-\widehat{s}(\omega) =& \int_\mathbb{R}s(t)e^{-2i\pi\omega t}dt  \\
+\widehat{s}(t) =& \int_\mathbb{R}s(t)e^{-2i\pi\omega t}dt  \\
 =& \int_{-\frac{T}{2}}^{\frac{T}{2}}e^{-2i\pi\omega t} dt \\
 =& \frac{1}{-2i\pi\omega}[e^{-2i\pi\omega t}]^{\frac{T}{2}}_{\frac{-T}{2}} \\
 =&\frac{1}{-2i\pi\omega}(e^{-i\pi\omega T} - e^{+i\pi\omega T}) \\
