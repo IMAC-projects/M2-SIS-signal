@@ -273,13 +273,15 @@ On l'appelle également **couronne de convergence**. Ci-dessous, en rouge, la **
 
 
 <p align="center">
-![](images/cercle_convergence.png)
+<img src="./images/cercle_convergence.png"/>
 </p>
+
 
 
 <p align="center">
-![](images/convergence_a.png)
+<img src="./images/convergence_a.png"/>
 </p>
+
 
 
 Pour une séquence finie $x[n]$, la transformée $X(z)$ est un polynôme en $z$ ou en $z^{−1}$ et converge pour toutes les valeurs de $z$, sauf pour 2 cas : 
