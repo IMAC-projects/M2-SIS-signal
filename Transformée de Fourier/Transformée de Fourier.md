@@ -348,7 +348,7 @@ $$
 Soit $f \in L^1(\mathbb{R})$, On définit la transformation de Fourier inverse $TF^{-1}$ par la relation :
 
 $$
-(TF)^{-1}(f)(t) = \int_\mathbb{R} f(\omega)e^{2i\pi \omega t}\ d\omega
+(TF)^{-1}(f)(t) = \int_\mathbb{R} f(t)e^{2i\pi \omega t}\ dt
 $$
 **<font color=red>Propriétés</font> :** 
 
