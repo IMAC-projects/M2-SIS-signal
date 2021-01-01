@@ -266,18 +266,19 @@ on obtient une fraction rationnelle.
 
 Le domaine de convergence est le sous-ensemble de $\mathbb{C}$ dans lequel la série converge. Autrement dit, le domaine de convergence de la transformée en z de la suite $(x_n)_{n \in Z}$ est l’ensemble : 
 
-$$(z \in \mathbb{C} \sum^{+\infty}_{n = -\infty} x_n^{z −n} \ \ \text{existe})$$
-
+$$
+(z \in \mathbb{C} \sum^{+\infty}_{n = -\infty} x_n^{z −n} \ \ \text{existe})
+$$
 On l'appelle également **couronne de convergence**. Ci-dessous, en rouge, la **zone de convergence**. 
 
-<img src="images/cercle_convergence.png"/>
+![Cercle de convergence](images/cercleConvergence.png)
 
 <p align="center">
 </p>
 
 
 
-<img src="images/convergence_a.png"/>
+![convergence en a](images/convergence.png)
 
 
 
@@ -307,9 +308,7 @@ Quand on donne une TZ, il faut donc toujours donner son **domaine de convergence
 
 Ci-dessous la liste des TZ usuelles: 
 
-<img src="images/TZ_usuelles.png"/>
-
-
+![TZ Usuelles](images/TZUsuelles.png)
 
 ### TZ, série entières et domaines de convergence
 
