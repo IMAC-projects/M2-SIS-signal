@@ -612,11 +612,8 @@ $<span class="math notranslate nohighlight">\(
 <p>​	<strong>Démonstration</strong> :</p>
 <p>​	Posons <span class="math notranslate nohighlight">\(g(t, \omega) = e^{−2i\pi\omega t}f(t)\)</span>, et calculons : <span class="math notranslate nohighlight">\(\frac{d}{d\omega} g(t, ω) = -2i\pi t.e^{−2i\pi\omega t}f(t)\)</span></p>
 <p>​	Cette dérivée est continue <span class="math notranslate nohighlight">\(\forall t \)</span> et de plus  <span class="math notranslate nohighlight">\(\frac{dg}{d\omega}\)</span>   est une fonction intégrable (car <span class="math notranslate nohighlight">\(tf(t) ∈ L^1(\mathbb{R})\)</span>).</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Les hypothèses du théorème de la dérivation sous le signe de l’intégrale sont donc vérifiées, et nous avons :
-</pre></div>
-</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}
+<p>Les hypothèses du théorème de la dérivation sous le signe de l’intégrale sont donc vérifiées, et nous avons :
+$<span class="math notranslate nohighlight">\(
 \begin{align}
 \frac{d}{d\omega}\widehat{f}(\omega) =&amp; \frac{d}{d\omega} \int_\mathbb{R} f(t)e^{-2i\pi \omega t}\ dt \\
 &amp;= \small {\text{dérivation sous le signe intégrale}} \\
@@ -624,7 +621,7 @@ $<span class="math notranslate nohighlight">\(
 =&amp; -2i\pi \int_\mathbb{R} t.e^{−2i\pi\omega t}f(t)dt \\
 =&amp; -2i\pi.\widehat{tf(t)}(\omega)
 \end{align}
-\end{split}\]</div>
+\)</span>$</p>
 <ul class="simple">
 <li><p><strong><font color=red>La gaussienne (issue de la loi normale)</font></strong></p></li>
 </ul>
@@ -772,11 +769,13 @@ g_{\sigma}(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{x^2}{2\sigma^2}}
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
-\widehat{s}(t) =&amp; \int_\mathbb{R}s(t)e^{-2i\pi\omega t}dt  \\
+\widehat{s}(t) =&amp; \int_\mathbb{R}s(t)e^{-2i\pi\omega t}dt  \\ \\
 =&amp; \int_{-\frac{T}{2}}^{\frac{T}{2}}e^{-2i\pi\omega t} dt \\ \\
 &amp; \text{Rappel : } \ F(e^{u}) = \frac{e^u}{u}\\ \\
-=&amp; [\frac{e^{- 2 i\pi \omega t}}{- 2 i \pi \omega}]^{\frac{T}{2}}_{-\frac{T}{2}} \\
-=&amp; \frac{e^{i\pi \omega T} - e^{-i \pi \omega T}}{-2 i \pi \omega}\\ \\
+=&amp; [\frac{e^{- 2 i\pi \omega t}}{- 2 i \pi \omega}]^{\frac{T}{2}}_{-\frac{T}{2}} \\ \\
+=&amp; [- \frac{1}{2 i \pi \omega}{e^{- 2 i\pi \omega t}}]^{\frac{T}{2}}_{-\frac{T}{2}} \\ \\
+=&amp; \frac{-e^{-i\pi \omega T} + e^{i \pi \omega T}}{2 i \pi \omega}\\ \\
+=&amp; \frac{e^{i\pi \omega T} - e^{- i \pi \omega T}}{2 i \pi \omega}\\ \\
 &amp; \text{on retrouve} \ A = \frac{e^{i\pi \omega T} - e^{-i \pi \omega T}}{2i}. \ \text{Selon la formule d'Euler, on a donc} \ A = sin(\pi \omega T) \\ \\
 =&amp; \frac{sin(\pi \omega T)}{\pi\omega} = T.sinc(\pi\omega T)
 \end{align}
