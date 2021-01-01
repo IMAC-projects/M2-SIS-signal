@@ -243,7 +243,7 @@ $$
 
 ​	Cette dérivée est continue $\forall t $ et de plus  $\frac{dg}{d\omega}$   est une fonction intégrable (car $tf(t) ∈ L^1(\mathbb{R})$). 
 
- 	Les hypothèses du théorème de la dérivation sous le signe de l’intégrale sont donc vérifiées, et nous avons :
+Les hypothèses du théorème de la dérivation sous le signe de l’intégrale sont donc vérifiées, et nous avons :
 $$
 \begin{align}
 \frac{d}{d\omega}\widehat{f}(\omega) =& \frac{d}{d\omega} \int_\mathbb{R} f(t)e^{-2i\pi \omega t}\ dt \\
@@ -416,11 +416,13 @@ Soit $s(t) = \Pi_{[-\frac{T}{2}, \frac{T}{2}]}(t)$ avec $T \in \mathbb{R}^+$
 
 $$
 \begin{align}
-\widehat{s}(t) =& \int_\mathbb{R}s(t)e^{-2i\pi\omega t}dt  \\
+\widehat{s}(t) =& \int_\mathbb{R}s(t)e^{-2i\pi\omega t}dt  \\ \\
 =& \int_{-\frac{T}{2}}^{\frac{T}{2}}e^{-2i\pi\omega t} dt \\ \\
 & \text{Rappel : } \ F(e^{u}) = \frac{e^u}{u}\\ \\
-=& [\frac{e^{- 2 i\pi \omega t}}{- 2 i \pi \omega}]^{\frac{T}{2}}_{-\frac{T}{2}} \\
-=& \frac{e^{i\pi \omega T} - e^{-i \pi \omega T}}{-2 i \pi \omega}\\ \\
+=& [\frac{e^{- 2 i\pi \omega t}}{- 2 i \pi \omega}]^{\frac{T}{2}}_{-\frac{T}{2}} \\ \\
+=& [- \frac{1}{2 i \pi \omega}{e^{- 2 i\pi \omega t}}]^{\frac{T}{2}}_{-\frac{T}{2}} \\ \\
+=& \frac{-e^{-i\pi \omega T} + e^{i \pi \omega T}}{2 i \pi \omega}\\ \\
+=& \frac{e^{i\pi \omega T} - e^{- i \pi \omega T}}{2 i \pi \omega}\\ \\
 & \text{on retrouve} \ A = \frac{e^{i\pi \omega T} - e^{-i \pi \omega T}}{2i}. \ \text{Selon la formule d'Euler, on a donc} \ A = sin(\pi \omega T) \\ \\
 =& \frac{sin(\pi \omega T)}{\pi\omega} = T.sinc(\pi\omega T)
 \end{align}
