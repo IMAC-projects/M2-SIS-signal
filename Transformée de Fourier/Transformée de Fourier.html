@@ -773,9 +773,10 @@ g_{\sigma}(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{x^2}{2\sigma^2}}
 \[\begin{split}
 \begin{align}
 \widehat{s}(t) =&amp; \int_\mathbb{R}s(t)e^{-2i\pi\omega t}dt  \\
-=&amp; \int_{-\frac{T}{2}}^{\frac{T}{2}}e^{-2i\pi\omega t} dt \\
-=&amp; [e^{-2i\pi\omega t}]^{\frac{T}{2}}_{-\frac{T}{2}} \\
-=&amp; \frac{e^{i\pi \omega T} - e^{-i \pi \omega T}}{2 i \pi \omega}\\ \\
+=&amp; \int_{-\frac{T}{2}}^{\frac{T}{2}}e^{-2i\pi\omega t} dt \\ \\
+&amp; \text{Rappel : } \ F(e^{u}) = \frac{e^u}{u}\\ \\
+=&amp; [\frac{e^{- 2 i\pi \omega t}}{- 2 i \pi \omega}]^{\frac{T}{2}}_{-\frac{T}{2}} \\
+=&amp; \frac{e^{i\pi \omega T} - e^{-i \pi \omega T}}{-2 i \pi \omega}\\ \\
 &amp; \text{on retrouve} \ A = \frac{e^{i\pi \omega T} - e^{-i \pi \omega T}}{2i}. \ \text{Selon la formule d'Euler, on a donc} \ A = sin(\pi \omega T) \\ \\
 =&amp; \frac{sin(\pi \omega T)}{\pi\omega} = T.sinc(\pi\omega T)
 \end{align}

@@ -417,9 +417,10 @@ Soit $s(t) = \Pi_{[-\frac{T}{2}, \frac{T}{2}]}(t)$ avec $T \in \mathbb{R}^+$
 $$
 \begin{align}
 \widehat{s}(t) =& \int_\mathbb{R}s(t)e^{-2i\pi\omega t}dt  \\
-=& \int_{-\frac{T}{2}}^{\frac{T}{2}}e^{-2i\pi\omega t} dt \\
-=& [e^{-2i\pi\omega t}]^{\frac{T}{2}}_{-\frac{T}{2}} \\
-=& \frac{e^{i\pi \omega T} - e^{-i \pi \omega T}}{2 i \pi \omega}\\ \\
+=& \int_{-\frac{T}{2}}^{\frac{T}{2}}e^{-2i\pi\omega t} dt \\ \\
+& \text{Rappel : } \ F(e^{u}) = \frac{e^u}{u}\\ \\
+=& [\frac{e^{- 2 i\pi \omega t}}{- 2 i \pi \omega}]^{\frac{T}{2}}_{-\frac{T}{2}} \\
+=& \frac{e^{i\pi \omega T} - e^{-i \pi \omega T}}{-2 i \pi \omega}\\ \\
 & \text{on retrouve} \ A = \frac{e^{i\pi \omega T} - e^{-i \pi \omega T}}{2i}. \ \text{Selon la formule d'Euler, on a donc} \ A = sin(\pi \omega T) \\ \\
 =& \frac{sin(\pi \omega T)}{\pi\omega} = T.sinc(\pi\omega T)
 \end{align}
