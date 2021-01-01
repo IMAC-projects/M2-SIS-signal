@@ -38,7 +38,7 @@ $$ \\ $$
 Soit $f \in L^1(\mathbb{R})$ et $\omega \in \mathbb{R}$
 La transformée de Fourier de $f$ est définie par :
 
-$$ TF(f)(\omega) = \hat{f}(\omega) = \int_{\mathbb{R}} f(t) e^{-2i\pi\omega t}dt $$
+$$ TF(f)(t) = \hat{f}(t) = \int_{\mathbb{R}} f(t) e^{-2i\pi\omega t}dt $$
 
 Ici, on passe du domaine **temporel** au domaine **fréquentiel**.
 
