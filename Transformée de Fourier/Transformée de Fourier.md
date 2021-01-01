@@ -418,9 +418,9 @@ $$
 \begin{align}
 \widehat{s}(t) =& \int_\mathbb{R}s(t)e^{-2i\pi\omega t}dt  \\
 =& \int_{-\frac{T}{2}}^{\frac{T}{2}}e^{-2i\pi\omega t} dt \\
-=& \frac{1}{-2i\pi\omega}[e^{-2i\pi\omega t}]^{\frac{T}{2}}_{\frac{-T}{2}} \\
-=&\frac{1}{-2i\pi\omega}(e^{-i\pi\omega T} - e^{+i\pi\omega T}) \\
-=& \frac{1}{-2i\pi\omega}( -2i.sin(\pi\omega T)) \\
+=& [e^{-2i\pi\omega t}]^{\frac{T}{2}}_{-\frac{T}{2}} \\
+=& \frac{e^{i\pi \omega T} - e^{-i \pi \omega T}}{2 i \pi \omega}\\ \\
+& \text{on retrouve} \ A = \frac{e^{i\pi \omega T} - e^{-i \pi \omega T}}{2i}. \ \text{Selon la formule d'Euler, on a donc} \ A = sin(\pi \omega T) \\ \\
 =& \frac{sin(\pi \omega T)}{\pi\omega} = T.sinc(\pi\omega T)
 \end{align}
 $$
