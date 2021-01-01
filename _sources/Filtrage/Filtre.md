@@ -270,17 +270,15 @@ $$(z \in \mathbb{C} \sum^{+\infty}_{n = -\infty} x_n^{z −n} \ \ \text{existe})
 
 On l'appelle également **couronne de convergence**. Ci-dessous, en rouge, la **zone de convergence**. 
 
-
-
-<p align="center">
 <img src="images/cercle_convergence.png"/>
-</p>
-
-
 
 <p align="center">
-<img src="images/convergence_a.png"/>
 </p>
+
+
+
+<img src="images/convergence_a.png"/>
+
 
 
 
@@ -309,9 +307,8 @@ Quand on donne une TZ, il faut donc toujours donner son **domaine de convergence
 
 Ci-dessous la liste des TZ usuelles: 
 
-<p align="center">
-![](images/TZ_usuelles.png)
-</p>
+<img src="images/TZ_usuelles.png"/>
+
 
 
 ### TZ, série entières et domaines de convergence
