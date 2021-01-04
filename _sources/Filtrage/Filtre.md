@@ -273,13 +273,12 @@ On l'appelle également **couronne de convergence**. Ci-dessous, en rouge, la **
 
 
 
-<p style=text-align:center>
-    <img src="images/cercleConvergence.png" alt="cercle de convergence"/>
-</p>
+![Cercle de convergence](images/cercleConvergence.png)
 
-<p style=text-align:center>
+<p style=align:center>
     <img src="images/convergence.png" alt="convergence en a" style="zoom:50%;" />
 </p>
+
 
 
 
@@ -308,9 +307,10 @@ Quand on donne une TZ, il faut donc toujours donner son **domaine de convergence
 
 Ci-dessous la liste des TZ usuelles: 
 
-<p style=text-align:center>
-    <img src="images/TZusuelles.png" alt="TZ usuelles" />
+<p style=align:center>
+    <img src="./images/TZusuelles.png" alt="TZ usuelles" />
 </p>
+
 
 ### TZ, série entières et domaines de convergence
 

@@ -429,12 +429,14 @@ les \)</span>\lambda_i<span class="math notranslate nohighlight">\( sont les val
 <p>il reste un bruit blanc également de même intensité.</p>
 <p><span class="math notranslate nohighlight">\(e_i = \sum_{k=1}^d \alpha_{ik} f_k\)</span> avec <span class="math notranslate nohighlight">\(f_k\)</span> la base d’acquisition</p>
 <div class="math notranslate nohighlight">
-\[
-E[ &lt;e_i, n&gt;&lt;e_i, n&gt;] 
-&amp;= E[ (\sum_{k=1}^d \alpha_{ik} &lt; f_k,n&gt;) (\sum_{k'=1}^d \alpha_{ik'} &lt; f_{k'},n&gt;)] 
-&amp;= \sum_{k, k'}  \alpha_{ik}  \alpha_{jk'} E[&lt;f_k, n&gt;&lt;f_{k'}, n&gt;] 
-&amp;= \sum_k \alpha_{ik} \alpha_{jk} = &lt;ei, ej&gt; = \delta_{i=j} 
-\]</div>
+\[\begin{split}
+\begin{align}
+&amp;E[ &lt;e_i, n&gt;&lt;e_i, n&gt;] \\
+&amp;= E[ (\sum_{k=1}^d \alpha_{ik} &lt; f_k,n&gt;) (\sum_{k'=1}^d \alpha_{ik'} &lt; f_{k'},n&gt;)] \\
+&amp;= \sum_{k, k'}  \alpha_{ik}  \alpha_{jk'} E[&lt;f_k, n&gt;&lt;f_{k'}, n&gt;] \\ 
+&amp;= \sum_k \alpha_{ik} \alpha_{jk} = &lt;ei, ej&gt; = \delta_{i=j}
+\end{align}
+\end{split}\]</div>
 <p>Conclusion: le bruit est présent à toutes les fréquences (de la même manière)</p>
 <p>non corrélation avec la base de représentation</p>
 <p>L’idée du débruitage est donc par changement de base de mettre en évidence le bruit pour pouvoir ensuite le supprimer (hard thresholding des fréquences par exemple)</p>
@@ -443,13 +445,15 @@ E[ &lt;e_i, n&gt;&lt;e_i, n&gt;]
 <p>En général un débruiteur invariant par translation est meilleur</p>
 <p><span class="math notranslate nohighlight">\(L(x) = \sum_{i=1}^M l_i&lt;x, e_i&gt;e_i\)</span></p>
 <p>oui <span class="math notranslate nohighlight">\(e_i\)</span> est une base de fourrier</p>
-<p>minimiser AMS (average means square )</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-AMS = \frac{\mathbb{E}[||L(x_0+n)-x_0||^2]}{||x_0||^2}\\ 
-&amp;= \frac{\mathbb{E}[||\sum_{i=1}^M (l_i&lt;x_0, e_i&gt;-&lt;x_0,e_i)e_i||^2}{\sum_{i=1}^M l_i&lt;x_0, e_i&gt;e_i} \\\frac{\mathbb{E}[\sum_{i=1}^M ((l_i-1)&lt;x_0, e_i&gt;+&lt;x_0,e_i)l_i)^2}{\sum_{i=1}^M &lt;x_0, e_i&gt;^2}
-\end{split}\]</div>
-<p>Discussion sur les <span class="math notranslate nohighlight">\(l_i\)</span>:</p>
+<p>minimiser AMS (average means square )
+$<span class="math notranslate nohighlight">\(
+\begin{align}
+AMS =&amp; \frac{\mathbb{E}[||L(x_0+n)-x_0||^2]}{||x_0||^2}\\ 
+=&amp; \frac{\mathbb{E}[||\sum_{i=1}^M (l_i&lt;x_0, e_i&gt;-&lt;x_0,e_i)e_i||^2}{\sum_{i=1}^M l_i&lt;x_0, e_i&gt;e_i} \\
+=&amp; \frac{\mathbb{E} [\sum_{i=1}^M ((l_i-1)&lt;x_0, e_i&gt;+&lt;x_0,e_i)l_i)^2}{\sum_{i=1}^M &lt;x_0, e_i&gt;^2}
+\end{align}
+\)</span><span class="math notranslate nohighlight">\(
+Discussion sur les \)</span>l_i$:</p>
 <p>On suppose que le signal <span class="math notranslate nohighlight">\(x_0\)</span> est bien décrit pour ses <span class="math notranslate nohighlight">\(N\)</span> premiers coefficients:</p>
 <p><span class="math notranslate nohighlight">\(L(x)= P(x):= \sum_{i=1}^N &lt;x, e_i&gt;e_i\)</span></p>
 <p>donc  <span class="math notranslate nohighlight">\(l_i = 0 \quad \forall i \geq N +1\)</span></p>
@@ -458,11 +462,10 @@ AMS = \frac{\mathbb{E}[||L(x_0+n)-x_0||^2]}{||x_0||^2}\\
 \[
 AMS = \frac{\mathbb{E}}{||x_0||^2} \left[\sum_{i=1}^N (&lt;n, e_i&gt;)^2 + \sum_{i=N+1}^M (&lt;n, e_i&gt;)^2 \right]
 \]</div>
-<p>-&gt;variance :</p>
-<div class="math notranslate nohighlight">
-\[
+<p>-&gt;variance :
+$<span class="math notranslate nohighlight">\(
 \mathbb{E}\left[ \sum_{i=1}^N (&lt;n, e_i&gt;)^2 \right] = N\sigma^2
-\]</div>
+\)</span>$</p>
 <p>biais de modèle : <span class="math notranslate nohighlight">\(||p(x_0)-x_0||^2\)</span></p>
 <div class="math notranslate nohighlight">
 \[
@@ -584,8 +587,12 @@ un pixel appartient à en théorie <span class="math notranslate nohighlight">\(
 <p>Si on a <span class="math notranslate nohighlight">\(\mathbb{P}(I_\text{idéal}|I_\text{obs})\)</span>:</p>
 <p>MSE :
 $<span class="math notranslate nohighlight">\(
-\mathbb{E}[I_\text{idéal}|I_\text{obs}] = \int I_\text{idéal}e^{-d^2(I_\text{idéal}-I_\text{obs})} p(I_\text{idéal})dI_\text{idéal}
-&amp;= \mathbb{E}[I|I_\text{obs}] = \int I_\text{idéal}e^{\frac{-||I_\text{obs}-I||^2}{2\sigma^2}} p(I)dI
+\begin{align}
+&amp; \mathbb{E}[I_\text{idéal}|I_\text{obs}] \\
+&amp;= \int I_\text{idéal}e^{-d^2(I_\text{idéal}-I_\text{obs})} p(I_\text{idéal})dI_\text{idéal} \\
+&amp;= \mathbb{E}[I|I_\text{obs}] \\
+&amp;= \int I_\text{idéal}e^{\frac{-||I_\text{obs}-I||^2}{2\sigma^2}} p(I)dI
+\end{align}
 \)</span>$</p>
 <p>Approche du type : maximum à posteriori (MAP)</p>
 <p>on cherche à maximiser le <span class="math notranslate nohighlight">\(log\quad\mathbb{P}(I_\text{idéal}|I_\text{obs})\)</span></p>
