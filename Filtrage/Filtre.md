@@ -271,20 +271,20 @@ $$
 $$
 On l'appelle également **couronne de convergence**. Ci-dessous, en rouge, la **zone de convergence**. 
 
-![Cercle de convergence](images/cercleConvergence.png)
 
-<p align="center">
+
+<p style=text-align:center>
+    <img src="images/cercleConvergence.png" alt="cercle de convergence"/>
+</p>
+
+<p style=text-align:center>
+    <img src="images/convergence.png" alt="convergence en a" style="zoom:50%;" />
 </p>
 
 
 
-![convergence en a](images/convergence.png)
-
-
-
-
-
 Pour une séquence finie $x[n]$, la transformée $X(z)$ est un polynôme en $z$ ou en $z^{−1}$ et converge pour toutes les valeurs de $z$, sauf pour 2 cas : 
+
 - $z = 0$ si $X(z)$ contient des termes de la forme $z^{-k}$ 
 - $z = \infty$ si $X(z)$ contient des termes de la forme $z$
 
@@ -308,7 +308,9 @@ Quand on donne une TZ, il faut donc toujours donner son **domaine de convergence
 
 Ci-dessous la liste des TZ usuelles: 
 
-![TZ Usuelles](images/TZUsuelles.png)
+<p style=text-align:center>
+    <img src="images/TZusuelles.png" alt="TZ usuelles" />
+</p>
 
 ### TZ, série entières et domaines de convergence
 
