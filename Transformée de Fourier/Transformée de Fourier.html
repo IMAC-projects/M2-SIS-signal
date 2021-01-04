@@ -782,7 +782,7 @@ g_{\sigma}(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{x^2}{2\sigma^2}}
 \end{split}\]</div>
 <p>On obtient alors un <strong>sinus cardinal</strong>.</p>
 <blockquote>
-<div><p>On peut également s’apercevoir que <span class="math notranslate nohighlight">\(s(t) = \Pi_{[-\frac{T}{2}, \frac{T}{2}]}(t) = \Pi_{[-\frac{1}{2}, \frac{1}{2}]}(T.t) = D_{1/T}(\Pi)\)</span>
+<div><p>On peut également s’apercevoir que <span class="math notranslate nohighlight">\(s(t) = \Pi_{[-\frac{T}{2}, \frac{T}{2}]}(t) = \Pi_{[-\frac{1}{2}, \frac{1}{2}]}\frac{T}{t} = D_{1/T}(\Pi)\)</span>
 Alors d’après la formule <span class="math notranslate nohighlight">\(\widehat{D_a(f)} = \frac{1}{|a|} \hat{f}(\frac{\omega}{a})\)</span></p>
 <p>et sachant que  <span class="math notranslate nohighlight">\(\widehat{\Pi}(\omega)=  sinc(\pi\omega)\)</span></p>
 <p>On obtient facilement : <span class="math notranslate nohighlight">\(\widehat{s}(\omega) = T.sinc(\pi\omega T) = \frac{sin(\pi \omega T)}{\pi\omega}\)</span></p>
@@ -931,7 +931,7 @@ $<span class="math notranslate nohighlight">\(\sum _{m=-\infty }^{\infty }|{\hat
 <div class="math notranslate nohighlight">
 \[\sum_{k=-\infty}^{\infty}\delta_{k T}(t) = \sum_{k=-\infty}^{\infty}\delta(t-kT)\]</div>
 <p>Cette distribution périodique est particulièrement utile dans les problèmes d’échantillonnage, remplacement d’une fonction continue par une suite de valeurs de la fonction séparées par un pas de temps <span class="math notranslate nohighlight">\(T\)</span>. Elle est <span class="math notranslate nohighlight">\(T\)</span>-périodique et tempérée, comme dérivée d’une fonction constante par morceaux ; on peut donc la développer en série de Fourier.</p>
-<p><img alt="Peigne de Dirac" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/DiracComb.png/1200px-DiracComb.png" /></p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/DiracComb.png/1200px-DiracComb.png" alt="Peigne de Dirac" style="zoom:50%;" />
 </div>
 <div class="section" id="transformee-de-fourier-discrete">
 <h2>Transformée de Fourier discrète<a class="headerlink" href="#transformee-de-fourier-discrete" title="Permalink to this headline">¶</a></h2>

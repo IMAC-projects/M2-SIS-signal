@@ -430,7 +430,7 @@ $$
 
 On obtient alors un **sinus cardinal**.
 
-> On peut également s'apercevoir que $s(t) = \Pi_{[-\frac{T}{2}, \frac{T}{2}]}(t) = \Pi_{[-\frac{1}{2}, \frac{1}{2}]}(T.t) = D_{1/T}(\Pi)$
+> On peut également s'apercevoir que $s(t) = \Pi_{[-\frac{T}{2}, \frac{T}{2}]}(t) = \Pi_{[-\frac{1}{2}, \frac{1}{2}]}\frac{T}{t} = D_{1/T}(\Pi)$
 > Alors d'après la formule $\widehat{D_a(f)} = \frac{1}{|a|} \hat{f}(\frac{\omega}{a})$ 
 >
 > et sachant que  $\widehat{\Pi}(\omega)=  sinc(\pi\omega)$
@@ -623,7 +623,7 @@ $$\sum_{k=-\infty}^{\infty}\delta_{k T}(t) = \sum_{k=-\infty}^{\infty}\delta(t-k
 
 Cette distribution périodique est particulièrement utile dans les problèmes d'échantillonnage, remplacement d'une fonction continue par une suite de valeurs de la fonction séparées par un pas de temps $T$. Elle est $T$-périodique et tempérée, comme dérivée d'une fonction constante par morceaux ; on peut donc la développer en série de Fourier.
 
-![Peigne de Dirac](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/DiracComb.png/1200px-DiracComb.png)
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/DiracComb.png/1200px-DiracComb.png" alt="Peigne de Dirac" style="zoom:50%;" />
 
 ## Transformée de Fourier discrète 
 
