@@ -169,10 +169,12 @@ il reste un bruit blanc également de même intensité.
 $e_i = \sum_{k=1}^d \alpha_{ik} f_k$ avec $f_k$ la base d'acquisition
 
 $$
-E[ <e_i, n><e_i, n>] 
-&= E[ (\sum_{k=1}^d \alpha_{ik} < f_k,n>) (\sum_{k'=1}^d \alpha_{ik'} < f_{k'},n>)] 
-&= \sum_{k, k'}  \alpha_{ik}  \alpha_{jk'} E[<f_k, n><f_{k'}, n>] 
-&= \sum_k \alpha_{ik} \alpha_{jk} = <ei, ej> = \delta_{i=j} 
+\begin{align}
+&E[ <e_i, n><e_i, n>] \\
+&= E[ (\sum_{k=1}^d \alpha_{ik} < f_k,n>) (\sum_{k'=1}^d \alpha_{ik'} < f_{k'},n>)] \\
+&= \sum_{k, k'}  \alpha_{ik}  \alpha_{jk'} E[<f_k, n><f_{k'}, n>] \\ 
+&= \sum_k \alpha_{ik} \alpha_{jk} = <ei, ej> = \delta_{i=j}
+\end{align}
 $$
 
 Conclusion: le bruit est présent à toutes les fréquences (de la même manière)
@@ -191,12 +193,13 @@ $L(x) = \sum_{i=1}^M l_i<x, e_i>e_i$
 oui $e_i$ est une base de fourrier
 
 minimiser AMS (average means square ) 
-
 $$
-AMS = \frac{\mathbb{E}[||L(x_0+n)-x_0||^2]}{||x_0||^2}\\ 
-&= \frac{\mathbb{E}[||\sum_{i=1}^M (l_i<x_0, e_i>-<x_0,e_i)e_i||^2}{\sum_{i=1}^M l_i<x_0, e_i>e_i} \\\frac{\mathbb{E}[\sum_{i=1}^M ((l_i-1)<x_0, e_i>+<x_0,e_i)l_i)^2}{\sum_{i=1}^M <x_0, e_i>^2}
+\begin{align}
+AMS =& \frac{\mathbb{E}[||L(x_0+n)-x_0||^2]}{||x_0||^2}\\ 
+=& \frac{\mathbb{E}[||\sum_{i=1}^M (l_i<x_0, e_i>-<x_0,e_i)e_i||^2}{\sum_{i=1}^M l_i<x_0, e_i>e_i} \\
+=& \frac{\mathbb{E} [\sum_{i=1}^M ((l_i-1)<x_0, e_i>+<x_0,e_i)l_i)^2}{\sum_{i=1}^M <x_0, e_i>^2}
+\end{align}
 $$
-
 Discussion sur les $l_i$:
 
 On suppose que le signal $x_0$ est bien décrit pour ses $N$ premiers coefficients:
@@ -212,7 +215,6 @@ AMS = \frac{\mathbb{E}}{||x_0||^2} \left[\sum_{i=1}^N (<n, e_i>)^2 + \sum_{i=N+1
 $$
 
 ->variance :
-
 $$
 \mathbb{E}\left[ \sum_{i=1}^N (<n, e_i>)^2 \right] = N\sigma^2
 $$
@@ -395,8 +397,12 @@ Si on a $\mathbb{P}(I_\text{idéal}|I_\text{obs})$:
 
 MSE :
 $$
-\mathbb{E}[I_\text{idéal}|I_\text{obs}] = \int I_\text{idéal}e^{-d^2(I_\text{idéal}-I_\text{obs})} p(I_\text{idéal})dI_\text{idéal}
-&= \mathbb{E}[I|I_\text{obs}] = \int I_\text{idéal}e^{\frac{-||I_\text{obs}-I||^2}{2\sigma^2}} p(I)dI
+\begin{align}
+& \mathbb{E}[I_\text{idéal}|I_\text{obs}] \\
+&= \int I_\text{idéal}e^{-d^2(I_\text{idéal}-I_\text{obs})} p(I_\text{idéal})dI_\text{idéal} \\
+&= \mathbb{E}[I|I_\text{obs}] \\
+&= \int I_\text{idéal}e^{\frac{-||I_\text{obs}-I||^2}{2\sigma^2}} p(I)dI
+\end{align}
 $$
 
 Approche du type : maximum à posteriori (MAP)
