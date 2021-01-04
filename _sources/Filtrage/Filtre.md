@@ -305,7 +305,7 @@ Quand on donne une TZ, il faut donc toujours donner son **domaine de convergence
 
 Ci-dessous la liste des TZ usuelles: 
 
-![Cercle de convergence](images/TZusuelles.png)
+![TZ Usuelles](images/TZUsuelles.png)
 
 
 ### TZ, série entières et domaines de convergence
