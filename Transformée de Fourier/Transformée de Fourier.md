@@ -1,4 +1,4 @@
-# Transformée de Fourier
+﻿# Transformée de Fourier
 
 > La transformée de Fourier est une opération qui transforme une fonction intégrable sur $\mathbb{R}$ en une autre fonction.
 
@@ -38,8 +38,10 @@ $$ \\ $$
 Soit $f \in L^1(\mathbb{R})$ et $\omega \in \mathbb{R}$
 La transformée de Fourier de $f$ est définie par :
 
-$$ TF(f)(t) = \hat{f}(t) = \int_{\mathbb{R}} f(t) e^{-2i\pi\omega t}dt $$
 
+$$
+TF(f)(\omega) = \hat{f}(\omega) = \int_{\mathbb{R}} f(t) e^{-2i\pi\omega t}dt
+$$
 Ici, on passe du domaine **temporel** au domaine **fréquentiel**.
 
 En posant  la notation $e_\omega = e^{2i\pi\omega t}$, on retrouve alors la forme suivante exprimée avec le produit scalaire précédemment défini :
@@ -243,7 +245,7 @@ $$
 
 ​	Cette dérivée est continue $\forall t $ et de plus  $\frac{dg}{d\omega}$   est une fonction intégrable (car $tf(t) ∈ L^1(\mathbb{R})$). 
 
-Les hypothèses du théorème de la dérivation sous le signe de l’intégrale sont donc vérifiées, et nous avons :
+ 	Les hypothèses du théorème de la dérivation sous le signe de l’intégrale sont donc vérifiées, et nous avons :
 $$
 \begin{align}
 \frac{d}{d\omega}\widehat{f}(\omega) =& \frac{d}{d\omega} \int_\mathbb{R} f(t)e^{-2i\pi \omega t}\ dt \\
@@ -254,32 +256,28 @@ $$
 \end{align}
 $$
 
-
-- **<font color=red>La gaussienne (issue de la loi normale)</font>** 
-
-Soit $g_\sigma$ la gaussienne d'écart type $\sigma \in  \mathbb{R}^+$ 
+**<font color=red>Transformée de la transformée de Fourier (Bonus) </font>** 
 $$
-g_{\sigma}(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{x^2}{2\sigma^2}}
-$$
-
-> TODO : calcul de $ \widehat{g_{\sigma}}$
-
-## Convolution
-
-Soit $h,g \in L^2(\mathbb{R})$
-
-On définit la **convolution h $\ast$ g** tel que :
-
-
-$$
-(h \ast g)(t) = \int_\mathbb{R} h(t-u)g(u) du
+\begin{align} 
+TF(TF(f))(\omega) = \widehat{\widehat f(\omega)} &= \int_\mathbb{R} \widehat f(t) e^{-2i\pi\omega t} dt \\
+&= \int_\mathbb{R} \int_\mathbb{R} f(\lambda) e^{-2i\pi\omega \lambda}d\lambda \; e^{-2i\pi\omega t} dt \\
+& \text{ changement de variable : } \lambda= -\mu \\
+&= \int_\mathbb{R} \int_\mathbb{R} f(-\mu) e^{2i\pi\omega \mu}d\mu \; e^{-2i\pi\omega t} dt \\
+&= \int_\mathbb{R}  TF^{-1}(f(-\mu)) \; e^{-2i\pi\omega t} dt \\
+&= TF(TF^{-1}(f(-\mu))) \\
+&= f(-\mu) \\
+\end{align}
 $$
 
+$$
+\widehat{\widehat f}(t) = f(-t)
+$$
 
-**Signal porte**
+## Fonctions usuelles
+
+- **<font color=red>Signal porte</font>** 
 
 On défini le signal porte $\Pi_{[a,b]}$ part la formule suivante :
-
 $$
 \Pi_{[a,b]}(t) = \left\{
 \begin{array}{ll}
@@ -299,12 +297,86 @@ On a les propriétés suivantes :
 - $\int_\mathbb{R} \Pi(t)dt = 1$
 - Parité : $\Pi(t) = \Pi(-t)$
 
+***Calcul de la Transformée de fourrier :***
+$$
+\begin{align}
+\widehat{\Pi}(\omega) &= \int_\mathbb{R} \Pi(t) e^{-2i\pi\omega t} dt \\
+&= \int_{[-\frac{1}{2}, \frac{1}{2}]} e^{-2i\pi\omega t} dt \\
+&= \text{Rappel : } \ (e^{u(x)})' = u'(x)e^{u(x)}\\
+&= \left[ \frac{1}{-2i\pi\omega} e^{-2i\pi\omega t}  \right]_{-\frac{1}{2}}^{\frac{1}{2}} \\
+&= \frac{1}{-2i\pi\omega} (e^{-i\pi\omega} - e^{i\pi\omega}) \\
+&= \frac{1}{\pi\omega} \frac{(e^{i\pi\omega} - e^{-i\pi\omega})}{2i} \\
+& \text{On retrouve} \ A = \frac{e^{i\pi\omega} - e^{-i\pi\omega}}{2i} \\
+& \text{Selon la formule d'Euler, on a donc} \ A = sin(\pi\omega) \\
+&= \frac{sin(\pi\omega)}{\pi\omega} \\
+&= sinc(\pi\omega) \\
+\end{align}
+$$
+Avec le sinus cardinal défini ainsi :
+$$
+sinc(x) = \frac{sin(x)}{x}
+$$
+
+
+- **<font color=red>La gaussienne (issue de la loi normale)</font>** 
+
+Soit $g_\sigma$ la gaussienne d'écart type $\sigma \in  \mathbb{R}^+$ 
+$$
+g_{\sigma}(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{x^2}{2\sigma^2}}
+$$
+
+***Calcul de la Transformée de fourrier :***
+$$
+\begin{align}
+\widehat{g}(\omega) &= \int_\mathbb{R} \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{t^2}{2\sigma^2}} e^{-2i\pi\omega t} dt \\
+&= \frac{1}{\sigma \sqrt{2\pi}} \int_\mathbb{R}  e^{-\frac{1}{2\sigma^2}t^2 -(2i\pi\omega) t} dt \\
+\end{align}
+$$
+
+> ---
+>
+> $$
+> \begin{align}
+> -\frac{1}{2\sigma^2}t^2 -(2i\pi\omega)t &= -\frac{1}{2\sigma^2}t^2 -\frac{2.\sqrt{2}i\pi\omega\sigma}{\sqrt{2}\sigma} t \\
+> &= -(\frac{1}{2\sigma^2}t^2 + \frac{2.\sqrt{2}i\pi\omega\sigma}{\sqrt{2}\sigma} t) \\
+> &= -[\frac{1}{2\sigma^2}t^2 + 2\frac{1}{\sqrt{2}\sigma}t(\sqrt{2}i\pi\omega\sigma) + (\sqrt{2}i\pi\omega\sigma)^2 - (\sqrt{2}i\pi\omega\sigma)^2] \\
+> &= -[(\frac{1}{\sqrt{2}\sigma}t + \sqrt{2}i\pi\omega\sigma)^2 - (\sqrt{2}i\pi\omega\sigma)^2] \\
+> &= -[(\frac{1}{\sqrt{2}\sigma}t + \sqrt{2}i\pi\omega\sigma)^2 + (\sqrt{2}\pi\omega\sigma)^2] \\
+> -\frac{1}{2\sigma^2}t^2 -(2i\pi\omega)t &= -(\frac{1}{\sqrt{2}\sigma}t + \sqrt{2}i\pi\omega\sigma)^2 - (\sqrt{2}\pi\omega\sigma)^2 \\
+> \end{align}
+> $$
+>
+> ---
+
+$$
+\begin{align}
+&= \frac{1}{\sigma \sqrt{2\pi}} \int_\mathbb{R}  e^{-(\frac{1}{\sqrt{2}\sigma}t + \sqrt{2}i\pi\omega\sigma)^2 -(\sqrt{2}\pi\omega\sigma)^2} dt \\
+&= \frac{1}{\sigma \sqrt{2\pi}} e^{-(\sqrt{2}\pi\omega\sigma)^2} \int_\mathbb{R}  e^{-(\frac{1}{\sqrt{2}\sigma}t + \sqrt{2}i\pi\omega\sigma)^2} dt \\
+& \text{ on pose : } t' = (\frac{1}{\sqrt{2}\sigma}t + \sqrt{2}i\pi\omega\sigma) \\
+& dt' = \frac{1}{\sqrt{2}\sigma}dt \\
+&= \frac{1}{\sigma \sqrt{2\pi}} e^{-2\pi^2\omega^2\sigma^2} \int_\mathbb{R} \sqrt{2}\sigma e^{t'^2} dt' \\
+&= \frac{\sqrt{2}\sigma}{\sigma \sqrt{2\pi}} e^{-2\pi^2\omega^2\sigma^2} \int_\mathbb{R} e^{t'^2} dt' \\
+&= \frac{1}{\sqrt{\pi}} e^{-2\pi^2\omega^2\sigma^2} \int_\mathbb{R} e^{t'^2} dt' \\
+& \text { d'après l'intégrale de gauss : } \int_\mathbb{R} e^{t^2}dt = \sqrt{\pi} \\
+&= e^{-2\pi^2\omega^2\sigma^2} \\
+\end{align}
+$$
+
+## Convolution
+
+Soit $h,g \in L^2(\mathbb{R})$
+
+On définit la **convolution h $\ast$ g** tel que :
+
+
+$$
+(h \ast g)(t) = \int_\mathbb{R} h(t-u)g(u) du
+$$
+
 ### Propriétés  
 
 - Commutativité : $h \ast s = s \ast h$
-
 - Bilinéarité :  $(af+bg)*h = a.f*h+ b.g*h$
-
 - Impulsion unitaire comme élément neutre :  $\mathbb{1}(t) = \left\{
   \begin{array}{ll}
   1 & \text{si } t = 0 \\ 
@@ -348,7 +420,7 @@ $$
 Soit $f \in L^1(\mathbb{R})$, On définit la transformation de Fourier inverse $TF^{-1}$ par la relation :
 
 $$
-(TF)^{-1}(f)(t) = \int_\mathbb{R} f(t)e^{2i\pi \omega t}\ dt
+(TF)^{-1}(f)(t) = \int_\mathbb{R} f(\omega)e^{2i\pi \omega t}\ d\omega
 $$
 **<font color=red>Propriétés</font> :** 
 
@@ -365,7 +437,7 @@ La TF préserve l'énergie des signaux. Isométrie de $L^2(\mathbb{R})$
 Cela signifie, pour $f : \mathbb{R} \to \mathbb{R}$
 
 $$
-\int_{\mathbb{R}}^{}|f(t)|^2  \ dt = \int_{\mathbb{R}}^{} | \hat{f}(t)|^2  \ dt
+\int_\mathbb{R}|f(t)|^2  \ dt = \int_\mathbb{R} |\hat{f}(\omega)|^2 d\omega
 $$
 
 
@@ -409,33 +481,6 @@ $$
 \end{align}
 $$
 <font color=red>⚠ </font>: En général, le signal n'est pas séparable.
-
-## Calcul de la TF du signal porte
-
-Soit $s(t) = \Pi_{[-\frac{T}{2}, \frac{T}{2}]}(t)$ avec $T \in \mathbb{R}^+$
-
-$$
-\begin{align}
-\widehat{s}(t) =& \int_\mathbb{R}s(t)e^{-2i\pi\omega t}dt  \\ \\
-=& \int_{-\frac{T}{2}}^{\frac{T}{2}}e^{-2i\pi\omega t} dt \\ \\
-& \text{Rappel : } \ F(e^{u}) = \frac{e^u}{u}\\ \\
-=& [\frac{e^{- 2 i\pi \omega t}}{- 2 i \pi \omega}]^{\frac{T}{2}}_{-\frac{T}{2}} \\ \\
-=& [- \frac{1}{2 i \pi \omega}{e^{- 2 i\pi \omega t}}]^{\frac{T}{2}}_{-\frac{T}{2}} \\ \\
-=& \frac{-e^{-i\pi \omega T} + e^{i \pi \omega T}}{2 i \pi \omega}\\ \\
-=& \frac{e^{i\pi \omega T} - e^{- i \pi \omega T}}{2 i \pi \omega}\\ \\
-& \text{on retrouve} \ A = \frac{e^{i\pi \omega T} - e^{-i \pi \omega T}}{2i}. \ \text{Selon la formule d'Euler, on a donc} \ A = sin(\pi \omega T) \\ \\
-=& \frac{sin(\pi \omega T)}{\pi\omega} = T.sinc(\pi\omega T)
-\end{align}
-$$
-
-On obtient alors un **sinus cardinal**.
-
-> On peut également s'apercevoir que $s(t) = \Pi_{[-\frac{T}{2}, \frac{T}{2}]}(t) = \Pi_{[-\frac{1}{2}, \frac{1}{2}]}\frac{T}{t} = D_{1/T}(\Pi)$
-> Alors d'après la formule $\widehat{D_a(f)} = \frac{1}{|a|} \hat{f}(\frac{\omega}{a})$ 
->
-> et sachant que  $\widehat{\Pi}(\omega)=  sinc(\pi\omega)$
->
-> On obtient facilement : $\widehat{s}(\omega) = T.sinc(\pi\omega T) = \frac{sin(\pi \omega T)}{\pi\omega}$
 
 ## Introduction aux distributions : masse de Dirac
 
