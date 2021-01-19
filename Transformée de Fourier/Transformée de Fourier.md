@@ -290,7 +290,7 @@ $$
 
 > Par convention si a et b ne sont pas précisés alors  $\Pi(x) = \Pi_{[-\frac{1}{2}, \frac{1}{2}]}(x)$
 
-![signal porte](https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Rectangular_function.svg/1200px-Rectangular_function.svg.png)
+![signal porte](./porte.png)
 
 On a les propriétés suivantes : 
 
